@@ -26,7 +26,7 @@ export default function App() {
   const [selected, setSelected] = useState<AITool | null>(null);
   const searchRef = useRef<string>('');
 
-  const { liveMap, syncing, progress, rateLimited, syncTools, fetchOne, lastSync, syncedCount } = useGitHubSync();
+  const { liveMap, syncing, progress, rateLimited, syncTools, fetchOne, lastSync, syncedCount, setToken, hasToken } = useGitHubSync();
 
   useEffect(() => {
     document.documentElement.classList.toggle('dark', dark);
@@ -97,6 +97,8 @@ export default function App() {
         syncedCount={syncedCount}
         lastSync={lastSync}
         onSync={() => syncTools(filtered, 60)}
+        hasToken={hasToken}
+        onSetToken={setToken}
       />
 
       <div className="flex">
@@ -176,7 +178,7 @@ export default function App() {
 
           <footer className="pt-6 pb-4 text-center text-[11px] text-muted-foreground space-y-1">
             <p>Open Source AI Atlas · {TOOLS.length} tools · {CATEGORIES.length} categories · research snapshot {SNAPSHOT_DATE}</p>
-            <p>Star/fork data: GitHub REST API (unauthenticated, 60 req/hr) — cached in your browser. No account needed.</p>
+            <p>Star/fork data: GitHub REST API — {hasToken ? 'authenticated (5,000 req/hr)' : 'unauthenticated (60 req/hr — add a token via the 🔑 button)'}. Cached in your browser; token never leaves it.</p>
           </footer>
         </main>
       </div>

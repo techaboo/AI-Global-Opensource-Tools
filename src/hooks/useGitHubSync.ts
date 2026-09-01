@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import type { AITool, LiveMap, LiveRepoData } from '@/types';
 
 const STORAGE_KEY = 'osi-atlas-live-v1';
+const TOKEN_KEY = 'osi-atlas-gh-token';
 const CONCURRENCY = 4;
 
 function loadStored(): LiveMap {
@@ -13,10 +14,20 @@ function loadStored(): LiveMap {
   }
 }
 
-async function fetchRepo(repo: string): Promise<Omit<LiveRepoData, 'fetchedAt'>> {
-  const res = await fetch(`https://api.github.com/repos/${repo}`, {
-    headers: { Accept: 'application/vnd.github+json' },
-  });
+function loadToken(): string {
+  // Local dev can also set VITE_GITHUB_TOKEN in a gitignored .env file
+  const env = (import.meta.env.VITE_GITHUB_TOKEN as string | undefined) ?? '';
+  try {
+    return localStorage.getItem(TOKEN_KEY) ?? env;
+  } catch {
+    return env;
+  }
+}
+
+async function fetchRepo(repo: string, token: string): Promise<Omit<LiveRepoData, 'fetchedAt'>> {
+  const headers: Record<string, string> = { Accept: 'application/vnd.github+json' };
+  if (token) headers.Authorization = `Bearer ${token}`;
+  const res = await fetch(`https://api.github.com/repos/${repo}`, { headers });
   if (res.status === 403 || res.status === 429) {
     throw new Error('rate-limited');
   }
@@ -35,13 +46,45 @@ export function useGitHubSync() {
   const [syncing, setSyncing] = useState(false);
   const [progress, setProgress] = useState({ done: 0, total: 0 });
   const [rateLimited, setRateLimited] = useState(false);
+  const [token, setTokenState] = useState<string>(loadToken);
   const abortRef = useRef(false);
+  const tokenRef = useRef(token);
+
+  const setToken = useCallback((t: string) => {
+    const clean = t.trim();
+    tokenRef.current = clean;
+    setTokenState(clean);
+    try {
+      if (clean) localStorage.setItem(TOKEN_KEY, clean);
+      else localStorage.removeItem(TOKEN_KEY);
+    } catch { /* ignore */ }
+  }, []);
 
   useEffect(() => {
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(liveMap));
     } catch { /* storage full — ignore */ }
   }, [liveMap]);
+
+  // On first load, merge the CI-generated snapshot (public/live-snapshot.json).
+  // Local browser sync data wins when newer.
+  useEffect(() => {
+    let cancelled = false;
+    fetch(`${import.meta.env.BASE_URL}live-snapshot.json`)
+      .then(r => (r.ok ? r.json() : null))
+      .then((snap: { repos?: Record<string, LiveRepoData> } | null) => {
+        if (cancelled || !snap?.repos) return;
+        setLiveMap(prev => {
+          const merged = { ...prev };
+          for (const [id, data] of Object.entries(snap.repos!)) {
+            if (!merged[id] || data.fetchedAt > merged[id].fetchedAt) merged[id] = data;
+          }
+          return merged;
+        });
+      })
+      .catch(() => { /* no snapshot available — fine */ });
+    return () => { cancelled = true; };
+  }, []);
 
   const syncTools = useCallback(async (tools: AITool[], max = 60) => {
     const withRepo = tools.filter(t => t.repo).slice(0, max);
@@ -56,7 +99,7 @@ export function useGitHubSync() {
       while (idx < withRepo.length && !abortRef.current) {
         const tool = withRepo[idx++];
         try {
-          const data = await fetchRepo(tool.repo!);
+          const data = await fetchRepo(tool.repo!, tokenRef.current);
           setLiveMap(prev => ({ ...prev, [tool.id]: { ...data, fetchedAt: Date.now() } }));
         } catch (e) {
           if ((e as Error).message === 'rate-limited') {
@@ -77,7 +120,7 @@ export function useGitHubSync() {
   const fetchOne = useCallback(async (tool: AITool): Promise<LiveRepoData | null> => {
     if (!tool.repo) return null;
     try {
-      const data = await fetchRepo(tool.repo);
+      const data = await fetchRepo(tool.repo, tokenRef.current);
       const full = { ...data, fetchedAt: Date.now() };
       setLiveMap(prev => ({ ...prev, [tool.id]: full }));
       return full;
@@ -88,5 +131,5 @@ export function useGitHubSync() {
 
   const lastSync = Object.values(liveMap).reduce((m, d) => Math.max(m, d.fetchedAt), 0);
 
-  return { liveMap, syncing, progress, rateLimited, syncTools, fetchOne, lastSync, syncedCount: Object.keys(liveMap).length };
+  return { liveMap, syncing, progress, rateLimited, syncTools, fetchOne, lastSync, syncedCount: Object.keys(liveMap).length, token, setToken, hasToken: token.length > 0 };
 }
