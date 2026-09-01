@@ -1,6 +1,6 @@
 # Open Source AI Atlas
 
-**The living map of open-source AI** — a reactive dashboard that catalogs, filters, and dynamically tracks **234 open-source AI tools across 24 categories**, from foundation models to robotics.
+**The living map of open-source AI** — a reactive dashboard that catalogs, filters, and dynamically tracks **292 open-source AI tools across 27 categories**, from foundation models to robotics.
 
 ![React](https://img.shields.io/badge/React-19-61dafb?logo=react&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178c6?logo=typescript&logoColor=white)
@@ -16,9 +16,9 @@ The open-source AI ecosystem moves fast — new models, agent frameworks, and in
 
 Every entry is enriched with: organization, license, primary language, release year, star count, tags, health status (active / maintenance / archived), and a researched description.
 
-### Categories covered (24)
+### Categories covered (27)
 
-Foundation Models · Vision-Language Models · Inference & Serving · Chat & Frontends · Agent Frameworks · Coding Agents · Personal Assistants · Browser & Computer Use · RAG, Memory & Knowledge · Vector Databases · Workflow & Low-Code · Image Generation · Video Generation · Audio & Speech · Fine-tuning & Training · Frameworks & Libraries · MLOps & Gateways · Eval & Observability · Safety & Guardrails · Data & Labeling · Computer Vision · Document AI & OCR · MCP Ecosystem · Robotics & RL
+Foundation Models · Vision-Language Models · Inference & Serving · Chat & Frontends · Agent Frameworks · Coding Agents · Personal Assistants · Browser & Computer Use · RAG, Memory & Knowledge · Search & Web Data · Vector Databases · Workflow & Low-Code · Image Generation · Video Generation · 3D & Spatial · Audio & Speech · Fine-tuning & Training · Frameworks & Libraries · MLOps & Gateways · Eval & Observability · Safety & Guardrails · Data & Labeling · Computer Vision · Document AI & OCR · Prompts & Learning · MCP Ecosystem · Robotics & RL
 
 ## Features
 
@@ -27,6 +27,8 @@ Foundation Models · Vision-Language Models · Inference & Serving · Chat & Fro
 - **Three views** — card grid, sortable table, and a full analytics dashboard
 - **Analytics** — tools-per-category (click-to-filter), top-12 by stars, license mix, project health, language breakdown, and release-year timeline (Recharts)
 - **Live GitHub sync** — batch-refresh stars/forks/issues for the visible list via the GitHub REST API, with concurrency control, progress bar, rate-limit detection, and per-repo "fetch live" in the detail panel. Results are cached in `localStorage` and marked with a LIVE badge
+- **Optional GitHub token** — click the 🔑 button in the header to paste a personal access token (stored only in your browser's localStorage, never committed). Raises sync limits from 60 → 5,000 requests/hour
+- **Automated weekly refresh** — a GitHub Actions workflow ([`.github/workflows/refresh-stars.yml`](.github/workflows/refresh-stars.yml)) regenerates `public/live-snapshot.json` every Monday using a repo secret, so live stats stay fresh even without manual sync
 - **Detail panels** — slide-out sheets with stats, metadata, tags, and direct repository links
 - **Dark / light theme** — dark by default, one-click toggle
 - **Fully responsive** — category sidebar on desktop, chip rail on mobile
@@ -40,7 +42,7 @@ Foundation Models · Vision-Language Models · Inference & Serving · Chat & Fro
 | Styling | Tailwind CSS 3.4 + shadcn/ui (Radix primitives) |
 | Charts | Recharts |
 | Icons | lucide-react |
-| Live data | GitHub REST API (unauthenticated, ~60 req/hr) |
+| Live data | GitHub REST API (60 req/hr anonymous, 5,000 req/hr with token) |
 
 ## Getting started
 
@@ -68,7 +70,7 @@ src/
 ├── main.tsx                 # Entry point
 ├── index.css                # Tailwind + theme tokens
 ├── data/
-│   └── tools.ts             # The catalog: 234 tools, 24 categories (typed dataset)
+│   └── tools.ts             # The catalog: 292 tools, 27 categories (typed dataset)
 ├── types/index.ts           # AITool, Category, LiveRepoData types
 ├── hooks/
 │   └── useGitHubSync.ts     # Live GitHub sync: concurrency, caching, rate limits
@@ -90,12 +92,30 @@ src/
 ## Data & freshness model
 
 - The bundled star counts are a **labeled research snapshot** (August 2026) so the app works fully offline.
-- **Sync GitHub** refreshes live figures for the currently filtered list (up to 60 repos per pass, matching the unauthenticated API rate limit). Live values override snapshots everywhere — cards, table, charts, and headline stats.
+- **Sync GitHub** refreshes live figures for the currently filtered list (up to 60 repos per pass unauthenticated; effectively unlimited with a token). Live values override snapshots everywhere — cards, table, charts, and headline stats.
 - Synced data is cached in the browser's `localStorage` only; it does not persist across devices.
+- A weekly GitHub Actions workflow refreshes `public/live-snapshot.json` for all ~290 repos and commits it back to the repo, so the deployed site always boots with fresh stats.
+
+### Setting up the automated refresh
+
+1. Create a [fine-grained personal access token](https://github.com/settings/tokens) — public-repo read access is enough (no special scopes needed for public data).
+2. In the repo: **Settings → Secrets and variables → Actions → New repository secret**, name it `KIMI_GITHUB_API` (or edit the workflow to use your own secret name).
+3. Done — the workflow runs every Monday at 06:00 UTC, or manually via **Actions → Refresh live GitHub stats → Run workflow**.
+
+> ⚠️ Never commit a token to the repo or put it in frontend code — anything shipped to the browser is public. The in-app 🔑 field stores it in your browser only; the workflow reads it from the Actions secret.
+
+### Local development token (optional)
+
+Create a `.env` file (gitignored) to avoid pasting the token in the UI while developing:
+
+```bash
+VITE_GITHUB_TOKEN=github_pat_...
+```
 
 ## Roadmap
 
-- [ ] GitHub token support for higher sync limits
+- [x] GitHub token support for higher sync limits
+- [x] Automated stats refresh via GitHub Actions
 - [ ] Star-history sparklines per tool
 - [ ] Category comparison mode
 - [ ] Community-submitted entries via PR template
