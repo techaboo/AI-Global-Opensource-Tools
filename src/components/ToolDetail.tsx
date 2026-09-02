@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
 import { Star, GitFork, CircleDot, ExternalLink, Github, RefreshCw, Loader2, Flame, Clock } from 'lucide-react';
@@ -17,12 +17,17 @@ interface Props {
   onToggleFavorite?: (id: string) => void;
 }
 
-export function ToolDetail({ tool, category, live, onClose, onFetchLive, isFavorite, onToggleFavorite }: Props) {
+export function ToolDetail({ tool: toolProp, category, live, onClose, onFetchLive, isFavorite, onToggleFavorite }: Props) {
   const [fetching, setFetching] = useState(false);
   const [failed, setFailed] = useState(false);
-
-  useEffect(() => { setFailed(false); }, [tool?.id]);
-
+  // Reset the transient fetch-failure flag whenever a different tool opens,
+  // derived during render (recommended over a setState-in-effect reset).
+  const [lastToolId, setLastToolId] = useState<string | null>(null);
+  const tool = toolProp;
+  if (tool && tool.id !== lastToolId) {
+    setLastToolId(tool.id);
+    setFailed(false);
+  }
   if (!tool) return null;
   const stars = live?.stars ?? tool.stars;
 

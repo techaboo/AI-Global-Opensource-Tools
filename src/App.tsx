@@ -80,7 +80,7 @@ export default function App() {
       return true;
     }
   });
-  const urlState = useMemo(readUrlState, []);
+  const urlState = useMemo(() => readUrlState(), []);
   const [search, setSearch] = useState(urlState.q ?? '');
   const [activeCat, setActiveCat] = useState(urlState.cat ?? 'all');
   const [sort, setSort] = useState<SortKey>(urlState.sort ?? 'stars');
