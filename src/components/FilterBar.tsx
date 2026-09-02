@@ -3,7 +3,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { ALL_LICENSES, ALL_LANGUAGES } from '@/data/tools';
 import { cn } from '@/lib/utils';
 
-export type SortKey = 'stars' | 'name' | 'year' | 'category';
+export type SortKey = 'stars' | 'name' | 'year' | 'category' | 'pushed';
 export type ViewMode = 'grid' | 'table' | 'analytics';
 
 interface Props {
@@ -54,6 +54,7 @@ export function FilterBar(p: Props) {
         </SelectTrigger>
         <SelectContent>
           <SelectItem value="stars">Most stars</SelectItem>
+          <SelectItem value="pushed">Recently pushed</SelectItem>
           <SelectItem value="name">Name A–Z</SelectItem>
           <SelectItem value="year">Newest</SelectItem>
           <SelectItem value="category">Category</SelectItem>

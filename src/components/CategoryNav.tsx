@@ -57,8 +57,8 @@ export function CategoryNav({ categories, counts, total, active, onSelect }: Pro
           )}
         >
           <CategoryIcon icon="layout-grid" className="h-4 w-4 text-fuchsia-500" />
-          <span className="flex-1 text-left">All tools</span>
-          <span className="text-[11px] tabular-nums text-muted-foreground">{total}</span>
+          <span className="flex-1 min-w-0 text-left">All tools</span>
+          <span className="shrink-0 text-[11px] tabular-nums text-muted-foreground">{total}</span>
         </button>
         {categories.map(c => (
           <button
@@ -71,8 +71,8 @@ export function CategoryNav({ categories, counts, total, active, onSelect }: Pro
             style={active === c.id ? { background: `${c.color}22` } : undefined}
           >
             <CategoryIcon icon={c.icon} className="h-4 w-4 shrink-0" style={{ color: c.color }} />
-            <span className="flex-1 text-left truncate">{c.label}</span>
-            <span className="text-[11px] tabular-nums text-muted-foreground">{counts[c.id] ?? 0}</span>
+            <span className="flex-1 min-w-0 text-left truncate">{c.label}</span>
+            <span className="shrink-0 text-[11px] tabular-nums text-muted-foreground">{counts[c.id] ?? 0}</span>
           </button>
         ))}
         <div className="mt-6 px-2 text-[11px] text-muted-foreground leading-relaxed">

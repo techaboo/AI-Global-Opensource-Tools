@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { CATEGORIES, TOOLS, SNAPSHOT_DATE } from '@/data/tools';
 import type { AITool } from '@/types';
 import { useGitHubSync } from '@/hooks/useGitHubSync';
@@ -14,27 +14,119 @@ import { cn } from '@/lib/utils';
 
 const CAT_MAP = new Map(CATEGORIES.map(c => [c.id, c]));
 
+const FAV_KEY = 'osi-atlas-favorites-v1';
+const THEME_KEY = 'osi-atlas-theme-v1';
+
+function loadFavorites(): Set<string> {
+  try {
+    const raw = localStorage.getItem(FAV_KEY);
+    return raw ? new Set(JSON.parse(raw) as string[]) : new Set();
+  } catch {
+    return new Set();
+  }
+}
+
+// ─── URL state helpers ────────────────────────────────────────────
+interface UrlState {
+  cat: string;
+  sort: SortKey;
+  license: string;
+  lang: string;
+  status: string;
+  view: ViewMode;
+  fav: boolean;
+  q: string;
+}
+
+const VALID_VIEWS: ViewMode[] = ['grid', 'table', 'analytics'];
+const VALID_SORTS: SortKey[] = ['stars', 'name', 'year', 'category', 'pushed'];
+
+function readUrlState(): Partial<UrlState> {
+  const p = new URLSearchParams(window.location.search);
+  const s: Partial<UrlState> = {};
+  if (p.get('cat')) s.cat = p.get('cat')!;
+  if (p.get('sort') && VALID_SORTS.includes(p.get('sort') as SortKey)) s.sort = p.get('sort') as SortKey;
+  if (p.get('license')) s.license = p.get('license')!;
+  if (p.get('lang')) s.lang = p.get('lang')!;
+  if (p.get('status')) s.status = p.get('status')!;
+  if (p.get('view') && VALID_VIEWS.includes(p.get('view') as ViewMode)) s.view = p.get('view') as ViewMode;
+  if (p.get('fav') === '1') s.fav = true;
+  if (p.get('q')) s.q = p.get('q')!;
+  return s;
+}
+
+function writeUrlState(s: UrlState) {
+  const p = new URLSearchParams();
+  if (s.cat && s.cat !== 'all') p.set('cat', s.cat);
+  if (s.sort && s.sort !== 'stars') p.set('sort', s.sort);
+  if (s.license && s.license !== 'all') p.set('license', s.license);
+  if (s.lang && s.lang !== 'all') p.set('lang', s.lang);
+  if (s.status && s.status !== 'all') p.set('status', s.status);
+  if (s.view && s.view !== 'grid') p.set('view', s.view);
+  if (s.fav) p.set('fav', '1');
+  if (s.q) p.set('q', s.q);
+  const qs = p.toString();
+  const url = `${window.location.pathname}${qs ? '?' + qs : ''}`;
+  window.history.replaceState(null, '', url);
+}
+
 export default function App() {
-  const [dark, setDark] = useState(true);
-  const [search, setSearch] = useState('');
-  const [activeCat, setActiveCat] = useState('all');
-  const [sort, setSort] = useState<SortKey>('stars');
-  const [license, setLicense] = useState('all');
-  const [lang, setLang] = useState('all');
-  const [status, setStatus] = useState('all');
-  const [view, setView] = useState<ViewMode>('grid');
+  // ─── State (URL-restorable where applicable) ──────────────────────
+  const [dark, setDark] = useState<boolean>(() => {
+    try {
+      const v = localStorage.getItem(THEME_KEY);
+      return v === null ? true : v === 'dark';
+    } catch {
+      return true;
+    }
+  });
+  const urlState = useMemo(readUrlState, []);
+  const [search, setSearch] = useState(urlState.q ?? '');
+  const [activeCat, setActiveCat] = useState(urlState.cat ?? 'all');
+  const [sort, setSort] = useState<SortKey>(urlState.sort ?? 'stars');
+  const [license, setLicense] = useState(urlState.license ?? 'all');
+  const [lang, setLang] = useState(urlState.lang ?? 'all');
+  const [status, setStatus] = useState(urlState.status ?? 'all');
+  const [view, setView] = useState<ViewMode>(urlState.view ?? 'grid');
+  const [onlyFav, setOnlyFav] = useState(urlState.fav ?? false);
+  const [favorites, setFavorites] = useState<Set<string>>(loadFavorites);
   const [selected, setSelected] = useState<AITool | null>(null);
   const searchRef = useRef<string>('');
 
-  const { liveMap, syncing, progress, rateLimited, syncTools, fetchOne, lastSync, syncedCount } = useGitHubSync();
+  const { liveMap, syncing, progress, rateLimited, token, saveToken, syncTools, fetchOne, lastSync, syncedCount } = useGitHubSync();
 
+  // ─── Effects: theme persistence ───────────────────────────────────
   useEffect(() => {
     document.documentElement.classList.toggle('dark', dark);
+    try {
+      localStorage.setItem(THEME_KEY, dark ? 'dark' : 'light');
+    } catch { /* ignore */ }
   }, [dark]);
 
   useEffect(() => {
     searchRef.current = search;
   }, [search]);
+
+  // ─── Effects: URL state sync (debounced) ──────────────────────────
+  useEffect(() => {
+    const t = setTimeout(() => {
+      writeUrlState({ cat: activeCat, sort, license, lang, status, view, fav: onlyFav, q: search });
+    }, 300);
+    return () => clearTimeout(t);
+  }, [activeCat, sort, license, lang, status, view, onlyFav, search]);
+
+  // ─── Effects: favorites persistence ───────────────────────────────
+  const toggleFavorite = useCallback((id: string) => {
+    setFavorites(prev => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      try {
+        localStorage.setItem(FAV_KEY, JSON.stringify([...next]));
+      } catch { /* ignore */ }
+      return next;
+    });
+  }, []);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -56,6 +148,7 @@ export default function App() {
   const filtered = useMemo(() => {
     const q = search.trim().toLowerCase();
     let list = TOOLS.filter(t => {
+      if (onlyFav && !favorites.has(t.id)) return false;
       if (activeCat !== 'all' && t.cat !== activeCat) return false;
       if (license !== 'all' && t.license !== license) return false;
       if (lang !== 'all' && t.lang !== lang) return false;
@@ -67,20 +160,22 @@ export default function App() {
       return true;
     });
     const starsOf = (t: AITool) => liveMap[t.id]?.stars ?? t.stars;
+    const pushedOf = (t: AITool) => liveMap[t.id]?.pushedAt ?? '';
     list = [...list].sort((a, b) => {
       switch (sort) {
         case 'stars': return starsOf(b) - starsOf(a);
         case 'name': return a.name.localeCompare(b.name);
         case 'year': return b.year - a.year || starsOf(b) - starsOf(a);
         case 'category': return a.cat.localeCompare(b.cat) || starsOf(b) - starsOf(a);
+        case 'pushed': return (pushedOf(b) || '').localeCompare(pushedOf(a) || '') || starsOf(b) - starsOf(a);
         default: return 0;
       }
     });
     return list;
-  }, [search, activeCat, license, lang, status, sort, liveMap]);
+  }, [search, activeCat, license, lang, status, sort, liveMap, onlyFav, favorites]);
 
-  const hasFilters = search !== '' || activeCat !== 'all' || license !== 'all' || lang !== 'all' || status !== 'all';
-  const clearFilters = () => { setSearch(''); setActiveCat('all'); setLicense('all'); setLang('all'); setStatus('all'); };
+  const hasFilters = search !== '' || activeCat !== 'all' || license !== 'all' || lang !== 'all' || status !== 'all' || onlyFav;
+  const clearFilters = () => { setSearch(''); setActiveCat('all'); setLicense('all'); setLang('all'); setStatus('all'); setOnlyFav(false); };
 
   const activeCategory = activeCat !== 'all' ? CAT_MAP.get(activeCat) : undefined;
 
@@ -97,6 +192,11 @@ export default function App() {
         syncedCount={syncedCount}
         lastSync={lastSync}
         onSync={() => syncTools(filtered, 60)}
+        token={token}
+        onSaveToken={saveToken}
+        onlyFav={onlyFav}
+        onToggleFav={() => setOnlyFav(f => !f)}
+        favCount={favorites.size}
       />
 
       <div className="flex">
@@ -161,7 +261,7 @@ export default function App() {
           {view === 'grid' && filtered.length > 0 && (
             <div className="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-3 gap-3.5">
               {filtered.map(t => (
-                <ToolCard key={t.id} tool={t} category={CAT_MAP.get(t.cat)} live={liveMap[t.id]} onOpen={setSelected} />
+                <ToolCard key={t.id} tool={t} category={CAT_MAP.get(t.cat)} live={liveMap[t.id]} onOpen={setSelected} isFavorite={favorites.has(t.id)} onToggleFavorite={toggleFavorite} />
               ))}
             </div>
           )}
@@ -176,7 +276,7 @@ export default function App() {
 
           <footer className="pt-6 pb-4 text-center text-[11px] text-muted-foreground space-y-1">
             <p>Open Source AI Atlas · {TOOLS.length} tools · {CATEGORIES.length} categories · research snapshot {SNAPSHOT_DATE}</p>
-            <p>Star/fork data: GitHub REST API (unauthenticated, 60 req/hr) — cached in your browser. No account needed.</p>
+            <p>Star/fork data: GitHub REST API — 60 req/hr unauthenticated or 5,000 req/hr with a token. Cached in your browser.</p>
           </footer>
         </main>
       </div>
@@ -187,6 +287,8 @@ export default function App() {
         live={selected ? liveMap[selected.id] : undefined}
         onClose={() => setSelected(null)}
         onFetchLive={fetchOne}
+        isFavorite={selected ? favorites.has(selected.id) : false}
+        onToggleFavorite={toggleFavorite}
       />
     </div>
   );

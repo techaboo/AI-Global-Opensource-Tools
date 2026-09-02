@@ -8,6 +8,8 @@ interface Props {
   category?: Category;
   live?: LiveRepoData;
   onOpen: (t: AITool) => void;
+  isFavorite?: boolean;
+  onToggleFavorite?: (id: string) => void;
 }
 
 export function StatusBadge({ status, className }: { status: AITool['status']; className?: string }) {
@@ -23,7 +25,7 @@ export function StatusBadge({ status, className }: { status: AITool['status']; c
   );
 }
 
-export function ToolCard({ tool, category, live, onOpen }: Props) {
+export function ToolCard({ tool, category, live, onOpen, isFavorite, onToggleFavorite }: Props) {
   const stars = live?.stars ?? tool.stars;
   return (
     <button
@@ -34,6 +36,18 @@ export function ToolCard({ tool, category, live, onOpen }: Props) {
         className="absolute inset-x-0 top-0 h-0.5 opacity-70 group-hover:opacity-100 transition-opacity"
         style={{ background: `linear-gradient(90deg, transparent, ${category?.color ?? '#8b5cf6'}, transparent)` }}
       />
+      {onToggleFavorite && (
+        <span
+          role="button"
+          tabIndex={0}
+          aria-label={isFavorite ? `Remove ${tool.name} from favorites` : `Add ${tool.name} to favorites`}
+          onClick={e => { e.stopPropagation(); onToggleFavorite(tool.id); }}
+          onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); e.stopPropagation(); onToggleFavorite(tool.id); } }}
+          className={`absolute top-2.5 right-2.5 z-10 rounded-full p-1 transition-all ${isFavorite ? 'opacity-100' : 'opacity-0 group-hover:opacity-100 focus:opacity-100'} hover:scale-110 focus:outline-none focus:ring-2 focus:ring-fuchsia-500/40`}
+        >
+          <Star className={`h-4 w-4 transition-colors ${isFavorite ? 'text-amber-400 fill-amber-400' : 'text-muted-foreground hover:text-amber-400'}`} />
+        </span>
+      )}
       <div className="flex items-start justify-between gap-2 mb-1.5">
         <div className="min-w-0">
           <div className="flex items-center gap-1.5 flex-wrap">

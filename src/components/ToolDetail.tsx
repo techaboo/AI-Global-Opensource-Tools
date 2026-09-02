@@ -13,9 +13,11 @@ interface Props {
   live?: LiveRepoData;
   onClose: () => void;
   onFetchLive: (t: AITool) => Promise<LiveRepoData | null>;
+  isFavorite?: boolean;
+  onToggleFavorite?: (id: string) => void;
 }
 
-export function ToolDetail({ tool, category, live, onClose, onFetchLive }: Props) {
+export function ToolDetail({ tool, category, live, onClose, onFetchLive, isFavorite, onToggleFavorite }: Props) {
   const [fetching, setFetching] = useState(false);
   const [failed, setFailed] = useState(false);
 
@@ -51,6 +53,15 @@ export function ToolDetail({ tool, category, live, onClose, onFetchLive }: Props
           </div>
           <SheetTitle className="text-2xl tracking-tight">{tool.name}</SheetTitle>
           <SheetDescription className="text-[14px]">{tool.tagline}</SheetDescription>
+          {onToggleFavorite && (
+            <button
+              onClick={() => onToggleFavorite(tool.id)}
+              className="inline-flex items-center gap-1.5 text-[12px] font-medium text-muted-foreground hover:text-amber-500 transition-colors w-fit"
+            >
+              <Star className={`h-3.5 w-3.5 ${isFavorite ? 'text-amber-400 fill-amber-400' : ''}`} />
+              {isFavorite ? 'Saved to favorites' : 'Add to favorites'}
+            </button>
+          )}
         </SheetHeader>
 
         <div className="mt-6 space-y-6">
