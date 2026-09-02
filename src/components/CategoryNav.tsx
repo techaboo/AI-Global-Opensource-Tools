@@ -29,6 +29,9 @@ const ICONS: Record<string, Lucide.LucideIcon> = {
   'plug-zap': Lucide.PlugZap,
   'cpu': Lucide.Cpu,
   'layout-grid': Lucide.LayoutGrid,
+  'globe': Lucide.Globe,
+  'box': Lucide.Box,
+  'library-big': Lucide.LibraryBig,
 };
 
 export function CategoryIcon({ icon, className, style }: { icon: string; className?: string; style?: React.CSSProperties }) {

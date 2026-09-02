@@ -93,7 +93,7 @@ export default function App() {
   const [selected, setSelected] = useState<AITool | null>(null);
   const searchRef = useRef<string>('');
 
-  const { liveMap, syncing, progress, rateLimited, token, saveToken, syncTools, fetchOne, lastSync, syncedCount } = useGitHubSync();
+  const { liveMap, syncing, progress, rateLimited, setToken, hasToken, syncTools, fetchOne, lastSync, syncedCount } = useGitHubSync();
 
   // ─── Effects: theme persistence ───────────────────────────────────
   useEffect(() => {
@@ -192,11 +192,11 @@ export default function App() {
         syncedCount={syncedCount}
         lastSync={lastSync}
         onSync={() => syncTools(filtered, 60)}
-        token={token}
-        onSaveToken={saveToken}
         onlyFav={onlyFav}
         onToggleFav={() => setOnlyFav(f => !f)}
         favCount={favorites.size}
+        hasToken={hasToken}
+        onSetToken={setToken}
       />
 
       <div className="flex">
@@ -276,7 +276,7 @@ export default function App() {
 
           <footer className="pt-6 pb-4 text-center text-[11px] text-muted-foreground space-y-1">
             <p>Open Source AI Atlas · {TOOLS.length} tools · {CATEGORIES.length} categories · research snapshot {SNAPSHOT_DATE}</p>
-            <p>Star/fork data: GitHub REST API — 60 req/hr unauthenticated or 5,000 req/hr with a token. Cached in your browser.</p>
+            <p>Star/fork data: GitHub REST API — {hasToken ? 'authenticated (5,000 req/hr)' : 'unauthenticated (60 req/hr — add a token via the 🔑 button)'}. Cached in your browser; token never leaves it.</p>
           </footer>
         </main>
       </div>

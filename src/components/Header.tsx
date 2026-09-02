@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Moon, Sun, Search, RefreshCw, Radar, Loader2, Key, Star, X } from 'lucide-react';
+﻿import { useState } from 'react';
+import { Moon, Sun, Search, RefreshCw, Radar, Loader2, KeyRound, Check, Star, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
 import { cn } from '@/lib/utils';
@@ -15,20 +15,23 @@ interface Props {
   syncedCount: number;
   lastSync: number;
   onSync: () => void;
-  token: string;
-  onSaveToken: (t: string) => void;
+  hasToken: boolean;
+  onSetToken: (t: string) => void;
   onlyFav: boolean;
   onToggleFav: () => void;
   favCount: number;
 }
 
-export function Header({ dark, onToggleDark, search, onSearch, syncing, progress, rateLimited, syncedCount, lastSync, onSync, token, onSaveToken, onlyFav, onToggleFav, favCount }: Props) {
+export function Header({ dark, onToggleDark, search, onSearch, syncing, progress, rateLimited, syncedCount, lastSync, onSync, onSetToken, onlyFav, onToggleFav, favCount, hasToken }: Props) {
   const [tokenOpen, setTokenOpen] = useState(false);
-  const [tokenDraft, setTokenDraft] = useState(token);
+  const [draft, setDraft] = useState('');
+  const [saved, setSaved] = useState(false);
 
   const save = () => {
-    onSaveToken(tokenDraft.trim());
-    setTokenOpen(false);
+    onSetToken(draft.trim());
+    setDraft('');
+    setSaved(true);
+    setTimeout(() => setSaved(false), 2000);
   };
 
   return (
@@ -40,7 +43,7 @@ export function Header({ dark, onToggleDark, search, onSearch, syncing, progress
           </div>
           <div className="leading-tight hidden sm:block">
             <div className="font-bold text-[15px] tracking-tight">Open Source AI Atlas</div>
-            <div className="text-[11px] text-muted-foreground">The living map of open AI — 234 tools, 24 categories</div>
+            <div className="text-[11px] text-muted-foreground">The living map of open AI Ã¢â‚¬â€ 292 tools, 27 categories</div>
           </div>
         </div>
 
@@ -50,7 +53,7 @@ export function Header({ dark, onToggleDark, search, onSearch, syncing, progress
             <input
               value={search}
               onChange={e => onSearch(e.target.value)}
-              placeholder="Search tools, orgs, tags, licenses…  ( / )"
+              placeholder="Search tools, orgs, tags, licensesÃ¢â‚¬Â¦  ( / )"
               className="w-full h-10 rounded-full border border-border bg-muted/50 pl-9 pr-4 text-sm outline-none focus:ring-2 focus:ring-fuchsia-500/40 focus:border-fuchsia-500/50 transition placeholder:text-muted-foreground/70"
             />
           </div>
@@ -68,58 +71,58 @@ export function Header({ dark, onToggleDark, search, onSearch, syncing, progress
             ) : (
               <span className="text-[10px] text-muted-foreground whitespace-nowrap">
                 {rateLimited
-                  ? 'GitHub rate limit hit — add a token for 5,000 req/hr'
+                  ? hasToken
+                    ? 'Rate limited Ã¢â‚¬â€ token quota exhausted'
+                    : 'Rate limit hit Ã¢â‚¬â€ add a token (Ã°Å¸â€â€˜) for 5,000 req/hr'
                   : syncedCount > 0
-                    ? `${syncedCount} live · ${lastSync ? new Date(lastSync).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : ''}`
-                    : 'Snapshot data · sync for live stars'}
+                    ? `${syncedCount} live Ã‚Â· ${lastSync ? new Date(lastSync).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : ''}`
+                    : 'Snapshot data Ã‚Â· sync for live stars'}
               </span>
             )}
           </div>
 
-          {/* GitHub token button */}
           <div className="relative">
             <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => { setTokenDraft(token); setTokenOpen(o => !o); }}
-              className={cn('rounded-full', token && 'text-emerald-500')}
+              variant="ghost" size="icon"
+              onClick={() => setTokenOpen(o => !o)}
+              className="rounded-full"
               aria-label="GitHub token settings"
-              title={token ? 'GitHub token saved (5,000 req/hr)' : 'Add GitHub token for 5,000 req/hr'}
+              title={hasToken ? 'GitHub token set (5,000 req/hr)' : 'Add GitHub token for higher rate limits'}
             >
-              <Key className="h-4 w-4" />
+              <KeyRound className={hasToken ? 'h-4.5 w-4.5 text-emerald-500' : 'h-4.5 w-4.5'} />
             </Button>
             {tokenOpen && (
-              <div className="absolute right-0 top-11 z-50 w-80 rounded-xl border border-border bg-card p-4 shadow-xl space-y-3">
-                <div className="flex items-center justify-between">
-                  <div className="text-[13px] font-semibold">GitHub Token</div>
+              <div className="absolute right-0 top-11 w-80 rounded-xl border border-border bg-popover p-4 shadow-xl z-50">
+                <div className="flex items-center justify-between mb-2">
+                  <div className="text-sm font-semibold">GitHub API token</div>
                   <button onClick={() => setTokenOpen(false)} className="text-muted-foreground hover:text-foreground" aria-label="Close">
-                    <X className="h-3.5 w-3.5" />
+                    <X className="h-4 w-4" />
                   </button>
                 </div>
-                <p className="text-[11.5px] text-muted-foreground leading-relaxed">
-                  Optional. Raises the rate limit from 60 to 5,000 req/hr and lets you sync the whole catalog at once.
-                  Stored only in your browser's localStorage. Create one at{' '}
-                  <a href="https://github.com/settings/tokens?type=beta" target="_blank" rel="noreferrer" className="text-fuchsia-500 hover:underline">
-                    github.com/settings/tokens
-                  </a>{' '}
-                  (read-only public access is enough).
+                <p className="text-[11px] text-muted-foreground mb-3 leading-relaxed">
+                  Optional. A <a href="https://github.com/settings/tokens" target="_blank" rel="noreferrer" className="text-fuchsia-500 hover:underline">fine-grained personal access token</a> (no scopes needed for public repos) raises sync limits from 60 Ã¢â€ â€™ 5,000 requests/hour. Stored only in your browser Ã¢â‚¬â€ never sent anywhere except api.github.com.
                 </p>
-                <input
-                  type="password"
-                  value={tokenDraft}
-                  onChange={e => setTokenDraft(e.target.value)}
-                  onKeyDown={e => { if (e.key === 'Enter') save(); }}
-                  placeholder="github_pat_… or ghp_…"
-                  className="w-full h-9 rounded-lg border border-border bg-muted/50 px-3 text-[12px] font-mono outline-none focus:ring-2 focus:ring-fuchsia-500/40"
-                />
-                <div className="flex gap-2 justify-end">
-                  {token && (
-                    <Button variant="ghost" size="sm" className="h-8 text-[12px]" onClick={() => { onSaveToken(''); setTokenDraft(''); }}>
-                      Remove
-                    </Button>
-                  )}
-                  <Button size="sm" className="h-8 text-[12px] rounded-full" onClick={save}>Save</Button>
+                <div className="flex gap-2">
+                  <input
+                    type="password"
+                    value={draft}
+                    onChange={e => setDraft(e.target.value)}
+                    onKeyDown={e => e.key === 'Enter' && save()}
+                    placeholder={hasToken ? 'Ã¢â‚¬Â¢Ã¢â‚¬Â¢Ã¢â‚¬Â¢Ã¢â‚¬Â¢Ã¢â‚¬Â¢Ã¢â‚¬Â¢Ã¢â‚¬Â¢Ã¢â‚¬Â¢Ã¢â‚¬Â¢Ã¢â‚¬Â¢  (token saved)' : 'github_pat_Ã¢â‚¬Â¦ or ghp_Ã¢â‚¬Â¦'}
+                    className="flex-1 h-9 rounded-lg border border-border bg-muted/50 px-3 text-xs outline-none focus:ring-2 focus:ring-fuchsia-500/40 font-mono"
+                  />
+                  <Button size="sm" onClick={save} disabled={!draft.trim()} className="rounded-lg h-9">
+                    {saved ? <Check className="h-3.5 w-3.5" /> : 'Save'}
+                  </Button>
                 </div>
+                {hasToken && (
+                  <button
+                    onClick={() => { onSetToken(''); setTokenOpen(false); }}
+                    className="mt-2 text-[11px] text-rose-500 hover:text-rose-400"
+                  >
+                    Remove saved token
+                  </button>
+                )}
               </div>
             )}
           </div>
