@@ -24,11 +24,15 @@ Foundation Models · Vision-Language Models · Inference & Serving · Chat & Fro
 
 - **Instant search** — full-text across names, orgs, descriptions, tags, and licenses (press `/` to focus)
 - **Rich filtering** — by category, license, language, and project health status, with one-click reset
+- **Favorites** — star any tool, then filter to just your favorites; persisted locally with a count badge in the header
 - **Three views** — card grid, sortable table, and a full analytics dashboard
 - **Analytics** — tools-per-category (click-to-filter), top-12 by stars, license mix, project health, language breakdown, and release-year timeline (Recharts)
 - **Live GitHub sync** — batch-refresh stars/forks/issues for the visible list via the GitHub REST API, with concurrency control, progress bar, rate-limit detection, and per-repo "fetch live" in the detail panel. Results are cached in `localStorage` and marked with a LIVE badge
-- **Detail panels** — slide-out sheets with stats, metadata, tags, and direct repository links
-- **Dark / light theme** — dark by default, one-click toggle
+- **Optional GitHub token** — paste a read-only PAT to raise the rate limit from 60 to 5,000 req/hr and sync the whole catalog at once; stored only in your browser
+- **Shareable URLs** — filters, sort order, view mode, and the favorites toggle sync to the address bar, so any view is a link you can send
+- **Activity sort** — "Recently pushed" orders tools by last commit activity using synced `pushedAt` data
+- **Detail panels** — slide-out sheets with stats, metadata, tags, favorite toggle, and direct repository links
+- **Dark / light theme** — dark by default, one-click toggle, remembered across sessions
 - **Fully responsive** — category sidebar on desktop, chip rail on mobile
 
 ## Tech stack
@@ -40,7 +44,7 @@ Foundation Models · Vision-Language Models · Inference & Serving · Chat & Fro
 | Styling | Tailwind CSS 3.4 + shadcn/ui (Radix primitives) |
 | Charts | Recharts |
 | Icons | lucide-react |
-| Live data | GitHub REST API (unauthenticated, ~60 req/hr) |
+| Live data | GitHub REST API (60 req/hr unauthenticated, 5,000 with an optional local token) |
 
 ## Getting started
 
