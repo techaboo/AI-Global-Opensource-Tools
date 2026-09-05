@@ -1,0 +1,124 @@
+name: Propose a catalog entry
+description: Suggest a new open-source AI tool (or a correction) for src/data/tools.ts
+title: "[tool] "
+labels: ["catalog"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The catalog lives in `src/data/tools.ts`. The fastest path is a PR using the pull request template.
+        Use this issue if you want maintainers to add or correct an entry for you.
+  - type: dropdown
+    id: change
+    attributes:
+      label: Change type
+      options:
+        - New tool
+        - Update existing tool
+    validations:
+      required: true
+  - type: input
+    id: name
+    attributes:
+      label: Name
+      placeholder: Open WebUI
+    validations:
+      required: true
+  - type: input
+    id: org
+    attributes:
+      label: Organization
+      placeholder: Open WebUI
+    validations:
+      required: true
+  - type: dropdown
+    id: cat
+    attributes:
+      label: Category
+      options:
+        - models — Foundation Models
+        - multimodal — Vision-Language Models
+        - inference — Inference & Serving
+        - chatui — Chat & Frontends
+        - agents — Agent Frameworks
+        - coding — Coding Agents
+        - assistants — Personal Assistants
+        - browseruse — Browser & Computer Use
+        - rag — RAG, Memory & Knowledge
+        - search — Search & Web Data
+        - vectordb — Vector Databases
+        - workflow — Workflow & Low-Code
+        - image — Image Generation
+        - video — Video Generation
+        - threed — 3D & Spatial
+        - audio — Audio & Speech
+        - finetune — Fine-tuning & Training
+        - frameworks — Frameworks & Libraries
+        - mlops — MLOps & Gateways
+        - eval — Eval & Observability
+        - guardrails — Safety & Guardrails
+        - data — Data & Labeling
+        - vision — Computer Vision
+        - docs — Document AI & OCR
+        - prompts — Prompts & Learning
+        - mcp — MCP Ecosystem
+        - robotics — Robotics & RL
+    validations:
+      required: true
+  - type: input
+    id: repo
+    attributes:
+      label: GitHub repository
+      description: owner/name (no URL prefix)
+      placeholder: open-webui/open-webui
+  - type: input
+    id: license
+    attributes:
+      label: License
+      placeholder: MIT
+    validations:
+      required: true
+  - type: input
+    id: lang
+    attributes:
+      label: Primary language
+      placeholder: TypeScript
+    validations:
+      required: true
+  - type: input
+    id: year
+    attributes:
+      label: First public release year
+      placeholder: "2023"
+    validations:
+      required: true
+  - type: dropdown
+    id: status
+    attributes:
+      label: Project health
+      options:
+        - active
+        - maintenance
+        - archived
+    validations:
+      required: true
+  - type: input
+    id: tags
+    attributes:
+      label: Tags
+      description: Comma-separated lowercase tags
+      placeholder: ui, ollama, rag
+  - type: input
+    id: tagline
+    attributes:
+      label: Tagline
+      description: One short pitch line
+    validations:
+      required: true
+  - type: textarea
+    id: desc
+    attributes:
+      label: Description
+      description: One or two factual sentences
+    validations:
+      required: true
