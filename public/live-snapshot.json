@@ -1,1 +1,3775 @@
-{"generatedAt":null,"repos":{}}
+{
+  "generatedAt": "2026-09-05T21:15:35.813Z",
+  "repos": {
+    "qwen3": {
+      "stars": 27593,
+      "forks": 2053,
+      "openIssues": 67,
+      "pushedAt": "2026-01-09T03:05:47Z",
+      "fetchedAt": 1788642918474,
+      "history": [
+        {
+          "t": 1788642918474,
+          "s": 27593
+        }
+      ]
+    },
+    "deepseek-r1": {
+      "stars": 92022,
+      "forks": 11691,
+      "openIssues": 33,
+      "pushedAt": "2025-06-27T08:35:54Z",
+      "fetchedAt": 1788642918480,
+      "history": [
+        {
+          "t": 1788642918480,
+          "s": 92022
+        }
+      ]
+    },
+    "llama4": {
+      "stars": 7688,
+      "forks": 1409,
+      "openIssues": 217,
+      "pushedAt": "2026-02-11T16:38:31Z",
+      "fetchedAt": 1788642918481,
+      "history": [
+        {
+          "t": 1788642918481,
+          "s": 7688
+        }
+      ]
+    },
+    "deepseek-v3": {
+      "stars": 104436,
+      "forks": 16733,
+      "openIssues": 217,
+      "pushedAt": "2025-08-28T03:24:37Z",
+      "fetchedAt": 1788642918482,
+      "history": [
+        {
+          "t": 1788642918482,
+          "s": 104436
+        }
+      ]
+    },
+    "gemma3": {
+      "stars": 5721,
+      "forks": 602,
+      "openIssues": 32,
+      "pushedAt": "2025-05-30T20:45:51Z",
+      "fetchedAt": 1788642918730,
+      "history": [
+        {
+          "t": 1788642918730,
+          "s": 5721
+        }
+      ]
+    },
+    "mistral": {
+      "stars": 10831,
+      "forks": 1058,
+      "openIssues": 1,
+      "pushedAt": "2026-06-16T15:40:44Z",
+      "fetchedAt": 1788642918731,
+      "history": [
+        {
+          "t": 1788642918731,
+          "s": 10831
+        }
+      ]
+    },
+    "phi4": {
+      "stars": 3856,
+      "forks": 520,
+      "openIssues": 9,
+      "pushedAt": "2026-09-03T19:24:25Z",
+      "fetchedAt": 1788642918732,
+      "history": [
+        {
+          "t": 1788642918732,
+          "s": 3856
+        }
+      ]
+    },
+    "glm": {
+      "stars": 7073,
+      "forks": 611,
+      "openIssues": 35,
+      "pushedAt": "2026-08-05T07:08:46Z",
+      "fetchedAt": 1788642918923,
+      "history": [
+        {
+          "t": 1788642918923,
+          "s": 7073
+        }
+      ]
+    },
+    "kimi": {
+      "stars": 11108,
+      "forks": 908,
+      "openIssues": 71,
+      "pushedAt": "2026-01-21T05:33:12Z",
+      "fetchedAt": 1788642918961,
+      "history": [
+        {
+          "t": 1788642918961,
+          "s": 11108
+        }
+      ]
+    },
+    "minimax": {
+      "stars": 3467,
+      "forks": 333,
+      "openIssues": 8,
+      "pushedAt": "2025-07-07T12:24:30Z",
+      "fetchedAt": 1788642918965,
+      "history": [
+        {
+          "t": 1788642918965,
+          "s": 3467
+        }
+      ]
+    },
+    "gpt-oss": {
+      "stars": 20373,
+      "forks": 2147,
+      "openIssues": 148,
+      "pushedAt": "2026-07-24T18:56:01Z",
+      "fetchedAt": 1788642918968,
+      "history": [
+        {
+          "t": 1788642918968,
+          "s": 20373
+        }
+      ]
+    },
+    "olmo": {
+      "stars": 6666,
+      "forks": 794,
+      "openIssues": 83,
+      "pushedAt": "2025-11-24T19:13:15Z",
+      "fetchedAt": 1788642919154,
+      "history": [
+        {
+          "t": 1788642919154,
+          "s": 6666
+        }
+      ]
+    },
+    "llava": {
+      "stars": 25015,
+      "forks": 2780,
+      "openIssues": 1140,
+      "pushedAt": "2024-08-12T09:52:38Z",
+      "fetchedAt": 1788642919171,
+      "history": [
+        {
+          "t": 1788642919171,
+          "s": 25015
+        }
+      ]
+    },
+    "internvl": {
+      "stars": 10149,
+      "forks": 793,
+      "openIssues": 315,
+      "pushedAt": "2025-09-22T01:36:48Z",
+      "fetchedAt": 1788642919190,
+      "history": [
+        {
+          "t": 1788642919190,
+          "s": 10149
+        }
+      ]
+    },
+    "qwen3-vl": {
+      "stars": 19901,
+      "forks": 1850,
+      "openIssues": 426,
+      "pushedAt": "2026-01-30T04:47:30Z",
+      "fetchedAt": 1788642919190,
+      "history": [
+        {
+          "t": 1788642919190,
+          "s": 19901
+        }
+      ]
+    },
+    "minicpm-v": {
+      "stars": 26302,
+      "forks": 2061,
+      "openIssues": 58,
+      "pushedAt": "2026-08-31T02:59:36Z",
+      "fetchedAt": 1788642919392,
+      "history": [
+        {
+          "t": 1788642919392,
+          "s": 26302
+        }
+      ]
+    },
+    "smollm": {
+      "stars": 3890,
+      "forks": 314,
+      "openIssues": 58,
+      "pushedAt": "2026-05-26T10:33:16Z",
+      "fetchedAt": 1788642919399,
+      "history": [
+        {
+          "t": 1788642919399,
+          "s": 3890
+        }
+      ]
+    },
+    "janus": {
+      "stars": 17764,
+      "forks": 2235,
+      "openIssues": 180,
+      "pushedAt": "2025-02-01T07:58:29Z",
+      "fetchedAt": 1788642919416,
+      "history": [
+        {
+          "t": 1788642919416,
+          "s": 17764
+        }
+      ]
+    },
+    "molmo": {
+      "stars": 932,
+      "forks": 96,
+      "openIssues": 34,
+      "pushedAt": "2024-12-12T17:37:41Z",
+      "fetchedAt": 1788642919421,
+      "history": [
+        {
+          "t": 1788642919421,
+          "s": 932
+        }
+      ]
+    },
+    "vllm": {
+      "stars": 91038,
+      "forks": 21749,
+      "openIssues": 7597,
+      "pushedAt": "2026-09-05T16:43:28Z",
+      "fetchedAt": 1788642919623,
+      "history": [
+        {
+          "t": 1788642919623,
+          "s": 91038
+        }
+      ]
+    },
+    "llamacpp": {
+      "stars": 127163,
+      "forks": 22811,
+      "openIssues": 2425,
+      "pushedAt": "2026-09-05T20:42:36Z",
+      "fetchedAt": 1788642919626,
+      "history": [
+        {
+          "t": 1788642919626,
+          "s": 127163
+        }
+      ]
+    },
+    "ollama": {
+      "stars": 180241,
+      "forks": 17713,
+      "openIssues": 3906,
+      "pushedAt": "2026-09-05T00:52:34Z",
+      "fetchedAt": 1788642919634,
+      "history": [
+        {
+          "t": 1788642919634,
+          "s": 180241
+        }
+      ]
+    },
+    "sglang": {
+      "stars": 35508,
+      "forks": 8577,
+      "openIssues": 5169,
+      "pushedAt": "2026-09-05T21:08:38Z",
+      "fetchedAt": 1788642919656,
+      "history": [
+        {
+          "t": 1788642919656,
+          "s": 35508
+        }
+      ]
+    },
+    "localai": {
+      "stars": 48882,
+      "forks": 4419,
+      "openIssues": 213,
+      "pushedAt": "2026-09-05T09:27:03Z",
+      "fetchedAt": 1788642919823,
+      "history": [
+        {
+          "t": 1788642919823,
+          "s": 48882
+        }
+      ]
+    },
+    "tensorrt-llm": {
+      "stars": 14553,
+      "forks": 2722,
+      "openIssues": 1446,
+      "pushedAt": "2026-09-05T20:58:37Z",
+      "fetchedAt": 1788642919850,
+      "history": [
+        {
+          "t": 1788642919850,
+          "s": 14553
+        }
+      ]
+    },
+    "mlc-llm": {
+      "stars": 23135,
+      "forks": 2130,
+      "openIssues": 339,
+      "pushedAt": "2026-08-17T20:50:06Z",
+      "fetchedAt": 1788642919911,
+      "history": [
+        {
+          "t": 1788642919911,
+          "s": 23135
+        }
+      ]
+    },
+    "tgwebui": {
+      "stars": 47626,
+      "forks": 5983,
+      "openIssues": 839,
+      "pushedAt": "2026-08-17T17:38:16Z",
+      "fetchedAt": 1788642919951,
+      "history": [
+        {
+          "t": 1788642919951,
+          "s": 47626
+        }
+      ]
+    },
+    "webllm": {
+      "stars": 18993,
+      "forks": 1374,
+      "openIssues": 149,
+      "pushedAt": "2026-09-03T03:15:40Z",
+      "fetchedAt": 1788642920041,
+      "history": [
+        {
+          "t": 1788642920041,
+          "s": 18993
+        }
+      ]
+    },
+    "koboldcpp": {
+      "stars": 11618,
+      "forks": 758,
+      "openIssues": 508,
+      "pushedAt": "2026-09-05T14:11:15Z",
+      "fetchedAt": 1788642920161,
+      "history": [
+        {
+          "t": 1788642920161,
+          "s": 11618
+        }
+      ]
+    },
+    "ktransformers": {
+      "stars": 19468,
+      "forks": 1564,
+      "openIssues": 507,
+      "pushedAt": "2026-09-02T08:19:28Z",
+      "fetchedAt": 1788642920171,
+      "history": [
+        {
+          "t": 1788642920171,
+          "s": 19468
+        }
+      ]
+    },
+    "xinference": {
+      "stars": 9545,
+      "forks": 867,
+      "openIssues": 42,
+      "pushedAt": "2026-09-05T16:23:07Z",
+      "fetchedAt": 1788642920237,
+      "history": [
+        {
+          "t": 1788642920237,
+          "s": 9545
+        }
+      ]
+    },
+    "llamafile": {
+      "stars": 25879,
+      "forks": 1597,
+      "openIssues": 215,
+      "pushedAt": "2026-09-03T19:06:39Z",
+      "fetchedAt": 1788642920275,
+      "history": [
+        {
+          "t": 1788642920275,
+          "s": 25879
+        }
+      ]
+    },
+    "tgi": {
+      "stars": 10889,
+      "forks": 1284,
+      "openIssues": 324,
+      "pushedAt": "2026-03-21T11:34:22Z",
+      "fetchedAt": 1788642920384,
+      "history": [
+        {
+          "t": 1788642920384,
+          "s": 10889
+        }
+      ]
+    },
+    "open-webui": {
+      "stars": 151054,
+      "forks": 22077,
+      "openIssues": 286,
+      "pushedAt": "2026-09-05T03:34:34Z",
+      "fetchedAt": 1788642920396,
+      "history": [
+        {
+          "t": 1788642920396,
+          "s": 151054
+        }
+      ]
+    },
+    "anything-llm": {
+      "stars": 65654,
+      "forks": 7262,
+      "openIssues": 339,
+      "pushedAt": "2026-09-04T01:10:46Z",
+      "fetchedAt": 1788642920528,
+      "history": [
+        {
+          "t": 1788642920528,
+          "s": 65654
+        }
+      ]
+    },
+    "lobechat": {
+      "stars": 82249,
+      "forks": 15858,
+      "openIssues": 887,
+      "pushedAt": "2026-09-05T20:28:09Z",
+      "fetchedAt": 1788642920582,
+      "history": [
+        {
+          "t": 1788642920582,
+          "s": 82249
+        }
+      ]
+    },
+    "librechat": {
+      "stars": 42844,
+      "forks": 8872,
+      "openIssues": 739,
+      "pushedAt": "2026-09-05T20:20:36Z",
+      "fetchedAt": 1788642920618,
+      "history": [
+        {
+          "t": 1788642920618,
+          "s": 42844
+        }
+      ]
+    },
+    "jan": {
+      "stars": 44360,
+      "forks": 3010,
+      "openIssues": 509,
+      "pushedAt": "2026-09-04T09:20:44Z",
+      "fetchedAt": 1788642920621,
+      "history": [
+        {
+          "t": 1788642920621,
+          "s": 44360
+        }
+      ]
+    },
+    "chatbot-ui": {
+      "stars": 33342,
+      "forks": 9418,
+      "openIssues": 242,
+      "pushedAt": "2024-08-03T00:38:07Z",
+      "fetchedAt": 1788642920765,
+      "history": [
+        {
+          "t": 1788642920765,
+          "s": 33342
+        }
+      ]
+    },
+    "gpt4all": {
+      "stars": 77381,
+      "forks": 8291,
+      "openIssues": 771,
+      "pushedAt": "2025-05-27T20:05:19Z",
+      "fetchedAt": 1788642920765,
+      "history": [
+        {
+          "t": 1788642920765,
+          "s": 77381
+        }
+      ]
+    },
+    "big-agi": {
+      "stars": 7111,
+      "forks": 1596,
+      "openIssues": 165,
+      "pushedAt": "2026-09-04T02:04:29Z",
+      "fetchedAt": 1788642920822,
+      "history": [
+        {
+          "t": 1788642920822,
+          "s": 7111
+        }
+      ]
+    },
+    "sillytavern": {
+      "stars": 33043,
+      "forks": 6226,
+      "openIssues": 600,
+      "pushedAt": "2026-08-31T22:58:51Z",
+      "fetchedAt": 1788642920840,
+      "history": [
+        {
+          "t": 1788642920840,
+          "s": 33043
+        }
+      ]
+    },
+    "langchain": {
+      "stars": 145710,
+      "forks": 24332,
+      "openIssues": 453,
+      "pushedAt": "2026-09-05T19:25:34Z",
+      "fetchedAt": 1788642920997,
+      "history": [
+        {
+          "t": 1788642920997,
+          "s": 145710
+        }
+      ]
+    },
+    "langgraph": {
+      "stars": 41101,
+      "forks": 6944,
+      "openIssues": 750,
+      "pushedAt": "2026-09-03T15:23:28Z",
+      "fetchedAt": 1788642921045,
+      "history": [
+        {
+          "t": 1788642921045,
+          "s": 41101
+        }
+      ]
+    },
+    "crewai": {
+      "stars": 58120,
+      "forks": 8352,
+      "openIssues": 741,
+      "pushedAt": "2026-09-04T20:26:09Z",
+      "fetchedAt": 1788642921059,
+      "history": [
+        {
+          "t": 1788642921059,
+          "s": 58120
+        }
+      ]
+    },
+    "autogen": {
+      "stars": 60821,
+      "forks": 9182,
+      "openIssues": 1048,
+      "pushedAt": "2026-04-15T11:59:09Z",
+      "fetchedAt": 1788642921068,
+      "history": [
+        {
+          "t": 1788642921068,
+          "s": 60821
+        }
+      ]
+    },
+    "agno": {
+      "stars": 42065,
+      "forks": 5876,
+      "openIssues": 1346,
+      "pushedAt": "2026-09-05T17:51:07Z",
+      "fetchedAt": 1788642921198,
+      "history": [
+        {
+          "t": 1788642921198,
+          "s": 42065
+        }
+      ]
+    },
+    "mastra": {
+      "stars": 27725,
+      "forks": 2736,
+      "openIssues": 528,
+      "pushedAt": "2026-09-05T19:13:15Z",
+      "fetchedAt": 1788642921290,
+      "history": [
+        {
+          "t": 1788642921290,
+          "s": 27725
+        }
+      ]
+    },
+    "pydantic-ai": {
+      "stars": 19741,
+      "forks": 2653,
+      "openIssues": 819,
+      "pushedAt": "2026-09-05T12:38:31Z",
+      "fetchedAt": 1788642921296,
+      "history": [
+        {
+          "t": 1788642921296,
+          "s": 19741
+        }
+      ]
+    },
+    "openai-agents": {
+      "stars": 29211,
+      "forks": 4663,
+      "openIssues": 68,
+      "pushedAt": "2026-09-05T11:16:53Z",
+      "fetchedAt": 1788642921312,
+      "history": [
+        {
+          "t": 1788642921312,
+          "s": 29211
+        }
+      ]
+    },
+    "semantic-kernel": {
+      "stars": 28537,
+      "forks": 4757,
+      "openIssues": 282,
+      "pushedAt": "2026-09-04T10:30:54Z",
+      "fetchedAt": 1788642921489,
+      "history": [
+        {
+          "t": 1788642921489,
+          "s": 28537
+        }
+      ]
+    },
+    "smolagents": {
+      "stars": 29170,
+      "forks": 2926,
+      "openIssues": 781,
+      "pushedAt": "2026-08-25T18:36:00Z",
+      "fetchedAt": 1788642921507,
+      "history": [
+        {
+          "t": 1788642921507,
+          "s": 29170
+        }
+      ]
+    },
+    "google-adk": {
+      "stars": 21419,
+      "forks": 3953,
+      "openIssues": 502,
+      "pushedAt": "2026-09-05T18:05:52Z",
+      "fetchedAt": 1788642921519,
+      "history": [
+        {
+          "t": 1788642921519,
+          "s": 21419
+        }
+      ]
+    },
+    "llamaindex": {
+      "stars": 52031,
+      "forks": 8084,
+      "openIssues": 705,
+      "pushedAt": "2026-09-05T04:39:33Z",
+      "fetchedAt": 1788642921537,
+      "history": [
+        {
+          "t": 1788642921537,
+          "s": 52031
+        }
+      ]
+    },
+    "haystack": {
+      "stars": 26426,
+      "forks": 3086,
+      "openIssues": 120,
+      "pushedAt": "2026-09-04T17:04:23Z",
+      "fetchedAt": 1788642921715,
+      "history": [
+        {
+          "t": 1788642921715,
+          "s": 26426
+        }
+      ]
+    },
+    "camel": {
+      "stars": 17671,
+      "forks": 2067,
+      "openIssues": 490,
+      "pushedAt": "2026-09-03T05:28:46Z",
+      "fetchedAt": 1788642921723,
+      "history": [
+        {
+          "t": 1788642921723,
+          "s": 17671
+        }
+      ]
+    },
+    "ms-agent-framework": {
+      "stars": 13345,
+      "forks": 2265,
+      "openIssues": 639,
+      "pushedAt": "2026-09-05T00:43:09Z",
+      "fetchedAt": 1788642921785,
+      "history": [
+        {
+          "t": 1788642921785,
+          "s": 13345
+        }
+      ]
+    },
+    "metagpt": {
+      "stars": 70229,
+      "forks": 8928,
+      "openIssues": 132,
+      "pushedAt": "2026-01-21T10:12:33Z",
+      "fetchedAt": 1788642921880,
+      "history": [
+        {
+          "t": 1788642921880,
+          "s": 70229
+        }
+      ]
+    },
+    "gemini-cli": {
+      "stars": 106822,
+      "forks": 14531,
+      "openIssues": 848,
+      "pushedAt": "2026-09-05T01:26:55Z",
+      "fetchedAt": 1788642921948,
+      "history": [
+        {
+          "t": 1788642921948,
+          "s": 106822
+        }
+      ]
+    },
+    "codex-cli": {
+      "stars": 121738,
+      "forks": 18673,
+      "openIssues": 15447,
+      "pushedAt": "2026-09-05T21:00:20Z",
+      "fetchedAt": 1788642922052,
+      "history": [
+        {
+          "t": 1788642922052,
+          "s": 121738
+        }
+      ]
+    },
+    "opencode": {
+      "stars": 204628,
+      "forks": 26697,
+      "openIssues": 5756,
+      "pushedAt": "2026-09-05T21:00:43Z",
+      "fetchedAt": 1788642922065,
+      "history": [
+        {
+          "t": 1788642922065,
+          "s": 204628
+        }
+      ]
+    },
+    "cline": {
+      "stars": 67521,
+      "forks": 7289,
+      "openIssues": 1250,
+      "pushedAt": "2026-09-05T08:37:20Z",
+      "fetchedAt": 1788642922100,
+      "history": [
+        {
+          "t": 1788642922100,
+          "s": 67521
+        }
+      ]
+    },
+    "aider": {
+      "stars": 48773,
+      "forks": 4921,
+      "openIssues": 1853,
+      "pushedAt": "2026-05-22T14:02:20Z",
+      "fetchedAt": 1788642922310,
+      "history": [
+        {
+          "t": 1788642922310,
+          "s": 48773
+        }
+      ]
+    },
+    "openhands": {
+      "stars": 86264,
+      "forks": 11317,
+      "openIssues": 663,
+      "pushedAt": "2026-09-05T20:17:44Z",
+      "fetchedAt": 1788642922329,
+      "history": [
+        {
+          "t": 1788642922329,
+          "s": 86264
+        }
+      ]
+    },
+    "tabby": {
+      "stars": 33861,
+      "forks": 1789,
+      "openIssues": 336,
+      "pushedAt": "2026-06-30T20:38:02Z",
+      "fetchedAt": 1788642922342,
+      "history": [
+        {
+          "t": 1788642922342,
+          "s": 33861
+        }
+      ]
+    },
+    "goose": {
+      "stars": 53940,
+      "forks": 6184,
+      "openIssues": 304,
+      "pushedAt": "2026-09-05T02:41:56Z",
+      "fetchedAt": 1788642922428,
+      "history": [
+        {
+          "t": 1788642922428,
+          "s": 53940
+        }
+      ]
+    },
+    "qwen-code": {
+      "stars": 27675,
+      "forks": 2994,
+      "openIssues": 1316,
+      "pushedAt": "2026-09-05T21:08:09Z",
+      "fetchedAt": 1788642922545,
+      "history": [
+        {
+          "t": 1788642922545,
+          "s": 27675
+        }
+      ]
+    },
+    "continue": {
+      "stars": 35778,
+      "forks": 5334,
+      "openIssues": 944,
+      "pushedAt": "2026-09-04T21:16:22Z",
+      "fetchedAt": 1788642922593,
+      "history": [
+        {
+          "t": 1788642922593,
+          "s": 35778
+        }
+      ]
+    },
+    "zed": {
+      "stars": 89807,
+      "forks": 10470,
+      "openIssues": 3200,
+      "pushedAt": "2026-09-05T16:13:43Z",
+      "fetchedAt": 1788642922676,
+      "history": [
+        {
+          "t": 1788642922676,
+          "s": 89807
+        }
+      ]
+    },
+    "kilo-code": {
+      "stars": 27186,
+      "forks": 3122,
+      "openIssues": 562,
+      "pushedAt": "2026-09-05T20:18:21Z",
+      "fetchedAt": 1788642922699,
+      "history": [
+        {
+          "t": 1788642922699,
+          "s": 27186
+        }
+      ]
+    },
+    "crush": {
+      "stars": 27923,
+      "forks": 2226,
+      "openIssues": 692,
+      "pushedAt": "2026-09-05T01:09:25Z",
+      "fetchedAt": 1788642922822,
+      "history": [
+        {
+          "t": 1788642922822,
+          "s": 27923
+        }
+      ]
+    },
+    "void": {
+      "stars": 28813,
+      "forks": 2645,
+      "openIssues": 307,
+      "pushedAt": "2026-06-02T22:03:55Z",
+      "fetchedAt": 1788642922822,
+      "history": [
+        {
+          "t": 1788642922822,
+          "s": 28813
+        }
+      ]
+    },
+    "openclaw": {
+      "stars": 388971,
+      "forks": 81722,
+      "openIssues": 6257,
+      "pushedAt": "2026-09-05T21:15:13Z",
+      "fetchedAt": 1788642922892,
+      "history": [
+        {
+          "t": 1788642922892,
+          "s": 388971
+        }
+      ]
+    },
+    "khoj": {
+      "stars": 37138,
+      "forks": 2458,
+      "openIssues": 146,
+      "pushedAt": "2026-08-02T01:55:40Z",
+      "fetchedAt": 1788642922934,
+      "history": [
+        {
+          "t": 1788642922934,
+          "s": 37138
+        }
+      ]
+    },
+    "suna": {
+      "stars": 20175,
+      "forks": 3436,
+      "openIssues": 61,
+      "pushedAt": "2026-09-05T20:38:21Z",
+      "fetchedAt": 1788642923039,
+      "history": [
+        {
+          "t": 1788642923039,
+          "s": 20175
+        }
+      ]
+    },
+    "leon": {
+      "stars": 17487,
+      "forks": 1468,
+      "openIssues": 111,
+      "pushedAt": "2026-09-05T21:09:15Z",
+      "fetchedAt": 1788642923062,
+      "history": [
+        {
+          "t": 1788642923062,
+          "s": 17487
+        }
+      ]
+    },
+    "browser-use": {
+      "stars": 112388,
+      "forks": 12371,
+      "openIssues": 391,
+      "pushedAt": "2026-09-05T17:28:29Z",
+      "fetchedAt": 1788642923169,
+      "history": [
+        {
+          "t": 1788642923169,
+          "s": 112388
+        }
+      ]
+    },
+    "agent-zero": {
+      "stars": 19096,
+      "forks": 3782,
+      "openIssues": 146,
+      "pushedAt": "2026-09-03T22:34:34Z",
+      "fetchedAt": 1788642923269,
+      "history": [
+        {
+          "t": 1788642923269,
+          "s": 19096
+        }
+      ]
+    },
+    "playwright-mcp": {
+      "stars": 36832,
+      "forks": 3101,
+      "openIssues": 6,
+      "pushedAt": "2026-09-04T22:45:53Z",
+      "fetchedAt": 1788642923271,
+      "history": [
+        {
+          "t": 1788642923271,
+          "s": 36832
+        }
+      ]
+    },
+    "ui-tars": {
+      "stars": 38863,
+      "forks": 3932,
+      "openIssues": 433,
+      "pushedAt": "2026-08-05T02:48:59Z",
+      "fetchedAt": 1788642923291,
+      "history": [
+        {
+          "t": 1788642923291,
+          "s": 38863
+        }
+      ]
+    },
+    "skyvern": {
+      "stars": 22936,
+      "forks": 2153,
+      "openIssues": 220,
+      "pushedAt": "2026-09-05T00:45:11Z",
+      "fetchedAt": 1788642923401,
+      "history": [
+        {
+          "t": 1788642923401,
+          "s": 22936
+        }
+      ]
+    },
+    "steel": {
+      "stars": 7592,
+      "forks": 972,
+      "openIssues": 67,
+      "pushedAt": "2026-09-03T01:31:32Z",
+      "fetchedAt": 1788642923467,
+      "history": [
+        {
+          "t": 1788642923467,
+          "s": 7592
+        }
+      ]
+    },
+    "stagehand": {
+      "stars": 24152,
+      "forks": 1665,
+      "openIssues": 348,
+      "pushedAt": "2026-09-04T22:10:49Z",
+      "fetchedAt": 1788642923479,
+      "history": [
+        {
+          "t": 1788642923479,
+          "s": 24152
+        }
+      ]
+    },
+    "ragflow": {
+      "stars": 90102,
+      "forks": 10626,
+      "openIssues": 1596,
+      "pushedAt": "2026-09-05T13:11:40Z",
+      "fetchedAt": 1788642923505,
+      "history": [
+        {
+          "t": 1788642923505,
+          "s": 90102
+        }
+      ]
+    },
+    "mem0": {
+      "stars": 64744,
+      "forks": 7582,
+      "openIssues": 729,
+      "pushedAt": "2026-09-04T16:32:10Z",
+      "fetchedAt": 1788642923639,
+      "history": [
+        {
+          "t": 1788642923639,
+          "s": 64744
+        }
+      ]
+    },
+    "kotaemon": {
+      "stars": 25731,
+      "forks": 2154,
+      "openIssues": 246,
+      "pushedAt": "2026-07-14T16:53:59Z",
+      "fetchedAt": 1788642923709,
+      "history": [
+        {
+          "t": 1788642923709,
+          "s": 25731
+        }
+      ]
+    },
+    "graphrag": {
+      "stars": 35851,
+      "forks": 3768,
+      "openIssues": 45,
+      "pushedAt": "2026-09-02T01:41:10Z",
+      "fetchedAt": 1788642923741,
+      "history": [
+        {
+          "t": 1788642923741,
+          "s": 35851
+        }
+      ]
+    },
+    "lightrag": {
+      "stars": 39418,
+      "forks": 5548,
+      "openIssues": 222,
+      "pushedAt": "2026-09-05T14:01:28Z",
+      "fetchedAt": 1788642923834,
+      "history": [
+        {
+          "t": 1788642923834,
+          "s": 39418
+        }
+      ]
+    },
+    "quivr": {
+      "stars": 39496,
+      "forks": 3732,
+      "openIssues": 35,
+      "pushedAt": "2026-08-31T18:02:45Z",
+      "fetchedAt": 1788642923873,
+      "history": [
+        {
+          "t": 1788642923873,
+          "s": 39496
+        }
+      ]
+    },
+    "onyx": {
+      "stars": 31935,
+      "forks": 4401,
+      "openIssues": 433,
+      "pushedAt": "2026-09-05T20:50:32Z",
+      "fetchedAt": 1788642923929,
+      "history": [
+        {
+          "t": 1788642923929,
+          "s": 31935
+        }
+      ]
+    },
+    "letta": {
+      "stars": 24624,
+      "forks": 2612,
+      "openIssues": 39,
+      "pushedAt": "2026-08-23T19:05:43Z",
+      "fetchedAt": 1788642923979,
+      "history": [
+        {
+          "t": 1788642923979,
+          "s": 24624
+        }
+      ]
+    },
+    "txtai": {
+      "stars": 12927,
+      "forks": 889,
+      "openIssues": 7,
+      "pushedAt": "2026-09-04T20:54:58Z",
+      "fetchedAt": 1788642924050,
+      "history": [
+        {
+          "t": 1788642924050,
+          "s": 12927
+        }
+      ]
+    },
+    "cognee": {
+      "stars": 30494,
+      "forks": 3003,
+      "openIssues": 480,
+      "pushedAt": "2026-09-05T20:42:47Z",
+      "fetchedAt": 1788642924090,
+      "history": [
+        {
+          "t": 1788642924090,
+          "s": 30494
+        }
+      ]
+    },
+    "zep": {
+      "stars": 4890,
+      "forks": 650,
+      "openIssues": 32,
+      "pushedAt": "2026-09-03T05:49:08Z",
+      "fetchedAt": 1788642924154,
+      "history": [
+        {
+          "t": 1788642924154,
+          "s": 4890
+        }
+      ]
+    },
+    "faiss": {
+      "stars": 40857,
+      "forks": 4515,
+      "openIssues": 301,
+      "pushedAt": "2026-09-05T16:57:32Z",
+      "fetchedAt": 1788642924204,
+      "history": [
+        {
+          "t": 1788642924204,
+          "s": 40857
+        }
+      ]
+    },
+    "milvus": {
+      "stars": 45984,
+      "forks": 4229,
+      "openIssues": 1325,
+      "pushedAt": "2026-09-05T01:01:35Z",
+      "fetchedAt": 1788642924255,
+      "history": [
+        {
+          "t": 1788642924255,
+          "s": 45984
+        }
+      ]
+    },
+    "qdrant": {
+      "stars": 34400,
+      "forks": 2642,
+      "openIssues": 703,
+      "pushedAt": "2026-09-05T17:34:22Z",
+      "fetchedAt": 1788642924344,
+      "history": [
+        {
+          "t": 1788642924344,
+          "s": 34400
+        }
+      ]
+    },
+    "chroma": {
+      "stars": 29230,
+      "forks": 2486,
+      "openIssues": 827,
+      "pushedAt": "2026-09-04T22:32:14Z",
+      "fetchedAt": 1788642924371,
+      "history": [
+        {
+          "t": 1788642924371,
+          "s": 29230
+        }
+      ]
+    },
+    "pgvector": {
+      "stars": 22922,
+      "forks": 1308,
+      "openIssues": 14,
+      "pushedAt": "2026-08-20T03:47:50Z",
+      "fetchedAt": 1788642924423,
+      "history": [
+        {
+          "t": 1788642924423,
+          "s": 22922
+        }
+      ]
+    },
+    "weaviate": {
+      "stars": 16785,
+      "forks": 1393,
+      "openIssues": 718,
+      "pushedAt": "2026-09-05T08:17:11Z",
+      "fetchedAt": 1788642924493,
+      "history": [
+        {
+          "t": 1788642924493,
+          "s": 16785
+        }
+      ]
+    },
+    "lancedb": {
+      "stars": 11358,
+      "forks": 1044,
+      "openIssues": 616,
+      "pushedAt": "2026-09-05T15:00:17Z",
+      "fetchedAt": 1788642924581,
+      "history": [
+        {
+          "t": 1788642924581,
+          "s": 11358
+        }
+      ]
+    },
+    "vespa": {
+      "stars": 7076,
+      "forks": 738,
+      "openIssues": 254,
+      "pushedAt": "2026-09-05T19:05:16Z",
+      "fetchedAt": 1788642924588,
+      "history": [
+        {
+          "t": 1788642924588,
+          "s": 7076
+        }
+      ]
+    },
+    "marqo": {
+      "stars": 5032,
+      "forks": 241,
+      "openIssues": 195,
+      "pushedAt": "2026-09-03T04:15:26Z",
+      "fetchedAt": 1788642924654,
+      "history": [
+        {
+          "t": 1788642924654,
+          "s": 5032
+        }
+      ]
+    },
+    "pgvectorscale": {
+      "stars": 3119,
+      "forks": 153,
+      "openIssues": 15,
+      "pushedAt": "2026-09-04T12:40:30Z",
+      "fetchedAt": 1788642924698,
+      "history": [
+        {
+          "t": 1788642924698,
+          "s": 3119
+        }
+      ]
+    },
+    "vald": {
+      "stars": 1724,
+      "forks": 95,
+      "openIssues": 147,
+      "pushedAt": "2026-09-02T11:46:33Z",
+      "fetchedAt": 1788642924806,
+      "history": [
+        {
+          "t": 1788642924806,
+          "s": 1724
+        }
+      ]
+    },
+    "n8n": {
+      "stars": 203468,
+      "forks": 60568,
+      "openIssues": 1165,
+      "pushedAt": "2026-09-05T19:27:03Z",
+      "fetchedAt": 1788642924821,
+      "history": [
+        {
+          "t": 1788642924821,
+          "s": 203468
+        }
+      ]
+    },
+    "langflow": {
+      "stars": 154294,
+      "forks": 10026,
+      "openIssues": 1053,
+      "pushedAt": "2026-09-05T20:26:45Z",
+      "fetchedAt": 1788642924917,
+      "history": [
+        {
+          "t": 1788642924917,
+          "s": 154294
+        }
+      ]
+    },
+    "dify": {
+      "stars": 154528,
+      "forks": 24423,
+      "openIssues": 1044,
+      "pushedAt": "2026-09-05T14:52:04Z",
+      "fetchedAt": 1788642924926,
+      "history": [
+        {
+          "t": 1788642924926,
+          "s": 154528
+        }
+      ]
+    },
+    "flowise": {
+      "stars": 55428,
+      "forks": 24981,
+      "openIssues": 1046,
+      "pushedAt": "2026-08-13T12:38:19Z",
+      "fetchedAt": 1788642925044,
+      "history": [
+        {
+          "t": 1788642925044,
+          "s": 55428
+        }
+      ]
+    },
+    "node-red": {
+      "stars": 23620,
+      "forks": 3888,
+      "openIssues": 324,
+      "pushedAt": "2026-09-01T22:31:50Z",
+      "fetchedAt": 1788642925051,
+      "history": [
+        {
+          "t": 1788642925051,
+          "s": 23620
+        }
+      ]
+    },
+    "activepieces": {
+      "stars": 24278,
+      "forks": 4144,
+      "openIssues": 533,
+      "pushedAt": "2026-09-05T19:17:01Z",
+      "fetchedAt": 1788642925121,
+      "history": [
+        {
+          "t": 1788642925121,
+          "s": 24278
+        }
+      ]
+    },
+    "sim": {
+      "stars": 29550,
+      "forks": 3807,
+      "openIssues": 316,
+      "pushedAt": "2026-09-05T21:15:00Z",
+      "fetchedAt": 1788642925175,
+      "history": [
+        {
+          "t": 1788642925175,
+          "s": 29550
+        }
+      ]
+    },
+    "a1111": {
+      "stars": 164824,
+      "forks": 30555,
+      "openIssues": 2504,
+      "pushedAt": "2026-03-02T07:00:53Z",
+      "fetchedAt": 1788642925246,
+      "history": [
+        {
+          "t": 1788642925246,
+          "s": 164824
+        }
+      ]
+    },
+    "windmill": {
+      "stars": 17785,
+      "forks": 1089,
+      "openIssues": 850,
+      "pushedAt": "2026-09-05T19:47:23Z",
+      "fetchedAt": 1788642925249,
+      "history": [
+        {
+          "t": 1788642925249,
+          "s": 17785
+        }
+      ]
+    },
+    "fooocus": {
+      "stars": 52831,
+      "forks": 8603,
+      "openIssues": 314,
+      "pushedAt": "2025-12-01T19:17:07Z",
+      "fetchedAt": 1788642925366,
+      "history": [
+        {
+          "t": 1788642925366,
+          "s": 52831
+        }
+      ]
+    },
+    "diffusers": {
+      "stars": 34449,
+      "forks": 7302,
+      "openIssues": 1404,
+      "pushedAt": "2026-09-05T06:16:54Z",
+      "fetchedAt": 1788642925461,
+      "history": [
+        {
+          "t": 1788642925461,
+          "s": 34449
+        }
+      ]
+    },
+    "comfyui": {
+      "stars": 131642,
+      "forks": 15519,
+      "openIssues": 4819,
+      "pushedAt": "2026-09-05T21:12:52Z",
+      "fetchedAt": 1788642925505,
+      "history": [
+        {
+          "t": 1788642925505,
+          "s": 131642
+        }
+      ]
+    },
+    "flux": {
+      "stars": 25941,
+      "forks": 1914,
+      "openIssues": 216,
+      "pushedAt": "2025-07-31T13:58:55Z",
+      "fetchedAt": 1788642925521,
+      "history": [
+        {
+          "t": 1788642925521,
+          "s": 25941
+        }
+      ]
+    },
+    "invokeai": {
+      "stars": 28145,
+      "forks": 2970,
+      "openIssues": 379,
+      "pushedAt": "2026-09-04T00:18:00Z",
+      "fetchedAt": 1788642925604,
+      "history": [
+        {
+          "t": 1788642925604,
+          "s": 28145
+        }
+      ]
+    },
+    "kohya": {
+      "stars": 12569,
+      "forks": 1607,
+      "openIssues": 530,
+      "pushedAt": "2026-08-01T05:43:00Z",
+      "fetchedAt": 1788642925649,
+      "history": [
+        {
+          "t": 1788642925649,
+          "s": 12569
+        }
+      ]
+    },
+    "ip-adapter": {
+      "stars": 6683,
+      "forks": 427,
+      "openIssues": 301,
+      "pushedAt": "2024-06-28T02:47:03Z",
+      "fetchedAt": 1788642925682,
+      "history": [
+        {
+          "t": 1788642925682,
+          "s": 6683
+        }
+      ]
+    },
+    "swarmui": {
+      "stars": 4533,
+      "forks": 458,
+      "openIssues": 148,
+      "pushedAt": "2026-09-05T20:43:19Z",
+      "fetchedAt": 1788642925819,
+      "history": [
+        {
+          "t": 1788642925819,
+          "s": 4533
+        }
+      ]
+    },
+    "wan22": {
+      "stars": 17407,
+      "forks": 2226,
+      "openIssues": 297,
+      "pushedAt": "2026-03-17T10:48:41Z",
+      "fetchedAt": 1788642925892,
+      "history": [
+        {
+          "t": 1788642925892,
+          "s": 17407
+        }
+      ]
+    },
+    "wan21": {
+      "stars": 16935,
+      "forks": 3508,
+      "openIssues": 380,
+      "pushedAt": "2026-03-05T09:38:07Z",
+      "fetchedAt": 1788642925897,
+      "history": [
+        {
+          "t": 1788642925897,
+          "s": 16935
+        }
+      ]
+    },
+    "open-sora": {
+      "stars": 29350,
+      "forks": 3028,
+      "openIssues": 14,
+      "pushedAt": "2026-04-09T01:52:40Z",
+      "fetchedAt": 1788642926038,
+      "history": [
+        {
+          "t": 1788642926038,
+          "s": 29350
+        }
+      ]
+    },
+    "sdnext": {
+      "stars": 7333,
+      "forks": 580,
+      "openIssues": 59,
+      "pushedAt": "2026-09-05T21:00:38Z",
+      "fetchedAt": 1788642926074,
+      "history": [
+        {
+          "t": 1788642926074,
+          "s": 7333
+        }
+      ]
+    },
+    "hunyuanvideo": {
+      "stars": 12498,
+      "forks": 1321,
+      "openIssues": 184,
+      "pushedAt": "2026-06-29T09:33:50Z",
+      "fetchedAt": 1788642926126,
+      "history": [
+        {
+          "t": 1788642926126,
+          "s": 12498
+        }
+      ]
+    },
+    "animatediff": {
+      "stars": 12238,
+      "forks": 1095,
+      "openIssues": 319,
+      "pushedAt": "2024-07-31T01:14:15Z",
+      "fetchedAt": 1788642926226,
+      "history": [
+        {
+          "t": 1788642926226,
+          "s": 12238
+        }
+      ]
+    },
+    "cogvideox": {
+      "stars": 13001,
+      "forks": 1339,
+      "openIssues": 118,
+      "pushedAt": "2025-11-04T11:19:04Z",
+      "fetchedAt": 1788642926234,
+      "history": [
+        {
+          "t": 1788642926234,
+          "s": 13001
+        }
+      ]
+    },
+    "diffsynth": {
+      "stars": 13057,
+      "forks": 1292,
+      "openIssues": 568,
+      "pushedAt": "2026-09-01T10:52:45Z",
+      "fetchedAt": 1788642926299,
+      "history": [
+        {
+          "t": 1788642926299,
+          "s": 13057
+        }
+      ]
+    },
+    "ltx-video": {
+      "stars": 10933,
+      "forks": 1126,
+      "openIssues": 100,
+      "pushedAt": "2026-01-05T22:37:07Z",
+      "fetchedAt": 1788642926345,
+      "history": [
+        {
+          "t": 1788642926345,
+          "s": 10933
+        }
+      ]
+    },
+    "whisper": {
+      "stars": 108523,
+      "forks": 13149,
+      "openIssues": 145,
+      "pushedAt": "2026-08-31T17:19:19Z",
+      "fetchedAt": 1788642926457,
+      "history": [
+        {
+          "t": 1788642926457,
+          "s": 108523
+        }
+      ]
+    },
+    "mochi": {
+      "stars": 3721,
+      "forks": 490,
+      "openIssues": 59,
+      "pushedAt": "2025-11-14T01:17:56Z",
+      "fetchedAt": 1788642926479,
+      "history": [
+        {
+          "t": 1788642926479,
+          "s": 3721
+        }
+      ]
+    },
+    "whispercpp": {
+      "stars": 53465,
+      "forks": 6133,
+      "openIssues": 1243,
+      "pushedAt": "2026-09-04T15:36:11Z",
+      "fetchedAt": 1788642926517,
+      "history": [
+        {
+          "t": 1788642926517,
+          "s": 53465
+        }
+      ]
+    },
+    "bark": {
+      "stars": 39259,
+      "forks": 4665,
+      "openIssues": 268,
+      "pushedAt": "2024-08-19T07:45:36Z",
+      "fetchedAt": 1788642926551,
+      "history": [
+        {
+          "t": 1788642926551,
+          "s": 39259
+        }
+      ]
+    },
+    "coqui-tts": {
+      "stars": 45985,
+      "forks": 6146,
+      "openIssues": 2,
+      "pushedAt": "2024-08-16T12:07:14Z",
+      "fetchedAt": 1788642926656,
+      "history": [
+        {
+          "t": 1788642926656,
+          "s": 45985
+        }
+      ]
+    },
+    "openvoice": {
+      "stars": 37454,
+      "forks": 4193,
+      "openIssues": 308,
+      "pushedAt": "2025-04-19T16:00:00Z",
+      "fetchedAt": 1788642926700,
+      "history": [
+        {
+          "t": 1788642926700,
+          "s": 37454
+        }
+      ]
+    },
+    "chatterbox": {
+      "stars": 26287,
+      "forks": 3539,
+      "openIssues": 360,
+      "pushedAt": "2026-07-21T12:27:05Z",
+      "fetchedAt": 1788642926721,
+      "history": [
+        {
+          "t": 1788642926721,
+          "s": 26287
+        }
+      ]
+    },
+    "faster-whisper": {
+      "stars": 25254,
+      "forks": 2054,
+      "openIssues": 320,
+      "pushedAt": "2025-11-19T14:40:46Z",
+      "fetchedAt": 1788642926767,
+      "history": [
+        {
+          "t": 1788642926767,
+          "s": 25254
+        }
+      ]
+    },
+    "fish-speech": {
+      "stars": 32564,
+      "forks": 2808,
+      "openIssues": 14,
+      "pushedAt": "2026-08-22T08:55:50Z",
+      "fetchedAt": 1788642926902,
+      "history": [
+        {
+          "t": 1788642926902,
+          "s": 32564
+        }
+      ]
+    },
+    "dia": {
+      "stars": 19389,
+      "forks": 1688,
+      "openIssues": 91,
+      "pushedAt": "2025-11-19T21:11:55Z",
+      "fetchedAt": 1788642926926,
+      "history": [
+        {
+          "t": 1788642926926,
+          "s": 19389
+        }
+      ]
+    },
+    "audiocraft": {
+      "stars": 23609,
+      "forks": 2696,
+      "openIssues": 396,
+      "pushedAt": "2026-03-03T21:50:32Z",
+      "fetchedAt": 1788642926971,
+      "history": [
+        {
+          "t": 1788642926971,
+          "s": 23609
+        }
+      ]
+    },
+    "f5-tts": {
+      "stars": 15200,
+      "forks": 2207,
+      "openIssues": 62,
+      "pushedAt": "2026-07-23T09:20:37Z",
+      "fetchedAt": 1788642927081,
+      "history": [
+        {
+          "t": 1788642927081,
+          "s": 15200
+        }
+      ]
+    },
+    "cosyvoice": {
+      "stars": 23469,
+      "forks": 2672,
+      "openIssues": 701,
+      "pushedAt": "2026-05-25T18:15:40Z",
+      "fetchedAt": 1788642927144,
+      "history": [
+        {
+          "t": 1788642927144,
+          "s": 23469
+        }
+      ]
+    },
+    "kokoro": {
+      "stars": 8704,
+      "forks": 952,
+      "openIssues": 208,
+      "pushedAt": "2025-08-06T22:28:53Z",
+      "fetchedAt": 1788642927152,
+      "history": [
+        {
+          "t": 1788642927152,
+          "s": 8704
+        }
+      ]
+    },
+    "funasr": {
+      "stars": 20185,
+      "forks": 2015,
+      "openIssues": 21,
+      "pushedAt": "2026-09-05T14:15:42Z",
+      "fetchedAt": 1788642927152,
+      "history": [
+        {
+          "t": 1788642927152,
+          "s": 20185
+        }
+      ]
+    },
+    "orpheus": {
+      "stars": 6323,
+      "forks": 535,
+      "openIssues": 126,
+      "pushedAt": "2025-12-05T19:01:02Z",
+      "fetchedAt": 1788642927350,
+      "history": [
+        {
+          "t": 1788642927350,
+          "s": 6323
+        }
+      ]
+    },
+    "deepspeed": {
+      "stars": 43064,
+      "forks": 4964,
+      "openIssues": 1364,
+      "pushedAt": "2026-09-05T09:30:18Z",
+      "fetchedAt": 1788642927368,
+      "history": [
+        {
+          "t": 1788642927368,
+          "s": 43064
+        }
+      ]
+    },
+    "unsloth": {
+      "stars": 75672,
+      "forks": 6877,
+      "openIssues": 1439,
+      "pushedAt": "2026-09-05T21:06:58Z",
+      "fetchedAt": 1788642927415,
+      "history": [
+        {
+          "t": 1788642927415,
+          "s": 75672
+        }
+      ]
+    },
+    "llama-factory": {
+      "stars": 74590,
+      "forks": 9140,
+      "openIssues": 1144,
+      "pushedAt": "2026-09-04T08:15:24Z",
+      "fetchedAt": 1788642927455,
+      "history": [
+        {
+          "t": 1788642927455,
+          "s": 74590
+        }
+      ]
+    },
+    "peft": {
+      "stars": 21635,
+      "forks": 2482,
+      "openIssues": 89,
+      "pushedAt": "2026-09-04T14:20:13Z",
+      "fetchedAt": 1788642927566,
+      "history": [
+        {
+          "t": 1788642927566,
+          "s": 21635
+        }
+      ]
+    },
+    "trl": {
+      "stars": 19227,
+      "forks": 2963,
+      "openIssues": 330,
+      "pushedAt": "2026-09-05T14:47:17Z",
+      "fetchedAt": 1788642927649,
+      "history": [
+        {
+          "t": 1788642927649,
+          "s": 19227
+        }
+      ]
+    },
+    "megatron": {
+      "stars": 17750,
+      "forks": 4456,
+      "openIssues": 1252,
+      "pushedAt": "2026-09-05T20:23:41Z",
+      "fetchedAt": 1788642927684,
+      "history": [
+        {
+          "t": 1788642927684,
+          "s": 17750
+        }
+      ]
+    },
+    "axolotl": {
+      "stars": 12440,
+      "forks": 1423,
+      "openIssues": 250,
+      "pushedAt": "2026-09-04T13:14:58Z",
+      "fetchedAt": 1788642927789,
+      "history": [
+        {
+          "t": 1788642927789,
+          "s": 12440
+        }
+      ]
+    },
+    "nemo": {
+      "stars": 18391,
+      "forks": 3604,
+      "openIssues": 303,
+      "pushedAt": "2026-09-05T15:35:13Z",
+      "fetchedAt": 1788642927805,
+      "history": [
+        {
+          "t": 1788642927805,
+          "s": 18391
+        }
+      ]
+    },
+    "ms-swift": {
+      "stars": 15520,
+      "forks": 1658,
+      "openIssues": 573,
+      "pushedAt": "2026-09-05T06:58:18Z",
+      "fetchedAt": 1788642927883,
+      "history": [
+        {
+          "t": 1788642927883,
+          "s": 15520
+        }
+      ]
+    },
+    "tensorflow": {
+      "stars": 198857,
+      "forks": 76264,
+      "openIssues": 3065,
+      "pushedAt": "2026-09-05T21:11:14Z",
+      "fetchedAt": 1788642928007,
+      "history": [
+        {
+          "t": 1788642928007,
+          "s": 198857
+        }
+      ]
+    },
+    "transformers": {
+      "stars": 164829,
+      "forks": 34454,
+      "openIssues": 2392,
+      "pushedAt": "2026-09-05T17:04:27Z",
+      "fetchedAt": 1788642928024,
+      "history": [
+        {
+          "t": 1788642928024,
+          "s": 164829
+        }
+      ]
+    },
+    "torchtune": {
+      "stars": 5805,
+      "forks": 752,
+      "openIssues": 460,
+      "pushedAt": "2026-09-05T11:38:28Z",
+      "fetchedAt": 1788642928057,
+      "history": [
+        {
+          "t": 1788642928057,
+          "s": 5805
+        }
+      ]
+    },
+    "pytorch": {
+      "stars": 102774,
+      "forks": 29115,
+      "openIssues": 17545,
+      "pushedAt": "2026-09-05T21:14:59Z",
+      "fetchedAt": 1788642928129,
+      "history": [
+        {
+          "t": 1788642928129,
+          "s": 102774
+        }
+      ]
+    },
+    "keras": {
+      "stars": 64280,
+      "forks": 19774,
+      "openIssues": 208,
+      "pushedAt": "2026-09-05T05:37:50Z",
+      "fetchedAt": 1788642928221,
+      "history": [
+        {
+          "t": 1788642928221,
+          "s": 64280
+        }
+      ]
+    },
+    "jax": {
+      "stars": 36256,
+      "forks": 3759,
+      "openIssues": 2516,
+      "pushedAt": "2026-09-05T20:25:15Z",
+      "fetchedAt": 1788642928265,
+      "history": [
+        {
+          "t": 1788642928265,
+          "s": 36256
+        }
+      ]
+    },
+    "tinygrad": {
+      "stars": 33553,
+      "forks": 4308,
+      "openIssues": 184,
+      "pushedAt": "2026-09-05T20:34:12Z",
+      "fetchedAt": 1788642928282,
+      "history": [
+        {
+          "t": 1788642928282,
+          "s": 33553
+        }
+      ]
+    },
+    "mlx": {
+      "stars": 28311,
+      "forks": 2227,
+      "openIssues": 135,
+      "pushedAt": "2026-09-05T09:23:22Z",
+      "fetchedAt": 1788642928357,
+      "history": [
+        {
+          "t": 1788642928357,
+          "s": 28311
+        }
+      ]
+    },
+    "candle": {
+      "stars": 20998,
+      "forks": 1743,
+      "openIssues": 892,
+      "pushedAt": "2026-09-04T17:02:15Z",
+      "fetchedAt": 1788642928483,
+      "history": [
+        {
+          "t": 1788642928483,
+          "s": 20998
+        }
+      ]
+    },
+    "onnxruntime": {
+      "stars": 21767,
+      "forks": 4209,
+      "openIssues": 1696,
+      "pushedAt": "2026-09-05T11:01:59Z",
+      "fetchedAt": 1788642928520,
+      "history": [
+        {
+          "t": 1788642928520,
+          "s": 21767
+        }
+      ]
+    },
+    "burn": {
+      "stars": 15872,
+      "forks": 1037,
+      "openIssues": 294,
+      "pushedAt": "2026-09-04T19:45:23Z",
+      "fetchedAt": 1788642928569,
+      "history": [
+        {
+          "t": 1788642928569,
+          "s": 15872
+        }
+      ]
+    },
+    "sentence-transformers": {
+      "stars": 19073,
+      "forks": 2873,
+      "openIssues": 1292,
+      "pushedAt": "2026-09-04T21:38:53Z",
+      "fetchedAt": 1788642928609,
+      "history": [
+        {
+          "t": 1788642928609,
+          "s": 19073
+        }
+      ]
+    },
+    "flagembedding": {
+      "stars": 12134,
+      "forks": 914,
+      "openIssues": 908,
+      "pushedAt": "2026-08-24T02:57:42Z",
+      "fetchedAt": 1788642928693,
+      "history": [
+        {
+          "t": 1788642928693,
+          "s": 12134
+        }
+      ]
+    },
+    "ray": {
+      "stars": 43711,
+      "forks": 8002,
+      "openIssues": 3569,
+      "pushedAt": "2026-09-05T19:48:37Z",
+      "fetchedAt": 1788642928736,
+      "history": [
+        {
+          "t": 1788642928736,
+          "s": 43711
+        }
+      ]
+    },
+    "litellm": {
+      "stars": 58113,
+      "forks": 11200,
+      "openIssues": 4894,
+      "pushedAt": "2026-09-05T21:06:59Z",
+      "fetchedAt": 1788642928816,
+      "history": [
+        {
+          "t": 1788642928816,
+          "s": 58113
+        }
+      ]
+    },
+    "mlflow": {
+      "stars": 27820,
+      "forks": 6255,
+      "openIssues": 2077,
+      "pushedAt": "2026-09-05T16:53:15Z",
+      "fetchedAt": 1788642928848,
+      "history": [
+        {
+          "t": 1788642928848,
+          "s": 27820
+        }
+      ]
+    },
+    "kubeflow": {
+      "stars": 15847,
+      "forks": 2695,
+      "openIssues": 0,
+      "pushedAt": "2026-08-21T18:25:34Z",
+      "fetchedAt": 1788642928958,
+      "history": [
+        {
+          "t": 1788642928958,
+          "s": 15847
+        }
+      ]
+    },
+    "metaflow": {
+      "stars": 10255,
+      "forks": 1346,
+      "openIssues": 492,
+      "pushedAt": "2026-09-02T21:17:39Z",
+      "fetchedAt": 1788642929052,
+      "history": [
+        {
+          "t": 1788642929052,
+          "s": 10255
+        }
+      ]
+    },
+    "dvc": {
+      "stars": 15861,
+      "forks": 1327,
+      "openIssues": 203,
+      "pushedAt": "2026-08-31T19:01:27Z",
+      "fetchedAt": 1788642929066,
+      "history": [
+        {
+          "t": 1788642929066,
+          "s": 15861
+        }
+      ]
+    },
+    "portkey": {
+      "stars": 12904,
+      "forks": 1285,
+      "openIssues": 258,
+      "pushedAt": "2026-05-25T13:54:51Z",
+      "fetchedAt": 1788642929082,
+      "history": [
+        {
+          "t": 1788642929082,
+          "s": 12904
+        }
+      ]
+    },
+    "skypilot": {
+      "stars": 10563,
+      "forks": 1220,
+      "openIssues": 392,
+      "pushedAt": "2026-09-05T16:25:57Z",
+      "fetchedAt": 1788642929176,
+      "history": [
+        {
+          "t": 1788642929176,
+          "s": 10563
+        }
+      ]
+    },
+    "zenml": {
+      "stars": 5576,
+      "forks": 653,
+      "openIssues": 163,
+      "pushedAt": "2026-09-05T10:35:08Z",
+      "fetchedAt": 1788642929275,
+      "history": [
+        {
+          "t": 1788642929275,
+          "s": 5576
+        }
+      ]
+    },
+    "clearml": {
+      "stars": 6858,
+      "forks": 798,
+      "openIssues": 527,
+      "pushedAt": "2026-09-02T21:12:28Z",
+      "fetchedAt": 1788642929291,
+      "history": [
+        {
+          "t": 1788642929291,
+          "s": 6858
+        }
+      ]
+    },
+    "bentoml": {
+      "stars": 8821,
+      "forks": 1021,
+      "openIssues": 215,
+      "pushedAt": "2026-08-28T09:19:45Z",
+      "fetchedAt": 1788642929310,
+      "history": [
+        {
+          "t": 1788642929310,
+          "s": 8821
+        }
+      ]
+    },
+    "kserve": {
+      "stars": 5859,
+      "forks": 1654,
+      "openIssues": 206,
+      "pushedAt": "2026-09-04T15:27:06Z",
+      "fetchedAt": 1788642929415,
+      "history": [
+        {
+          "t": 1788642929415,
+          "s": 5859
+        }
+      ]
+    },
+    "agentgateway": {
+      "stars": 4730,
+      "forks": 806,
+      "openIssues": 274,
+      "pushedAt": "2026-09-05T08:31:01Z",
+      "fetchedAt": 1788642929489,
+      "history": [
+        {
+          "t": 1788642929489,
+          "s": 4730
+        }
+      ]
+    },
+    "opik": {
+      "stars": 21812,
+      "forks": 1752,
+      "openIssues": 258,
+      "pushedAt": "2026-09-05T20:52:04Z",
+      "fetchedAt": 1788642929515,
+      "history": [
+        {
+          "t": 1788642929515,
+          "s": 21812
+        }
+      ]
+    },
+    "langfuse": {
+      "stars": 34231,
+      "forks": 3709,
+      "openIssues": 908,
+      "pushedAt": "2026-09-05T20:51:31Z",
+      "fetchedAt": 1788642929532,
+      "history": [
+        {
+          "t": 1788642929532,
+          "s": 34231
+        }
+      ]
+    },
+    "deepeval": {
+      "stars": 18118,
+      "forks": 1898,
+      "openIssues": 564,
+      "pushedAt": "2026-09-03T10:35:12Z",
+      "fetchedAt": 1788642929633,
+      "history": [
+        {
+          "t": 1788642929633,
+          "s": 18118
+        }
+      ]
+    },
+    "lm-eval-harness": {
+      "stars": 13895,
+      "forks": 3545,
+      "openIssues": 939,
+      "pushedAt": "2026-09-01T13:51:29Z",
+      "fetchedAt": 1788642929733,
+      "history": [
+        {
+          "t": 1788642929733,
+          "s": 13895
+        }
+      ]
+    },
+    "promptfoo": {
+      "stars": 24843,
+      "forks": 2268,
+      "openIssues": 576,
+      "pushedAt": "2026-09-05T16:43:54Z",
+      "fetchedAt": 1788642929776,
+      "history": [
+        {
+          "t": 1788642929776,
+          "s": 24843
+        }
+      ]
+    },
+    "ragas": {
+      "stars": 15629,
+      "forks": 1681,
+      "openIssues": 594,
+      "pushedAt": "2026-02-24T07:47:19Z",
+      "fetchedAt": 1788642929846,
+      "history": [
+        {
+          "t": 1788642929846,
+          "s": 15629
+        }
+      ]
+    },
+    "phoenix": {
+      "stars": 11340,
+      "forks": 1110,
+      "openIssues": 976,
+      "pushedAt": "2026-09-05T16:24:29Z",
+      "fetchedAt": 1788642929878,
+      "history": [
+        {
+          "t": 1788642929878,
+          "s": 11340
+        }
+      ]
+    },
+    "openllmetry": {
+      "stars": 7413,
+      "forks": 1066,
+      "openIssues": 671,
+      "pushedAt": "2026-08-10T08:49:01Z",
+      "fetchedAt": 1788642930039,
+      "history": [
+        {
+          "t": 1788642930039,
+          "s": 7413
+        }
+      ]
+    },
+    "trulens": {
+      "stars": 3536,
+      "forks": 335,
+      "openIssues": 64,
+      "pushedAt": "2026-09-04T02:43:14Z",
+      "fetchedAt": 1788642930098,
+      "history": [
+        {
+          "t": 1788642930098,
+          "s": 3536
+        }
+      ]
+    },
+    "giskard": {
+      "stars": 5802,
+      "forks": 527,
+      "openIssues": 62,
+      "pushedAt": "2026-09-04T20:19:02Z",
+      "fetchedAt": 1788642930131,
+      "history": [
+        {
+          "t": 1788642930131,
+          "s": 5802
+        }
+      ]
+    },
+    "weave": {
+      "stars": 1125,
+      "forks": 166,
+      "openIssues": 221,
+      "pushedAt": "2026-09-04T17:10:10Z",
+      "fetchedAt": 1788642930151,
+      "history": [
+        {
+          "t": 1788642930151,
+          "s": 1125
+        }
+      ]
+    },
+    "nemo-guardrails": {
+      "stars": 7069,
+      "forks": 819,
+      "openIssues": 217,
+      "pushedAt": "2026-09-04T17:42:32Z",
+      "fetchedAt": 1788642930284,
+      "history": [
+        {
+          "t": 1788642930284,
+          "s": 7069
+        }
+      ]
+    },
+    "guardrails-ai": {
+      "stars": 7358,
+      "forks": 689,
+      "openIssues": 82,
+      "pushedAt": "2026-09-04T02:06:36Z",
+      "fetchedAt": 1788642930326,
+      "history": [
+        {
+          "t": 1788642930326,
+          "s": 7358
+        }
+      ]
+    },
+    "purplellama": {
+      "stars": 4381,
+      "forks": 769,
+      "openIssues": 85,
+      "pushedAt": "2026-08-18T01:15:09Z",
+      "fetchedAt": 1788642930357,
+      "history": [
+        {
+          "t": 1788642930357,
+          "s": 4381
+        }
+      ]
+    },
+    "presidio": {
+      "stars": 10752,
+      "forks": 1272,
+      "openIssues": 108,
+      "pushedAt": "2026-08-31T13:14:50Z",
+      "fetchedAt": 1788642930517,
+      "history": [
+        {
+          "t": 1788642930517,
+          "s": 10752
+        }
+      ]
+    },
+    "garak": {
+      "stars": 9119,
+      "forks": 1249,
+      "openIssues": 417,
+      "pushedAt": "2026-09-04T16:25:50Z",
+      "fetchedAt": 1788642930522,
+      "history": [
+        {
+          "t": 1788642930522,
+          "s": 9119
+        }
+      ]
+    },
+    "llm-guard": {
+      "stars": 3204,
+      "forks": 450,
+      "openIssues": 38,
+      "pushedAt": "2026-07-08T23:58:40Z",
+      "fetchedAt": 1788642930559,
+      "history": [
+        {
+          "t": 1788642930559,
+          "s": 3204
+        }
+      ]
+    },
+    "pyrit": {
+      "stars": 116,
+      "forks": 24,
+      "openIssues": 0,
+      "pushedAt": "2026-03-25T01:18:52Z",
+      "fetchedAt": 1788642930587,
+      "history": [
+        {
+          "t": 1788642930587,
+          "s": 116
+        }
+      ]
+    },
+    "cleanlab": {
+      "stars": 11642,
+      "forks": 921,
+      "openIssues": 123,
+      "pushedAt": "2026-01-13T17:39:04Z",
+      "fetchedAt": 1788642930735,
+      "history": [
+        {
+          "t": 1788642930735,
+          "s": 11642
+        }
+      ]
+    },
+    "label-studio": {
+      "stars": 28215,
+      "forks": 3689,
+      "openIssues": 938,
+      "pushedAt": "2026-09-04T14:31:40Z",
+      "fetchedAt": 1788642930744,
+      "history": [
+        {
+          "t": 1788642930744,
+          "s": 28215
+        }
+      ]
+    },
+    "doccano": {
+      "stars": 10765,
+      "forks": 1825,
+      "openIssues": 398,
+      "pushedAt": "2026-04-14T21:16:25Z",
+      "fetchedAt": 1788642930803,
+      "history": [
+        {
+          "t": 1788642930803,
+          "s": 10765
+        }
+      ]
+    },
+    "fiftyone": {
+      "stars": 11059,
+      "forks": 819,
+      "openIssues": 677,
+      "pushedAt": "2026-09-05T17:26:13Z",
+      "fetchedAt": 1788642930840,
+      "history": [
+        {
+          "t": 1788642930840,
+          "s": 11059
+        }
+      ]
+    },
+    "argilla": {
+      "stars": 5097,
+      "forks": 506,
+      "openIssues": 32,
+      "pushedAt": "2026-08-31T22:34:16Z",
+      "fetchedAt": 1788642930973,
+      "history": [
+        {
+          "t": 1788642930973,
+          "s": 5097
+        }
+      ]
+    },
+    "snorkel": {
+      "stars": 6005,
+      "forks": 859,
+      "openIssues": 19,
+      "pushedAt": "2026-06-08T19:59:20Z",
+      "fetchedAt": 1788642930985,
+      "history": [
+        {
+          "t": 1788642930985,
+          "s": 6005
+        }
+      ]
+    },
+    "lilac": {
+      "stars": 2,
+      "forks": 0,
+      "openIssues": 0,
+      "pushedAt": "2025-11-14T23:11:18Z",
+      "fetchedAt": 1788642931007,
+      "history": [
+        {
+          "t": 1788642931007,
+          "s": 2
+        }
+      ]
+    },
+    "distilabel": {
+      "stars": 3385,
+      "forks": 256,
+      "openIssues": 105,
+      "pushedAt": "2026-08-31T22:34:28Z",
+      "fetchedAt": 1788642931080,
+      "history": [
+        {
+          "t": 1788642931080,
+          "s": 3385
+        }
+      ]
+    },
+    "opencv": {
+      "stars": 90721,
+      "forks": 56979,
+      "openIssues": 2767,
+      "pushedAt": "2026-09-05T14:01:29Z",
+      "fetchedAt": 1788642931205,
+      "history": [
+        {
+          "t": 1788642931205,
+          "s": 90721
+        }
+      ]
+    },
+    "ultralytics": {
+      "stars": 61313,
+      "forks": 11709,
+      "openIssues": 86,
+      "pushedAt": "2026-09-05T20:41:58Z",
+      "fetchedAt": 1788642931206,
+      "history": [
+        {
+          "t": 1788642931206,
+          "s": 61313
+        }
+      ]
+    },
+    "detectron2": {
+      "stars": 34701,
+      "forks": 7937,
+      "openIssues": 589,
+      "pushedAt": "2026-08-19T05:38:53Z",
+      "fetchedAt": 1788642931218,
+      "history": [
+        {
+          "t": 1788642931218,
+          "s": 34701
+        }
+      ]
+    },
+    "mmdetection": {
+      "stars": 32908,
+      "forks": 9817,
+      "openIssues": 1962,
+      "pushedAt": "2024-08-21T02:01:07Z",
+      "fetchedAt": 1788642931310,
+      "history": [
+        {
+          "t": 1788642931310,
+          "s": 32908
+        }
+      ]
+    },
+    "grounding-dino": {
+      "stars": 10543,
+      "forks": 1069,
+      "openIssues": 324,
+      "pushedAt": "2024-08-12T08:52:02Z",
+      "fetchedAt": 1788642931415,
+      "history": [
+        {
+          "t": 1788642931415,
+          "s": 10543
+        }
+      ]
+    },
+    "timm": {
+      "stars": 37129,
+      "forks": 5195,
+      "openIssues": 55,
+      "pushedAt": "2026-09-01T15:59:46Z",
+      "fetchedAt": 1788642931422,
+      "history": [
+        {
+          "t": 1788642931422,
+          "s": 37129
+        }
+      ]
+    },
+    "sam2": {
+      "stars": 19810,
+      "forks": 2538,
+      "openIssues": 484,
+      "pushedAt": "2026-05-30T02:29:40Z",
+      "fetchedAt": 1788642931465,
+      "history": [
+        {
+          "t": 1788642931465,
+          "s": 19810
+        }
+      ]
+    },
+    "tesseract": {
+      "stars": 76350,
+      "forks": 10791,
+      "openIssues": 483,
+      "pushedAt": "2026-09-02T12:00:26Z",
+      "fetchedAt": 1788642931523,
+      "history": [
+        {
+          "t": 1788642931523,
+          "s": 76350
+        }
+      ]
+    },
+    "paddleocr": {
+      "stars": 88931,
+      "forks": 11315,
+      "openIssues": 242,
+      "pushedAt": "2026-07-22T11:59:34Z",
+      "fetchedAt": 1788642931636,
+      "history": [
+        {
+          "t": 1788642931636,
+          "s": 88931
+        }
+      ]
+    },
+    "mineru": {
+      "stars": 79265,
+      "forks": 6638,
+      "openIssues": 106,
+      "pushedAt": "2026-09-05T14:28:06Z",
+      "fetchedAt": 1788642931668,
+      "history": [
+        {
+          "t": 1788642931668,
+          "s": 79265
+        }
+      ]
+    },
+    "docling": {
+      "stars": 66041,
+      "forks": 4753,
+      "openIssues": 894,
+      "pushedAt": "2026-09-04T17:26:30Z",
+      "fetchedAt": 1788642931670,
+      "history": [
+        {
+          "t": 1788642931670,
+          "s": 66041
+        }
+      ]
+    },
+    "marker": {
+      "stars": 39532,
+      "forks": 2850,
+      "openIssues": 464,
+      "pushedAt": "2026-08-31T16:42:54Z",
+      "fetchedAt": 1788642931750,
+      "history": [
+        {
+          "t": 1788642931750,
+          "s": 39532
+        }
+      ]
+    },
+    "surya": {
+      "stars": 21354,
+      "forks": 1537,
+      "openIssues": 196,
+      "pushedAt": "2026-09-05T08:05:14Z",
+      "fetchedAt": 1788642931839,
+      "history": [
+        {
+          "t": 1788642931839,
+          "s": 21354
+        }
+      ]
+    },
+    "awesome-mcp": {
+      "stars": 94311,
+      "forks": 15694,
+      "openIssues": 3935,
+      "pushedAt": "2026-09-01T07:26:30Z",
+      "fetchedAt": 1788642931850,
+      "history": [
+        {
+          "t": 1788642931850,
+          "s": 94311
+        }
+      ]
+    },
+    "mcp-servers": {
+      "stars": 90100,
+      "forks": 11565,
+      "openIssues": 485,
+      "pushedAt": "2026-09-03T01:42:26Z",
+      "fetchedAt": 1788642931892,
+      "history": [
+        {
+          "t": 1788642931892,
+          "s": 90100
+        }
+      ]
+    },
+    "mcp-agent": {
+      "stars": 8525,
+      "forks": 880,
+      "openIssues": 134,
+      "pushedAt": "2026-01-25T16:35:16Z",
+      "fetchedAt": 1788642932054,
+      "history": [
+        {
+          "t": 1788642932054,
+          "s": 8525
+        }
+      ]
+    },
+    "mcp-inspector": {
+      "stars": 10830,
+      "forks": 1504,
+      "openIssues": 46,
+      "pushedAt": "2026-09-05T21:14:46Z",
+      "fetchedAt": 1788642932093,
+      "history": [
+        {
+          "t": 1788642932093,
+          "s": 10830
+        }
+      ]
+    },
+    "lerobot": {
+      "stars": 27245,
+      "forks": 5583,
+      "openIssues": 864,
+      "pushedAt": "2026-09-05T03:38:35Z",
+      "fetchedAt": 1788642932119,
+      "history": [
+        {
+          "t": 1788642932119,
+          "s": 27245
+        }
+      ]
+    },
+    "fastmcp": {
+      "stars": 27536,
+      "forks": 2303,
+      "openIssues": 302,
+      "pushedAt": "2026-09-05T03:20:10Z",
+      "fetchedAt": 1788642932129,
+      "history": [
+        {
+          "t": 1788642932129,
+          "s": 27536
+        }
+      ]
+    },
+    "stable-baselines3": {
+      "stars": 13770,
+      "forks": 2177,
+      "openIssues": 87,
+      "pushedAt": "2026-08-17T16:40:34Z",
+      "fetchedAt": 1788642932286,
+      "history": [
+        {
+          "t": 1788642932286,
+          "s": 13770
+        }
+      ]
+    },
+    "gymnasium": {
+      "stars": 12465,
+      "forks": 1453,
+      "openIssues": 75,
+      "pushedAt": "2026-09-05T17:32:34Z",
+      "fetchedAt": 1788642932313,
+      "history": [
+        {
+          "t": 1788642932313,
+          "s": 12465
+        }
+      ]
+    },
+    "isaac-lab": {
+      "stars": 8047,
+      "forks": 3869,
+      "openIssues": 502,
+      "pushedAt": "2026-09-05T19:54:47Z",
+      "fetchedAt": 1788642932367,
+      "history": [
+        {
+          "t": 1788642932367,
+          "s": 8047
+        }
+      ]
+    },
+    "openvla": {
+      "stars": 6956,
+      "forks": 838,
+      "openIssues": 116,
+      "pushedAt": "2025-03-23T23:41:01Z",
+      "fetchedAt": 1788642932385,
+      "history": [
+        {
+          "t": 1788642932385,
+          "s": 6956
+        }
+      ]
+    },
+    "octo": {
+      "stars": 1762,
+      "forks": 280,
+      "openIssues": 96,
+      "pushedAt": "2024-07-31T00:26:15Z",
+      "fetchedAt": 1788642932505,
+      "history": [
+        {
+          "t": 1788642932505,
+          "s": 1762
+        }
+      ]
+    },
+    "crawl4ai": {
+      "stars": 81568,
+      "forks": 8414,
+      "openIssues": 173,
+      "pushedAt": "2026-09-01T07:58:26Z",
+      "fetchedAt": 1788642932551,
+      "history": [
+        {
+          "t": 1788642932551,
+          "s": 81568
+        }
+      ]
+    },
+    "agentgpt": {
+      "stars": 36300,
+      "forks": 9263,
+      "openIssues": 219,
+      "pushedAt": "2025-04-29T01:19:32Z",
+      "fetchedAt": 1788642932588,
+      "history": [
+        {
+          "t": 1788642932588,
+          "s": 36300
+        }
+      ]
+    },
+    "firecrawl": {
+      "stars": 176866,
+      "forks": 9670,
+      "openIssues": 599,
+      "pushedAt": "2026-09-05T20:12:59Z",
+      "fetchedAt": 1788642932675,
+      "history": [
+        {
+          "t": 1788642932675,
+          "s": 176866
+        }
+      ]
+    },
+    "scrapegraph": {
+      "stars": 30589,
+      "forks": 3053,
+      "openIssues": 14,
+      "pushedAt": "2026-08-27T09:27:24Z",
+      "fetchedAt": 1788642932785,
+      "history": [
+        {
+          "t": 1788642932785,
+          "s": 30589
+        }
+      ]
+    },
+    "searxng": {
+      "stars": 36566,
+      "forks": 3337,
+      "openIssues": 211,
+      "pushedAt": "2026-09-05T21:00:09Z",
+      "fetchedAt": 1788642932798,
+      "history": [
+        {
+          "t": 1788642932798,
+          "s": 36566
+        }
+      ]
+    },
+    "perplexica": {
+      "stars": 36642,
+      "forks": 4072,
+      "openIssues": 350,
+      "pushedAt": "2026-09-01T14:12:12Z",
+      "fetchedAt": 1788642932815,
+      "history": [
+        {
+          "t": 1788642932815,
+          "s": 36642
+        }
+      ]
+    },
+    "morphic": {
+      "stars": 9088,
+      "forks": 2350,
+      "openIssues": 56,
+      "pushedAt": "2026-09-05T07:00:04Z",
+      "fetchedAt": 1788642932855,
+      "history": [
+        {
+          "t": 1788642932855,
+          "s": 9088
+        }
+      ]
+    },
+    "jina-reader": {
+      "stars": 11955,
+      "forks": 879,
+      "openIssues": 28,
+      "pushedAt": "2026-05-22T02:56:46Z",
+      "fetchedAt": 1788642933000,
+      "history": [
+        {
+          "t": 1788642933000,
+          "s": 11955
+        }
+      ]
+    },
+    "gaussian-splatting": {
+      "stars": 23736,
+      "forks": 3411,
+      "openIssues": 713,
+      "pushedAt": "2025-10-17T14:28:15Z",
+      "fetchedAt": 1788642933010,
+      "history": [
+        {
+          "t": 1788642933010,
+          "s": 23736
+        }
+      ]
+    },
+    "hunyuan3d": {
+      "stars": 14749,
+      "forks": 1527,
+      "openIssues": 247,
+      "pushedAt": "2025-10-28T09:58:12Z",
+      "fetchedAt": 1788642933025,
+      "history": [
+        {
+          "t": 1788642933025,
+          "s": 14749
+        }
+      ]
+    },
+    "trellis": {
+      "stars": 13578,
+      "forks": 1333,
+      "openIssues": 261,
+      "pushedAt": "2026-06-26T07:27:56Z",
+      "fetchedAt": 1788642933065,
+      "history": [
+        {
+          "t": 1788642933065,
+          "s": 13578
+        }
+      ]
+    },
+    "triposr": {
+      "stars": 6930,
+      "forks": 894,
+      "openIssues": 105,
+      "pushedAt": "2026-06-04T07:11:09Z",
+      "fetchedAt": 1788642933220,
+      "history": [
+        {
+          "t": 1788642933220,
+          "s": 6930
+        }
+      ]
+    },
+    "nerfstudio": {
+      "stars": 11970,
+      "forks": 1667,
+      "openIssues": 954,
+      "pushedAt": "2025-07-29T02:30:55Z",
+      "fetchedAt": 1788642933242,
+      "history": [
+        {
+          "t": 1788642933242,
+          "s": 11970
+        }
+      ]
+    },
+    "instantmesh": {
+      "stars": 4520,
+      "forks": 502,
+      "openIssues": 120,
+      "pushedAt": "2025-01-03T09:09:13Z",
+      "fetchedAt": 1788642933251,
+      "history": [
+        {
+          "t": 1788642933251,
+          "s": 4520
+        }
+      ]
+    },
+    "system-prompts": {
+      "stars": 143380,
+      "forks": 34826,
+      "openIssues": 161,
+      "pushedAt": "2026-08-11T13:01:09Z",
+      "fetchedAt": 1788642933405,
+      "history": [
+        {
+          "t": 1788642933405,
+          "s": 143380
+        }
+      ]
+    },
+    "awesome-llm-apps": {
+      "stars": 136230,
+      "forks": 20043,
+      "openIssues": 7,
+      "pushedAt": "2026-09-02T23:13:03Z",
+      "fetchedAt": 1788642933419,
+      "history": [
+        {
+          "t": 1788642933419,
+          "s": 136230
+        }
+      ]
+    },
+    "awesome-chatgpt-prompts": {
+      "stars": 169414,
+      "forks": 21795,
+      "openIssues": 74,
+      "pushedAt": "2026-09-05T03:16:59Z",
+      "fetchedAt": 1788642933430,
+      "history": [
+        {
+          "t": 1788642933430,
+          "s": 169414
+        }
+      ]
+    },
+    "prompt-eng-guide": {
+      "stars": 78038,
+      "forks": 8575,
+      "openIssues": 280,
+      "pushedAt": "2026-03-11T20:09:13Z",
+      "fetchedAt": 1788642933464,
+      "history": [
+        {
+          "t": 1788642933464,
+          "s": 78038
+        }
+      ]
+    },
+    "llm-course": {
+      "stars": 82315,
+      "forks": 9578,
+      "openIssues": 91,
+      "pushedAt": "2026-02-05T13:09:26Z",
+      "fetchedAt": 1788642933586,
+      "history": [
+        {
+          "t": 1788642933586,
+          "s": 82315
+        }
+      ]
+    },
+    "genai-agents": {
+      "stars": 24153,
+      "forks": 4064,
+      "openIssues": 17,
+      "pushedAt": "2026-09-04T19:26:26Z",
+      "fetchedAt": 1788642933609,
+      "history": [
+        {
+          "t": 1788642933609,
+          "s": 24153
+        }
+      ]
+    },
+    "ai-agents-beginners": {
+      "stars": 73994,
+      "forks": 24433,
+      "openIssues": 14,
+      "pushedAt": "2026-08-27T09:55:57Z",
+      "fetchedAt": 1788642933651,
+      "history": [
+        {
+          "t": 1788642933651,
+          "s": 73994
+        }
+      ]
+    },
+    "deepseek-coder": {
+      "stars": 7005,
+      "forks": 1109,
+      "openIssues": 78,
+      "pushedAt": "2025-11-11T06:44:45Z",
+      "fetchedAt": 1788642933804,
+      "history": [
+        {
+          "t": 1788642933804,
+          "s": 7005
+        }
+      ]
+    },
+    "starcoder2": {
+      "stars": 2087,
+      "forks": 198,
+      "openIssues": 19,
+      "pushedAt": "2024-03-21T11:54:59Z",
+      "fetchedAt": 1788642933812,
+      "history": [
+        {
+          "t": 1788642933812,
+          "s": 2087
+        }
+      ]
+    },
+    "qwen25-coder": {
+      "stars": 16829,
+      "forks": 1244,
+      "openIssues": 112,
+      "pushedAt": "2026-03-24T08:22:10Z",
+      "fetchedAt": 1788642933819,
+      "history": [
+        {
+          "t": 1788642933819,
+          "s": 16829
+        }
+      ]
+    },
+    "autogpt": {
+      "stars": 187163,
+      "forks": 46042,
+      "openIssues": 563,
+      "pushedAt": "2026-09-05T21:01:28Z",
+      "fetchedAt": 1788642933883,
+      "history": [
+        {
+          "t": 1788642933883,
+          "s": 187163
+        }
+      ]
+    },
+    "babyagi": {
+      "stars": 22355,
+      "forks": 2855,
+      "openIssues": 29,
+      "pushedAt": "2026-01-31T05:05:45Z",
+      "fetchedAt": 1788642933985,
+      "history": [
+        {
+          "t": 1788642933985,
+          "s": 22355
+        }
+      ]
+    },
+    "superagi": {
+      "stars": 17673,
+      "forks": 2226,
+      "openIssues": 264,
+      "pushedAt": "2025-01-22T22:14:07Z",
+      "fetchedAt": 1788642933999,
+      "history": [
+        {
+          "t": 1788642933999,
+          "s": 17673
+        }
+      ]
+    },
+    "dspy": {
+      "stars": 37792,
+      "forks": 3289,
+      "openIssues": 651,
+      "pushedAt": "2026-09-05T20:02:14Z",
+      "fetchedAt": 1788642934107,
+      "history": [
+        {
+          "t": 1788642934107,
+          "s": 37792
+        }
+      ]
+    },
+    "open-interpreter": {
+      "stars": 68246,
+      "forks": 5880,
+      "openIssues": 2,
+      "pushedAt": "2026-09-05T17:16:45Z",
+      "fetchedAt": 1788642934212,
+      "history": [
+        {
+          "t": 1788642934212,
+          "s": 68246
+        }
+      ]
+    },
+    "langextract": {
+      "stars": 38543,
+      "forks": 2706,
+      "openIssues": 135,
+      "pushedAt": "2026-08-27T19:23:53Z",
+      "fetchedAt": 1788642934219,
+      "history": [
+        {
+          "t": 1788642934219,
+          "s": 38543
+        }
+      ]
+    },
+    "guidance": {
+      "stars": 21739,
+      "forks": 1203,
+      "openIssues": 323,
+      "pushedAt": "2026-05-21T17:08:04Z",
+      "fetchedAt": 1788642934227,
+      "history": [
+        {
+          "t": 1788642934227,
+          "s": 21739
+        }
+      ]
+    },
+    "gpt-sovits": {
+      "stars": 61609,
+      "forks": 6650,
+      "openIssues": 892,
+      "pushedAt": "2026-08-18T09:16:25Z",
+      "fetchedAt": 1788642934405,
+      "history": [
+        {
+          "t": 1788642934405,
+          "s": 61609
+        }
+      ]
+    },
+    "so-vits-svc": {
+      "stars": 28113,
+      "forks": 5031,
+      "openIssues": 27,
+      "pushedAt": "2023-11-11T13:11:31Z",
+      "fetchedAt": 1788642934436,
+      "history": [
+        {
+          "t": 1788642934436,
+          "s": 28113
+        }
+      ]
+    },
+    "instructor": {
+      "stars": 13831,
+      "forks": 1221,
+      "openIssues": 35,
+      "pushedAt": "2026-09-05T05:10:37Z",
+      "fetchedAt": 1788642934451,
+      "history": [
+        {
+          "t": 1788642934451,
+          "s": 13831
+        }
+      ]
+    },
+    "outlines": {
+      "stars": 15752,
+      "forks": 869,
+      "openIssues": 160,
+      "pushedAt": "2026-09-04T14:14:40Z",
+      "fetchedAt": 1788642934459,
+      "history": [
+        {
+          "t": 1788642934459,
+          "s": 15752
+        }
+      ]
+    },
+    "demucs": {
+      "stars": 10360,
+      "forks": 1602,
+      "openIssues": 275,
+      "pushedAt": "2024-04-24T20:25:19Z",
+      "fetchedAt": 1788642934626,
+      "history": [
+        {
+          "t": 1788642934626,
+          "s": 10360
+        }
+      ]
+    },
+    "ace-step": {
+      "stars": 4805,
+      "forks": 619,
+      "openIssues": 153,
+      "pushedAt": "2026-02-15T04:57:54Z",
+      "fetchedAt": 1788642934635,
+      "history": [
+        {
+          "t": 1788642934635,
+          "s": 4805
+        }
+      ]
+    },
+    "piper": {
+      "stars": 11280,
+      "forks": 1070,
+      "openIssues": 418,
+      "pushedAt": "2025-08-26T15:01:29Z",
+      "fetchedAt": 1788642934677,
+      "history": [
+        {
+          "t": 1788642934677,
+          "s": 11280
+        }
+      ]
+    },
+    "moshi": {
+      "stars": 11011,
+      "forks": 1025,
+      "openIssues": 90,
+      "pushedAt": "2026-05-16T13:14:41Z",
+      "fetchedAt": 1788642934696,
+      "history": [
+        {
+          "t": 1788642934696,
+          "s": 11011
+        }
+      ]
+    },
+    "yue": {
+      "stars": 6416,
+      "forks": 756,
+      "openIssues": 87,
+      "pushedAt": "2025-06-04T13:08:48Z",
+      "fetchedAt": 1788642934850,
+      "history": [
+        {
+          "t": 1788642934850,
+          "s": 6416
+        }
+      ]
+    },
+    "fastchat": {
+      "stars": 39527,
+      "forks": 4778,
+      "openIssues": 1046,
+      "pushedAt": "2026-05-01T00:25:53Z",
+      "fetchedAt": 1788642934865,
+      "history": [
+        {
+          "t": 1788642934865,
+          "s": 39527
+        }
+      ]
+    },
+    "stable-audio": {
+      "stars": 3853,
+      "forks": 484,
+      "openIssues": 131,
+      "pushedAt": "2026-09-02T02:19:41Z",
+      "fetchedAt": 1788642934898,
+      "history": [
+        {
+          "t": 1788642934898,
+          "s": 3853
+        }
+      ]
+    },
+    "opencompass": {
+      "stars": 7393,
+      "forks": 859,
+      "openIssues": 395,
+      "pushedAt": "2026-09-03T06:12:12Z",
+      "fetchedAt": 1788642934929,
+      "history": [
+        {
+          "t": 1788642934929,
+          "s": 7393
+        }
+      ]
+    },
+    "helm": {
+      "stars": 2901,
+      "forks": 411,
+      "openIssues": 104,
+      "pushedAt": "2026-09-01T01:33:19Z",
+      "fetchedAt": 1788642935082,
+      "history": [
+        {
+          "t": 1788642935082,
+          "s": 2901
+        }
+      ]
+    },
+    "dynamo": {
+      "stars": 7975,
+      "forks": 1551,
+      "openIssues": 1386,
+      "pushedAt": "2026-09-05T21:13:39Z",
+      "fetchedAt": 1788642935092,
+      "history": [
+        {
+          "t": 1788642935092,
+          "s": 7975
+        }
+      ]
+    },
+    "lmcache": {
+      "stars": 11665,
+      "forks": 1844,
+      "openIssues": 658,
+      "pushedAt": "2026-09-05T15:43:46Z",
+      "fetchedAt": 1788642935139,
+      "history": [
+        {
+          "t": 1788642935139,
+          "s": 11665
+        }
+      ]
+    },
+    "dstack": {
+      "stars": 2237,
+      "forks": 258,
+      "openIssues": 73,
+      "pushedAt": "2026-09-05T17:32:06Z",
+      "fetchedAt": 1788642935146,
+      "history": [
+        {
+          "t": 1788642935146,
+          "s": 2237
+        }
+      ]
+    },
+    "kaito": {
+      "stars": 1010,
+      "forks": 183,
+      "openIssues": 69,
+      "pushedAt": "2026-09-04T01:23:01Z",
+      "fetchedAt": 1788642935310,
+      "history": [
+        {
+          "t": 1788642935310,
+          "s": 1010
+        }
+      ]
+    },
+    "got-ocr": {
+      "stars": 8221,
+      "forks": 711,
+      "openIssues": 231,
+      "pushedAt": "2025-02-10T12:13:00Z",
+      "fetchedAt": 1788642935339,
+      "history": [
+        {
+          "t": 1788642935339,
+          "s": 8221
+        }
+      ]
+    },
+    "nougat": {
+      "stars": 10071,
+      "forks": 635,
+      "openIssues": 142,
+      "pushedAt": "2025-02-21T16:38:00Z",
+      "fetchedAt": 1788642935364,
+      "history": [
+        {
+          "t": 1788642935364,
+          "s": 10071
+        }
+      ]
+    },
+    "olmocr": {
+      "stars": 19437,
+      "forks": 1614,
+      "openIssues": 89,
+      "pushedAt": "2026-03-25T17:52:37Z",
+      "fetchedAt": 1788642935417,
+      "history": [
+        {
+          "t": 1788642935417,
+          "s": 19437
+        }
+      ]
+    },
+    "fastgpt": {
+      "stars": 29580,
+      "forks": 7298,
+      "openIssues": 185,
+      "pushedAt": "2026-09-05T16:58:41Z",
+      "fetchedAt": 1788642935535,
+      "history": [
+        {
+          "t": 1788642935535,
+          "s": 29580
+        }
+      ]
+    },
+    "mindsearch": {
+      "stars": 6919,
+      "forks": 693,
+      "openIssues": 57,
+      "pushedAt": "2025-07-04T10:06:45Z",
+      "fetchedAt": 1788642935535,
+      "history": [
+        {
+          "t": 1788642935535,
+          "s": 6919
+        }
+      ]
+    },
+    "r2r": {
+      "stars": 7989,
+      "forks": 649,
+      "openIssues": 126,
+      "pushedAt": "2025-11-07T01:02:44Z",
+      "fetchedAt": 1788642935590,
+      "history": [
+        {
+          "t": 1788642935590,
+          "s": 7989
+        }
+      ]
+    },
+    "supervision": {
+      "stars": 49888,
+      "forks": 4758,
+      "openIssues": 82,
+      "pushedAt": "2026-09-05T11:54:59Z",
+      "fetchedAt": 1788642935710,
+      "history": [
+        {
+          "t": 1788642935710,
+          "s": 49888
+        }
+      ]
+    },
+    "yolo-world": {
+      "stars": 6541,
+      "forks": 612,
+      "openIssues": 422,
+      "pushedAt": "2025-02-26T18:29:03Z",
+      "fetchedAt": 1788642935734,
+      "history": [
+        {
+          "t": 1788642935734,
+          "s": 6541
+        }
+      ]
+    },
+    "depth-anything": {
+      "stars": 8764,
+      "forks": 907,
+      "openIssues": 241,
+      "pushedAt": "2026-03-24T10:59:06Z",
+      "fetchedAt": 1788642935791,
+      "history": [
+        {
+          "t": 1788642935791,
+          "s": 8764
+        }
+      ]
+    },
+    "rebuff": {
+      "stars": 1522,
+      "forks": 145,
+      "openIssues": 33,
+      "pushedAt": "2024-08-07T23:35:48Z",
+      "fetchedAt": 1788642935812,
+      "history": [
+        {
+          "t": 1788642935812,
+          "s": 1522
+        }
+      ]
+    }
+  }
+}

@@ -1,8 +1,10 @@
 import { Star, Flame } from 'lucide-react';
 import type { AITool, Category, LiveMap } from '@/types';
 import { formatStars, licenseColor } from '@/lib/format';
+import { resolveStarHistory } from '@/lib/starHistory';
 import { StatusBadge } from '@/components/ToolCard';
 import { CategoryIcon } from '@/components/CategoryNav';
+import { Sparkline } from '@/components/Sparkline';
 import { cn } from '@/lib/utils';
 
 interface Props {
@@ -25,6 +27,7 @@ export function ToolTable({ tools, catMap, liveMap, onOpen }: Props) {
               <th className="px-4 py-3 font-medium">License</th>
               <th className="px-4 py-3 font-medium">Lang</th>
               <th className="px-4 py-3 font-medium text-right">Stars</th>
+              <th className="px-4 py-3 font-medium">Trend</th>
               <th className="px-4 py-3 font-medium">Status</th>
             </tr>
           </thead>
@@ -56,6 +59,14 @@ export function ToolTable({ tools, catMap, liveMap, onOpen }: Props) {
                       <Star className={cn('h-3.5 w-3.5', live ? 'fill-emerald-500 text-emerald-500' : 'fill-amber-400 text-amber-400')} />
                       {formatStars(live?.stars ?? t.stars)}
                     </span>
+                  </td>
+                  <td className="px-4 py-2.5">
+                    <Sparkline
+                      points={resolveStarHistory(t, live).points}
+                      width={56}
+                      height={16}
+                      color={cat?.color ?? '#d946ef'}
+                    />
                   </td>
                   <td className="px-4 py-2.5"><StatusBadge status={t.status} /></td>
                 </tr>

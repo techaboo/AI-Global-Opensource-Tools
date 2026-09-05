@@ -10,6 +10,9 @@ import { ToolCard } from '@/components/ToolCard';
 import { ToolTable } from '@/components/ToolTable';
 import { ToolDetail } from '@/components/ToolDetail';
 import { Analytics } from '@/components/Analytics';
+import { CompareView } from '@/components/CompareView';
+import { defaultCompareIds, parseCompareIds } from '@/lib/compare';
+import { exportFiltered } from '@/lib/export';
 import { cn } from '@/lib/utils';
 
 const CAT_MAP = new Map(CATEGORIES.map(c => [c.id, c]));
@@ -36,9 +39,10 @@ interface UrlState {
   view: ViewMode;
   fav: boolean;
   q: string;
+  cmp: string[];
 }
 
-const VALID_VIEWS: ViewMode[] = ['grid', 'table', 'analytics'];
+const VALID_VIEWS: ViewMode[] = ['grid', 'table', 'analytics', 'compare'];
 const VALID_SORTS: SortKey[] = ['stars', 'name', 'year', 'category', 'pushed'];
 
 function readUrlState(): Partial<UrlState> {
@@ -52,6 +56,8 @@ function readUrlState(): Partial<UrlState> {
   if (p.get('view') && VALID_VIEWS.includes(p.get('view') as ViewMode)) s.view = p.get('view') as ViewMode;
   if (p.get('fav') === '1') s.fav = true;
   if (p.get('q')) s.q = p.get('q')!;
+  const cmp = parseCompareIds(p.get('cmp'));
+  if (cmp.length >= 2) s.cmp = cmp;
   return s;
 }
 
@@ -65,6 +71,7 @@ function writeUrlState(s: UrlState) {
   if (s.view && s.view !== 'grid') p.set('view', s.view);
   if (s.fav) p.set('fav', '1');
   if (s.q) p.set('q', s.q);
+  if (s.view === 'compare' && s.cmp.length >= 2) p.set('cmp', s.cmp.join(','));
   const qs = p.toString();
   const url = `${window.location.pathname}${qs ? '?' + qs : ''}`;
   window.history.replaceState(null, '', url);
@@ -88,6 +95,9 @@ export default function App() {
   const [lang, setLang] = useState(urlState.lang ?? 'all');
   const [status, setStatus] = useState(urlState.status ?? 'all');
   const [view, setView] = useState<ViewMode>(urlState.view ?? 'grid');
+  const [compareIds, setCompareIds] = useState<string[]>(() =>
+    urlState.cmp && urlState.cmp.length >= 2 ? urlState.cmp : defaultCompareIds(urlState.cat ?? 'all')
+  );
   const [onlyFav, setOnlyFav] = useState(urlState.fav ?? false);
   const [favorites, setFavorites] = useState<Set<string>>(loadFavorites);
   const [selected, setSelected] = useState<AITool | null>(null);
@@ -110,10 +120,10 @@ export default function App() {
   // ─── Effects: URL state sync (debounced) ──────────────────────────
   useEffect(() => {
     const t = setTimeout(() => {
-      writeUrlState({ cat: activeCat, sort, license, lang, status, view, fav: onlyFav, q: search });
+      writeUrlState({ cat: activeCat, sort, license, lang, status, view, fav: onlyFav, q: search, cmp: compareIds });
     }, 300);
     return () => clearTimeout(t);
-  }, [activeCat, sort, license, lang, status, view, onlyFav, search]);
+  }, [activeCat, sort, license, lang, status, view, onlyFav, search, compareIds]);
 
   // ─── Effects: favorites persistence ───────────────────────────────
   const toggleFavorite = useCallback((id: string) => {
@@ -174,7 +184,42 @@ export default function App() {
     return list;
   }, [search, activeCat, license, lang, status, sort, liveMap, onlyFav, favorites]);
 
+  const comparePool = useMemo(() => {
+    const q = search.trim().toLowerCase();
+    return TOOLS.filter(t => {
+      if (onlyFav && !favorites.has(t.id)) return false;
+      if (license !== 'all' && t.license !== license) return false;
+      if (lang !== 'all' && t.lang !== lang) return false;
+      if (status !== 'all' && t.status !== status) return false;
+      if (q) {
+        const hay = `${t.name} ${t.org} ${t.tagline} ${t.desc} ${t.license} ${t.lang} ${t.tags.join(' ')} ${CAT_MAP.get(t.cat)?.label ?? ''}`.toLowerCase();
+        if (!hay.includes(q)) return false;
+      }
+      return true;
+    });
+  }, [search, license, lang, status, onlyFav, favorites]);
+
   const hasFilters = search !== '' || activeCat !== 'all' || license !== 'all' || lang !== 'all' || status !== 'all' || onlyFav;
+
+  const handleView = (next: ViewMode) => {
+    if (next === 'compare' && compareIds.length < 2) {
+      setCompareIds(defaultCompareIds(activeCat));
+    }
+    setView(next);
+  };
+
+  const handleSelectCategory = (id: string) => {
+    setActiveCat(id);
+    if (view === 'compare' && id !== 'all') {
+      setCompareIds(prev => {
+        if (prev.includes(id)) return prev;
+        if (prev.length < 3) return [...prev, id];
+        return [id, prev[1] ?? defaultCompareIds(id)[1]];
+      });
+      return;
+    }
+    if (view === 'analytics' && id !== 'all') setView('grid');
+  };
   const clearFilters = () => { setSearch(''); setActiveCat('all'); setLicense('all'); setLang('all'); setStatus('all'); setOnlyFav(false); };
 
   const activeCategory = activeCat !== 'all' ? CAT_MAP.get(activeCat) : undefined;
@@ -205,15 +250,15 @@ export default function App() {
           counts={counts}
           total={TOOLS.length}
           active={activeCat}
-          onSelect={id => { setActiveCat(id); if (view === 'analytics' && id !== 'all') setView('grid'); }}
+          onSelect={handleSelectCategory}
         />
 
         <main className="flex-1 min-w-0 px-4 lg:px-6 py-5 space-y-5">
           {/* Mobile category chips */}
           <div className="lg:hidden flex gap-2 overflow-x-auto pb-1 -mx-1 px-1">
-            <Chip active={activeCat === 'all'} onClick={() => setActiveCat('all')}>All ({TOOLS.length})</Chip>
+            <Chip active={activeCat === 'all'} onClick={() => handleSelectCategory('all')}>All ({TOOLS.length})</Chip>
             {CATEGORIES.map(c => (
-              <Chip key={c.id} active={activeCat === c.id} onClick={() => setActiveCat(c.id)} color={c.color}>
+              <Chip key={c.id} active={activeCat === c.id} onClick={() => handleSelectCategory(c.id)} color={c.color}>
                 <span className="inline-flex items-center gap-1"><CategoryIcon icon={c.icon} className="h-3 w-3" />{c.label}</span>
               </Chip>
             ))}
@@ -245,12 +290,13 @@ export default function App() {
             license={license} onLicense={setLicense}
             lang={lang} onLang={setLang}
             status={status} onStatus={setStatus}
-            view={view} onView={setView}
+            view={view} onView={handleView}
             count={filtered.length} total={TOOLS.length}
             onClear={clearFilters} hasFilters={hasFilters}
+            onExport={fmt => exportFiltered(filtered, liveMap, CAT_MAP, fmt)}
           />
 
-          {filtered.length === 0 && (
+          {filtered.length === 0 && view !== 'compare' && (
             <div className="rounded-xl border border-dashed border-border p-12 text-center text-muted-foreground">
               <div className="text-4xl mb-3">🔍</div>
               <div className="font-medium text-foreground mb-1">No tools match your filters</div>
@@ -272,6 +318,16 @@ export default function App() {
 
           {view === 'analytics' && filtered.length > 0 && (
             <Analytics tools={filtered} liveMap={liveMap} onSelectCategory={id => { setActiveCat(id); setView('grid'); }} />
+          )}
+
+          {view === 'compare' && (
+            <CompareView
+              tools={comparePool}
+              liveMap={liveMap}
+              selectedIds={compareIds}
+              onChangeIds={setCompareIds}
+              onOpenTool={setSelected}
+            />
           )}
 
           <footer className="pt-6 pb-4 text-center text-[11px] text-muted-foreground space-y-1">

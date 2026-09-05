@@ -1,0 +1,53 @@
+# Weekly refresh of public/live-snapshot.json
+# Auth: repo secret KIMI_GITHUB_API (fine-grained PAT, public-repo read is enough)
+# Commits the snapshot back to the branch the workflow ran on (schedule = default branch).
+name: Refresh live GitHub stats
+
+on:
+  schedule:
+    - cron: '0 6 * * 1' # Monday 06:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-stars
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Fetch live GitHub stats
+        env:
+          KIMI_GITHUB_API: ${{ secrets.KIMI_GITHUB_API }}
+        run: |
+          if [ -z "$KIMI_GITHUB_API" ]; then
+            echo "Warning: KIMI_GITHUB_API secret is not set — unauthenticated (60 req/hr)."
+          else
+            echo "Using KIMI_GITHUB_API secret for authenticated GitHub requests."
+          fi
+          node scripts/fetch-stars.mjs
+
+      - name: Commit snapshot
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/live-snapshot.json
+          if git diff --cached --quiet; then
+            echo "No snapshot changes"
+            exit 0
+          fi
+          git commit -m "chore: refresh live GitHub stats snapshot"
+          git push

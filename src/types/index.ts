@@ -25,12 +25,19 @@ export interface AITool {
   year: number;
 }
 
+export interface StarPoint {
+  t: number; // unix ms
+  s: number; // star count at t
+}
+
 export interface LiveRepoData {
   stars: number;
   forks: number;
   openIssues: number;
   pushedAt: string;
   fetchedAt: number;
+  /** Accumulated weekly (or sync) star samples. Capped; oldest dropped. */
+  history?: StarPoint[];
 }
 
 export type LiveMap = Record<string, LiveRepoData>; // keyed by tool id

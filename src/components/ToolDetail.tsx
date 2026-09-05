@@ -4,8 +4,10 @@ import { Button } from '@/components/ui/button';
 import { Star, GitFork, CircleDot, ExternalLink, Github, RefreshCw, Loader2, Flame, Clock } from 'lucide-react';
 import type { AITool, Category, LiveRepoData } from '@/types';
 import { formatStars, licenseColor, timeAgo } from '@/lib/format';
+import { resolveStarHistory } from '@/lib/starHistory';
 import { StatusBadge } from '@/components/ToolCard';
 import { CategoryIcon } from '@/components/CategoryNav';
+import { Sparkline } from '@/components/Sparkline';
 
 interface Props {
   tool: AITool | null;
@@ -30,6 +32,7 @@ export function ToolDetail({ tool: toolProp, category, live, onClose, onFetchLiv
   }
   if (!tool) return null;
   const stars = live?.stars ?? tool.stars;
+  const { points, source } = resolveStarHistory(tool, live);
 
   const refresh = async () => {
     setFetching(true);
@@ -87,6 +90,25 @@ export function ToolDetail({ tool: toolProp, category, live, onClose, onFetchLiv
               <CircleDot className="h-4 w-4 mx-auto mb-1 text-muted-foreground" />
               <div className="font-bold text-lg tabular-nums">{live ? formatStars(live.openIssues) : '—'}</div>
               <div className="text-[10px] text-muted-foreground">Open issues</div>
+            </div>
+          </div>
+
+          <div className="rounded-xl border border-border p-3">
+            <div className="flex items-center justify-between mb-2">
+              <div className="text-[12px] font-medium">Star history</div>
+              <div className="text-[10px] text-muted-foreground">
+                {source === 'live' ? 'Weekly snapshot samples' : 'Approximate (year → current) until CI accumulates samples'}
+              </div>
+            </div>
+            <div className="w-full overflow-hidden">
+              <Sparkline
+                points={points}
+                width={420}
+                height={56}
+                color={category?.color ?? '#d946ef'}
+                className="w-full h-14"
+                title="Star history"
+              />
             </div>
           </div>
 
