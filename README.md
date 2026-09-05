@@ -1,6 +1,6 @@
 # Open Source AI Atlas
 
-**The living map of open-source AI** — a reactive dashboard that catalogs, filters, and dynamically tracks **292 open-source AI tools across 27 categories**, from foundation models to robotics.
+**The living map of open-source AI** — a reactive dashboard that catalogs, filters, and dynamically tracks **410 open-source AI tools across 27 categories**, from foundation models to robotics.
 
 ![React](https://img.shields.io/badge/React-19-61dafb?logo=react&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178c6?logo=typescript&logoColor=white)
@@ -73,7 +73,7 @@ src/
 ├── main.tsx                 # Entry point
 ├── index.css                # Tailwind + theme tokens
 ├── data/
-│   └── tools.ts             # The catalog: 292 tools, 27 categories (typed dataset)
+│   └── tools.ts             # The catalog: 410 tools, 27 categories (typed dataset)
 ├── types/index.ts           # AITool, Category, LiveRepoData types
 ├── hooks/
 │   └── useGitHubSync.ts     # Live GitHub sync: concurrency, caching, rate limits
@@ -94,10 +94,10 @@ src/
 
 ## Data & freshness model
 
-- The bundled star counts are a **labeled research snapshot** (August 2026) so the app works fully offline.
+- The bundled star counts are a **labeled research snapshot** (September 2026) so the app works fully offline.
 - **Sync GitHub** refreshes live figures for the currently filtered list (up to 60 repos per pass unauthenticated; effectively unlimited with a token). Live values override snapshots everywhere — cards, table, charts, and headline stats.
 - Synced data is cached in the browser's `localStorage` only; it does not persist across devices.
-- A weekly GitHub Actions workflow refreshes `public/live-snapshot.json` for all ~290 repos and commits it back to the repo, so the deployed site always boots with fresh stats.
+- A weekly GitHub Actions workflow refreshes `public/live-snapshot.json` for all ~410 repos and commits it back to the repo, so the deployed site always boots with fresh stats.
 
 ### Setting up the automated refresh
 

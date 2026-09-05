@@ -43,7 +43,7 @@ export function Header({ dark, onToggleDark, search, onSearch, syncing, progress
           </div>
           <div className="leading-tight hidden sm:block">
             <div className="font-bold text-[15px] tracking-tight">Open Source AI Atlas</div>
-            <div className="text-[11px] text-muted-foreground">The living map of open AI Ã¢â‚¬â€ 292 tools, 27 categories</div>
+            <div className="text-[11px] text-muted-foreground">The living map of open AI — 410 tools, 27 categories</div>
           </div>
         </div>
 
