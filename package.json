@@ -2,13 +2,14 @@
   "name": "open-source-ai-atlas",
   "private": true,
   "version": "1.0.0",
-  "description": "The living map of open-source AI: a reactive dashboard cataloging 234 open-source AI tools across 24 categories, with live GitHub syncing, analytics, and rich filtering.",
+  "description": "The living map of open-source AI: a reactive dashboard cataloging 319 open-source AI tools across 27 categories, with live GitHub syncing, analytics, and rich filtering.",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "fetch-stars": "node scripts/fetch-stars.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

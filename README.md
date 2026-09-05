@@ -1,6 +1,6 @@
 # Open Source AI Atlas
 
-**The living map of open-source AI** — a reactive dashboard that catalogs, filters, and dynamically tracks **292 open-source AI tools across 27 categories**, from foundation models to robotics.
+**The living map of open-source AI** — a reactive dashboard that catalogs, filters, and dynamically tracks **319 open-source AI tools across 27 categories**, from foundation models to robotics.
 
 ![React](https://img.shields.io/badge/React-19-61dafb?logo=react&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178c6?logo=typescript&logoColor=white)
@@ -25,8 +25,11 @@ Foundation Models · Vision-Language Models · Inference & Serving · Chat & Fro
 - **Instant search** — full-text across names, orgs, descriptions, tags, and licenses (press `/` to focus)
 - **Rich filtering** — by category, license, language, and project health status, with one-click reset
 - **Favorites** — star any tool, then filter to just your favorites; persisted locally with a count badge in the header
-- **Three views** — card grid, sortable table, and a full analytics dashboard
+- **Four views** — card grid, sortable table, analytics dashboard, and category comparison
 - **Analytics** — tools-per-category (click-to-filter), top-12 by stars, license mix, project health, language breakdown, and release-year timeline (Recharts)
+- **Category compare** — side-by-side license mix, language mix, health, and top tools for two or three categories (`?view=compare&cmp=models,inference`)
+- **Star-history sparklines** — every card, table row, and detail panel shows a compact trend. Weekly CI samples accumulate in `public/live-snapshot.json`; until enough samples exist, the UI draws a lightweight year→current approximation so the chart works offline
+- **Export** — download the currently filtered list (search, category, license, language, status, favorites) as CSV or JSON from the filter bar
 - **Live GitHub sync** — batch-refresh stars/forks/issues for the visible list via the GitHub REST API, with concurrency control, progress bar, rate-limit detection, and per-repo "fetch live" in the detail panel. Results are cached in `localStorage` and marked with a LIVE badge
 - **Optional GitHub token** — paste a read-only PAT to raise the rate limit from 60 to 5,000 req/hr and sync the whole catalog at once; stored only in your browser
 - **Shareable URLs** — filters, sort order, view mode, and the favorites toggle sync to the address bar, so any view is a link you can send
@@ -73,22 +76,27 @@ src/
 ├── main.tsx                 # Entry point
 ├── index.css                # Tailwind + theme tokens
 ├── data/
-│   └── tools.ts             # The catalog: 292 tools, 27 categories (typed dataset)
-├── types/index.ts           # AITool, Category, LiveRepoData types
+│   └── tools.ts             # The catalog: 319 tools, 27 categories (typed dataset)
+├── types/index.ts           # AITool, Category, LiveRepoData, StarPoint types
 ├── hooks/
 │   └── useGitHubSync.ts     # Live GitHub sync: concurrency, caching, rate limits
 ├── lib/
 │   ├── format.ts            # Star formatting, time-ago, license colors
+│   ├── starHistory.ts       # Sparkline samples + year→now approximation
+│   ├── compare.ts           # Compare-mode URL helpers
+│   ├── export.ts            # Filtered CSV/JSON download
 │   └── utils.ts             # cn() helper
 └── components/
     ├── Header.tsx           # Search, sync button + progress, theme toggle
     ├── CategoryNav.tsx      # Category sidebar with counts
     ├── StatsBar.tsx         # Headline metrics
-    ├── FilterBar.tsx        # Sort / license / language / status / view controls
-    ├── ToolCard.tsx         # Grid cards
-    ├── ToolTable.tsx        # Table view
+    ├── FilterBar.tsx        # Sort / license / language / status / view / export
+    ├── ToolCard.tsx         # Grid cards + sparkline
+    ├── ToolTable.tsx        # Table view + sparkline
     ├── ToolDetail.tsx       # Slide-out detail sheet + per-repo live fetch
     ├── Analytics.tsx        # Six-chart analytics view
+    ├── CompareView.tsx      # Side-by-side category comparison
+    ├── Sparkline.tsx        # Lightweight SVG star-history chart
     └── ui/                  # shadcn/ui primitives used by the app
 ```
 
@@ -97,13 +105,16 @@ src/
 - The bundled star counts are a **labeled research snapshot** (August 2026) so the app works fully offline.
 - **Sync GitHub** refreshes live figures for the currently filtered list (up to 60 repos per pass unauthenticated; effectively unlimited with a token). Live values override snapshots everywhere — cards, table, charts, and headline stats.
 - Synced data is cached in the browser's `localStorage` only; it does not persist across devices.
-- A weekly GitHub Actions workflow refreshes `public/live-snapshot.json` for all ~290 repos and commits it back to the repo, so the deployed site always boots with fresh stats.
+- A weekly GitHub Actions workflow refreshes `public/live-snapshot.json` for all catalog repos that have a `repo` field and commits it back to the branch the workflow ran on (the Monday schedule always uses the default branch), so the deployed site always boots with fresh stats. Each run also appends one star-history sample per repo (capped at 52) for sparklines.
 
 ### Setting up the automated refresh
 
 1. Create a [fine-grained personal access token](https://github.com/settings/tokens) — public-repo read access is enough (no special scopes needed for public data).
 2. In the repo: **Settings → Secrets and variables → Actions → New repository secret**, name it `KIMI_GITHUB_API` (or edit the workflow to use your own secret name).
 3. Done — the workflow runs every Monday at 06:00 UTC, or manually via **Actions → Refresh live GitHub stats → Run workflow**.
+4. Locally: `GITHUB_TOKEN=<token> npm run fetch-stars` (or `KIMI_GITHUB_API`) writes `public/live-snapshot.json`. Never commit a token.
+
+The workflow **commits the snapshot to the branch it ran on** (schedule = `main`). If `main` is protected, switch the last step to open a PR or allow `github-actions[bot]` to push. The first merge of `.github/workflows/refresh-stars.yml` needs a token with the `workflow` scope if you push via a PAT; the GitHub UI and `GITHUB_TOKEN` in Actions do not have that restriction.
 
 > ⚠️ Never commit a token to the repo or put it in frontend code — anything shipped to the browser is public. The in-app 🔑 field stores it in your browser only; the workflow reads it from the Actions secret.
 
@@ -119,14 +130,14 @@ VITE_GITHUB_TOKEN=github_pat_...
 
 - [x] GitHub token support for higher sync limits
 - [x] Automated stats refresh via GitHub Actions
-- [ ] Star-history sparklines per tool
-- [ ] Category comparison mode
-- [ ] Community-submitted entries via PR template
-- [ ] Export filtered views to CSV/JSON
+- [x] Star-history sparklines per tool
+- [x] Category comparison mode
+- [x] Community-submitted entries via PR template
+- [x] Export filtered views to CSV/JSON
 
 ## Contributing
 
-The dataset lives in [`src/data/tools.ts`](src/data/tools.ts) — one typed object per tool. To add or update an entry, open a PR with the new/edited object (name, org, category, license, language, repo, tags, and a one-line tagline).
+The dataset lives in [`src/data/tools.ts`](src/data/tools.ts) — one typed object per tool. To add or update an entry, open a PR using [`.github/PULL_REQUEST_TEMPLATE.md`](.github/PULL_REQUEST_TEMPLATE.md) (or file an issue with [`.github/ISSUE_TEMPLATE/add-tool.yml`](.github/ISSUE_TEMPLATE/add-tool.yml)). Required fields: `id`, `name`, `org`, `cat`, `tagline`, `desc`, `license`, `lang`, `stars`, `tags`, `status`, `year`. Include `repo` as `owner/name` whenever a public GitHub repository exists so live sync and the weekly snapshot can track it.
 
 ## License
 

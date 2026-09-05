@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import type { AITool, LiveMap, LiveRepoData } from '@/types';
+import { appendStarPoint } from '@/lib/starHistory';
 
 const STORAGE_KEY = 'osi-atlas-live-v1';
 const TOKEN_KEY = 'osi-atlas-gh-token';
@@ -40,6 +41,14 @@ async function fetchRepo(repo: string, token: string): Promise<Omit<LiveRepoData
   };
 }
 
+function withHistory(prev: LiveRepoData | undefined, data: Omit<LiveRepoData, 'fetchedAt' | 'history'>): LiveRepoData {
+  return {
+    ...data,
+    fetchedAt: Date.now(),
+    history: appendStarPoint(prev?.history, data.stars),
+  };
+}
+
 export function useGitHubSync() {
   const [liveMap, setLiveMap] = useState<LiveMap>(loadStored);
   const [syncing, setSyncing] = useState(false);
@@ -76,7 +85,15 @@ export function useGitHubSync() {
         setLiveMap(prev => {
           const merged = { ...prev };
           for (const [id, data] of Object.entries(snap.repos!)) {
-            if (!merged[id] || data.fetchedAt > merged[id].fetchedAt) merged[id] = data;
+            const existing = merged[id];
+            if (!existing || data.fetchedAt > existing.fetchedAt) {
+              const hist = (data.history?.length ?? 0) >= (existing?.history?.length ?? 0)
+                ? data.history
+                : existing?.history;
+              merged[id] = { ...data, history: hist };
+            } else if (data.history && (data.history.length > (existing.history?.length ?? 0))) {
+              merged[id] = { ...existing, history: data.history };
+            }
           }
           return merged;
         });
@@ -99,7 +116,7 @@ export function useGitHubSync() {
         const tool = withRepo[idx++];
         try {
           const data = await fetchRepo(tool.repo!, tokenRef.current);
-          setLiveMap(prev => ({ ...prev, [tool.id]: { ...data, fetchedAt: Date.now() } }));
+          setLiveMap(prev => ({ ...prev, [tool.id]: withHistory(prev[tool.id], data) }));
         } catch (e) {
           if ((e as Error).message === 'rate-limited') {
             setRateLimited(true);
@@ -120,8 +137,8 @@ export function useGitHubSync() {
     if (!tool.repo) return null;
     try {
       const data = await fetchRepo(tool.repo, tokenRef.current);
-      const full = { ...data, fetchedAt: Date.now() };
-      setLiveMap(prev => ({ ...prev, [tool.id]: full }));
+      const full = withHistory(undefined, data);
+      setLiveMap(prev => ({ ...prev, [tool.id]: withHistory(prev[tool.id], data) }));
       return full;
     } catch {
       return null;

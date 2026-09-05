@@ -2,6 +2,7 @@
 import { Moon, Sun, Search, RefreshCw, Radar, Loader2, KeyRound, Check, Star, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
+import { CATEGORIES, TOOLS } from '@/data/tools';
 import { cn } from '@/lib/utils';
 
 interface Props {
@@ -43,7 +44,7 @@ export function Header({ dark, onToggleDark, search, onSearch, syncing, progress
           </div>
           <div className="leading-tight hidden sm:block">
             <div className="font-bold text-[15px] tracking-tight">Open Source AI Atlas</div>
-            <div className="text-[11px] text-muted-foreground">The living map of open AI Ã¢â‚¬â€ 292 tools, 27 categories</div>
+            <div className="text-[11px] text-muted-foreground">The living map of open AI — {TOOLS.length} tools, {CATEGORIES.length} categories</div>
           </div>
         </div>
 
@@ -53,7 +54,7 @@ export function Header({ dark, onToggleDark, search, onSearch, syncing, progress
             <input
               value={search}
               onChange={e => onSearch(e.target.value)}
-              placeholder="Search tools, orgs, tags, licensesÃ¢â‚¬Â¦  ( / )"
+              placeholder="Search tools, orgs, tags, licenses…  ( / )"
               className="w-full h-10 rounded-full border border-border bg-muted/50 pl-9 pr-4 text-sm outline-none focus:ring-2 focus:ring-fuchsia-500/40 focus:border-fuchsia-500/50 transition placeholder:text-muted-foreground/70"
             />
           </div>
@@ -72,11 +73,11 @@ export function Header({ dark, onToggleDark, search, onSearch, syncing, progress
               <span className="text-[10px] text-muted-foreground whitespace-nowrap">
                 {rateLimited
                   ? hasToken
-                    ? 'Rate limited Ã¢â‚¬â€ token quota exhausted'
-                    : 'Rate limit hit Ã¢â‚¬â€ add a token (Ã°Å¸â€â€˜) for 5,000 req/hr'
+                    ? 'Rate limited — token quota exhausted'
+                    : 'Rate limit hit — add a token (🔑) for 5,000 req/hr'
                   : syncedCount > 0
-                    ? `${syncedCount} live Ã‚Â· ${lastSync ? new Date(lastSync).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : ''}`
-                    : 'Snapshot data Ã‚Â· sync for live stars'}
+                    ? `${syncedCount} live · ${lastSync ? new Date(lastSync).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : ''}`
+                    : 'Snapshot data · sync for live stars'}
               </span>
             )}
           </div>
@@ -100,7 +101,7 @@ export function Header({ dark, onToggleDark, search, onSearch, syncing, progress
                   </button>
                 </div>
                 <p className="text-[11px] text-muted-foreground mb-3 leading-relaxed">
-                  Optional. A <a href="https://github.com/settings/tokens" target="_blank" rel="noreferrer" className="text-fuchsia-500 hover:underline">fine-grained personal access token</a> (no scopes needed for public repos) raises sync limits from 60 Ã¢â€ â€™ 5,000 requests/hour. Stored only in your browser Ã¢â‚¬â€ never sent anywhere except api.github.com.
+                  Optional. A <a href="https://github.com/settings/tokens" target="_blank" rel="noreferrer" className="text-fuchsia-500 hover:underline">fine-grained personal access token</a> (no scopes needed for public repos) raises sync limits from 60 → 5,000 requests/hour. Stored only in your browser — never sent anywhere except api.github.com.
                 </p>
                 <div className="flex gap-2">
                   <input
@@ -108,7 +109,7 @@ export function Header({ dark, onToggleDark, search, onSearch, syncing, progress
                     value={draft}
                     onChange={e => setDraft(e.target.value)}
                     onKeyDown={e => e.key === 'Enter' && save()}
-                    placeholder={hasToken ? 'Ã¢â‚¬Â¢Ã¢â‚¬Â¢Ã¢â‚¬Â¢Ã¢â‚¬Â¢Ã¢â‚¬Â¢Ã¢â‚¬Â¢Ã¢â‚¬Â¢Ã¢â‚¬Â¢Ã¢â‚¬Â¢Ã¢â‚¬Â¢  (token saved)' : 'github_pat_Ã¢â‚¬Â¦ or ghp_Ã¢â‚¬Â¦'}
+                    placeholder={hasToken ? '••••••••••  (token saved)' : 'github_pat_… or ghp_…'}
                     className="flex-1 h-9 rounded-lg border border-border bg-muted/50 px-3 text-xs outline-none focus:ring-2 focus:ring-fuchsia-500/40 font-mono"
                   />
                   <Button size="sm" onClick={save} disabled={!draft.trim()} className="rounded-lg h-9">

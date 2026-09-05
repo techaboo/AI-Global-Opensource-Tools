@@ -1,6 +1,8 @@
 import { Star, Flame, GitFork, AlertCircle, PauseCircle, Archive } from 'lucide-react';
 import type { AITool, Category, LiveRepoData } from '@/types';
 import { formatStars, licenseColor } from '@/lib/format';
+import { resolveStarHistory } from '@/lib/starHistory';
+import { Sparkline } from '@/components/Sparkline';
 import { cn } from '@/lib/utils';
 
 interface Props {
@@ -27,6 +29,7 @@ export function StatusBadge({ status, className }: { status: AITool['status']; c
 
 export function ToolCard({ tool, category, live, onOpen, isFavorite, onToggleFavorite }: Props) {
   const stars = live?.stars ?? tool.stars;
+  const { points, source } = resolveStarHistory(tool, live);
   return (
     <button
       onClick={() => onOpen(tool)}
@@ -66,6 +69,14 @@ export function ToolCard({ tool, category, live, onOpen, isFavorite, onToggleFav
             <Star className={cn('h-3.5 w-3.5', live ? 'text-emerald-500 fill-emerald-500' : 'text-amber-400 fill-amber-400')} />
             {formatStars(stars)}
           </span>
+          <Sparkline
+            points={points}
+            width={64}
+            height={16}
+            color={category?.color ?? '#d946ef'}
+            className="mt-0.5 opacity-80"
+            title={source === 'live' ? 'Star history (weekly snapshot)' : 'Approximate star history'}
+          />
           {live && <span className="text-[9px] text-emerald-500 font-medium">LIVE</span>}
         </div>
       </div>
