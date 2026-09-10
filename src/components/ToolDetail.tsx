@@ -7,6 +7,7 @@ import { formatStars, licenseColor, timeAgo } from '@/lib/format';
 import { resolveStarHistory } from '@/lib/starHistory';
 import { StatusBadge } from '@/components/ToolCard';
 import { CategoryIcon } from '@/components/CategoryNav';
+import { ToolAvatar } from '@/components/ToolAvatar';
 import { Sparkline } from '@/components/Sparkline';
 
 interface Props {
@@ -59,7 +60,10 @@ export function ToolDetail({ tool: toolProp, category, live, onClose, onFetchLiv
               </span>
             )}
           </div>
-          <SheetTitle className="text-2xl tracking-tight">{tool.name}</SheetTitle>
+          <div className="flex items-center gap-3">
+            <ToolAvatar repo={tool.repo} categoryIcon={category?.icon ?? 'box'} categoryColor={category?.color} size={40} />
+            <SheetTitle className="text-2xl tracking-tight">{tool.name}</SheetTitle>
+          </div>
           <SheetDescription className="text-[14px]">{tool.tagline}</SheetDescription>
           {onToggleFavorite && (
             <button

@@ -1,5 +1,6 @@
 ﻿import { useState } from 'react';
-import { Moon, Sun, Search, RefreshCw, Radar, Loader2, KeyRound, Check, Star, X } from 'lucide-react';
+import { toast } from 'sonner';
+import { Moon, Sun, Search, RefreshCw, Radar, Loader2, KeyRound, Check, Star, X, Command } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
 import { CATEGORIES, TOOLS } from '@/data/tools';
@@ -21,9 +22,10 @@ interface Props {
   onlyFav: boolean;
   onToggleFav: () => void;
   favCount: number;
+  onOpenPalette: () => void;
 }
 
-export function Header({ dark, onToggleDark, search, onSearch, syncing, progress, rateLimited, syncedCount, lastSync, onSync, onSetToken, onlyFav, onToggleFav, favCount, hasToken }: Props) {
+export function Header({ dark, onToggleDark, search, onSearch, syncing, progress, rateLimited, syncedCount, lastSync, onSync, onSetToken, onlyFav, onToggleFav, favCount, hasToken, onOpenPalette }: Props) {
   const [tokenOpen, setTokenOpen] = useState(false);
   const [draft, setDraft] = useState('');
   const [saved, setSaved] = useState(false);
@@ -32,6 +34,7 @@ export function Header({ dark, onToggleDark, search, onSearch, syncing, progress
     onSetToken(draft.trim());
     setDraft('');
     setSaved(true);
+    toast.success('GitHub token saved', { description: 'Stored only in your browser. Sync limit is now 5,000 req/hr.' });
     setTimeout(() => setSaved(false), 2000);
   };
 
@@ -55,8 +58,16 @@ export function Header({ dark, onToggleDark, search, onSearch, syncing, progress
               value={search}
               onChange={e => onSearch(e.target.value)}
               placeholder="Search tools, orgs, tags, licenses…  ( / )"
-              className="w-full h-10 rounded-full border border-border bg-muted/50 pl-9 pr-4 text-sm outline-none focus:ring-2 focus:ring-fuchsia-500/40 focus:border-fuchsia-500/50 transition placeholder:text-muted-foreground/70"
+              className="w-full h-10 rounded-full border border-border bg-muted/50 pl-9 pr-16 text-sm outline-none focus:ring-2 focus:ring-fuchsia-500/40 focus:border-fuchsia-500/50 transition placeholder:text-muted-foreground/70"
             />
+            <button
+              onClick={onOpenPalette}
+              aria-label="Open command palette"
+              title="Command palette"
+              className="absolute right-1.5 top-1/2 -translate-y-1/2 hidden sm:inline-flex items-center gap-0.5 rounded-full border border-border bg-background px-1.5 py-1 text-[10px] font-medium text-muted-foreground hover:text-foreground hover:border-border/80 transition-colors"
+            >
+              <Command className="h-3 w-3" />K
+            </button>
           </div>
         </div>
 
@@ -118,7 +129,7 @@ export function Header({ dark, onToggleDark, search, onSearch, syncing, progress
                 </div>
                 {hasToken && (
                   <button
-                    onClick={() => { onSetToken(''); setTokenOpen(false); }}
+                    onClick={() => { onSetToken(''); setTokenOpen(false); toast('GitHub token removed'); }}
                     className="mt-2 text-[11px] text-rose-500 hover:text-rose-400"
                   >
                     Remove saved token

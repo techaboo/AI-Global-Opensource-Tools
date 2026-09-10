@@ -7,6 +7,7 @@
 ![Vite](https://img.shields.io/badge/Vite-7-646cff?logo=vite&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-06b6d4?logo=tailwindcss&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-green)
+![CI](https://github.com/techaboo/AI-Global-Opensource-Tools/actions/workflows/ci.yml/badge.svg)
 
 ---
 
@@ -22,6 +23,7 @@ Foundation Models · Vision-Language Models · Inference & Serving · Chat & Fro
 
 ## Features
 
+- **Command palette** — `Cmd/Ctrl+K` to fuzzy-jump to any tool, switch views, toggle theme, sync, or reset filters without leaving the keyboard
 - **Instant search** — full-text across names, orgs, descriptions, tags, and licenses (press `/` to focus)
 - **Rich filtering** — by category, license, language, and project health status, with one-click reset
 - **Favorites** — star any tool, then filter to just your favorites; persisted locally with a count badge in the header
@@ -37,6 +39,7 @@ Foundation Models · Vision-Language Models · Inference & Serving · Chat & Fro
 - **Detail panels** — slide-out sheets with stats, metadata, tags, favorite toggle, and direct repository links
 - **Dark / light theme** — dark by default, one-click toggle, remembered across sessions
 - **Automated weekly refresh** — a GitHub Actions workflow ([`.github/workflows/refresh-stars.yml`](.github/workflows/refresh-stars.yml)) regenerates `public/live-snapshot.json` every Monday using a repo secret, so live stats stay fresh even without manual sync
+- **Per-tool avatars** — each card, table row, and detail panel shows the repo owner's GitHub avatar (first-party `github.com/<owner>.png`, no third-party favicon service), with a skeleton while loading and a category-icon fallback
 - **Fully responsive** — category sidebar on desktop, chip rail on mobile
 
 ## Tech stack
@@ -59,7 +62,7 @@ npm install
 npm run dev
 ```
 
-Then open http://localhost:5173.
+Then open http://localhost:3000 (see [`vite.config.ts`](vite.config.ts)).
 
 ### Build for production
 
@@ -67,6 +70,8 @@ Then open http://localhost:5173.
 npm run build   # outputs to dist/
 npm run preview # serve the production build locally
 ```
+
+See [HOWTO.md](HOWTO.md) for a fuller walkthrough (command palette, safe token setup, CI, deploying) and [SECURITY.md](SECURITY.md) for the trust model.
 
 ## Project structure
 
@@ -91,8 +96,10 @@ src/
     ├── CategoryNav.tsx      # Category sidebar with counts
     ├── StatsBar.tsx         # Headline metrics
     ├── FilterBar.tsx        # Sort / license / language / status / view / export
+    ├── CommandPalette.tsx   # Cmd/Ctrl+K palette: jump to tool/view/category, actions
     ├── ToolCard.tsx         # Grid cards + sparkline
-    ├── ToolTable.tsx        # Table view + sparkline
+    ├── ToolTable.tsx        # Virtualized (react-window) table view + sparkline
+    ├── ToolAvatar.tsx       # Owner avatar with skeleton + category-icon fallback
     ├── ToolDetail.tsx       # Slide-out detail sheet + per-repo live fetch
     ├── Analytics.tsx        # Six-chart analytics view
     ├── CompareView.tsx      # Side-by-side category comparison
@@ -134,6 +141,9 @@ VITE_GITHUB_TOKEN=github_pat_...
 - [x] Category comparison mode
 - [x] Community-submitted entries via PR template
 - [x] Export filtered views to CSV/JSON
+- [x] Command palette (`Cmd/Ctrl+K`)
+- [x] Per-tool GitHub avatars
+- [x] CI (lint + audit + build) on every push/PR
 
 ## Contributing
 

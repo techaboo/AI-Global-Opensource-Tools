@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { Toaster, toast } from 'sonner';
 import { CATEGORIES, TOOLS, SNAPSHOT_DATE } from '@/data/tools';
 import type { AITool } from '@/types';
 import { useGitHubSync } from '@/hooks/useGitHubSync';
@@ -11,6 +12,7 @@ import { ToolTable } from '@/components/ToolTable';
 import { ToolDetail } from '@/components/ToolDetail';
 import { Analytics } from '@/components/Analytics';
 import { CompareView } from '@/components/CompareView';
+import { CommandPalette } from '@/components/CommandPalette';
 import { defaultCompareIds, parseCompareIds } from '@/lib/compare';
 import { exportFiltered } from '@/lib/export';
 import { cn } from '@/lib/utils';
@@ -101,6 +103,7 @@ export default function App() {
   const [onlyFav, setOnlyFav] = useState(urlState.fav ?? false);
   const [favorites, setFavorites] = useState<Set<string>>(loadFavorites);
   const [selected, setSelected] = useState<AITool | null>(null);
+  const [paletteOpen, setPaletteOpen] = useState(false);
   const searchRef = useRef<string>('');
 
   const { liveMap, syncing, progress, rateLimited, setToken, hasToken, syncTools, fetchOne, lastSync, syncedCount } = useGitHubSync();
@@ -222,10 +225,32 @@ export default function App() {
   };
   const clearFilters = () => { setSearch(''); setActiveCat('all'); setLicense('all'); setLang('all'); setStatus('all'); setOnlyFav(false); };
 
+  const handleExport = (fmt: 'csv' | 'json') => {
+    exportFiltered(filtered, liveMap, CAT_MAP, fmt);
+    toast.success(`Exported ${filtered.length} tools as ${fmt.toUpperCase()}`);
+  };
+
   const activeCategory = activeCat !== 'all' ? CAT_MAP.get(activeCat) : undefined;
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <Toaster richColors position="bottom-right" theme={dark ? 'dark' : 'light'} />
+      <CommandPalette
+        open={paletteOpen}
+        onOpenChange={setPaletteOpen}
+        tools={TOOLS}
+        categories={CATEGORIES}
+        onOpenTool={setSelected}
+        onSelectCategory={handleSelectCategory}
+        view={view}
+        onView={handleView}
+        dark={dark}
+        onToggleDark={() => setDark(d => !d)}
+        onlyFav={onlyFav}
+        onToggleFav={() => setOnlyFav(f => !f)}
+        onSync={() => syncTools(filtered, 60)}
+        onClearFilters={clearFilters}
+      />
       <Header
         dark={dark}
         onToggleDark={() => setDark(d => !d)}
@@ -242,6 +267,7 @@ export default function App() {
         favCount={favorites.size}
         hasToken={hasToken}
         onSetToken={setToken}
+        onOpenPalette={() => setPaletteOpen(true)}
       />
 
       <div className="flex">
@@ -293,7 +319,7 @@ export default function App() {
             view={view} onView={handleView}
             count={filtered.length} total={TOOLS.length}
             onClear={clearFilters} hasFilters={hasFilters}
-            onExport={fmt => exportFiltered(filtered, liveMap, CAT_MAP, fmt)}
+            onExport={handleExport}
           />
 
           {filtered.length === 0 && view !== 'compare' && (
@@ -306,8 +332,8 @@ export default function App() {
 
           {view === 'grid' && filtered.length > 0 && (
             <div className="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-3 gap-3.5">
-              {filtered.map(t => (
-                <ToolCard key={t.id} tool={t} category={CAT_MAP.get(t.cat)} live={liveMap[t.id]} onOpen={setSelected} isFavorite={favorites.has(t.id)} onToggleFavorite={toggleFavorite} />
+              {filtered.map((t, i) => (
+                <ToolCard key={t.id} tool={t} category={CAT_MAP.get(t.cat)} live={liveMap[t.id]} onOpen={setSelected} isFavorite={favorites.has(t.id)} onToggleFavorite={toggleFavorite} animIndex={i} />
               ))}
             </div>
           )}

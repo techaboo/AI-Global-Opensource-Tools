@@ -1,9 +1,11 @@
+import { List, type RowComponentProps } from 'react-window';
 import { Star, Flame } from 'lucide-react';
 import type { AITool, Category, LiveMap } from '@/types';
 import { formatStars, licenseColor } from '@/lib/format';
 import { resolveStarHistory } from '@/lib/starHistory';
 import { StatusBadge } from '@/components/ToolCard';
 import { CategoryIcon } from '@/components/CategoryNav';
+import { ToolAvatar } from '@/components/ToolAvatar';
 import { Sparkline } from '@/components/Sparkline';
 import { cn } from '@/lib/utils';
 
@@ -14,67 +16,97 @@ interface Props {
   onOpen: (t: AITool) => void;
 }
 
-export function ToolTable({ tools, catMap, liveMap, onOpen }: Props) {
+// Shared between the header and every virtualized row so columns stay aligned.
+const COLS = '44px minmax(200px,1fr) 160px 90px 90px 100px 64px 120px';
+const ROW_H = 56;
+const MAX_VISIBLE_ROWS = 12;
+
+interface RowData {
+  tools: AITool[];
+  catMap: Map<string, Category>;
+  liveMap: LiveMap;
+  onOpen: (t: AITool) => void;
+}
+
+function Row({ ariaAttributes, index, style, tools, catMap, liveMap, onOpen }: RowComponentProps<RowData>) {
+  const t = tools[index];
+  const cat = catMap.get(t.cat);
+  const live = liveMap[t.id];
   return (
-    <div className="rounded-xl border border-border overflow-hidden">
-      <div className="overflow-x-auto">
-        <table className="w-full text-[13px]">
-          <thead>
-            <tr className="bg-muted/50 text-left text-[11px] uppercase tracking-wider text-muted-foreground">
-              <th className="px-4 py-3 font-medium">#</th>
-              <th className="px-4 py-3 font-medium">Tool</th>
-              <th className="px-4 py-3 font-medium">Category</th>
-              <th className="px-4 py-3 font-medium">License</th>
-              <th className="px-4 py-3 font-medium">Lang</th>
-              <th className="px-4 py-3 font-medium text-right">Stars</th>
-              <th className="px-4 py-3 font-medium">Trend</th>
-              <th className="px-4 py-3 font-medium">Status</th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-border">
-            {tools.map((t, i) => {
-              const cat = catMap.get(t.cat);
-              const live = liveMap[t.id];
-              return (
-                <tr key={t.id} onClick={() => onOpen(t)} className="hover:bg-muted/40 cursor-pointer transition-colors">
-                  <td className="px-4 py-2.5 text-muted-foreground tabular-nums">{i + 1}</td>
-                  <td className="px-4 py-2.5">
-                    <div className="flex items-center gap-1.5">
-                      <span className="font-medium">{t.name}</span>
-                      {t.hot && <Flame className="h-3.5 w-3.5 text-orange-500" />}
-                    </div>
-                    <div className="text-[11px] text-muted-foreground line-clamp-1 max-w-[320px]">{t.tagline}</div>
-                  </td>
-                  <td className="px-4 py-2.5 whitespace-nowrap">
-                    {cat && (
-                      <span className="inline-flex items-center gap-1.5 text-[12px]" style={{ color: cat.color }}>
-                        <CategoryIcon icon={cat.icon} className="h-3.5 w-3.5" />{cat.label}
-                      </span>
-                    )}
-                  </td>
-                  <td className="px-4 py-2.5 whitespace-nowrap text-[12px]" style={{ color: licenseColor(t.license) }}>{t.license}</td>
-                  <td className="px-4 py-2.5 text-[12px] text-muted-foreground">{t.lang}</td>
-                  <td className="px-4 py-2.5 text-right tabular-nums whitespace-nowrap">
-                    <span className={cn('inline-flex items-center gap-1 font-semibold', live && 'text-emerald-500')}>
-                      <Star className={cn('h-3.5 w-3.5', live ? 'fill-emerald-500 text-emerald-500' : 'fill-amber-400 text-amber-400')} />
-                      {formatStars(live?.stars ?? t.stars)}
-                    </span>
-                  </td>
-                  <td className="px-4 py-2.5">
-                    <Sparkline
-                      points={resolveStarHistory(t, live).points}
-                      width={56}
-                      height={16}
-                      color={cat?.color ?? '#d946ef'}
-                    />
-                  </td>
-                  <td className="px-4 py-2.5"><StatusBadge status={t.status} /></td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+    <div
+      {...ariaAttributes}
+      role="row"
+      tabIndex={0}
+      style={{ ...style, display: 'grid', gridTemplateColumns: COLS }}
+      onClick={() => onOpen(t)}
+      onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onOpen(t); } }}
+      className={cn(
+        'items-center gap-0 border-b border-border px-4 cursor-pointer transition-colors hover:bg-muted/40 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-fuchsia-500/40',
+        index % 2 === 1 && 'bg-muted/10'
+      )}
+    >
+      <div role="cell" className="text-muted-foreground tabular-nums text-[13px]">{index + 1}</div>
+      <div role="cell" className="flex items-center gap-2 min-w-0 pr-2">
+        <ToolAvatar repo={t.repo} categoryIcon={cat?.icon ?? 'box'} categoryColor={cat?.color} size={26} />
+        <div className="min-w-0">
+          <div className="flex items-center gap-1.5">
+            <span className="font-medium text-[13px] truncate">{t.name}</span>
+            {t.hot && <Flame className="h-3.5 w-3.5 text-orange-500 shrink-0" />}
+          </div>
+          <div className="text-[11px] text-muted-foreground truncate">{t.tagline}</div>
+        </div>
       </div>
+      <div role="cell" className="whitespace-nowrap text-[12px] truncate">
+        {cat && (
+          <span className="inline-flex items-center gap-1.5" style={{ color: cat.color }}>
+            <CategoryIcon icon={cat.icon} className="h-3.5 w-3.5 shrink-0" />
+            <span className="truncate">{cat.label}</span>
+          </span>
+        )}
+      </div>
+      <div role="cell" className="whitespace-nowrap text-[12px] truncate" style={{ color: licenseColor(t.license) }}>{t.license}</div>
+      <div role="cell" className="text-[12px] text-muted-foreground truncate">{t.lang}</div>
+      <div role="cell" className="text-right tabular-nums whitespace-nowrap pr-2">
+        <span className={cn('inline-flex items-center gap-1 font-semibold text-[13px]', live && 'text-emerald-500')}>
+          <Star className={cn('h-3.5 w-3.5', live ? 'fill-emerald-500 text-emerald-500' : 'fill-amber-400 text-amber-400')} />
+          {formatStars(live?.stars ?? t.stars)}
+        </span>
+      </div>
+      <div role="cell">
+        <Sparkline points={resolveStarHistory(t, live).points} width={56} height={16} color={cat?.color ?? '#d946ef'} />
+      </div>
+      <div role="cell"><StatusBadge status={t.status} /></div>
+    </div>
+  );
+}
+
+export function ToolTable({ tools, catMap, liveMap, onOpen }: Props) {
+  const height = Math.min(tools.length, MAX_VISIBLE_ROWS) * ROW_H;
+  return (
+    <div className="rounded-xl border border-border overflow-hidden" role="table" aria-label="AI tools" aria-rowcount={tools.length + 1}>
+      <div
+        role="row"
+        style={{ display: 'grid', gridTemplateColumns: COLS }}
+        className="bg-muted/50 text-left text-[11px] uppercase tracking-wider text-muted-foreground px-4 py-3"
+      >
+        <span role="columnheader" className="font-medium">#</span>
+        <span role="columnheader" className="font-medium">Tool</span>
+        <span role="columnheader" className="font-medium">Category</span>
+        <span role="columnheader" className="font-medium">License</span>
+        <span role="columnheader" className="font-medium">Lang</span>
+        <span role="columnheader" className="font-medium text-right">Stars</span>
+        <span role="columnheader" className="font-medium">Trend</span>
+        <span role="columnheader" className="font-medium">Status</span>
+      </div>
+      <List
+        role="rowgroup"
+        aria-label="Tool rows"
+        rowComponent={Row}
+        rowCount={tools.length}
+        rowHeight={ROW_H}
+        rowProps={{ tools, catMap, liveMap, onOpen }}
+        style={{ height }}
+      />
     </div>
   );
 }

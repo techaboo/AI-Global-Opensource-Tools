@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { toast } from 'sonner';
 import type { AITool, LiveMap, LiveRepoData } from '@/types';
 import { appendStarPoint } from '@/lib/starHistory';
 
@@ -16,8 +17,11 @@ function loadStored(): LiveMap {
 }
 
 function loadToken(): string {
-  // Local dev can also set VITE_GITHUB_TOKEN in a gitignored .env file
-  const env = (import.meta.env.VITE_GITHUB_TOKEN as string | undefined) ?? '';
+  // Local dev can also set VITE_GITHUB_TOKEN in a gitignored .env file.
+  // Gated to import.meta.env.DEV so a production build never inlines the token
+  // into the shipped bundle (Vite replaces DEV with a static `false` in prod
+  // builds, so this whole branch — and the reference to the var — is dropped).
+  const env = import.meta.env.DEV ? ((import.meta.env.VITE_GITHUB_TOKEN as string | undefined) ?? '') : '';
   try {
     return localStorage.getItem(TOKEN_KEY) ?? env;
   } catch {
@@ -131,6 +135,11 @@ export function useGitHubSync() {
     };
     await Promise.all(Array.from({ length: CONCURRENCY }, worker));
     setSyncing(false);
+    if (abortRef.current) {
+      toast.error('GitHub rate limit hit', { description: 'Add a token (🔑) for 5,000 requests/hour.' });
+    } else {
+      toast.success(`Synced ${withRepo.length} repo${withRepo.length === 1 ? '' : 's'}`, { description: 'Live stars, forks, and issues updated.' });
+    }
   }, []);
 
   const fetchOne = useCallback(async (tool: AITool): Promise<LiveRepoData | null> => {

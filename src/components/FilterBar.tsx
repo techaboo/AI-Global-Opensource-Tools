@@ -35,10 +35,12 @@ const VIEW_BTNS: { key: ViewMode; icon: typeof LayoutGrid; label: string }[] = [
 export function FilterBar(p: Props) {
   return (
     <div className="flex items-center gap-2 flex-wrap">
-      <div className="flex items-center rounded-full border border-border bg-muted/40 p-0.5">
+      <div role="tablist" aria-label="View mode" className="flex items-center rounded-full border border-border bg-muted/40 p-0.5">
         {VIEW_BTNS.map(({ key, icon: Icon, label }) => (
           <button
             key={key}
+            role="tab"
+            aria-selected={p.view === key}
             onClick={() => p.onView(key)}
             className={cn(
               'inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[12px] font-medium transition-colors',

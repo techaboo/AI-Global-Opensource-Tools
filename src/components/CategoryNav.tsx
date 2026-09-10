@@ -54,6 +54,7 @@ export function CategoryNav({ categories, counts, total, active, onSelect }: Pro
         <div className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground px-2 mb-2">Categories</div>
         <button
           onClick={() => onSelect('all')}
+          aria-current={active === 'all' ? 'true' : undefined}
           className={cn(
             'w-full flex items-center gap-2.5 rounded-lg px-2.5 py-2 text-sm transition-colors mb-1',
             active === 'all' ? 'bg-fuchsia-500/15 text-foreground font-medium' : 'text-muted-foreground hover:bg-muted hover:text-foreground'
@@ -67,6 +68,7 @@ export function CategoryNav({ categories, counts, total, active, onSelect }: Pro
           <button
             key={c.id}
             onClick={() => onSelect(c.id)}
+            aria-current={active === c.id ? 'true' : undefined}
             className={cn(
               'w-full flex items-center gap-2.5 rounded-lg px-2.5 py-2 text-sm transition-colors',
               active === c.id ? 'font-medium text-foreground' : 'text-muted-foreground hover:bg-muted hover:text-foreground'

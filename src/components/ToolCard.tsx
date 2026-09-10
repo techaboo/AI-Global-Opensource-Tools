@@ -3,6 +3,7 @@ import type { AITool, Category, LiveRepoData } from '@/types';
 import { formatStars, licenseColor } from '@/lib/format';
 import { resolveStarHistory } from '@/lib/starHistory';
 import { Sparkline } from '@/components/Sparkline';
+import { ToolAvatar } from '@/components/ToolAvatar';
 import { cn } from '@/lib/utils';
 
 interface Props {
@@ -12,6 +13,8 @@ interface Props {
   onOpen: (t: AITool) => void;
   isFavorite?: boolean;
   onToggleFavorite?: (id: string) => void;
+  /** Stagger index for the entrance animation; only the first screen's worth is staggered. */
+  animIndex?: number;
 }
 
 export function StatusBadge({ status, className }: { status: AITool['status']; className?: string }) {
@@ -27,13 +30,18 @@ export function StatusBadge({ status, className }: { status: AITool['status']; c
   );
 }
 
-export function ToolCard({ tool, category, live, onOpen, isFavorite, onToggleFavorite }: Props) {
+export function ToolCard({ tool, category, live, onOpen, isFavorite, onToggleFavorite, animIndex }: Props) {
   const stars = live?.stars ?? tool.stars;
   const { points, source } = resolveStarHistory(tool, live);
+  const staggerMs = animIndex !== undefined && animIndex < 18 ? animIndex * 25 : 0;
   return (
     <button
       onClick={() => onOpen(tool)}
-      className="group relative text-left rounded-xl border border-border bg-card p-4 transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-black/5 dark:hover:shadow-black/30 hover:border-border/80 focus:outline-none focus:ring-2 focus:ring-fuchsia-500/40 overflow-hidden"
+      style={staggerMs ? { animationDelay: `${staggerMs}ms` } : undefined}
+      className={cn(
+        'group relative text-left rounded-xl border border-border bg-card p-4 transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-black/5 dark:hover:shadow-black/30 hover:border-border/80 focus:outline-none focus:ring-2 focus:ring-fuchsia-500/40 overflow-hidden [content-visibility:auto] [contain-intrinsic-size:auto_180px]',
+        animIndex !== undefined && 'animate-in fade-in slide-in-from-bottom-1 duration-300 fill-mode-both'
+      )}
     >
       <div
         className="absolute inset-x-0 top-0 h-0.5 opacity-70 group-hover:opacity-100 transition-opacity"
@@ -52,7 +60,9 @@ export function ToolCard({ tool, category, live, onOpen, isFavorite, onToggleFav
         </span>
       )}
       <div className="flex items-start justify-between gap-2 mb-1.5">
-        <div className="min-w-0">
+        <div className="min-w-0 flex items-start gap-2">
+          <ToolAvatar repo={tool.repo} categoryIcon={category?.icon ?? 'box'} categoryColor={category?.color} size={28} className="mt-0.5" />
+          <div className="min-w-0">
           <div className="flex items-center gap-1.5 flex-wrap">
             <span className="font-semibold text-[14px] truncate group-hover:text-fuchsia-500 transition-colors">{tool.name}</span>
             {tool.hot && (
@@ -63,6 +73,7 @@ export function ToolCard({ tool, category, live, onOpen, isFavorite, onToggleFav
             <StatusBadge status={tool.status} />
           </div>
           <div className="text-[11px] text-muted-foreground mt-0.5">{tool.org} · {tool.year}</div>
+          </div>
         </div>
         <div className="flex flex-col items-end shrink-0">
           <span className="inline-flex items-center gap-1 text-[13px] font-semibold tabular-nums">
