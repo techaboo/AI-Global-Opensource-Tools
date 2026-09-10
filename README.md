@@ -1,6 +1,6 @@
 # Open Source AI Atlas
 
-**The living map of open-source AI** — a reactive dashboard that catalogs, filters, and dynamically tracks **410 open-source AI tools across 27 categories**, from foundation models to robotics.
+**The living map of open-source AI** — a reactive dashboard that catalogs, filters, and dynamically tracks **461 open-source AI tools across 27 categories**, from foundation models to robotics.
 
 ![React](https://img.shields.io/badge/React-19-61dafb?logo=react&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178c6?logo=typescript&logoColor=white)
@@ -76,7 +76,7 @@ src/
 ├── main.tsx                 # Entry point
 ├── index.css                # Tailwind + theme tokens
 ├── data/
-│   └── tools.ts             # The catalog: 410 tools, 27 categories (typed dataset)
+│   └── tools.ts             # The catalog: 461 tools, 27 categories (typed dataset)
 ├── types/index.ts           # AITool, Category, LiveRepoData, StarPoint types
 ├── hooks/
 │   └── useGitHubSync.ts     # Live GitHub sync: concurrency, caching, rate limits
@@ -105,7 +105,7 @@ src/
 - The bundled star counts are a **labeled research snapshot** (September 2026) so the app works fully offline.
 - **Sync GitHub** refreshes live figures for the currently filtered list (up to 60 repos per pass unauthenticated; effectively unlimited with a token). Live values override snapshots everywhere — cards, table, charts, and headline stats.
 - Synced data is cached in the browser's `localStorage` only; it does not persist across devices.
-- A weekly GitHub Actions workflow refreshes `public/live-snapshot.json` for all ~410 catalog repos that have a `repo` field and commits it back to the branch the workflow ran on (the Monday schedule always uses the default branch), so the deployed site always boots with fresh stats. Each run also appends one star-history sample per repo (capped at 52) for sparklines.
+- A weekly GitHub Actions workflow refreshes `public/live-snapshot.json` for all ~461 catalog repos that have a `repo` field and commits it back to the branch the workflow ran on (the Monday schedule always uses the default branch), so the deployed site always boots with fresh stats. Each run also appends one star-history sample per repo (capped at 52) for sparklines.
 
 ### Setting up the automated refresh
 
