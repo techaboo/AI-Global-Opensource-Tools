@@ -16,8 +16,6 @@ interface Props {
   onOpen: (t: AITool) => void;
 }
 
-// Shared between the header and every virtualized row so columns stay aligned.
-const COLS = '44px minmax(200px,1fr) 160px 90px 90px 100px 64px 120px';
 const ROW_H = 56;
 const MAX_VISIBLE_ROWS = 12;
 
@@ -37,11 +35,12 @@ function Row({ ariaAttributes, index, style, tools, catMap, liveMap, onOpen }: R
       {...ariaAttributes}
       role="row"
       tabIndex={0}
-      style={{ ...style, display: 'grid', gridTemplateColumns: COLS }}
+      style={style}
+      aria-label={`Open details for ${t.name}`}
       onClick={() => onOpen(t)}
       onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onOpen(t); } }}
       className={cn(
-        'items-center gap-0 border-b border-border px-4 cursor-pointer transition-colors hover:bg-muted/40 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-fuchsia-500/40',
+        'tool-table-grid grid items-center gap-3 border-b border-border px-3 cursor-pointer transition-colors hover:bg-muted/40 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-fuchsia-500/40',
         index % 2 === 1 && 'bg-muted/10'
       )}
     >
@@ -56,7 +55,7 @@ function Row({ ariaAttributes, index, style, tools, catMap, liveMap, onOpen }: R
           <div className="text-[11px] text-muted-foreground truncate">{t.tagline}</div>
         </div>
       </div>
-      <div role="cell" className="whitespace-nowrap text-[12px] truncate">
+      <div role="cell" className="hidden whitespace-nowrap text-[12px] truncate sm:block">
         {cat && (
           <span className="inline-flex items-center gap-1.5" style={{ color: cat.color }}>
             <CategoryIcon icon={cat.icon} className="h-3.5 w-3.5 shrink-0" />
@@ -64,18 +63,18 @@ function Row({ ariaAttributes, index, style, tools, catMap, liveMap, onOpen }: R
           </span>
         )}
       </div>
-      <div role="cell" className="whitespace-nowrap text-[12px] truncate" style={{ color: licenseColor(t.license) }}>{t.license}</div>
-      <div role="cell" className="text-[12px] text-muted-foreground truncate">{t.lang}</div>
+      <div role="cell" className="hidden whitespace-nowrap text-[12px] truncate sm:block" style={{ color: licenseColor(t.license) }}>{t.license}</div>
+      <div role="cell" className="hidden text-[12px] text-muted-foreground truncate sm:block">{t.lang}</div>
       <div role="cell" className="text-right tabular-nums whitespace-nowrap pr-2">
         <span className={cn('inline-flex items-center gap-1 font-semibold text-[13px]', live && 'text-emerald-500')}>
           <Star className={cn('h-3.5 w-3.5', live ? 'fill-emerald-500 text-emerald-500' : 'fill-amber-400 text-amber-400')} />
           {formatStars(live?.stars ?? t.stars)}
         </span>
       </div>
-      <div role="cell">
+      <div role="cell" className="hidden sm:block">
         <Sparkline points={resolveStarHistory(t, live).points} width={56} height={16} color={cat?.color ?? '#d946ef'} />
       </div>
-      <div role="cell"><StatusBadge status={t.status} /></div>
+      <div role="cell" className="hidden sm:block"><StatusBadge status={t.status} /></div>
     </div>
   );
 }
@@ -86,17 +85,16 @@ export function ToolTable({ tools, catMap, liveMap, onOpen }: Props) {
     <div className="rounded-xl border border-border overflow-hidden" role="table" aria-label="AI tools" aria-rowcount={tools.length + 1}>
       <div
         role="row"
-        style={{ display: 'grid', gridTemplateColumns: COLS }}
-        className="bg-muted/50 text-left text-[11px] uppercase tracking-wider text-muted-foreground px-4 py-3"
+        className="tool-table-grid grid gap-3 bg-muted/50 text-left text-[11px] uppercase tracking-wider text-muted-foreground px-3 py-3"
       >
         <span role="columnheader" className="font-medium">#</span>
         <span role="columnheader" className="font-medium">Tool</span>
-        <span role="columnheader" className="font-medium">Category</span>
-        <span role="columnheader" className="font-medium">License</span>
-        <span role="columnheader" className="font-medium">Lang</span>
+        <span role="columnheader" className="hidden font-medium sm:block">Category</span>
+        <span role="columnheader" className="hidden font-medium sm:block">License</span>
+        <span role="columnheader" className="hidden font-medium sm:block">Lang</span>
         <span role="columnheader" className="font-medium text-right">Stars</span>
-        <span role="columnheader" className="font-medium">Trend</span>
-        <span role="columnheader" className="font-medium">Status</span>
+        <span role="columnheader" className="hidden font-medium sm:block">Trend</span>
+        <span role="columnheader" className="hidden font-medium sm:block">Status</span>
       </div>
       <List
         role="rowgroup"

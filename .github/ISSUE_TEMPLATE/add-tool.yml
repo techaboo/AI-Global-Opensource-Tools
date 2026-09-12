@@ -1,124 +1,118 @@
-name: Propose a catalog entry
-description: Suggest a new open-source AI tool (or a correction) for src/data/tools.ts
-title: "[tool] "
-labels: ["catalog"]
+name: Add an AI tool
+about: Propose an open-source AI project for catalog review
+title: "[Tool]: "
+labels: ["new-tool"]
 body:
   - type: markdown
     attributes:
       value: |
-        The catalog lives in `src/data/tools.ts`. The fastest path is a PR using the pull request template.
-        Use this issue if you want maintainers to add or correct an entry for you.
-  - type: dropdown
-    id: change
-    attributes:
-      label: Change type
-      options:
-        - New tool
-        - Update existing tool
-    validations:
-      required: true
+        Thanks for contributing. Search existing entries and issues first, then review `docs/METHODOLOGY.md` and `docs/DATA_SCHEMA.md`. Inclusion is editorial and is not an endorsement.
   - type: input
     id: name
     attributes:
-      label: Name
-      placeholder: Open WebUI
-    validations:
-      required: true
-  - type: input
-    id: org
-    attributes:
-      label: Organization
-      placeholder: Open WebUI
-    validations:
-      required: true
-  - type: dropdown
-    id: cat
-    attributes:
-      label: Category
-      options:
-        - models — Foundation Models
-        - multimodal — Vision-Language Models
-        - inference — Inference & Serving
-        - chatui — Chat & Frontends
-        - agents — Agent Frameworks
-        - coding — Coding Agents
-        - assistants — Personal Assistants
-        - browseruse — Browser & Computer Use
-        - rag — RAG, Memory & Knowledge
-        - search — Search & Web Data
-        - vectordb — Vector Databases
-        - workflow — Workflow & Low-Code
-        - image — Image Generation
-        - video — Video Generation
-        - threed — 3D & Spatial
-        - audio — Audio & Speech
-        - finetune — Fine-tuning & Training
-        - frameworks — Frameworks & Libraries
-        - mlops — MLOps & Gateways
-        - eval — Eval & Observability
-        - guardrails — Safety & Guardrails
-        - data — Data & Labeling
-        - vision — Computer Vision
-        - docs — Document AI & OCR
-        - prompts — Prompts & Learning
-        - mcp — MCP Ecosystem
-        - robotics — Robotics & RL
+      label: Project name
+      placeholder: Example Project
     validations:
       required: true
   - type: input
     id: repo
     attributes:
-      label: GitHub repository
-      description: owner/name (no URL prefix)
-      placeholder: open-webui/open-webui
-  - type: input
-    id: license
-    attributes:
-      label: License
-      placeholder: MIT
+      label: Official public source repository
+      placeholder: https://github.com/owner/repository
     validations:
       required: true
   - type: input
-    id: lang
+    id: website
     attributes:
-      label: Primary language
-      placeholder: TypeScript
+      label: Official website or documentation
+      placeholder: https://example.org
+  - type: input
+    id: license
+    attributes:
+      label: License and authoritative source
+      description: Provide the license identifier and link to the repository license file.
+      placeholder: Apache-2.0 — https://github.com/owner/repository/blob/main/LICENSE
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: Proposed primary category
+      description: Choose the closest option; secondary capabilities belong in tags.
+      options:
+        - Foundation Models
+        - Conversational AI
+        - Agents & Automation
+        - Coding Assistants
+        - Image Generation
+        - Video Generation
+        - Audio & Music
+        - Speech & Voice
+        - Multimodal
+        - Vision & Recognition
+        - RAG & Retrieval
+        - Embeddings
+        - Vector Databases
+        - Prompt Engineering
+        - Fine-Tuning & Training
+        - LLMOps & Observability
+        - Evaluation & Testing
+        - Guardrails & Safety
+        - Data & Datasets
+        - Document AI
+        - Translation & NLP
+        - Research Tools
+        - Local AI & Inference
+        - AI Hardware & Acceleration
+        - MLOps Platforms
+        - Web & App Builders
+        - Specialized AI
+        - Other / taxonomy discussion needed
+    validations:
+      required: true
+  - type: textarea
+    id: summary
+    attributes:
+      label: Neutral summary and AI relevance
+      description: Explain what it does, who it serves, and why AI/ML is a material capability. Avoid promotional claims.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Inclusion evidence
+      description: Link first-party sources for provenance, implementation, activity, and any material claims.
+    validations:
+      required: true
+  - type: input
+    id: language
+    attributes:
+      label: Primary language and source
     validations:
       required: true
   - type: input
     id: year
     attributes:
-      label: First public release year
-      placeholder: "2023"
-    validations:
-      required: true
-  - type: dropdown
-    id: status
-    attributes:
-      label: Project health
-      options:
-        - active
-        - maintenance
-        - archived
-    validations:
-      required: true
-  - type: input
-    id: tags
-    attributes:
-      label: Tags
-      description: Comma-separated lowercase tags
-      placeholder: ui, ollama, rag
-  - type: input
-    id: tagline
-    attributes:
-      label: Tagline
-      description: One short pitch line
-    validations:
-      required: true
+      label: Origin/public-release year and source
   - type: textarea
-    id: desc
+    id: conflicts
     attributes:
-      label: Description
-      description: One or two factual sentences
+      label: Affiliation or conflict of interest
+      description: State your relationship to the project, including employment, maintainership, sponsorship, or “none.”
     validations:
       required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Submission checks
+      options:
+        - label: I searched for duplicate entries and open proposals.
+          required: true
+        - label: The linked repository contains a meaningful public implementation, not only a landing page or client stub.
+          required: true
+        - label: I have not included secrets or unnecessary personal data.
+          required: true
+        - label: I understand that “Hot” is an editorial label and have not requested it without dated evidence.
+          required: true
+        - label: I agree to follow the Code of Conduct.
+          required: true

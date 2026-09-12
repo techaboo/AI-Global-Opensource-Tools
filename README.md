@@ -1,59 +1,44 @@
 # Open Source AI Atlas
 
-**The living map of open-source AI** — a reactive dashboard that catalogs, filters, and dynamically tracks **469 open-source AI tools across 27 categories**, from foundation models to robotics.
+A browsable catalog of open-source AI tools, projects, libraries, and infrastructure, organized across dozens of categories.
 
-![React](https://img.shields.io/badge/React-19-61dafb?logo=react&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-5-3178c6?logo=typescript&logoColor=white)
-![Vite](https://img.shields.io/badge/Vite-7-646cff?logo=vite&logoColor=white)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-06b6d4?logo=tailwindcss&logoColor=white)
-![License](https://img.shields.io/badge/License-MIT-green)
-![CI](https://github.com/techaboo/AI-Global-Opensource-Tools/actions/workflows/ci.yml/badge.svg)
+**Live site:** https://techaboo.github.io/AI-Global-Opensource-Tools/
 
----
+The application derives catalog and category totals from its data at runtime. This README intentionally avoids a manually maintained numeric total, which can drift as entries change.
 
-## Overview
+## What the Atlas provides
 
-The open-source AI ecosystem moves fast — new models, agent frameworks, and inference engines ship weekly, and yesterday's leaders get archived. The AI Atlas is a single-pane-of-glass catalog built from hands-on ecosystem research, designed to stay current through **live GitHub data syncing**.
+- Search and filters for category, language, license, and catalog status
+- Grid, table, analytics, and comparison views
+- Favorites stored in the browser
+- Baseline repository metrics refreshed on a schedule
+- A user-triggered GitHub refresh for newer public-repository metrics
+- CSV and JSON export of the current filtered view
 
-Every entry is enriched with: organization, license, primary language, release year, star count, tags, health status (active / maintenance / archived), and a researched description.
+## Data freshness
 
-### Categories covered (27)
+The Atlas combines three layers:
 
-Foundation Models · Vision-Language Models · Inference & Serving · Chat & Frontends · Agent Frameworks · Coding Agents · Personal Assistants · Browser & Computer Use · RAG, Memory & Knowledge · Search & Web Data · Vector Databases · Workflow & Low-Code · Image Generation · Video Generation · 3D & Spatial · Audio & Speech · Fine-tuning & Training · Frameworks & Libraries · MLOps & Gateways · Eval & Observability · Safety & Guardrails · Data & Labeling · Computer Vision · Document AI & OCR · Prompts & Learning · MCP Ecosystem · Robotics & RL
+1. **Curated catalog data** in `src/data/tools.ts` supplies identity, descriptions, categories, tags, licenses, languages, baseline metrics, and editorial fields.
+2. **Scheduled baseline data** in `public/live-snapshot.json` is refreshed by GitHub Actions every Monday at 05:17 UTC and can also be refreshed manually by a workflow maintainer. The site loads this snapshot when available.
+3. **Optional live refresh** is initiated with **Sync GitHub** (or for an individual tool when its details are opened). The browser requests public repository metadata directly from `api.github.com`, for up to 60 filtered tools per bulk sync.
 
-## Features
+A token is not required, but unauthenticated GitHub requests have a much lower rate limit. See [PRIVACY.md](PRIVACY.md) before adding one. Metrics are point-in-time observations and may be partial when repositories are unavailable or GitHub limits requests.
 
-- **Command palette** — `Cmd/Ctrl+K` to fuzzy-jump to any tool, switch views, toggle theme, sync, or reset filters without leaving the keyboard
-- **Instant search** — full-text across names, orgs, descriptions, tags, and licenses (press `/` to focus)
-- **Rich filtering** — by category, license, language, and project health status, with one-click reset
-- **Favorites** — star any tool, then filter to just your favorites; persisted locally with a count badge in the header
-- **Four views** — card grid, sortable table, analytics dashboard, and category comparison
-- **Analytics** — tools-per-category (click-to-filter), top-12 by stars, license mix, project health, language breakdown, and release-year timeline (Recharts)
-- **Category compare** — side-by-side license mix, language mix, health, and top tools for two or three categories (`?view=compare&cmp=models,inference`)
-- **Star-history sparklines** — every card, table row, and detail panel shows a compact trend. Weekly CI samples accumulate in `public/live-snapshot.json`; until enough samples exist, the UI draws a lightweight year→current approximation so the chart works offline
-- **Export** — download the currently filtered list (search, category, license, language, status, favorites) as CSV or JSON from the filter bar
-- **Live GitHub sync** — batch-refresh stars/forks/issues for the visible list via the GitHub REST API, with concurrency control, progress bar, rate-limit detection, and per-repo "fetch live" in the detail panel. Results are cached in `localStorage` and marked with a LIVE badge
-- **Optional GitHub token** — paste a read-only PAT to raise the rate limit from 60 to 5,000 req/hr and sync the whole catalog at once; stored only in your browser
-- **Shareable URLs** — filters, sort order, view mode, and the favorites toggle sync to the address bar, so any view is a link you can send
-- **Activity sort** — "Recently pushed" orders tools by last commit activity using synced `pushedAt` data
-- **Detail panels** — slide-out sheets with stats, metadata, tags, favorite toggle, and direct repository links
-- **Dark / light theme** — dark by default, one-click toggle, remembered across sessions
-- **Automated weekly refresh** — a GitHub Actions workflow ([`.github/workflows/refresh-stars.yml`](.github/workflows/refresh-stars.yml)) regenerates `public/live-snapshot.json` every Monday using a repo secret, so live stats stay fresh even without manual sync
-- **Per-tool avatars** — each card, table row, and detail panel shows the repo owner's GitHub avatar (first-party `github.com/<owner>.png`, no third-party favicon service), with a skeleton while loading and a category-icon fallback
-- **Fully responsive** — category sidebar on desktop, chip rail on mobile
+## Catalog methodology
 
-## Tech stack
+Catalog inclusion is editorial, not an endorsement or certification. “Hot” is a manually assigned discovery label; it is not computed from stars or activity. Status has defined but limited semantics and should not be read as a security or quality rating.
 
-| Layer | Choice |
-|---|---|
-| Framework | React 19 + TypeScript (strict) |
-| Build | Vite 7 |
-| Styling | Tailwind CSS 3.4 + shadcn/ui (Radix primitives) |
-| Charts | Recharts |
-| Icons | lucide-react |
-| Live data | GitHub REST API (60 req/hr unauthenticated, 5,000 with an optional local token) |
+See:
 
-## Getting started
+- [Methodology](docs/METHODOLOGY.md)
+- [Data schema](docs/DATA_SCHEMA.md)
+- [Privacy](PRIVACY.md)
+- [Accessibility](docs/ACCESSIBILITY.md)
+
+## Run locally
+
+Requirements: a current Node.js LTS release and npm.
 
 ```bash
 git clone https://github.com/techaboo/AI-Global-Opensource-Tools.git
@@ -62,93 +47,30 @@ npm install
 npm run dev
 ```
 
-Then open http://localhost:3000 (see [`vite.config.ts`](vite.config.ts)).
-
-### Build for production
+Useful checks:
 
 ```bash
-npm run build   # outputs to dist/
-npm run preview # serve the production build locally
+npm run check-duplicates
+npm run lint
+npm run build
 ```
 
-See [HOWTO.md](HOWTO.md) for a fuller walkthrough (command palette, safe token setup, CI, deploying) and [SECURITY.md](SECURITY.md) for the trust model.
-
-## Project structure
-
-```
-src/
-├── App.tsx                  # Dashboard shell: state, filtering, sorting, layout
-├── main.tsx                 # Entry point
-├── index.css                # Tailwind + theme tokens
-├── data/
-│   └── tools.ts             # The catalog: 469 tools, 27 categories (typed dataset)
-├── types/index.ts           # AITool, Category, LiveRepoData, StarPoint types
-├── hooks/
-│   └── useGitHubSync.ts     # Live GitHub sync: concurrency, caching, rate limits
-├── lib/
-│   ├── format.ts            # Star formatting, time-ago, license colors
-│   ├── starHistory.ts       # Sparkline samples + year→now approximation
-│   ├── compare.ts           # Compare-mode URL helpers
-│   ├── export.ts            # Filtered CSV/JSON download
-│   └── utils.ts             # cn() helper
-└── components/
-    ├── Header.tsx           # Search, sync button + progress, theme toggle
-    ├── CategoryNav.tsx      # Category sidebar with counts
-    ├── StatsBar.tsx         # Headline metrics
-    ├── FilterBar.tsx        # Sort / license / language / status / view / export
-    ├── CommandPalette.tsx   # Cmd/Ctrl+K palette: jump to tool/view/category, actions
-    ├── ToolCard.tsx         # Grid cards + sparkline
-    ├── ToolTable.tsx        # Virtualized (react-window) table view + sparkline
-    ├── ToolAvatar.tsx       # Owner avatar with skeleton + category-icon fallback
-    ├── ToolDetail.tsx       # Slide-out detail sheet + per-repo live fetch
-    ├── Analytics.tsx        # Six-chart analytics view
-    ├── CompareView.tsx      # Side-by-side category comparison
-    ├── Sparkline.tsx        # Lightweight SVG star-history chart
-    └── ui/                  # shadcn/ui primitives used by the app
-```
-
-## Data & freshness model
-
-- The bundled star counts are a **labeled research snapshot** (September 2026) so the app works fully offline.
-- **Sync GitHub** refreshes live figures for the currently filtered list (up to 60 repos per pass unauthenticated; effectively unlimited with a token). Live values override snapshots everywhere — cards, table, charts, and headline stats.
-- Synced data is cached in the browser's `localStorage` only; it does not persist across devices.
-- A weekly GitHub Actions workflow refreshes `public/live-snapshot.json` for all ~469 catalog repos that have a `repo` field and commits it back to the branch the workflow ran on (the Monday schedule always uses the default branch), so the deployed site always boots with fresh stats. Each run also appends one star-history sample per repo (capped at 52) for sparklines.
-
-### Setting up the automated refresh
-
-1. Create a [fine-grained personal access token](https://github.com/settings/tokens) — public-repo read access is enough (no special scopes needed for public data).
-2. In the repo: **Settings → Secrets and variables → Actions → New repository secret**, name it `KIMI_GITHUB_API` (or edit the workflow to use your own secret name).
-3. Done — the workflow runs every Monday at 06:00 UTC, or manually via **Actions → Refresh live GitHub stats → Run workflow**.
-4. Locally: `GITHUB_TOKEN=<token> npm run fetch-stars` (or `KIMI_GITHUB_API`) writes `public/live-snapshot.json`. Never commit a token.
-
-The workflow **commits the snapshot to the branch it ran on** (schedule = `main`). If `main` is protected, switch the last step to open a PR or allow `github-actions[bot]` to push. The first merge of `.github/workflows/refresh-stars.yml` needs a token with the `workflow` scope if you push via a PAT; the GitHub UI and `GITHUB_TOKEN` in Actions do not have that restriction.
-
-> ⚠️ Never commit a token to the repo or put it in frontend code — anything shipped to the browser is public. The in-app 🔑 field stores it in your browser only; the workflow reads it from the Actions secret.
-
-### Local development token (optional)
-
-Create a `.env` file (gitignored) to avoid pasting the token in the UI while developing:
-
-```bash
-VITE_GITHUB_TOKEN=github_pat_...
-```
-
-## Roadmap
-
-- [x] GitHub token support for higher sync limits
-- [x] Automated stats refresh via GitHub Actions
-- [x] Star-history sparklines per tool
-- [x] Category comparison mode
-- [x] Community-submitted entries via PR template
-- [x] Export filtered views to CSV/JSON
-- [x] Command palette (`Cmd/Ctrl+K`)
-- [x] Per-tool GitHub avatars
-- [x] CI (lint + audit + build) on every push/PR
+For optional development-only GitHub access, copy `.env.example` to `.env` and set `VITE_GITHUB_TOKEN`. The current code reads this variable only during development. Never commit `.env` or a token.
 
 ## Contributing
 
-The dataset lives in [`src/data/tools.ts`](src/data/tools.ts) — one typed object per tool. To add or update an entry, open a PR using [`.github/PULL_REQUEST_TEMPLATE.md`](.github/PULL_REQUEST_TEMPLATE.md) (or file an issue with [`.github/ISSUE_TEMPLATE/add-tool.yml`](.github/ISSUE_TEMPLATE/add-tool.yml)). Required fields: `id`, `name`, `org`, `cat`, `tagline`, `desc`, `license`, `lang`, `stars`, `tags`, `status`, `year`. Include `repo` as `owner/name` whenever a public GitHub repository exists so live sync and the weekly snapshot can track it.
+Corrections, additions, accessibility reports, and methodology improvements are welcome. Start with [CONTRIBUTING.md](CONTRIBUTING.md) and use the issue or pull-request templates. A catalog submission should include verifiable first-party sources and explain how it meets the inclusion criteria.
+
+## Project policies
+
+- [How to use and maintain the Atlas](HOWTO.md)
+- [Security policy](SECURITY.md)
+- [Privacy notice](PRIVACY.md)
+- [Governance](GOVERNANCE.md)
+- [Maintainers](MAINTAINERS.md)
+- [Code of Conduct](CODE_OF_CONDUCT.md)
+- [Roadmap](ROADMAP.md)
 
 ## License
 
-[MIT](LICENSE) © 2026 Andrew Shannon (techaboo)
+The Atlas application and repository materials are available under the [MIT License](LICENSE). Individual cataloged projects retain their own licenses; verify each license at its authoritative source before adopting a project.

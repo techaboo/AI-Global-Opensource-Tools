@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Toaster, toast } from 'sonner';
 import { CATEGORIES, TOOLS, SNAPSHOT_DATE } from '@/data/tools';
 import type { AITool } from '@/types';
@@ -9,10 +9,11 @@ import { StatsBar } from '@/components/StatsBar';
 import { FilterBar, type SortKey, type ViewMode } from '@/components/FilterBar';
 import { ToolCard } from '@/components/ToolCard';
 import { ToolTable } from '@/components/ToolTable';
-import { ToolDetail } from '@/components/ToolDetail';
-import { Analytics } from '@/components/Analytics';
-import { CompareView } from '@/components/CompareView';
-import { CommandPalette } from '@/components/CommandPalette';
+
+const ToolDetail = lazy(() => import('@/components/ToolDetail').then(module => ({ default: module.ToolDetail })));
+const Analytics = lazy(() => import('@/components/Analytics').then(module => ({ default: module.Analytics })));
+const CompareView = lazy(() => import('@/components/CompareView').then(module => ({ default: module.CompareView })));
+const CommandPalette = lazy(() => import('@/components/CommandPalette').then(module => ({ default: module.CommandPalette })));
 import { defaultCompareIds, parseCompareIds } from '@/lib/compare';
 import { exportFiltered } from '@/lib/export';
 import { cn } from '@/lib/utils';
@@ -77,6 +78,14 @@ function writeUrlState(s: UrlState) {
   const qs = p.toString();
   const url = `${window.location.pathname}${qs ? '?' + qs : ''}`;
   window.history.replaceState(null, '', url);
+}
+
+function FeatureLoader({ label }: { label: string }) {
+  return (
+    <div className="flex min-h-48 items-center justify-center text-sm text-muted-foreground" role="status">
+      {label}…
+    </div>
+  );
 }
 
 export default function App() {
@@ -235,22 +244,24 @@ export default function App() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Toaster richColors position="bottom-right" theme={dark ? 'dark' : 'light'} />
-      <CommandPalette
-        open={paletteOpen}
-        onOpenChange={setPaletteOpen}
-        tools={TOOLS}
-        categories={CATEGORIES}
-        onOpenTool={setSelected}
-        onSelectCategory={handleSelectCategory}
-        view={view}
-        onView={handleView}
-        dark={dark}
-        onToggleDark={() => setDark(d => !d)}
-        onlyFav={onlyFav}
-        onToggleFav={() => setOnlyFav(f => !f)}
-        onSync={() => syncTools(filtered, 60)}
-        onClearFilters={clearFilters}
-      />
+      <Suspense fallback={null}>
+        <CommandPalette
+          open={paletteOpen}
+          onOpenChange={setPaletteOpen}
+          tools={TOOLS}
+          categories={CATEGORIES}
+          onOpenTool={setSelected}
+          onSelectCategory={handleSelectCategory}
+          view={view}
+          onView={handleView}
+          dark={dark}
+          onToggleDark={() => setDark(d => !d)}
+          onlyFav={onlyFav}
+          onToggleFav={() => setOnlyFav(f => !f)}
+          onSync={() => syncTools(filtered, 60)}
+          onClearFilters={clearFilters}
+        />
+      </Suspense>
       <Header
         dark={dark}
         onToggleDark={() => setDark(d => !d)}
@@ -343,35 +354,41 @@ export default function App() {
           )}
 
           {view === 'analytics' && filtered.length > 0 && (
-            <Analytics tools={filtered} liveMap={liveMap} onSelectCategory={id => { setActiveCat(id); setView('grid'); }} />
+            <Suspense fallback={<FeatureLoader label="Loading analytics" />}>
+              <Analytics tools={filtered} liveMap={liveMap} onSelectCategory={id => { setActiveCat(id); setView('grid'); }} />
+            </Suspense>
           )}
 
           {view === 'compare' && (
-            <CompareView
-              tools={comparePool}
-              liveMap={liveMap}
-              selectedIds={compareIds}
-              onChangeIds={setCompareIds}
-              onOpenTool={setSelected}
-            />
+            <Suspense fallback={<FeatureLoader label="Loading category comparison" />}>
+              <CompareView
+                tools={comparePool}
+                liveMap={liveMap}
+                selectedIds={compareIds}
+                onChangeIds={setCompareIds}
+                onOpenTool={setSelected}
+              />
+            </Suspense>
           )}
 
           <footer className="pt-6 pb-4 text-center text-[11px] text-muted-foreground space-y-1">
             <p>Open Source AI Atlas · {TOOLS.length} tools · {CATEGORIES.length} categories · research snapshot {SNAPSHOT_DATE}</p>
-            <p>Star/fork data: GitHub REST API — {hasToken ? 'authenticated (5,000 req/hr)' : 'unauthenticated (60 req/hr — add a token via the 🔑 button)'}. Cached in your browser; token never leaves it.</p>
+            <p>Star/fork data: GitHub REST API — {hasToken ? 'authenticated (5,000 req/hr)' : 'unauthenticated (60 req/hr — add a token via the 🔑 button)'}. Cached locally; a saved token is sent only to GitHub when requesting metadata.</p>
           </footer>
         </main>
       </div>
 
-      <ToolDetail
-        tool={selected}
-        category={selected ? CAT_MAP.get(selected.cat) : undefined}
-        live={selected ? liveMap[selected.id] : undefined}
-        onClose={() => setSelected(null)}
-        onFetchLive={fetchOne}
-        isFavorite={selected ? favorites.has(selected.id) : false}
-        onToggleFavorite={toggleFavorite}
-      />
+      <Suspense fallback={null}>
+        <ToolDetail
+          tool={selected}
+          category={selected ? CAT_MAP.get(selected.cat) : undefined}
+          live={selected ? liveMap[selected.id] : undefined}
+          onClose={() => setSelected(null)}
+          onFetchLive={fetchOne}
+          isFavorite={selected ? favorites.has(selected.id) : false}
+          onToggleFavorite={toggleFavorite}
+        />
+      </Suspense>
     </div>
   );
 }

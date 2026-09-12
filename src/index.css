@@ -72,6 +72,15 @@
   body {
     @apply bg-background text-foreground;
   }
+  :focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+  .skip-link {
+    @apply fixed left-4 top-3 z-[100] -translate-y-20 rounded-md bg-background px-3 py-2 text-sm font-semibold text-foreground shadow-lg transition-transform;
+  }
+  .skip-link:focus-visible {
+    @apply translate-y-0;
+  }
   /* Radix ScrollArea wraps content in a display:table div with min-width:100%.
      Auto table layout sizes rows to their max-content, which lets nowrap labels
      push the table wider than the viewport and clip trailing count badges.
@@ -82,5 +91,27 @@
     table-layout: fixed;
     width: 100%;
     min-width: 100%;
+  }
+
+  .tool-table-grid {
+    grid-template-columns: 44px minmax(200px, 1fr) 160px 90px 90px 100px 64px 120px;
+  }
+
+  @media (max-width: 639px) {
+    .tool-table-grid {
+      grid-template-columns: 32px minmax(0, 1fr) minmax(64px, auto);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

@@ -34,13 +34,14 @@ const VIEW_BTNS: { key: ViewMode; icon: typeof LayoutGrid; label: string }[] = [
 
 export function FilterBar(p: Props) {
   return (
-    <div className="flex items-center gap-2 flex-wrap">
-      <div role="tablist" aria-label="View mode" className="flex items-center rounded-full border border-border bg-muted/40 p-0.5">
+    <div id="tool-results" tabIndex={-1} className="flex scroll-mt-4 items-center gap-2 flex-wrap focus:outline-none">
+      <div role="group" aria-label="Choose results view" className="flex items-center rounded-full border border-border bg-muted/40 p-0.5">
         {VIEW_BTNS.map(({ key, icon: Icon, label }) => (
           <button
             key={key}
-            role="tab"
-            aria-selected={p.view === key}
+            type="button"
+            aria-pressed={p.view === key}
+            aria-label={`Show ${label.toLowerCase()} view`}
             onClick={() => p.onView(key)}
             className={cn(
               'inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[12px] font-medium transition-colors',
@@ -53,7 +54,7 @@ export function FilterBar(p: Props) {
       </div>
 
       <Select value={p.sort} onValueChange={v => p.onSort(v as SortKey)}>
-        <SelectTrigger className="h-9 w-[130px] rounded-full text-[12px]">
+        <SelectTrigger aria-label="Sort tools" className="h-9 w-[130px] rounded-full text-[12px]">
           <ArrowDownWideNarrow className="h-3.5 w-3.5 mr-1 text-muted-foreground" />
           <SelectValue />
         </SelectTrigger>
@@ -67,7 +68,7 @@ export function FilterBar(p: Props) {
       </Select>
 
       <Select value={p.license} onValueChange={p.onLicense}>
-        <SelectTrigger className="h-9 w-[150px] rounded-full text-[12px]"><SelectValue placeholder="License" /></SelectTrigger>
+        <SelectTrigger aria-label="Filter by license" className="h-9 w-[150px] rounded-full text-[12px]"><SelectValue placeholder="License" /></SelectTrigger>
         <SelectContent>
           <SelectItem value="all">All licenses</SelectItem>
           {ALL_LICENSES.map(l => <SelectItem key={l} value={l}>{l}</SelectItem>)}
@@ -75,7 +76,7 @@ export function FilterBar(p: Props) {
       </Select>
 
       <Select value={p.lang} onValueChange={p.onLang}>
-        <SelectTrigger className="h-9 w-[140px] rounded-full text-[12px]"><SelectValue placeholder="Language" /></SelectTrigger>
+        <SelectTrigger aria-label="Filter by language" className="h-9 w-[140px] rounded-full text-[12px]"><SelectValue placeholder="Language" /></SelectTrigger>
         <SelectContent>
           <SelectItem value="all">All languages</SelectItem>
           {ALL_LANGUAGES.map(l => <SelectItem key={l} value={l}>{l}</SelectItem>)}
@@ -83,7 +84,7 @@ export function FilterBar(p: Props) {
       </Select>
 
       <Select value={p.status} onValueChange={p.onStatus}>
-        <SelectTrigger className="h-9 w-[140px] rounded-full text-[12px]"><SelectValue placeholder="Status" /></SelectTrigger>
+        <SelectTrigger aria-label="Filter by project status" className="h-9 w-[140px] rounded-full text-[12px]"><SelectValue placeholder="Status" /></SelectTrigger>
         <SelectContent>
           <SelectItem value="all">Any status</SelectItem>
           <SelectItem value="active">Active</SelectItem>
@@ -92,7 +93,7 @@ export function FilterBar(p: Props) {
         </SelectContent>
       </Select>
 
-      <span className="text-[12px] text-muted-foreground ml-auto tabular-nums">
+      <span className="text-[12px] text-muted-foreground ml-auto tabular-nums" aria-live="polite">
         {p.count} / {p.total} tools
       </span>
       {p.onExport && (
@@ -101,6 +102,7 @@ export function FilterBar(p: Props) {
             <Download className="h-3 w-3" />Export
           </span>
           <button
+            type="button"
             onClick={() => p.onExport?.('csv')}
             disabled={p.count === 0}
             className="rounded-full px-2.5 py-1 text-[12px] font-medium text-muted-foreground hover:text-foreground disabled:opacity-40"
@@ -108,6 +110,7 @@ export function FilterBar(p: Props) {
             CSV
           </button>
           <button
+            type="button"
             onClick={() => p.onExport?.('json')}
             disabled={p.count === 0}
             className="rounded-full px-2.5 py-1 text-[12px] font-medium text-muted-foreground hover:text-foreground disabled:opacity-40"
@@ -117,7 +120,7 @@ export function FilterBar(p: Props) {
         </div>
       )}
       {p.hasFilters && (
-        <button onClick={p.onClear} className="inline-flex items-center gap-1 text-[12px] text-fuchsia-500 hover:text-fuchsia-400 font-medium">
+        <button type="button" onClick={p.onClear} className="inline-flex items-center gap-1 text-[12px] text-fuchsia-500 hover:text-fuchsia-400 font-medium">
           <X className="h-3.5 w-3.5" />Reset
         </button>
       )}

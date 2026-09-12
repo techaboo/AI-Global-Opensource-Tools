@@ -1,54 +1,37 @@
 /**
- * Fails if src/data/tools.ts has two entries with the same `id` or the same `repo`
- * (case-insensitive). Catches the most likely mistake an automated catalog-update
- * agent could make: re-adding a tool that's already there.
+ * Structurally loads and validates the catalog and its checked-in live snapshot.
+ * This command is read-only.
  *
  * Usage: node scripts/check-duplicates.mjs
  */
-import { readFileSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
-import { dirname, join } from 'node:path';
+import {
+  loadCatalog,
+  readSnapshot,
+  validateCatalog,
+  validateSnapshot,
+} from './catalog.mjs';
 
-const root = join(dirname(fileURLToPath(import.meta.url)), '..');
-const src = readFileSync(join(root, 'src/data/tools.ts'), 'utf8');
+function printMessages(label, messages) {
+  for (const message of messages) console[label](`${label === 'error' ? '✗' : '!'} ${message}`);
+}
 
-const seenIds = new Map();
-const seenRepos = new Map();
-let lineNo = 0;
-let failed = false;
-let inToolsArray = false;
+try {
+  const catalog = await loadCatalog();
+  const catalogResult = validateCatalog(catalog);
+  const snapshotResult = validateSnapshot(readSnapshot(), catalog);
+  const errors = [...catalogResult.errors, ...snapshotResult.errors];
+  const warnings = [...catalogResult.warnings, ...snapshotResult.warnings];
 
-for (const line of src.split('\n')) {
-  lineNo++;
-  if (!inToolsArray) {
-    if (line.includes('export const TOOLS')) inToolsArray = true;
-    continue; // skip CATEGORIES entries above TOOLS, which also have an `id` field
-  }
-  const idMatch = line.match(/^\s*\{\s*id:\s*'([^']+)'/);
-  if (!idMatch) continue;
-  const id = idMatch[1];
-  const repoMatch = line.match(/\brepo:\s*'([^']+)'/);
-  const repo = repoMatch ? repoMatch[1].toLowerCase() : null;
-
-  if (seenIds.has(id)) {
-    console.error(`✗ Duplicate id '${id}' at line ${lineNo} (first seen at line ${seenIds.get(id)})`);
-    failed = true;
+  printMessages('warn', warnings);
+  printMessages('error', errors);
+  if (errors.length) {
+    console.error(`\nCatalog validation failed with ${errors.length} error(s) and ${warnings.length} warning(s).`);
+    process.exitCode = 1;
   } else {
-    seenIds.set(id, lineNo);
+    const repoCount = catalog.tools.filter(tool => tool.repo).length;
+    console.log(`✓ Validated ${catalog.tools.length} tools, ${catalog.categories.length} categories, and ${repoCount} GitHub repo references (${warnings.length} warning(s)).`);
   }
-
-  if (repo) {
-    if (seenRepos.has(repo)) {
-      console.error(`✗ Duplicate repo '${repo}' at line ${lineNo} (first seen at line ${seenRepos.get(repo)})`);
-      failed = true;
-    } else {
-      seenRepos.set(repo, lineNo);
-    }
-  }
+} catch (error) {
+  console.error(`✗ ${error.message}`);
+  process.exitCode = 1;
 }
-
-if (failed) {
-  console.error(`\nFound duplicates among ${seenIds.size} entries. Fix src/data/tools.ts before merging.`);
-  process.exit(1);
-}
-console.log(`✓ No duplicate ids or repos among ${seenIds.size} catalog entries.`);

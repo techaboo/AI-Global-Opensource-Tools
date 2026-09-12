@@ -1,92 +1,62 @@
-# HOWTO
+# How to use and maintain the Atlas
 
-Practical walkthroughs that don't fit in the README's quick-start.
+## Use the catalog
 
-## Local development
+- Search by project, organization, description, tag, license, language, or category.
+- Filter by category, license, language, status, and favorites.
+- Sort by stars, name, year, category, or latest reported push.
+- Switch among grid, table, analytics, and comparison views.
+- Export the filtered results as CSV or JSON.
 
-```bash
-npm install
-npm run dev      # http://localhost:3000, hot-reloading
-npm run lint      # eslint
-npm run build     # tsc -b && vite build -> dist/
-npm run preview   # serve the production build locally
-```
+The URL records most active view and filter choices, so a copied URL may reproduce them. A URL can therefore contain search terms, category choices, and comparison selections; review it before sharing.
 
-`npm run build` is the single command that both typechecks (`tsc -b`) and bundles — CI runs
-exactly this, plus lint and `npm audit`. Run it locally before pushing if you want to catch
-what CI would catch.
+## Understand repository metrics
 
-## Using the command palette
+On startup, the site loads its bundled catalog and then merges the scheduled `public/live-snapshot.json` baseline. Browser-cached metrics win when they have a newer `fetchedAt` timestamp.
 
-Press `Cmd+K` (Mac) or `Ctrl+K` (Windows/Linux) anywhere in the app, or click the search bar's
-`⌘K` button. It fuzzy-searches all 464 tools by name/org/tagline, and also lists actions
-(toggle theme, show favorites, sync GitHub, reset filters) and every view/category as
-jump targets. Built on the `cmdk` package — see `src/components/CommandPalette.tsx`.
+Use **Sync GitHub** to request newer metrics for up to 60 tools in the current filtered set. Opening a tool detail can request that repository individually. Requests go from the browser to GitHub. Without a token, GitHub's unauthenticated limit is low; a partial refresh is normal when that limit is reached.
 
-## Setting up a GitHub token safely
+### Optional GitHub token
 
-Two independent tokens exist in this project — don't mix them up:
+The key button accepts a token for higher GitHub API limits. Current behavior is:
 
-1. **In-app token** (optional, for visitors): the 🔑 button in the header. Stored only in
-   `localStorage`, sent only to `api.github.com`. Raises the live-sync rate limit from 60 to
-   5,000 requests/hour. Never required for normal use.
-2. **Local dev convenience token**: create a gitignored `.env` with
-   `VITE_GITHUB_TOKEN=github_pat_...` to skip pasting it into the UI while developing. This is
-   read **only** when `import.meta.env.DEV` is true (see `src/hooks/useGitHubSync.ts`) — a
-   production build never inlines it, confirmed by grepping the built bundle for the variable
-   name. Still, don't set this env var in a shell you might later use to run a production build
-   by mistake, and never commit `.env`.
-3. **CI/automation token** (`KIMI_GITHUB_API` repo secret): used only by
-   `.github/workflows/refresh-stars.yml` server-side. Never reaches the browser.
+- the token is stored in this site's browser `localStorage`;
+- it persists across reloads and browser restarts until removed in the UI or site data is cleared;
+- it is sent as a bearer token only to `https://api.github.com/repos/...` by the application;
+- it is not written into exports or the scheduled snapshot.
 
-## Running CI locally
+Use a fine-grained token restricted to public repositories and grant no unnecessary permissions. Do not use a broadly privileged token on a shared or untrusted device. See [PRIVACY.md](PRIVACY.md).
 
-`.github/workflows/ci.yml` runs on every push/PR:
+For local development, `VITE_GITHUB_TOKEN` is read only in development mode. Keep it in the gitignored `.env` file. The scheduled refresh instead reads `GITHUB_TOKEN` from the workflow environment and does not put that secret in the generated JSON.
 
-```bash
-npm ci
-npm run lint
-npm run check-duplicates
-npm audit --audit-level=high
-npm run build
-```
+## Add or correct a catalog entry
 
-Run the same four commands locally to reproduce a CI failure exactly.
+Before editing, read [docs/METHODOLOGY.md](docs/METHODOLOGY.md) and [docs/DATA_SCHEMA.md](docs/DATA_SCHEMA.md).
 
-## Deploying
+1. Search the catalog and open issues to avoid duplicates.
+2. Verify the project's official site, public source repository, license, organization, and category.
+3. Edit the relevant entry in `src/data/tools.ts`.
+4. Keep descriptions factual and neutral; do not copy promotional claims without attribution.
+5. Treat `hot` and non-`active` statuses as editorial decisions and explain the evidence in the pull request.
+6. Run:
 
-No hosting platform is wired up yet (no `vercel.json`/`netlify.toml`/Pages workflow). The app
-is a static SPA — `npm run build` produces a fully static `dist/` you can serve from any static
-host (Vercel, Netlify, GitHub Pages, S3+CloudFront, etc.). Two things to set up per-host once
-you pick one:
+   ```bash
+   npm run check-duplicates
+   npm run lint
+   npm run build
+   ```
 
-- A **rewrite/fallback rule** so client-side routes (e.g. `?view=table&cmp=...`) don't 404 on
-  refresh — this app uses `react-router`'s `BrowserRouter` with query-string state, so it needs
-  the host to always serve `index.html` for unknown paths (or switch to `HashRouter` if the host
-  can't do rewrites).
-- Optionally, real HTTP security headers (`frame-ancestors`, `Reporting-Endpoints`) — the
-  build already ships a `<meta>` Content-Security-Policy (see `vite.config.ts`'s `injectCsp`
-  plugin), but two CSP directives are only valid as real headers, not `<meta>`, per spec. See
-  `SECURITY.md`.
+7. Open a pull request using the template and link supporting sources.
 
-## Adding/updating catalog entries
+Do not hand-edit `public/live-snapshot.json` merely to update stars. Its metrics are generated by `scripts/fetch-stars.mjs` through the scheduled or manual workflow.
 
-The dataset is `src/data/tools.ts` — one typed `AITool` object per entry (see
-`src/types/index.ts` for the shape). Required fields: `id`, `name`, `org`, `cat`, `tagline`,
-`desc`, `license`, `lang`, `stars`, `tags`, `status`, `year`. Include `repo` as `owner/name`
-whenever a public GitHub repo exists — that's what powers live sync, the weekly snapshot, and
-the avatar shown everywhere.
+## Review and update cadence
 
-**Before adding an entry, check it isn't already in the file** — search `src/data/tools.ts` by
-`repo` (most reliable) or `name`, or just run:
+- **Automated baseline:** weekly, Monday at 05:17 UTC, plus manual workflow runs when needed.
+- **Catalog review:** pull requests and correction reports are reviewed as maintainer capacity permits; there is no guaranteed response time.
+- **Editorial audit target:** maintainers should sample stale descriptions, links, licenses, statuses, and “Hot” labels at least quarterly. This is a governance target, not an automated guarantee.
+- **Urgent trust issues:** security reports follow [SECURITY.md](SECURITY.md); privacy concerns should be clearly labeled and may be reported privately when they expose sensitive information.
 
-```bash
-npm run check-duplicates
-```
+## Remove or deprecate an entry
 
-This runs `scripts/check-duplicates.mjs`, which fails (non-zero exit, listed line numbers) if
-any two entries share an `id` or a `repo` (case-insensitive). It also runs in CI on every push,
-so a duplicate can't merge silently — including from any automated/scheduled agent that adds
-entries and pushes on its own. A duplicate `id` would otherwise silently produce two cards with
-the same React key; a duplicate `repo` under a different `id` would just look like two separate
-tools in the UI, with no error anywhere.
+Prefer correcting a moved repository or setting an appropriate status over silently deleting history. Removal may be appropriate for duplicates, projects that no longer meet inclusion criteria, unverifiable entries, or material legal/safety concerns. Explain the reason and preserve review context in the issue or pull request.

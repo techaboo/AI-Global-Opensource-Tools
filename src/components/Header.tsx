@@ -40,6 +40,7 @@ export function Header({ dark, onToggleDark, search, onSearch, syncing, progress
 
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-background/80 backdrop-blur-xl">
+      <a href="#tool-results" className="skip-link">Skip to tool results</a>
       <div className="flex items-center gap-3 px-4 lg:px-6 h-16">
         <div className="flex items-center gap-2.5 min-w-0">
           <div className="h-9 w-9 rounded-xl bg-gradient-to-br from-violet-500 via-fuchsia-500 to-cyan-400 flex items-center justify-center shrink-0 shadow-lg shadow-fuchsia-500/20">
@@ -53,8 +54,11 @@ export function Header({ dark, onToggleDark, search, onSearch, syncing, progress
 
         <div className="flex-1 max-w-xl mx-auto">
           <div className="relative">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+            <label htmlFor="tool-search" className="sr-only">Search tools</label>
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" aria-hidden="true" />
             <input
+              id="tool-search"
+              type="search"
               value={search}
               onChange={e => onSearch(e.target.value)}
               placeholder="Search tools, orgs, tags, licenses…  ( / )"
@@ -115,7 +119,9 @@ export function Header({ dark, onToggleDark, search, onSearch, syncing, progress
                   Optional. A <a href="https://github.com/settings/tokens" target="_blank" rel="noreferrer" className="text-fuchsia-500 hover:underline">fine-grained personal access token</a> (no scopes needed for public repos) raises sync limits from 60 → 5,000 requests/hour. Stored only in your browser — never sent anywhere except api.github.com.
                 </p>
                 <div className="flex gap-2">
+                  <label htmlFor="github-token" className="sr-only">Personal access token</label>
                   <input
+                    id="github-token"
                     type="password"
                     value={draft}
                     onChange={e => setDraft(e.target.value)}
@@ -156,7 +162,14 @@ export function Header({ dark, onToggleDark, search, onSearch, syncing, progress
             )}
           </Button>
 
-          <Button variant="outline" size="sm" onClick={onSync} disabled={syncing} className="rounded-full gap-1.5">
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={onSync}
+            disabled={syncing}
+            className="rounded-full gap-1.5"
+            aria-label={syncing ? 'Syncing GitHub metadata' : 'Sync GitHub metadata'}
+          >
             {syncing ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <RefreshCw className="h-3.5 w-3.5" />}
             <span className="hidden sm:inline">{syncing ? 'Syncing' : 'Sync GitHub'}</span>
           </Button>

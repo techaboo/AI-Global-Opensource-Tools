@@ -20,8 +20,8 @@ interface Props {
 export function StatusBadge({ status, className }: { status: AITool['status']; className?: string }) {
   if (status === 'active') return null;
   const conf = status === 'maintenance'
-    ? { icon: PauseCircle, label: 'Maintenance', cls: 'text-amber-500 border-amber-500/40 bg-amber-500/10' }
-    : { icon: Archive, label: 'Archived', cls: 'text-rose-500 border-rose-500/40 bg-rose-500/10' };
+    ? { icon: PauseCircle, label: 'Maintenance', cls: 'text-amber-700 dark:text-amber-300 border-amber-500/50 bg-amber-500/10' }
+    : { icon: Archive, label: 'Archived', cls: 'text-rose-700 dark:text-rose-300 border-rose-500/50 bg-rose-500/10' };
   const Icon = conf.icon;
   return (
     <span className={cn('inline-flex items-center gap-1 rounded-full border px-1.5 py-0.5 text-[10px] font-medium', conf.cls, className)}>
@@ -35,30 +35,34 @@ export function ToolCard({ tool, category, live, onOpen, isFavorite, onToggleFav
   const { points, source } = resolveStarHistory(tool, live);
   const staggerMs = animIndex !== undefined && animIndex < 18 ? animIndex * 25 : 0;
   return (
-    <button
-      onClick={() => onOpen(tool)}
+    <article
       style={staggerMs ? { animationDelay: `${staggerMs}ms` } : undefined}
       className={cn(
-        'group relative text-left rounded-xl border border-border bg-card p-4 transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-black/5 dark:hover:shadow-black/30 hover:border-border/80 focus:outline-none focus:ring-2 focus:ring-fuchsia-500/40 overflow-hidden [content-visibility:auto] [contain-intrinsic-size:auto_180px]',
+        'group relative text-left rounded-xl border border-border bg-card p-4 transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-black/5 dark:hover:shadow-black/30 hover:border-border/80 focus-within:ring-2 focus-within:ring-fuchsia-500/40 overflow-hidden [content-visibility:auto] [contain-intrinsic-size:auto_180px]',
         animIndex !== undefined && 'animate-in fade-in slide-in-from-bottom-1 duration-300 fill-mode-both'
       )}
     >
       <div
-        className="absolute inset-x-0 top-0 h-0.5 opacity-70 group-hover:opacity-100 transition-opacity"
+        className="pointer-events-none absolute inset-x-0 top-0 h-0.5 opacity-70 group-hover:opacity-100 transition-opacity"
         style={{ background: `linear-gradient(90deg, transparent, ${category?.color ?? '#8b5cf6'}, transparent)` }}
       />
+      <button
+        type="button"
+        aria-label={`Open details for ${tool.name}`}
+        onClick={() => onOpen(tool)}
+        className="absolute inset-0 z-0 rounded-xl"
+      />
       {onToggleFavorite && (
-        <span
-          role="button"
-          tabIndex={0}
+        <button
+          type="button"
           aria-label={isFavorite ? `Remove ${tool.name} from favorites` : `Add ${tool.name} to favorites`}
           onClick={e => { e.stopPropagation(); onToggleFavorite(tool.id); }}
-          onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); e.stopPropagation(); onToggleFavorite(tool.id); } }}
-          className={`absolute top-2.5 right-2.5 z-10 rounded-full p-1 transition-all ${isFavorite ? 'opacity-100' : 'opacity-0 group-hover:opacity-100 focus:opacity-100'} hover:scale-110 focus:outline-none focus:ring-2 focus:ring-fuchsia-500/40`}
+          className={`pointer-events-auto absolute top-2.5 right-2.5 z-10 rounded-full p-1 transition-all ${isFavorite ? 'opacity-100' : 'opacity-0 group-hover:opacity-100 focus:opacity-100'} hover:scale-110 focus:outline-none focus:ring-2 focus:ring-fuchsia-500/40`}
         >
           <Star className={`h-4 w-4 transition-colors ${isFavorite ? 'text-amber-400 fill-amber-400' : 'text-muted-foreground hover:text-amber-400'}`} />
-        </span>
+        </button>
       )}
+      <div className="pointer-events-none relative z-[1]">
       <div className="flex items-start justify-between gap-2 mb-1.5">
         <div className="min-w-0 flex items-start gap-2">
           <ToolAvatar repo={tool.repo} categoryIcon={category?.icon ?? 'box'} categoryColor={category?.color} size={28} className="mt-0.5" />
@@ -66,7 +70,7 @@ export function ToolCard({ tool, category, live, onOpen, isFavorite, onToggleFav
           <div className="flex items-center gap-1.5 flex-wrap">
             <span className="font-semibold text-[14px] truncate group-hover:text-fuchsia-500 transition-colors">{tool.name}</span>
             {tool.hot && (
-              <span className="inline-flex items-center gap-0.5 rounded-full bg-orange-500/15 text-orange-500 px-1.5 py-0.5 text-[10px] font-semibold">
+              <span className="inline-flex items-center gap-0.5 rounded-full bg-orange-500/15 text-orange-700 dark:text-orange-300 px-1.5 py-0.5 text-[10px] font-semibold">
                 <Flame className="h-3 w-3" />HOT
               </span>
             )}
@@ -88,26 +92,26 @@ export function ToolCard({ tool, category, live, onOpen, isFavorite, onToggleFav
             className="mt-0.5 opacity-80"
             title={source === 'live' ? 'Star history (weekly snapshot)' : 'Approximate star history'}
           />
-          {live && <span className="text-[9px] text-emerald-500 font-medium">LIVE</span>}
+          {live && <span className="text-[9px] text-emerald-700 dark:text-emerald-300 font-medium">LIVE</span>}
         </div>
       </div>
       <p className="text-[12.5px] text-muted-foreground leading-snug line-clamp-2 mb-3">{tool.tagline}. {tool.desc}</p>
       <div className="flex items-center gap-1.5 flex-wrap">
         {category && (
           <span
-            className="rounded-full px-2 py-0.5 text-[10px] font-medium"
-            style={{ background: `${category.color}1c`, color: category.color }}
+            className="rounded-full border px-2 py-0.5 text-[10px] font-medium text-foreground"
+            style={{ background: `${category.color}1c`, borderColor: `${category.color}66` }}
           >
             {category.label}
           </span>
         )}
         <span
-          className="rounded-full px-2 py-0.5 text-[10px] font-medium border"
-          style={{ borderColor: `${licenseColor(tool.license)}55`, color: licenseColor(tool.license) }}
+          className="rounded-full border px-2 py-0.5 text-[10px] font-medium text-foreground"
+          style={{ borderColor: `${licenseColor(tool.license)}66`, background: `${licenseColor(tool.license)}14` }}
         >
           {tool.license}
         </span>
-        <span className="rounded-full px-2 py-0.5 text-[10px] font-medium bg-muted text-muted-foreground">{tool.lang}</span>
+        <span className="rounded-full px-2 py-0.5 text-[10px] font-medium bg-muted text-foreground">{tool.lang}</span>
         {live && (
           <span className="ml-auto inline-flex items-center gap-1 text-[10px] text-muted-foreground">
             <GitFork className="h-3 w-3" />{formatStars(live.forks)}
@@ -115,6 +119,7 @@ export function ToolCard({ tool, category, live, onOpen, isFavorite, onToggleFav
         )}
         {tool.status !== 'active' && <AlertCircle className="hidden" />}
       </div>
-    </button>
+      </div>
+    </article>
   );
 }

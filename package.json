@@ -2,14 +2,22 @@
   "name": "open-source-ai-atlas",
   "private": true,
   "version": "1.0.0",
-  "description": "The living map of open-source AI: a reactive dashboard cataloging 464 open-source AI tools across 27 categories, with live GitHub syncing, analytics, and rich filtering.",
+  "description": "A searchable, regularly refreshed dashboard for discovering and comparing hundreds of open-source AI tools.",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "validate:catalog": "node scripts/check-duplicates.mjs",
+    "validate": "npm run lint && npm run validate:catalog && npm run test && npm run build",
     "fetch-stars": "node scripts/fetch-stars.mjs",
+    "fetch-stars:update": "node scripts/fetch-stars.mjs --update",
     "check-duplicates": "node scripts/check-duplicates.mjs"
   },
   "dependencies": {
@@ -35,24 +43,32 @@
     "tailwind-merge": "^3.4.0"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
     "@eslint/js": "^9.39.1",
+    "@playwright/test": "^1.63.0",
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.3",
+    "@testing-library/user-event": "^14.6.7",
     "@types/node": "^24.10.1",
     "@types/react": "^19.2.5",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.1.1",
+    "@vitest/coverage-v8": "^5.0.0",
     "autoprefixer": "^10.4.23",
     "eslint": "^9.39.1",
     "eslint-formatter-compact": "^9.0.1",
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.4.24",
     "globals": "^16.5.0",
+    "jsdom": "^29.1.1",
     "kimi-plugin-inspect-react": "^1.0.3",
     "postcss": "^8.5.6",
     "tailwindcss": "^3.4.19",
     "tailwindcss-animate": "^1.0.7",
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.46.4",
-    "vite": "^7.2.4"
+    "vite": "^7.2.4",
+    "vitest": "^5.0.0"
   },
   "allowScripts": {
     "esbuild@0.28.2": true

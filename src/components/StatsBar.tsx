@@ -12,12 +12,13 @@ export function StatsBar({ tools, liveMap, syncedCount }: { tools: AITool[]; liv
     return { total: tools.length, cats, totalStars, hot, active };
   }, [tools, liveMap]);
 
+  const activePercent = stats.total > 0 ? Math.round((stats.active / stats.total) * 100) : 0;
   const items = [
     { icon: Boxes, label: 'Tools tracked', value: `${stats.total}`, color: '#8b5cf6' },
     { icon: Layers, label: 'Categories', value: `${stats.cats}`, color: '#06b6d4' },
     { icon: Star, label: 'Combined stars', value: formatStars(stats.totalStars), color: '#f59e0b' },
     { icon: Flame, label: 'Trending now', value: `${stats.hot}`, color: '#ef4444' },
-    { icon: Activity, label: 'Active projects', value: `${Math.round((stats.active / stats.total) * 100)}%`, color: '#10b981' },
+    { icon: Activity, label: 'Active projects', value: `${activePercent}%`, color: '#10b981' },
     { icon: Radio, label: 'Live-synced', value: `${syncedCount}`, color: '#ec4899' },
   ];
 

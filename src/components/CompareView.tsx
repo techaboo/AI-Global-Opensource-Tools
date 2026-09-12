@@ -122,13 +122,13 @@ export function CompareView({ tools, liveMap, selectedIds, onChangeIds, onOpenTo
     <div className="space-y-4">
       <div className="flex items-center gap-2 flex-wrap">
         <span className="inline-flex items-center gap-1.5 text-[12px] font-medium text-muted-foreground">
-          <GitCompare className="h-3.5 w-3.5" /> Compare
+          <GitCompare className="h-3.5 w-3.5" /> Compare categories
         </span>
         {ids.map((id, i) => (
           <div key={`${id}-${i}`} className="flex items-center gap-1">
             {i > 0 && <span className="text-[11px] text-muted-foreground px-0.5">vs</span>}
             <Select value={id} onValueChange={v => setSlot(i, v)}>
-              <SelectTrigger className="h-9 w-[200px] rounded-full text-[12px]">
+              <SelectTrigger aria-label={`Comparison category ${i + 1}`} className="h-9 w-full sm:w-[200px] rounded-full text-[12px]">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -141,6 +141,7 @@ export function CompareView({ tools, liveMap, selectedIds, onChangeIds, onOpenTo
             </Select>
             {ids.length > 2 && (
               <button
+                type="button"
                 onClick={() => removeSlot(i)}
                 className="rounded-full p-1 text-muted-foreground hover:text-foreground"
                 aria-label="Remove category"
@@ -152,6 +153,7 @@ export function CompareView({ tools, liveMap, selectedIds, onChangeIds, onOpenTo
         ))}
         {ids.length < MAX_COMPARE && unused.length > 0 && (
           <button
+            type="button"
             onClick={addSlot}
             className="inline-flex items-center gap-1 rounded-full border border-dashed border-border px-3 py-1.5 text-[12px] text-muted-foreground hover:text-foreground"
           >

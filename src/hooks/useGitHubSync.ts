@@ -61,6 +61,8 @@ export function useGitHubSync() {
   const [token, setTokenState] = useState<string>(loadToken);
   const abortRef = useRef(false);
   const tokenRef = useRef(token);
+  // Mirrors liveMap so callbacks can read the latest records without taking it as a dep.
+  const liveMapRef = useRef(liveMap);
 
   const setToken = useCallback((t: string) => {
     const clean = t.trim();
@@ -73,6 +75,7 @@ export function useGitHubSync() {
   }, []);
 
   useEffect(() => {
+    liveMapRef.current = liveMap;
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(liveMap));
     } catch { /* storage full — ignore */ }
@@ -146,8 +149,11 @@ export function useGitHubSync() {
     if (!tool.repo) return null;
     try {
       const data = await fetchRepo(tool.repo, tokenRef.current);
-      const full = withHistory(undefined, data);
-      setLiveMap(prev => ({ ...prev, [tool.id]: withHistory(prev[tool.id], data) }));
+      // Build the record once off the current map so the value returned to the caller
+      // carries the same accumulated star history that gets stored — computing it
+      // against `undefined` would hand back a one-point history and flatten the sparkline.
+      const full = withHistory(liveMapRef.current[tool.id], data);
+      setLiveMap(prev => ({ ...prev, [tool.id]: full }));
       return full;
     } catch {
       return null;

@@ -1,0 +1,68 @@
+name: Catalog data correction
+about: Report inaccurate, stale, duplicated, moved, or missing catalog information
+title: "[Data]: "
+labels: ["data-quality"]
+body:
+  - type: input
+    id: tool
+    attributes:
+      label: Tool name or catalog ID
+    validations:
+      required: true
+  - type: dropdown
+    id: field
+    attributes:
+      label: Affected information
+      options:
+        - Name or organization
+        - Repository or official URL
+        - Description or tags
+        - Category
+        - License
+        - Language or year
+        - Status
+        - Hot label
+        - Duplicate or removal
+        - Repository metrics/freshness
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: current
+    attributes:
+      label: Current information
+    validations:
+      required: true
+  - type: textarea
+    id: correction
+    attributes:
+      label: Proposed correction
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Authoritative evidence
+      description: Link official repository files, documentation, release notes, or project announcements. Metrics may simply need a refresh.
+    validations:
+      required: true
+  - type: textarea
+    id: conflict
+    attributes:
+      label: Affiliation or conflict of interest
+      description: State your relationship to the project or “none.”
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: I read the catalog methodology and searched existing reports.
+          required: true
+        - label: I understand that “Hot” is editorial and repository metrics are point-in-time observations.
+          required: true
+        - label: I have not included secrets or unnecessary personal data.
+          required: true
+        - label: I agree to follow the Code of Conduct.
+          required: true

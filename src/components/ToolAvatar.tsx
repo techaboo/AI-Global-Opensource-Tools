@@ -12,9 +12,11 @@ interface Props {
   className?: string;
 }
 
-/** Owner avatar with a skeleton while loading and a category-icon fallback on error/missing repo. */
-export function ToolAvatar({ repo, categoryIcon, categoryColor, size, className }: Props) {
-  const url = ownerAvatarUrl(repo, size * 2);
+interface AvatarImageProps extends Omit<Props, 'repo'> {
+  url: string | null;
+}
+
+function AvatarImage({ url, categoryIcon, categoryColor, size, className }: AvatarImageProps) {
   const [state, setState] = useState<'loading' | 'loaded' | 'error'>(url ? 'loading' : 'error');
 
   if (!url || state === 'error') {
@@ -43,4 +45,12 @@ export function ToolAvatar({ repo, categoryIcon, categoryColor, size, className 
       />
     </span>
   );
+}
+
+/** Owner avatar with a skeleton while loading and a category-icon fallback on error/missing repo. */
+export function ToolAvatar({ repo, ...props }: Props) {
+  const url = ownerAvatarUrl(repo, props.size * 2);
+
+  // A URL change remounts the stateful image so a prior load error cannot leak to a new repository.
+  return <AvatarImage key={url ?? 'fallback'} url={url} {...props} />;
 }

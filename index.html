@@ -3,11 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="A researched, live-synced catalog of 464 open-source AI tools across 27 categories." />
+    <!-- __TOOL_COUNT__ / __CATEGORY_COUNT__ are replaced from src/data/tools.ts at
+         build and dev-server time (see vite.config.ts) so these never drift from the dataset. -->
+    <meta name="description" content="A researched, live-synced catalog of __TOOL_COUNT__ open-source AI tools across __CATEGORY_COUNT__ categories." />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <!-- Content-Security-Policy meta is injected at build time only (see vite.config.ts) —
          dev mode needs an inline script for React Fast Refresh that a strict script-src would block. -->
     <title>Open Source AI Atlas</title>
+
+    <!-- Link previews. og:url and og:image need an absolute URL, so they stay out until a
+         host is chosen; summary cards render fine without an image. -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Open Source AI Atlas" />
+    <meta property="og:title" content="Open Source AI Atlas" />
+    <meta property="og:description" content="The living map of open-source AI — __TOOL_COUNT__ tools across __CATEGORY_COUNT__ categories, with live GitHub stats." />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Open Source AI Atlas" />
+    <meta name="twitter:description" content="The living map of open-source AI — __TOOL_COUNT__ tools across __CATEGORY_COUNT__ categories, with live GitHub stats." />
   </head>
   <body>
     <div id="root"></div>

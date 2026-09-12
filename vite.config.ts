@@ -30,4 +30,17 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes('/src/data/tools.ts')) return 'catalog-data';
+          if (id.includes('lucide-react')) return 'icons-vendor';
+          if (id.includes('@radix-ui') || id.includes('cmdk') || id.includes('sonner')) return 'ui-vendor';
+          if (id.includes('/react/') || id.includes('/react-dom/') || id.includes('/scheduler/')) return 'react-vendor';
+          return undefined;
+        },
+      },
+    },
+  },
 });
