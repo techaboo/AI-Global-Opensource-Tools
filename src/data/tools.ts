@@ -613,8 +613,6 @@ export const TOOLS: AITool[] = [
   { id: 'inspect-ai', name: 'Inspect AI', org: 'UK AI Safety Institute', cat: 'eval', tagline: 'The AI Safety Institute\'s eval framework', desc: 'The UK AISI\'s framework for LLM evaluations — task harnesses, solvers, scorers, sandboxes and log viewers, now standard for safety and capability evals.', license: 'MIT', lang: 'Python', stars: 2700, repo: 'UKGovernmentBEIS/inspect_ai', tags: ['evaluation', 'safety', 'benchmarks'], status: 'active', year: 2023 },
 
   // ─── Catalog expansion III (auto 2026-09-07) ───────────────────────
-  // Agent Frameworks
-  { id: 'deer-flow', name: 'DeerFlow', org: 'ByteDance', cat: 'agents', tagline: 'Long-horizon super-agent harness', desc: 'ByteDance\'s open super-agent that researches, codes and creates over multi-hour tasks — with sandboxes, memories, tools, skills, subagents and a message gateway.', license: 'MIT', lang: 'Python', stars: 81700, repo: 'bytedance/deer-flow', tags: ['agents', 'research', 'long-horizon'], hot: true, status: 'active', year: 2025 },
   // RAG, Memory & Knowledge
   { id: 'pageindex', name: 'PageIndex', org: 'Vectify AI', cat: 'rag', tagline: 'Vectorless, reasoning-based RAG indexing', desc: 'Document index built as a hierarchical, LLM-navigable table-of-contents tree — retrieves via reasoning instead of embeddings for exact, explainable citations.', license: 'MIT', lang: 'Python', stars: 35600, repo: 'VectifyAI/PageIndex', tags: ['rag', 'indexing', 'reasoning'], hot: true, status: 'active', year: 2025 },
   // Personal Assistants
@@ -633,16 +631,6 @@ export const TOOLS: AITool[] = [
   { id: 'omnivoice', name: 'OmniVoice', org: 'Next-gen Kaldi', cat: 'audio', tagline: 'Zero-shot TTS for 600+ languages', desc: 'Diffusion language-model TTS with voice cloning, voice design and non-verbal tags ([laughter] and friends), running up to 40× faster than real time with FlashInfer acceleration.', license: 'Apache-2.0', lang: 'Python', stars: 10308, repo: 'k2-fsa/OmniVoice', tags: ['tts', 'voice-cloning', 'multilingual'], hot: true, status: 'active', year: 2026 },
   // Video Generation
   { id: 'openstoryline', name: 'FireRed-OpenStoryline', org: 'FireRedTeam', cat: 'video', tagline: 'Intention-driven video editing agent', desc: 'Describe the edit you want in natural language and an LLM planner orchestrates smart media search, script generation, music and voiceover picks, AI transitions and conversational refinement into a finished cut.', license: 'Apache-2.0', lang: 'Python', stars: 3374, repo: 'FireRedTeam/FireRed-OpenStoryline', tags: ['video', 'editing', 'agent'], status: 'active', year: 2026 },
-
-  // ─── Catalog expansion V (auto 2026-09-08) ──────────────────────────
-  // Prompts & Learning
-  { id: 'agent-skills', name: 'Agent Skills', org: 'Anthropic', cat: 'prompts', tagline: 'The reference implementation of the Agent Skills standard', desc: 'Anthropic\'s public repository of agent skill packages — folders of instructions, scripts and resources that extend any Agent Skills-compatible assistant (Claude Code, Claude.ai, API). The de facto standard that a whole skills ecosystem now builds on.', license: 'Other (see repo)', lang: 'Python', stars: 175143, repo: 'anthropics/skills', tags: ['skills', 'standard', 'agents'], hot: true, status: 'active', year: 2025 },
-
-  // ─── Catalog expansion VI (auto 2026-09-09) ──────────────────────────
-  // Guardrails & Safety
-  { id: 'agent-governance-toolkit', name: 'Agent Governance Toolkit', org: 'Microsoft', cat: 'guardrails', tagline: 'Full-stack governance for autonomous agents', desc: 'Microsoft\'s toolkit for governing agentic AI: one-line govern() wrapping, YAML/OPA/Cedar policy engine, zero-trust identity (SPIFFE/DID/mTLS), sandboxed execution across four privilege rings, an MCP security gateway and tamper-evident audit logs — 10/10 OWASP Agentic Top 10 coverage, SDKs in five languages.', license: 'MIT', lang: 'Python', stars: 6226, repo: 'microsoft/agent-governance-toolkit', tags: ['governance', 'policy', 'audit'], hot: true, status: 'active', year: 2026 },
-  // Robotics & Embodied
-  { id: 'psi0', name: 'Psi0', org: 'PSI-lab, USC', cat: 'robotics', tagline: 'Open VLA model for humanoid loco-manipulation', desc: 'Open vision-language-action foundation model for dexterous whole-body humanoid control — a Qwen3-VL backbone plus a ~500M diffusion action expert and RL tracking controller. Best Paper at the CVPR 2026 3D-LLM/VLA workshop; learns new skills from as few as 80 trajectories on Unitree G1.', license: 'Apache-2.0', lang: 'Python', stars: 2826, repo: 'physical-superintelligence-lab/Psi0', tags: ['vla', 'humanoid', 'locomanipulation'], status: 'active', year: 2026 },
 
   // ─── Catalog expansion VII (auto 2026-09-10) ─────────────────────────
   // Workflow & Low-Code
