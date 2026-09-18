@@ -1,7 +1,6 @@
 import path from "path"
 import react from "@vitejs/plugin-react"
 import { defineConfig, type Plugin } from "vite"
-import { inspectAttr } from 'kimi-plugin-inspect-react'
 
 // Dev mode needs an inline script for React Fast Refresh (injected by @vitejs/plugin-react)
 // that a strict script-src would block, so this CSP <meta> is only added to the production build.
@@ -21,7 +20,7 @@ function injectCsp(): Plugin {
 // https://vite.dev/config/
 export default defineConfig({
   base: './',
-  plugins: [inspectAttr(), react(), injectCsp()],
+  plugins: [react(), injectCsp()],
   server: {
     port: 3000,
   },
