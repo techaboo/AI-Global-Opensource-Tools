@@ -115,7 +115,7 @@ export default function App() {
   const [paletteOpen, setPaletteOpen] = useState(false);
   const searchRef = useRef<string>('');
 
-  const { liveMap, syncing, progress, rateLimited, setToken, hasToken, syncTools, fetchOne, lastSync, syncedCount } = useGitHubSync();
+  const { liveMap, syncing, progress, rateLimited, setToken, hasToken, syncTools, fetchOne, lastSync } = useGitHubSync();
 
   // ─── Effects: theme persistence ───────────────────────────────────
   useEffect(() => {
@@ -166,6 +166,9 @@ export default function App() {
     for (const t of TOOLS) m[t.cat] = (m[t.cat] ?? 0) + 1;
     return m;
   }, []);
+
+  // Count only current catalog entries; localStorage can retain records for removed tools.
+  const syncedCount = useMemo(() => TOOLS.filter(t => liveMap[t.id]).length, [liveMap]);
 
   const filtered = useMemo(() => {
     const q = search.trim().toLowerCase();
@@ -320,7 +323,7 @@ export default function App() {
             </div>
           </div>
 
-          <StatsBar tools={filtered} liveMap={liveMap} syncedCount={syncedCount} />
+          <StatsBar tools={filtered} liveMap={liveMap} />
 
           <FilterBar
             sort={sort} onSort={setSort}

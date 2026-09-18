@@ -3,13 +3,14 @@ import { useMemo } from 'react';
 import type { AITool, LiveMap } from '@/types';
 import { formatStars } from '@/lib/format';
 
-export function StatsBar({ tools, liveMap, syncedCount }: { tools: AITool[]; liveMap: LiveMap; syncedCount: number }) {
+export function StatsBar({ tools, liveMap }: { tools: AITool[]; liveMap: LiveMap }) {
   const stats = useMemo(() => {
     const totalStars = tools.reduce((s, t) => s + (liveMap[t.id]?.stars ?? t.stars), 0);
     const cats = new Set(tools.map(t => t.cat)).size;
     const hot = tools.filter(t => t.hot).length;
     const active = tools.filter(t => t.status === 'active').length;
-    return { total: tools.length, cats, totalStars, hot, active };
+    const liveSynced = tools.filter(t => liveMap[t.id]).length;
+    return { total: tools.length, cats, totalStars, hot, active, liveSynced };
   }, [tools, liveMap]);
 
   const activePercent = stats.total > 0 ? Math.round((stats.active / stats.total) * 100) : 0;
@@ -19,7 +20,7 @@ export function StatsBar({ tools, liveMap, syncedCount }: { tools: AITool[]; liv
     { icon: Star, label: 'Combined stars', value: formatStars(stats.totalStars), color: '#f59e0b' },
     { icon: Flame, label: 'Trending now', value: `${stats.hot}`, color: '#ef4444' },
     { icon: Activity, label: 'Active projects', value: `${activePercent}%`, color: '#10b981' },
-    { icon: Radio, label: 'Live-synced', value: `${syncedCount}`, color: '#ec4899' },
+    { icon: Radio, label: 'Live-synced', value: `${stats.liveSynced}`, color: '#ec4899' },
   ];
 
   return (
