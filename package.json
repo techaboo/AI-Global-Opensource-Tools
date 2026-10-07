@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "node scripts/generate-api.mjs && tsc -b && vite build",
+    "generate-api": "node scripts/generate-api.mjs",
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest run",
@@ -19,7 +20,8 @@
     "fetch-stars": "node scripts/fetch-stars.mjs",
     "fetch-stars:update": "node scripts/fetch-stars.mjs --update",
     "check-duplicates": "node scripts/check-duplicates.mjs",
-    "review:tool": "node scripts/review-tool.mjs"
+    "review:tool": "node scripts/review-tool.mjs",
+    "audit:catalog": "node scripts/audit-catalog.mjs"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.15",

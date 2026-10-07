@@ -36,6 +36,25 @@ IDs should not be recycled after renames. Correct repository coordinates rather 
 
 Category totals and tool totals are derived from these arrays at runtime. Do not copy a numeric total into documentation unless it is generated from this source.
 
+## Public read-only API
+
+`scripts/generate-api.mjs` runs on every `npm run build` and writes the validated
+catalog as plain JSON into `public/api/v1/`, which `vite build` then copies into
+`dist/` alongside the site — so it's served from wherever the site itself is
+hosted, with no separate backend:
+
+| Path | Contents |
+| --- | --- |
+| `/api/v1/tools.json` | The full `AITool[]` array, same shape as this document's `AITool` table |
+| `/api/v1/categories.json` | The full `Category[]` array |
+| `/api/v1/meta.json` | `{ generatedAt, schemaVersion, toolCount, categoryCount, snapshotDate }` |
+
+This is a free, unauthenticated, static mirror of the catalog — there is no
+rate limiting or access control, because there is no server to enforce it. It
+updates only when the site is rebuilt and redeployed, not live. A metered or
+paid tier would need an actual backend (e.g. a small Worker in front of the
+same data) rather than a static file.
+
 ## Scheduled snapshot
 
 `public/live-snapshot.json` is generated, not an editorial source file. Its top-level shape is:
