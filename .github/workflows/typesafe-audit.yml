@@ -1,0 +1,84 @@
+# Weekly rotating TypeSafe semantic audit across the catalog (scripts/audit-catalog.mjs).
+# Auth: repo secret TYPESAFE_API_KEY. Reviews a bounded batch each run (default 50
+# tools) rather than the whole catalog, so cost and API load stay predictable;
+# state in audits/state.json tracks coverage so the whole catalog rotates through
+# on a roughly quarterly cadence — matching the review target in docs/METHODOLOGY.md
+# — rather than reviewing (and paying for) all ~500+ tools on every run.
+name: TypeSafe catalog audit
+
+on:
+  schedule:
+    - cron: '30 7 * * 1' # Monday 07:30 UTC, after the Monday 06:00 star refresh
+  workflow_dispatch:
+    inputs:
+      batch_size:
+        description: How many tools to review this run.
+        required: false
+        type: string
+        default: '50'
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: typesafe-audit
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.ref }}
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Run batch audit
+        env:
+          TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
+        run: |
+          if [ -z "$TYPESAFE_API_KEY" ]; then
+            echo "::warning::TYPESAFE_API_KEY secret is not set — the audit will skip and exit 0."
+          fi
+          node scripts/audit-catalog.mjs --batch-size="${{ inputs.batch_size || '50' }}"
+
+      - name: Commit audit state
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add audits/state.json audits/latest-report.md
+          if git diff --cached --quiet; then
+            echo "No audit changes to commit (likely skipped: TYPESAFE_API_KEY unset)."
+            exit 0
+          fi
+          git commit -m "chore: update TypeSafe catalog audit state"
+          git push
+
+      - name: Open or update audit issue
+        if: always()
+        uses: actions/github-script@v9
+        with:
+          script: |
+            const fs = require('fs');
+            if (!fs.existsSync('audits/latest-report.md')) return;
+            const marker = '<!-- typesafe-audit-bot -->';
+            const body = `${marker}\n${fs.readFileSync('audits/latest-report.md', 'utf8')}`;
+            const { data: issues } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+            });
+            const existing = issues.find(issue => issue.body?.includes(marker));
+            if (existing) {
+              await github.rest.issues.update({ owner: context.repo.owner, repo: context.repo.repo, issue_number: existing.number, body });
+            } else {
+              await github.rest.issues.create({ owner: context.repo.owner, repo: context.repo.repo, title: 'TypeSafe catalog audit', body });
+            }
