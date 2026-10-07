@@ -75,4 +75,6 @@ Corrections, additions, accessibility reports, and methodology improvements are 
 
 ## License
 
-The Atlas application and repository materials are available under the [MIT License](LICENSE). Individual cataloged projects retain their own licenses; verify each license at its authoritative source before adopting a project.
+This repository and its application code are proprietary. © 2026 Andrew Shannon, operating as Techaboo World Solution. All rights reserved — no license is granted to use, copy, modify, or redistribute this code without prior written permission.
+
+Individual cataloged projects retain their own licenses, unaffected by this notice; verify each license at its authoritative source before adopting a project. Cataloging a project here does not grant any rights to its code.

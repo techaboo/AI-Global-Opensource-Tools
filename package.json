@@ -3,6 +3,8 @@
   "private": true,
   "version": "1.0.0",
   "description": "A searchable, regularly refreshed dashboard for discovering and comparing hundreds of open-source AI tools.",
+  "author": "Andrew Shannon (Techaboo World Solution)",
+  "license": "UNLICENSED",
   "type": "module",
   "scripts": {
     "dev": "vite",

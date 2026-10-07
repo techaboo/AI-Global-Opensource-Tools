@@ -62,4 +62,4 @@ Use a descriptive title, explain the user-visible effect, link related issues, a
 
 ## Legal note
 
-This repository currently has no license file. Submission of a contribution does not by itself resolve that absence. Contributors must have the right to submit their work; the repository owner should establish explicit contribution and project licensing terms before broad reuse is expected.
+This repository is proprietary — see the [License](README.md#license) section of the README. No open-source license is granted. Contributors must have the right to submit their work; submitting a contribution does not grant the contributor any rights to the project, and an accepted contribution becomes part of this proprietary codebase (owned by Andrew Shannon, operating as Techaboo World Solution) unless a separate written agreement states otherwise.
