@@ -377,6 +377,7 @@ export default function App() {
           <footer className="pt-6 pb-4 text-center text-[11px] text-muted-foreground space-y-1">
             <p>Open Source AI Atlas · {TOOLS.length} tools · {CATEGORIES.length} categories · research snapshot {SNAPSHOT_DATE}</p>
             <p>Star/fork data: GitHub REST API — {hasToken ? 'authenticated (5,000 req/hr)' : 'unauthenticated (60 req/hr — add a token via the 🔑 button)'}. Cached locally; a saved token is sent only to GitHub when requesting metadata.</p>
+            <p>Techaboo World Solution by Andrew Shannon</p>
           </footer>
         </main>
       </div>

@@ -1,5 +1,7 @@
 # Open Source AI Atlas
 
+**Techaboo World Solution by Andrew Shannon**
+
 A browsable catalog of open-source AI tools, projects, libraries, and infrastructure, organized across dozens of categories.
 
 **Live site:** https://techaboo.github.io/AI-Global-Opensource-Tools/
