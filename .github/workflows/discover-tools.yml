@@ -36,6 +36,11 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v7
+        with:
+          # A push made with the default GITHUB_TOKEN doesn't trigger other
+          # workflows (loop prevention) — this would silently add tools
+          # without ever redeploying the site. A PAT's push triggers normally.
+          token: ${{ secrets.KIMI_GITHUB_API || secrets.GITHUB_TOKEN }}
 
       - uses: actions/setup-node@v7
         with:
