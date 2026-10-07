@@ -1,8 +1,9 @@
-# Daily discovery of new candidate AI repos (scripts/discover-tools.mjs). Opens a
-# DRAFT pull request with entries appended to src/data/tools.ts using cat: 'TODO'
-# — a deliberately invalid placeholder — so check-duplicates/CI stays red until a
-# human assigns a real category and reviews each entry against
-# docs/METHODOLOGY.md. This workflow never merges or pushes to main itself.
+# Daily discovery of new candidate AI repos (scripts/discover-tools.mjs).
+# Auto-commits straight to main: each candidate must pass a live TypeSafe
+# semantic-duplicate check and clear a confidence bar to get a real category
+# (never a guess — no key or low confidence means that candidate is skipped,
+# not added with a placeholder), plus a deterministic stars-per-day plausibility
+# filter. Gated on `npm run check-duplicates` passing before the commit happens.
 #
 # Cron is UTC and fixed, so this can't track DST automatically: 11:00 UTC is
 # 06:00 Central during CDT (mid-Mar-early Nov, most of the year) but 05:00
@@ -24,7 +25,6 @@ on:
 
 permissions:
   contents: write
-  pull-requests: write
 
 concurrency:
   group: discover-tools
@@ -50,24 +50,20 @@ jobs:
           TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
         run: node scripts/discover-tools.mjs --limit="${{ inputs.limit || '8' }}"
 
-      - name: Open a draft PR if anything was drafted
-        if: always()
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Validate before committing
+        run: |
+          if ! git diff --quiet -- src/data/tools.ts; then
+            npm run check-duplicates
+          fi
+
+      - name: Commit and push if anything was added
         run: |
           if git diff --quiet -- src/data/tools.ts; then
-            echo "No new candidates to propose."
+            echo "No new candidates to add."
             exit 0
           fi
-          branch="discover-tools/$(date -u +%Y-%m-%d)"
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git checkout -b "$branch"
           git add src/data/tools.ts
-          git commit -m "chore: draft new AI tool candidates for review"
-          git push -u origin "$branch"
-          gh pr create \
-            --title "Draft: new AI tool candidates ($(date -u +%Y-%m-%d))" \
-            --body "Auto-discovered via the GitHub Search API. Every field is copied directly from the repository's own GitHub metadata (description, license, language, topics, stars, creation year) — nothing is generated or invented. \`cat: 'TODO'\` is a deliberate placeholder that fails \`npm run check-duplicates\`; CI stays red until each entry gets a real category from docs/METHODOLOGY.md and an editorial read-through. Reject any entry that doesn't meet the inclusion criteria there." \
-            --draft \
-            --head "$branch"
+          git commit -m "feat(catalog): auto-add new AI tool candidates ($(date -u +%Y-%m-%d))"
+          git push

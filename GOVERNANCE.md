@@ -21,7 +21,16 @@ A GitHub permission alone should not be treated as a public maintainer appointme
 
 ## Reviews and changes
 
-At least one maintainer approval is expected before merge. Self-merge should be avoided for material governance, security, privacy, methodology, or accessibility changes when another qualified reviewer is available. Emergency security changes may be merged privately or quickly and documented after disclosure is safe.
+At least one maintainer approval is expected before merge, with one narrow,
+documented exception: `.github/workflows/discover-tools.yml` and
+`refresh-stars.yml` commit directly to `main` without human review, bounded
+to objective, automated gates only (a live semantic-duplicate check, a
+confidence-gated category classification, a deterministic star-plausibility
+filter, and GitHub's own archived/404 status — see `scripts/discover-tools.mjs`
+and `scripts/fetch-stars.mjs`). Anything requiring a judgment call — a
+suspected duplicate, a category mismatch, a license or tagline concern — stays
+reported-only via the TypeSafe audit's tracking issue
+(`scripts/audit-catalog.mjs`), never auto-applied. Self-merge should be avoided for material governance, security, privacy, methodology, or accessibility changes when another qualified reviewer is available. Emergency security changes may be merged privately or quickly and documented after disclosure is safe.
 
 Conflicts of interest should be disclosed. A reviewer closely affiliated with a cataloged project should avoid being the sole decision-maker for disputed inclusion, ranking, “Hot,” status, or removal decisions.
 

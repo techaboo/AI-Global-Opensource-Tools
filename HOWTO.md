@@ -60,13 +60,23 @@ Do not hand-edit `public/live-snapshot.json` merely to update stars. Its metrics
 
 ## Automated discovery
 
-`.github/workflows/discover-tools.yml` runs daily (~06:00 America/Chicago) and
-searches the GitHub API for candidate repos not already in the catalog. Every
-field it drafts is copied directly from the repository's own GitHub metadata —
-nothing is generated. Drafts land in a **draft pull request** with `cat: 'TODO'`,
-which fails `npm run check-duplicates` on purpose: CI stays red until a human
-assigns a real category and reviews each entry against the criteria above. This
-workflow never pushes to `main` or merges anything itself.
+`.github/workflows/discover-tools.yml` runs daily (~06:00 America/Chicago,
+drifting to ~05:00 during CST — see the workflow's own comment) and searches
+the GitHub API for candidate repos not already in the catalog, auto-committing
+straight to `main`. Every field is copied directly from the repository's own
+GitHub metadata — nothing is generated. Before a candidate is added it must:
+
+- pass a live TypeSafe semantic-duplicate check against the existing catalog
+  (an id/repo match alone misses the same product republished under a
+  different org — observed directly in testing);
+- clear a confidence bar (0.6) on a live TypeSafe category classification —
+  low confidence means the candidate is skipped, never added with a guess;
+- pass a deterministic stars-per-day plausibility filter (observed in testing:
+  a repo claiming far more stars than the real project it shared a name with).
+
+`npm run check-duplicates` gates the commit as a final structural check. If
+`TYPESAFE_API_KEY` is unset, nothing can be categorized or deduped, so the run
+adds nothing that day rather than guess.
 
 ## Automated semantic audit
 

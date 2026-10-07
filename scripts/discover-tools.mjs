@@ -1,19 +1,26 @@
 /**
- * Discovers candidate open-source AI repos via the GitHub Search API and drafts
- * new catalog entries using only GitHub-provided facts (name, owner, description,
- * license, language, topics, stars, creation year) — nothing generated or
- * invented. Appends drafts to src/data/tools.ts with `cat: 'TODO'`, a
- * deliberately invalid category that fails validateCatalog()/check-duplicates,
- * so CI stays red until a human assigns a real category and reviews the entry.
- * This script never commits or merges anything itself — see
- * .github/workflows/discover-tools.yml, which opens a draft PR instead.
+ * Discovers candidate open-source AI repos via the GitHub Search API and
+ * auto-adds them to src/data/tools.ts using only GitHub-provided facts (name,
+ * owner, description, license, language, topics, stars, creation year) —
+ * nothing generated or invented. This script writes directly; it is the
+ * workflow (.github/workflows/discover-tools.yml) that commits the result to
+ * main, gated on `npm run check-duplicates` passing first.
  *
- * With TYPESAFE_API_KEY set, each surviving candidate also gets the semantic
- * duplicate check from typesafe-review.mjs, since an id/repo match alone misses
- * the same product republished under a different org. Optional; skipped cleanly
- * without the key, same as elsewhere TypeSafe is used in this repo.
+ * Requires TYPESAFE_API_KEY — every candidate must pass two live checks before
+ * being added, both reusing one reviewCandidate() call (no extra cost):
+ *   1. Semantic duplicate check — an id/repo match alone misses the same
+ *      product republished under a different org (observed in testing).
+ *   2. Category auto-assignment — only accepted at CATEGORY_CONFIDENCE or
+ *      above; a low-confidence guess is skipped rather than miscategorized.
+ * Without the key, nothing can be auto-categorized, so the run adds nothing
+ * (logs why) rather than fabricate a category.
  *
- * Usage: GITHUB_TOKEN=<token> node scripts/discover-tools.mjs [--limit=8]
+ * Also filters out implausible star counts (stars per day since creation) —
+ * observed in testing: a repo claiming more stars than the real project it
+ * was squatting the name of, which the dedup check alone wouldn't catch for a
+ * *non*-colliding name.
+ *
+ * Usage: GITHUB_TOKEN=<token> TYPESAFE_API_KEY=<key> node scripts/discover-tools.mjs [--limit=8]
  */
 import { readFileSync, writeFileSync } from 'node:fs';
 import { CATALOG_PATH, loadCatalog } from './catalog.mjs';
@@ -22,6 +29,8 @@ import { DUPLICATE_THRESHOLD, reviewCandidate } from './typesafe-review.mjs';
 const TOKEN = process.env.GITHUB_TOKEN || process.env.KIMI_GITHUB_API || '';
 const MIN_STARS = 300;
 const RECENT_DAYS = 30;
+const STARS_PER_DAY_CEILING = 1500; // generous even for a viral launch; past this, treat as likely farmed
+const CATEGORY_CONFIDENCE = 0.6;
 const TOPIC_QUERIES = [
   'topic:llm', 'topic:large-language-models', 'topic:ai-agents', 'topic:agents',
   'topic:generative-ai', 'topic:rag', 'topic:machine-learning', 'topic:computer-vision',
@@ -54,16 +63,22 @@ async function searchTopic(topic) {
   return json.items ?? [];
 }
 
-/** Returns a draft entry built only from repo's own GitHub metadata, or null if there isn't enough first-party info to catalog it. */
+/** Returns a draft entry built only from repo's own GitHub metadata, or null if it fails a cheap, deterministic filter. */
 function toCandidate(repo) {
   const desc = repo.description?.trim();
   if (!desc) return null; // no first-party description to summarize from
   if (!repo.license?.spdx_id || repo.license.spdx_id === 'NOASSERTION') return null; // unverifiable license
+
+  const daysSinceCreated = Math.max(1, (Date.now() - new Date(repo.created_at).getTime()) / 86_400_000);
+  if (repo.stargazers_count / daysSinceCreated > STARS_PER_DAY_CEILING) return null; // implausible growth, likely farmed/spam
+
   return {
     id: slugify(repo.name),
     name: repo.name,
     org: repo.owner.login,
-    cat: 'TODO', // deliberately invalid — forces a human to assign a real category before merge
+    cat: 'uncategorized', // placeholder only — reviewCandidate() requires a truthy value but
+    // ignores it when building the category question (only tagline/desc matter); always
+    // overwritten with the real suggested category below, or the candidate is dropped
     tagline: desc.length > 80 ? `${desc.slice(0, 77)}...` : desc,
     desc,
     license: repo.license.spdx_id,
@@ -103,38 +118,50 @@ for (const repo of seen.values()) {
   const candidate = toCandidate(repo);
   if (!candidate) continue;
   // Same base name as an existing entry, under a different repo coordinate — a
-  // mirror, a rename, or a project squatting an established name to farm stars
-  // (observed in testing: a decoy repo claiming more stars than the real one).
-  // This is high suspicion, not a disambiguation detail — only an explicit
-  // TypeSafe "not a duplicate" below should let it through.
+  // mirror, a rename, or a project squatting an established name to farm stars.
+  // High suspicion, not a disambiguation detail — only an explicit TypeSafe
+  // "not a duplicate" below should let it through.
   const nameCollision = existingIds.has(candidate.id);
   if (nameCollision) candidate.id = `${candidate.id}-${candidate.org.toLowerCase()}`;
   if (existingIds.has(candidate.id)) continue; // still colliding even after disambiguation — skip
   rawCandidates.push({ candidate, nameCollision });
 }
 
-// An id/repo collision only catches the exact same repo coordinate. Ask the
-// TypeSafe semantic check too, same as the editorial review workflow does, so a
-// renamed/mirrored/squatted duplicate doesn't make it into the draft PR.
 const candidates = [];
 for (const { candidate, nameCollision } of rawCandidates) {
   const result = await reviewCandidate(candidate, catalog);
-  const flaggedDuplicate = !result.skipped && result.duplicates.some(d => d.noul >= DUPLICATE_THRESHOLD);
+
+  if (result.skipped) {
+    console.log(`! Skipping ${candidate.name} (${candidate.repo}) — TYPESAFE_API_KEY is unset, so it can't be deduped or categorized.`);
+    continue;
+  }
+
+  const flaggedDuplicate = result.duplicates.some(d => d.noul >= DUPLICATE_THRESHOLD);
   if (flaggedDuplicate) {
     const best = result.duplicates[0];
     console.log(`! Skipping ${candidate.name} (${candidate.repo}) — likely duplicate of ${best.tool.name} (${best.tool.id}), noul ${best.noul.toFixed(2)}.`);
     continue;
   }
-  if (nameCollision && result.skipped) {
-    console.log(`! Skipping ${candidate.name} (${candidate.repo}) — shares a name with an existing entry and TYPESAFE_API_KEY is unset, so it can't be confirmed as a different project.`);
+  if (nameCollision && result.duplicates.length === 0) {
+    // TypeSafe actively looked and found no match in the shortlist — but a name
+    // collision is suspicious enough that an empty shortlist (not a confirmed
+    // "different project") still isn't enough on its own. Require a real signal.
+    console.log(`! Skipping ${candidate.name} (${candidate.repo}) — shares a name with an existing entry; no confident "different project" signal.`);
     continue;
   }
+
+  if (result.category.confidence < CATEGORY_CONFIDENCE) {
+    console.log(`! Skipping ${candidate.name} (${candidate.repo}) — category confidence too low (${result.category.confidence.toFixed(2)} < ${CATEGORY_CONFIDENCE}) to auto-assign.`);
+    continue;
+  }
+  candidate.cat = result.category.suggested;
+
   candidates.push(candidate);
   if (candidates.length >= limit) break;
 }
 
 if (candidates.length === 0) {
-  console.log('No new candidates found.');
+  console.log('No new candidates added.');
   process.exit(0);
 }
 
@@ -142,7 +169,7 @@ const source = readFileSync(CATALOG_PATH, 'utf8');
 const eol = source.includes('\r\n') ? '\r\n' : '\n';
 const insertion = [
   '',
-  `  // ─── Discovered ${new Date().toISOString().slice(0, 10)} — assign cat and review before merge ──`,
+  `  // ─── Auto-discovered ${new Date().toISOString().slice(0, 10)} ──`,
   ...candidates.map(formatEntry),
   '];',
 ].join(eol);
@@ -156,5 +183,5 @@ if (updated === source) {
 }
 writeFileSync(CATALOG_PATH, updated);
 
-console.log(`✓ Drafted ${candidates.length} candidate(s) (cat: 'TODO' — CI will fail until reviewed):`);
-for (const c of candidates) console.log(`  - ${c.name} (${c.repo})`);
+console.log(`✓ Added ${candidates.length} candidate(s):`);
+for (const c of candidates) console.log(`  - ${c.name} (${c.repo}) -> ${c.cat}`);
