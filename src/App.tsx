@@ -383,7 +383,7 @@ export default function App() {
                 href="https://buymeacoffee.com/techabooq"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-1.5 rounded-full bg-amber-500 px-3 py-1 text-[12px] font-semibold text-white hover:bg-amber-600 transition-colors"
+                className="inline-flex items-center gap-1.5 rounded-full bg-amber-500 px-3 py-1 text-[12px] font-semibold text-amber-950 hover:bg-amber-400 transition-colors"
               >
                 ☕ Support this project
               </a>

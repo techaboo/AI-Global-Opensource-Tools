@@ -192,7 +192,7 @@ export function Header({ dark, onToggleDark, search, onSearch, syncing, progress
           <Button
             asChild
             size="sm"
-            className="rounded-full gap-1.5 border-0 bg-amber-500 text-white hover:bg-amber-600 shadow-sm shadow-amber-500/30"
+            className="rounded-full gap-1.5 border-0 bg-amber-500 text-amber-950 hover:bg-amber-400 shadow-sm shadow-amber-500/30 font-semibold"
           >
             <a href="https://buymeacoffee.com/techabooq" target="_blank" rel="noreferrer" aria-label="Support this project on Buy Me a Coffee">
               <Coffee className="h-3.5 w-3.5" />
