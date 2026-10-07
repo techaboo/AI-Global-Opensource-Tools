@@ -377,9 +377,14 @@ export default function App() {
           <footer className="pt-6 pb-4 text-center text-[11px] text-muted-foreground space-y-1">
             <p>Open Source AI Atlas · {TOOLS.length} tools · {CATEGORIES.length} categories · research snapshot {SNAPSHOT_DATE}</p>
             <p>Star/fork data: GitHub REST API — {hasToken ? 'authenticated (5,000 req/hr)' : 'unauthenticated (60 req/hr — add a token via the 🔑 button)'}. Cached locally; a saved token is sent only to GitHub when requesting metadata.</p>
+            <p>Techaboo World Solution by Andrew Shannon</p>
             <p>
-              Techaboo World Solution by Andrew Shannon ·{' '}
-              <a href="https://buymeacoffee.com/techabooq" target="_blank" rel="noreferrer" className="text-fuchsia-500 hover:underline">
+              <a
+                href="https://buymeacoffee.com/techabooq"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1.5 rounded-full bg-amber-500 px-3 py-1 text-[12px] font-semibold text-white hover:bg-amber-600 transition-colors"
+              >
                 ☕ Support this project
               </a>
             </p>

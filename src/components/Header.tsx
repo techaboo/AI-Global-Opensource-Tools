@@ -1,6 +1,6 @@
 ﻿import { useState } from 'react';
 import { toast } from 'sonner';
-import { Moon, Sun, Search, RefreshCw, Radar, Loader2, KeyRound, Check, Star, X, Command, Info } from 'lucide-react';
+import { Moon, Sun, Search, RefreshCw, Radar, Loader2, KeyRound, Check, Star, X, Command, Info, Coffee } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
 import { CATEGORIES, TOOLS } from '@/data/tools';
@@ -188,6 +188,18 @@ export function Header({ dark, onToggleDark, search, onSearch, syncing, progress
             {syncing ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <RefreshCw className="h-3.5 w-3.5" />}
             <span className="hidden sm:inline">{syncing ? 'Syncing' : 'Sync GitHub'}</span>
           </Button>
+
+          <Button
+            asChild
+            size="sm"
+            className="rounded-full gap-1.5 border-0 bg-amber-500 text-white hover:bg-amber-600 shadow-sm shadow-amber-500/30"
+          >
+            <a href="https://buymeacoffee.com/techabooq" target="_blank" rel="noreferrer" aria-label="Support this project on Buy Me a Coffee">
+              <Coffee className="h-3.5 w-3.5" />
+              <span className="hidden sm:inline">Support</span>
+            </a>
+          </Button>
+
           <Button variant="ghost" size="icon" onClick={onToggleDark} className="rounded-full" aria-label="Toggle theme">
             {dark ? <Sun className="h-4.5 w-4.5" /> : <Moon className="h-4.5 w-4.5" />}
           </Button>
