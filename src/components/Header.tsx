@@ -1,6 +1,6 @@
 ﻿import { useState } from 'react';
 import { toast } from 'sonner';
-import { Moon, Sun, Search, RefreshCw, Radar, Loader2, KeyRound, Check, Star, X, Command } from 'lucide-react';
+import { Moon, Sun, Search, RefreshCw, Radar, Loader2, KeyRound, Check, Star, X, Command, Info } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
 import { CATEGORIES, TOOLS } from '@/data/tools';
@@ -25,10 +25,25 @@ interface Props {
   onOpenPalette: () => void;
 }
 
+const BANNER_DISMISSED_KEY = 'osi-atlas-ratelimit-banner-dismissed-v1';
+
 export function Header({ dark, onToggleDark, search, onSearch, syncing, progress, rateLimited, syncedCount, lastSync, onSync, onSetToken, onlyFav, onToggleFav, favCount, hasToken, onOpenPalette }: Props) {
   const [tokenOpen, setTokenOpen] = useState(false);
   const [draft, setDraft] = useState('');
   const [saved, setSaved] = useState(false);
+  const [bannerDismissed, setBannerDismissed] = useState(() => {
+    try {
+      return localStorage.getItem(BANNER_DISMISSED_KEY) === '1';
+    } catch {
+      return false;
+    }
+  });
+  const dismissBanner = () => {
+    setBannerDismissed(true);
+    try {
+      localStorage.setItem(BANNER_DISMISSED_KEY, '1');
+    } catch { /* ignore */ }
+  };
 
   const save = () => {
     onSetToken(draft.trim());
@@ -178,6 +193,23 @@ export function Header({ dark, onToggleDark, search, onSearch, syncing, progress
           </Button>
         </div>
       </div>
+      {!hasToken && !bannerDismissed && (
+        <div className="flex items-center gap-2 border-t border-border bg-fuchsia-500/5 px-4 lg:px-6 py-2 text-[12px]">
+          <Info className="h-3.5 w-3.5 shrink-0 text-fuchsia-500" />
+          <span className="text-muted-foreground">
+            Live star/fork sync is limited to <strong className="text-foreground">60 requests/hour</strong> on this shared connection. Add your own free GitHub token for <strong className="text-foreground">5,000/hour</strong> — it's stored only in your browser.
+          </span>
+          <button
+            onClick={() => setTokenOpen(true)}
+            className="ml-auto shrink-0 rounded-full bg-fuchsia-500/15 px-2.5 py-1 font-medium text-fuchsia-600 dark:text-fuchsia-300 hover:bg-fuchsia-500/25 transition-colors"
+          >
+            Add token
+          </button>
+          <button onClick={dismissBanner} aria-label="Dismiss" className="shrink-0 text-muted-foreground hover:text-foreground">
+            <X className="h-3.5 w-3.5" />
+          </button>
+        </div>
+      )}
     </header>
   );
 }
