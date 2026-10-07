@@ -18,7 +18,8 @@
     "validate": "npm run lint && npm run validate:catalog && npm run test && npm run build",
     "fetch-stars": "node scripts/fetch-stars.mjs",
     "fetch-stars:update": "node scripts/fetch-stars.mjs --update",
-    "check-duplicates": "node scripts/check-duplicates.mjs"
+    "check-duplicates": "node scripts/check-duplicates.mjs",
+    "review:tool": "node scripts/review-tool.mjs"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.15",

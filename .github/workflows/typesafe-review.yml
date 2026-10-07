@@ -1,0 +1,37 @@
+# Manual, on-demand semantic review of one catalog entry via scripts/review-tool.mjs.
+# Auth: repo secret TYPESAFE_API_KEY. No schedule and no push/pull_request trigger —
+# this calls a paid external API, so it only ever runs when someone explicitly
+# dispatches it, never automatically on a PR.
+name: TypeSafe tool review
+
+on:
+  workflow_dispatch:
+    inputs:
+      tool_id:
+        description: Catalog tool id to review (src/data/tools.ts), or a path to a candidate JSON file checked into the repo.
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Run semantic review
+        env:
+          TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
+        run: |
+          if [ -z "$TYPESAFE_API_KEY" ]; then
+            echo "::warning::TYPESAFE_API_KEY secret is not set — the review will skip and exit 0."
+          fi
+          set -o pipefail
+          node scripts/review-tool.mjs "${{ inputs.tool_id }}" | tee -a "$GITHUB_STEP_SUMMARY"
