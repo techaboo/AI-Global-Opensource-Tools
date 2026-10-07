@@ -4,9 +4,11 @@
 # human assigns a real category and reviews each entry against
 # docs/METHODOLOGY.md. This workflow never merges or pushes to main itself.
 #
-# Cron is UTC and fixed; ~06:00 America/Chicago is 11:00 UTC during CST (winter)
-# and 12:00 UTC during CDT (summer) — this uses 11:00, so the local time drifts
-# by an hour across the DST boundary twice a year.
+# Cron is UTC and fixed, so this can't track DST automatically: 11:00 UTC is
+# 06:00 Central during CDT (mid-Mar-early Nov, most of the year) but 05:00
+# Central during CST (winter) — not 06:00 CST. Accepted as a known ~1hr drift
+# twice a year rather than engineering DST-aware double-cron logic for a job
+# whose exact hour doesn't matter.
 name: Discover new AI tools
 
 on:
