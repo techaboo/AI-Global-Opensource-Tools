@@ -31,3 +31,15 @@ export function licenseColor(license: string): string {
   }
   return '#94a3b8';
 }
+
+/**
+ * True only when we have a *successful* live push timestamp older than `days`.
+ * Never fires on missing/failed live data — per docs/METHODOLOGY.md, an absent or
+ * failed refresh must not itself be read as abandonment, only a confirmed old push.
+ */
+export function isStale(pushedAt: string | undefined, days = 365): boolean {
+  if (!pushedAt) return false;
+  const pushedMs = new Date(pushedAt).getTime();
+  if (Number.isNaN(pushedMs)) return false;
+  return Date.now() - pushedMs > days * 86_400_000;
+}

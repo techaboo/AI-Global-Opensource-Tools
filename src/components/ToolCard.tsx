@@ -1,6 +1,6 @@
-import { Star, Flame, GitFork, AlertCircle, PauseCircle, Archive } from 'lucide-react';
+import { Star, Flame, GitFork, PauseCircle, Archive, TriangleAlert } from 'lucide-react';
 import type { AITool, Category, LiveRepoData } from '@/types';
-import { formatStars, licenseColor } from '@/lib/format';
+import { formatStars, isStale, licenseColor } from '@/lib/format';
 import { resolveStarHistory } from '@/lib/starHistory';
 import { Sparkline } from '@/components/Sparkline';
 import { ToolAvatar } from '@/components/ToolAvatar';
@@ -26,6 +26,19 @@ export function StatusBadge({ status, className }: { status: AITool['status']; c
   return (
     <span className={cn('inline-flex items-center gap-1 rounded-full border px-1.5 py-0.5 text-[10px] font-medium', conf.cls, className)}>
       <Icon className="h-3 w-3" />{conf.label}
+    </span>
+  );
+}
+
+/** Shown only when a *successful* live fetch confirms no push in over a year despite `status: active`. */
+export function StaleBadge({ tool, live, className }: { tool: AITool; live?: LiveRepoData; className?: string }) {
+  if (tool.status !== 'active' || !isStale(live?.pushedAt)) return null;
+  return (
+    <span
+      className={cn('inline-flex items-center gap-1 rounded-full border px-1.5 py-0.5 text-[10px] font-medium text-amber-700 dark:text-amber-300 border-amber-500/50 bg-amber-500/10', className)}
+      title="No push in over a year despite being recorded as active — may need an editorial check"
+    >
+      <TriangleAlert className="h-3 w-3" />Stale?
     </span>
   );
 }
@@ -75,6 +88,7 @@ export function ToolCard({ tool, category, live, onOpen, isFavorite, onToggleFav
               </span>
             )}
             <StatusBadge status={tool.status} />
+            <StaleBadge tool={tool} live={live} />
           </div>
           <div className="text-[11px] text-muted-foreground mt-0.5">{tool.org} · {tool.year}</div>
           </div>
@@ -117,7 +131,6 @@ export function ToolCard({ tool, category, live, onOpen, isFavorite, onToggleFav
             <GitFork className="h-3 w-3" />{formatStars(live.forks)}
           </span>
         )}
-        {tool.status !== 'active' && <AlertCircle className="hidden" />}
       </div>
       </div>
     </article>

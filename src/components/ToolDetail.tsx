@@ -5,7 +5,7 @@ import { Star, GitFork, CircleDot, ExternalLink, RefreshCw, Loader2, Flame, Cloc
 import type { AITool, Category, LiveRepoData } from '@/types';
 import { formatStars, licenseColor, timeAgo } from '@/lib/format';
 import { resolveStarHistory } from '@/lib/starHistory';
-import { StatusBadge } from '@/components/ToolCard';
+import { StaleBadge, StatusBadge } from '@/components/ToolCard';
 import { CategoryIcon } from '@/components/CategoryNav';
 import { ToolAvatar } from '@/components/ToolAvatar';
 import { Sparkline } from '@/components/Sparkline';
@@ -63,6 +63,7 @@ export function ToolDetail({ tool: toolProp, category, live, onClose, onFetchLiv
               </span>
             )}
             <StatusBadge status={tool.status} />
+            <StaleBadge tool={tool} live={live} />
             {category && (
               <span className="inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[11px] font-medium" style={{ background: `${category.color}1c`, color: category.color }}>
                 <CategoryIcon icon={category.icon} className="h-3 w-3" />{category.label}
