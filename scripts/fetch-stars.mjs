@@ -3,11 +3,21 @@
  * The default local invocation is a read-only preflight; writing and network
  * access require --update or the repository's dedicated GitHub Actions job.
  *
+ * Also corrects src/data/tools.ts's curated `status` to 'archived' when
+ * GitHub itself says so — either the repo's own `archived: true` flag, or an
+ * HTTP 404 (repo deleted/renamed with no redirect). Deliberately limited to
+ * these two hard, unambiguous facts: this script never removes a catalog
+ * entry or changes anything based on a judgment call (duplicates, category,
+ * license plausibility) — those stay human-reviewed via the TypeSafe audit's
+ * tracking issue (scripts/audit-catalog.mjs), since a false positive there
+ * would silently delete real content rather than just mislabel a status.
+ *
  * Usage: node scripts/fetch-stars.mjs
  *        GITHUB_TOKEN=<token> node scripts/fetch-stars.mjs --update
  */
-import { renameSync, writeFileSync } from 'node:fs';
+import { readFileSync, renameSync, writeFileSync } from 'node:fs';
 import {
+  CATALOG_PATH,
   SNAPSHOT_PATH,
   loadCatalog,
   readSnapshot,
@@ -72,6 +82,7 @@ function githubApiUrl(repo) {
 }
 
 const updated = {};
+const toArchive = []; // { id, reason } — hard-fact signals only (GitHub archived flag, or confirmed 404)
 let index = 0;
 let done = 0;
 let failed = 0;
@@ -88,12 +99,17 @@ async function worker() {
         failed++;
         return;
       }
+      if (response.status === 404) {
+        toArchive.push({ id: tool.id, reason: `${tool.repo} returned 404 (deleted or renamed with no redirect)` });
+        throw new Error('repository not found (404)');
+      }
       if (!response.ok) throw new Error(`GitHub returned ${response.status}`);
       const data = await response.json();
       for (const field of ['stargazers_count', 'forks_count', 'open_issues_count']) {
         if (!Number.isSafeInteger(data[field]) || data[field] < 0) throw new Error(`GitHub response has invalid ${field}`);
       }
       if (typeof data.pushed_at !== 'string' || !Number.isFinite(Date.parse(data.pushed_at))) throw new Error('GitHub response has invalid pushed_at');
+      if (data.archived === true) toArchive.push({ id: tool.id, reason: `${tool.repo} is archived on GitHub` });
 
       const fetchedAt = Date.now();
       updated[tool.id] = {
@@ -117,6 +133,23 @@ await Promise.all(Array.from({ length: Math.min(CONCURRENCY, tools.length) }, wo
 if (Object.keys(updated).length === 0) {
   console.error('No repositories were refreshed; snapshot was not changed.');
   process.exit(1);
+}
+
+const toolById = new Map(catalog.tools.map(tool => [tool.id, tool]));
+const archivedNow = toArchive.filter(({ id }) => toolById.get(id)?.status !== 'archived');
+if (archivedNow.length) {
+  let source = readFileSync(CATALOG_PATH, 'utf8');
+  for (const { id, reason } of archivedNow) {
+    const lineRe = new RegExp(`^(\\s*\\{ id: '${id}',.*?)status: '(?:active|maintenance|archived)'(.*\\},?\\s*)$`, 'm');
+    const next = source.replace(lineRe, `$1status: 'archived'$2`);
+    if (next === source) {
+      console.error(`  ✗ Could not locate the status field for ${id} in tools.ts — left unchanged (${reason}).`);
+      continue;
+    }
+    source = next;
+    console.log(`  ! Marked ${id} archived — ${reason}`);
+  }
+  writeFileSync(CATALOG_PATH, source);
 }
 
 // Keep failed/current records, while pruning entries no longer represented by a catalog repo.

@@ -1,8 +1,11 @@
-# Hourly refresh of public/live-snapshot.json
+# Hourly refresh of public/live-snapshot.json. Also corrects src/data/tools.ts's
+# curated status to 'archived' when GitHub's own archived flag or a confirmed
+# 404 says so (scripts/fetch-stars.mjs) — hard facts only, never a judgment call.
 # Auth: repo secret KIMI_GITHUB_API (fine-grained PAT, public-repo read is enough).
 # A PAT's REST API limit is 5,000 req/hr on every GitHub plan (Pro doesn't raise
 # it) — one run touches ~1 request per cataloged repo, nowhere near that limit.
-# Commits the snapshot back to the branch the workflow ran on (schedule = default branch).
+# Commits back to the branch the workflow ran on (schedule = default branch),
+# gated on `npm run check-duplicates` passing first.
 name: Refresh live GitHub stats
 
 on:
@@ -30,6 +33,9 @@ jobs:
         uses: actions/setup-node@v7
         with:
           node-version: '22'
+          cache: npm
+
+      - run: npm ci
 
       - name: Fetch live GitHub stats
         env:
@@ -42,14 +48,24 @@ jobs:
           fi
           node scripts/fetch-stars.mjs
 
-      - name: Commit snapshot
+      - name: Validate before committing
+        run: |
+          if ! git diff --quiet -- src/data/tools.ts; then
+            npm run check-duplicates
+          fi
+
+      - name: Commit snapshot and any status corrections
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add public/live-snapshot.json
+          git add public/live-snapshot.json src/data/tools.ts
           if git diff --cached --quiet; then
-            echo "No snapshot changes"
+            echo "No changes"
             exit 0
           fi
-          git commit -m "chore: refresh live GitHub stats snapshot"
+          if git diff --cached --quiet -- src/data/tools.ts; then
+            git commit -m "chore: refresh live GitHub stats snapshot"
+          else
+            git commit -m "fix(catalog): mark archived per GitHub (automated, hard-fact only)"
+          fi
           git push
