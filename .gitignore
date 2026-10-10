@@ -31,3 +31,7 @@ test-results
 .env.*.local
 # local code-analysis tool working directory (contains a local dashboard session token)
 .ua/
+
+# Run scratch artifacts left by prior automated sessions
+existing-list.tmp.txt
+verify-candidates.mjs
