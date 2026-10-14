@@ -1,0 +1,40 @@
+# Auto-merges Dependabot PRs once CI is green, but only for patch/minor
+# bumps. Major version bumps (e.g. tailwindcss 3->4, TypeScript 5->7) are
+# the most likely to break the build or site, so they're deliberately left
+# out and wait for a human to merge.
+#
+# pull_request_target (not pull_request) so the metadata step gets a
+# write-capable token even though Dependabot opened the PR — GitHub
+# downgrades the default GITHUB_TOKEN to read-only on pull_request events
+# authored by Dependabot. This job never checks out the PR's code, so
+# running in the base repo's context is safe.
+name: Dependabot auto-merge
+
+on:
+  pull_request_target:
+    types: [opened, reopened, synchronize]
+
+permissions:
+  pull-requests: write
+  contents: write
+
+jobs:
+  automerge:
+    if: github.actor == 'dependabot[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Fetch Dependabot metadata
+        id: metadata
+        uses: dependabot/fetch-metadata@v2
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Enable auto-merge for patch/minor updates
+        if: steps.metadata.outputs.update-type != 'version-update:semver-major'
+        env:
+          # A merge made with the default GITHUB_TOKEN doesn't trigger other
+          # workflows (loop prevention), so CI/Deploy would silently miss the
+          # resulting main commit. A PAT's merge triggers normally.
+          GH_TOKEN: ${{ secrets.KIMI_GITHUB_API || secrets.GITHUB_TOKEN }}
+        run: gh pr merge --auto --squash "${{ github.event.pull_request.html_url }}"
