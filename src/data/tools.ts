@@ -1159,6 +1159,8 @@ export const TOOLS: AITool[] = [
   { id: 'flashvsr', name: 'FlashVSR', org: 'OpenImagingLab', cat: 'video', tagline: '[CVPR 2026] Towards Real-Time Diffusion-Based Streaming Video Super-Resolutio...', desc: '[CVPR 2026] Towards Real-Time Diffusion-Based Streaming Video Super-Resolution — An efficient one-step diffusion framework for streaming VSR with locality-constrained sparse attention and a tiny conditional decoder.', license: 'Apache-2.0', lang: 'Python', stars: 1917, repo: 'OpenImagingLab/FlashVSR', tags: ['diffusion-models', 'video-restoration', 'video-super-resolution'], status: 'active', year: 2025 },
   // ─── Auto-discovered 2026-10-16 ──
   { id: 'carla', name: 'carla', org: 'carla-simulator', cat: 'robotics', tagline: 'Open-source simulator for autonomous driving research.', desc: 'Open-source simulator for autonomous driving research.', license: 'MIT', lang: 'C++', stars: 14498, repo: 'carla-simulator/carla', tags: ['ai', 'artificial-intelligence', 'autonomous-driving', 'autonomous-vehicles', 'carla'], status: 'active', year: 2017 },
+  // ─── Auto-discovered 2026-10-18 ──
+  { id: 'ecc', name: 'ECC', org: 'affaan-m', cat: 'agents', tagline: 'The agent harness performance optimization system. Skills, instincts, memory,...', desc: 'The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development for Claude Code, Codex, Opencode, Cursor and beyond.', license: 'MIT', lang: 'JavaScript', stars: 282920, repo: 'affaan-m/ECC', tags: ['ai-agents', 'anthropic', 'claude', 'claude-code', 'developer-tools'], status: 'active', year: 2026 },
 ];
 
 export const ALL_LICENSES = Array.from(new Set(TOOLS.map(t => t.license))).sort();
