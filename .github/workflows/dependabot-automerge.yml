@@ -31,7 +31,11 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Enable auto-merge for patch/minor updates
-        if: steps.metadata.outputs.update-type != 'version-update:semver-major'
+        # update-type is blank for grouped PRs (multiple deps bundled together)
+        # instead of reporting the group's highest bump, so a grouped PR can
+        # carry a hidden major version bump past this guard. Treat blank the
+        # same as semver-major and leave it for a human to review.
+        if: steps.metadata.outputs.update-type != '' && steps.metadata.outputs.update-type != 'version-update:semver-major'
         env:
           # A merge made with the default GITHUB_TOKEN doesn't trigger other
           # workflows (loop prevention), so CI/Deploy would silently miss the
