@@ -1161,6 +1161,8 @@ export const TOOLS: AITool[] = [
   { id: 'carla', name: 'carla', org: 'carla-simulator', cat: 'robotics', tagline: 'Open-source simulator for autonomous driving research.', desc: 'Open-source simulator for autonomous driving research.', license: 'MIT', lang: 'C++', stars: 14498, repo: 'carla-simulator/carla', tags: ['ai', 'artificial-intelligence', 'autonomous-driving', 'autonomous-vehicles', 'carla'], status: 'active', year: 2017 },
   // ─── Auto-discovered 2026-10-18 ──
   { id: 'ecc', name: 'ECC', org: 'affaan-m', cat: 'agents', tagline: 'The agent harness performance optimization system. Skills, instincts, memory,...', desc: 'The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development for Claude Code, Codex, Opencode, Cursor and beyond.', license: 'MIT', lang: 'JavaScript', stars: 282920, repo: 'affaan-m/ECC', tags: ['ai-agents', 'anthropic', 'claude', 'claude-code', 'developer-tools'], status: 'active', year: 2026 },
+  // ─── Auto-discovered 2026-10-20 ──
+  { id: 'dlib', name: 'dlib', org: 'davisking', cat: 'frameworks', tagline: 'A toolkit for making real world machine learning and data analysis applicatio...', desc: 'A toolkit for making real world machine learning and data analysis applications in C++', license: 'BSL-1.0', lang: 'C++', stars: 14463, repo: 'davisking/dlib', tags: ['c-plus-plus', 'computer-vision', 'deep-learning', 'dlib', 'machine-learning'], status: 'active', year: 2014 },
 ];
 
 export const ALL_LICENSES = Array.from(new Set(TOOLS.map(t => t.license))).sort();
