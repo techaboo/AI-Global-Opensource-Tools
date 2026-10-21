@@ -1163,6 +1163,8 @@ export const TOOLS: AITool[] = [
   { id: 'ecc', name: 'ECC', org: 'affaan-m', cat: 'agents', tagline: 'The agent harness performance optimization system. Skills, instincts, memory,...', desc: 'The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development for Claude Code, Codex, Opencode, Cursor and beyond.', license: 'MIT', lang: 'JavaScript', stars: 282920, repo: 'affaan-m/ECC', tags: ['ai-agents', 'anthropic', 'claude', 'claude-code', 'developer-tools'], status: 'active', year: 2026 },
   // ─── Auto-discovered 2026-10-20 ──
   { id: 'dlib', name: 'dlib', org: 'davisking', cat: 'frameworks', tagline: 'A toolkit for making real world machine learning and data analysis applicatio...', desc: 'A toolkit for making real world machine learning and data analysis applications in C++', license: 'BSL-1.0', lang: 'C++', stars: 14463, repo: 'davisking/dlib', tags: ['c-plus-plus', 'computer-vision', 'deep-learning', 'dlib', 'machine-learning'], status: 'active', year: 2014 },
+  // ─── Auto-discovered 2026-10-21 ──
+  { id: 'compromise', name: 'compromise', org: 'spencermountain', cat: 'frameworks', tagline: 'modest natural-language processing', desc: 'modest natural-language processing', license: 'MIT', lang: 'JavaScript', stars: 12165, repo: 'spencermountain/compromise', tags: ['named-entity-recognition', 'nlp', 'part-of-speech'], status: 'active', year: 2011 },
 ];
 
 export const ALL_LICENSES = Array.from(new Set(TOOLS.map(t => t.license))).sort();
