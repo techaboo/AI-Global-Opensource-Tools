@@ -1165,6 +1165,9 @@ export const TOOLS: AITool[] = [
   { id: 'dlib', name: 'dlib', org: 'davisking', cat: 'frameworks', tagline: 'A toolkit for making real world machine learning and data analysis applicatio...', desc: 'A toolkit for making real world machine learning and data analysis applications in C++', license: 'BSL-1.0', lang: 'C++', stars: 14463, repo: 'davisking/dlib', tags: ['c-plus-plus', 'computer-vision', 'deep-learning', 'dlib', 'machine-learning'], status: 'active', year: 2014 },
   // ─── Auto-discovered 2026-10-21 ──
   { id: 'compromise', name: 'compromise', org: 'spencermountain', cat: 'frameworks', tagline: 'modest natural-language processing', desc: 'modest natural-language processing', license: 'MIT', lang: 'JavaScript', stars: 12165, repo: 'spencermountain/compromise', tags: ['named-entity-recognition', 'nlp', 'part-of-speech'], status: 'active', year: 2011 },
+  // ─── Auto-discovered 2026-10-22 ──
+  { id: 'ai-agent-book', name: 'ai-agent-book', org: 'bojieli', cat: 'prompts', tagline: '《深入理解 AI Agent：设计原理与工程实践》（李博杰 著）开源主仓库：全书正文、编译版 PDF 与按章配套代码', desc: '《深入理解 AI Agent：设计原理与工程实践》（李博杰 著）开源主仓库：全书正文、编译版 PDF 与按章配套代码', license: 'Apache-2.0', lang: 'Python', stars: 55428, repo: 'bojieli/ai-agent-book', tags: ['agent', 'agent-memory', 'ai-agent', 'book', 'coding-agent'], status: 'active', year: 2025 },
+  { id: 'mindshub', name: 'mindshub', org: 'mindsdb', cat: 'mlops', tagline: 'The unified workspace where open-source models get things done for you.', desc: 'The unified workspace where open-source models get things done for you.', license: 'MIT', lang: 'Makefile', stars: 39803, repo: 'mindsdb/mindshub', tags: ['agents', 'ai', 'anton', 'artificial-inteligence', 'claude'], status: 'active', year: 2018 },
 ];
 
 export const ALL_LICENSES = Array.from(new Set(TOOLS.map(t => t.license))).sort();
