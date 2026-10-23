@@ -1168,6 +1168,8 @@ export const TOOLS: AITool[] = [
   // ─── Auto-discovered 2026-10-22 ──
   { id: 'ai-agent-book', name: 'ai-agent-book', org: 'bojieli', cat: 'prompts', tagline: '《深入理解 AI Agent：设计原理与工程实践》（李博杰 著）开源主仓库：全书正文、编译版 PDF 与按章配套代码', desc: '《深入理解 AI Agent：设计原理与工程实践》（李博杰 著）开源主仓库：全书正文、编译版 PDF 与按章配套代码', license: 'Apache-2.0', lang: 'Python', stars: 55428, repo: 'bojieli/ai-agent-book', tags: ['agent', 'agent-memory', 'ai-agent', 'book', 'coding-agent'], status: 'active', year: 2025 },
   { id: 'mindshub', name: 'mindshub', org: 'mindsdb', cat: 'mlops', tagline: 'The unified workspace where open-source models get things done for you.', desc: 'The unified workspace where open-source models get things done for you.', license: 'MIT', lang: 'Makefile', stars: 39803, repo: 'mindsdb/mindshub', tags: ['agents', 'ai', 'anton', 'artificial-inteligence', 'claude'], status: 'active', year: 2018 },
+  // ─── Auto-discovered 2026-10-23 ──
+  { id: 'mova', name: 'MOVA', org: 'OpenMOSS', cat: 'video', tagline: 'A foundation model that generates synchronized video and audio in a single model', desc: 'A foundation model that generates synchronized video and audio in a single model', license: 'Apache-2.0', lang: 'Python', stars: 1128, repo: 'OpenMOSS/MOVA', tags: ['audio-generation', 'diffusion-models', 'lora', 'multimodal', 'sglang'], status: 'active', year: 2026 },
 ];
 
 export const ALL_LICENSES = Array.from(new Set(TOOLS.map(t => t.license))).sort();
