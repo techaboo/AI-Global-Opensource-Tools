@@ -23,7 +23,7 @@ export const FILES = {
   'audits/latest-report.md': 'audits/latest-report.md',
 };
 
-const git = (args, opts = {}) => execFileSync('git', args, { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'], ...opts });
+const git = (args, opts = {}) => execFileSync('git', args, { cwd: ROOT, encoding: 'utf8', maxBuffer: 512 * 1024 * 1024, stdio: ['ignore', 'pipe', 'pipe'], ...opts });
 
 function fetchBranch() {
   try {
@@ -40,12 +40,10 @@ function pull() {
     return;
   }
   for (const [local, remote] of Object.entries(FILES)) {
-    let content;
-    try {
-      content = execFileSync('git', ['show', `origin/${BRANCH}:${remote}`], { cwd: ROOT });
-    } catch {
-      continue; // not created yet
-    }
+    // ls-tree first so "not created yet" is distinguished from a real read failure,
+    // which must fail loudly: silently skipping would reset accumulated history.
+    if (!git(['ls-tree', '--name-only', `origin/${BRANCH}`, '--', remote]).trim()) continue;
+    const content = execFileSync('git', ['show', `origin/${BRANCH}:${remote}`], { cwd: ROOT, maxBuffer: 512 * 1024 * 1024 });
     const target = join(ROOT, local);
     mkdirSync(dirname(target), { recursive: true });
     writeFileSync(target, content);
