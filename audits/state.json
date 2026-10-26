@@ -1,0 +1,214 @@
+{
+  "qwen3": {
+    "reviewedAt": "2026-10-07T03:41:52.738Z",
+    "flagged": false
+  },
+  "deepseek-v3": {
+    "reviewedAt": "2026-10-07T03:41:52.910Z",
+    "flagged": false
+  },
+  "deepseek-r1": {
+    "reviewedAt": "2026-10-07T03:41:53.066Z",
+    "flagged": true
+  },
+  "llama4": {
+    "reviewedAt": "2026-10-12T08:08:01.395Z",
+    "flagged": false
+  },
+  "gemma3": {
+    "reviewedAt": "2026-10-12T08:08:01.484Z",
+    "flagged": false
+  },
+  "mistral": {
+    "reviewedAt": "2026-10-12T08:08:01.621Z",
+    "flagged": false
+  },
+  "phi4": {
+    "reviewedAt": "2026-10-12T08:08:01.728Z",
+    "flagged": false
+  },
+  "glm": {
+    "reviewedAt": "2026-10-12T08:08:01.828Z",
+    "flagged": false
+  },
+  "kimi": {
+    "reviewedAt": "2026-10-12T08:08:01.967Z",
+    "flagged": true
+  },
+  "minimax": {
+    "reviewedAt": "2026-10-12T08:08:02.074Z",
+    "flagged": false
+  },
+  "gpt-oss": {
+    "reviewedAt": "2026-10-12T08:08:02.169Z",
+    "flagged": true
+  },
+  "olmo": {
+    "reviewedAt": "2026-10-12T08:08:02.268Z",
+    "flagged": false
+  },
+  "qwen3-vl": {
+    "reviewedAt": "2026-10-12T08:08:02.391Z",
+    "flagged": true
+  },
+  "internvl": {
+    "reviewedAt": "2026-10-12T08:08:02.531Z",
+    "flagged": false
+  },
+  "llava": {
+    "reviewedAt": "2026-10-12T08:08:02.650Z",
+    "flagged": false
+  },
+  "minicpm-v": {
+    "reviewedAt": "2026-10-12T08:08:02.785Z",
+    "flagged": true
+  },
+  "smollm": {
+    "reviewedAt": "2026-10-12T08:08:02.933Z",
+    "flagged": true
+  },
+  "molmo": {
+    "reviewedAt": "2026-10-12T08:08:03.021Z",
+    "flagged": false
+  },
+  "janus": {
+    "reviewedAt": "2026-10-12T08:08:03.140Z",
+    "flagged": false
+  },
+  "ollama": {
+    "reviewedAt": "2026-10-12T08:08:03.263Z",
+    "flagged": false
+  },
+  "llamacpp": {
+    "reviewedAt": "2026-10-12T08:08:03.357Z",
+    "flagged": false
+  },
+  "vllm": {
+    "reviewedAt": "2026-10-12T08:08:03.475Z",
+    "flagged": false
+  },
+  "sglang": {
+    "reviewedAt": "2026-10-12T08:08:03.640Z",
+    "flagged": false
+  },
+  "tensorrt-llm": {
+    "reviewedAt": "2026-10-12T08:08:03.753Z",
+    "flagged": true
+  },
+  "localai": {
+    "reviewedAt": "2026-10-12T08:08:03.854Z",
+    "flagged": false
+  },
+  "tgwebui": {
+    "reviewedAt": "2026-10-12T08:08:03.984Z",
+    "flagged": true
+  },
+  "mlc-llm": {
+    "reviewedAt": "2026-10-12T08:08:04.167Z",
+    "flagged": false
+  },
+  "webllm": {
+    "reviewedAt": "2026-10-12T08:08:04.322Z",
+    "flagged": false
+  },
+  "llamafile": {
+    "reviewedAt": "2026-10-12T08:08:04.527Z",
+    "flagged": false
+  },
+  "koboldcpp": {
+    "reviewedAt": "2026-10-12T08:08:04.647Z",
+    "flagged": false
+  },
+  "ktransformers": {
+    "reviewedAt": "2026-10-12T08:08:04.756Z",
+    "flagged": false
+  },
+  "xinference": {
+    "reviewedAt": "2026-10-12T08:08:04.874Z",
+    "flagged": false
+  },
+  "tgi": {
+    "reviewedAt": "2026-10-12T08:08:04.980Z",
+    "flagged": false
+  },
+  "open-webui": {
+    "reviewedAt": "2026-10-12T08:08:05.104Z",
+    "flagged": false
+  },
+  "lobechat": {
+    "reviewedAt": "2026-10-12T08:08:05.211Z",
+    "flagged": false
+  },
+  "anything-llm": {
+    "reviewedAt": "2026-10-12T08:08:05.337Z",
+    "flagged": false
+  },
+  "librechat": {
+    "reviewedAt": "2026-10-12T08:08:05.480Z",
+    "flagged": false
+  },
+  "jan": {
+    "reviewedAt": "2026-10-12T08:08:05.674Z",
+    "flagged": false
+  },
+  "gpt4all": {
+    "reviewedAt": "2026-10-12T08:08:05.959Z",
+    "flagged": false
+  },
+  "chatbot-ui": {
+    "reviewedAt": "2026-10-12T08:08:06.081Z",
+    "flagged": false
+  },
+  "sillytavern": {
+    "reviewedAt": "2026-10-12T08:08:06.208Z",
+    "flagged": false
+  },
+  "big-agi": {
+    "reviewedAt": "2026-10-12T08:08:06.306Z",
+    "flagged": false
+  },
+  "langchain": {
+    "reviewedAt": "2026-10-12T08:08:06.401Z",
+    "flagged": true
+  },
+  "langgraph": {
+    "reviewedAt": "2026-10-12T08:08:06.511Z",
+    "flagged": false
+  },
+  "crewai": {
+    "reviewedAt": "2026-10-12T08:08:06.616Z",
+    "flagged": false
+  },
+  "autogen": {
+    "reviewedAt": "2026-10-12T08:08:06.718Z",
+    "flagged": false
+  },
+  "agno": {
+    "reviewedAt": "2026-10-12T08:08:06.829Z",
+    "flagged": true
+  },
+  "pydantic-ai": {
+    "reviewedAt": "2026-10-12T08:08:06.922Z",
+    "flagged": false
+  },
+  "mastra": {
+    "reviewedAt": "2026-10-12T08:08:07.012Z",
+    "flagged": false
+  },
+  "openai-agents": {
+    "reviewedAt": "2026-10-12T08:08:07.133Z",
+    "flagged": false
+  },
+  "semantic-kernel": {
+    "reviewedAt": "2026-10-12T08:08:07.242Z",
+    "flagged": false
+  },
+  "google-adk": {
+    "reviewedAt": "2026-10-12T08:08:07.373Z",
+    "flagged": false
+  },
+  "smolagents": {
+    "reviewedAt": "2026-10-12T08:08:07.498Z",
+    "flagged": false
+  }
+}
