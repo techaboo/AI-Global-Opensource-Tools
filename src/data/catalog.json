@@ -14233,6 +14233,48 @@
       ],
       "status": "active",
       "year": 2025
+    },
+    {
+      "id": "chrome-devtools-mcp",
+      "name": "chrome-devtools-mcp",
+      "org": "ChromeDevTools",
+      "cat": "mcp",
+      "tagline": "Chrome DevTools for coding agents",
+      "desc": "Chrome DevTools for coding agents",
+      "license": "Apache-2.0",
+      "lang": "TypeScript",
+      "stars": 54205,
+      "repo": "ChromeDevTools/chrome-devtools-mcp",
+      "tags": [
+        "browser",
+        "chrome",
+        "chrome-devtools",
+        "debugging",
+        "devtools"
+      ],
+      "status": "active",
+      "year": 2025
+    },
+    {
+      "id": "siyuan",
+      "name": "siyuan",
+      "org": "siyuan-note",
+      "cat": "rag",
+      "tagline": "An open-source, privacy-first, self-hosted knowledge workspace where humans a...",
+      "desc": "An open-source, privacy-first, self-hosted knowledge workspace where humans and AI agents work together 开源、隐私优先、自托管的知识工作空间，让人与智能体在此协作",
+      "license": "AGPL-3.0",
+      "lang": "TypeScript",
+      "stars": 46946,
+      "repo": "siyuan-note/siyuan",
+      "tags": [
+        "agentic-ai",
+        "ai-agent",
+        "knowledge-base",
+        "local-first",
+        "markdown"
+      ],
+      "status": "active",
+      "year": 2020
     }
   ]
 }
