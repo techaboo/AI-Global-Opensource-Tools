@@ -1,15 +1,9 @@
-# Daily discovery of new candidate AI repos (scripts/discover-tools.mjs).
-# Auto-commits straight to main: each candidate must pass a live TypeSafe
-# semantic-duplicate check and clear a confidence bar to get a real category
-# (never a guess — no key or low confidence means that candidate is skipped,
-# not added with a placeholder), plus a deterministic stars-per-day plausibility
-# filter. Gated on `npm run check-duplicates` passing before the commit happens.
-#
-# Cron is UTC and fixed, so this can't track DST automatically: 11:00 UTC is
-# 06:00 Central during CDT (mid-Mar-early Nov, most of the year) but 05:00
-# Central during CST (winter) — not 06:00 CST. Accepted as a known ~1hr drift
-# twice a year rather than engineering DST-aware double-cron logic for a job
-# whose exact hour doesn't matter.
+# Daily discovery of new AI repos (scripts/discover-tools.mjs). Fully autonomous:
+# accepted candidates become an auto-merging PR, which only lands after the
+# required CI checks (lint, catalog validation, unit + browser tests, build) pass.
+# Reject memory goes to the live-data branch, so main only changes when tools
+# are actually added. Each candidate must pass a live TypeSafe duplicate check
+# and a category-confidence bar, plus a stars-per-day plausibility filter.
 name: Discover new AI tools
 
 on:
@@ -18,28 +12,28 @@ on:
   workflow_dispatch:
     inputs:
       limit:
-        description: Maximum candidates to draft this run.
+        description: Maximum candidates to add this run.
         required: false
         type: string
         default: '8'
 
 permissions:
   contents: write
+  pull-requests: write
 
 concurrency:
-  group: discover-tools
+  group: live-data-writer
   cancel-in-progress: false
 
 jobs:
   discover:
     runs-on: ubuntu-latest
-    timeout-minutes: 15 # ~80 paced Search API requests (30/min limit) plus up to 40 TypeSafe reviews
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v7
         with:
-          # A push made with the default GITHUB_TOKEN doesn't trigger other
-          # workflows (loop prevention) — this would silently add tools
-          # without ever redeploying the site. A PAT's push triggers normally.
+          ref: main
+          # A PAT so the PR triggers CI (GITHUB_TOKEN-created PRs do not).
           token: ${{ secrets.KIMI_GITHUB_API || secrets.GITHUB_TOKEN }}
 
       - uses: actions/setup-node@v7
@@ -49,40 +43,25 @@ jobs:
 
       - run: npm ci
 
-      - name: Discover candidates
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
-        run: node scripts/discover-tools.mjs --limit="${{ inputs.limit || '8' }}"
-
-      - name: Validate before committing
-        run: |
-          if ! git diff --quiet -- src/data/tools.ts; then
-            npm run check-duplicates
-          fi
-
-      # audits/discover-rejects.json remembers rejected repos so they aren't
-      # re-reviewed daily; it is committed even on days nothing was added.
-      - name: Commit and push if anything changed
-        run: |
-          git add src/data/tools.ts
-          [ -f audits/discover-rejects.json ] && git add audits/discover-rejects.json
-          if git diff --cached --quiet; then
-            echo "No changes to commit."
-            exit 0
-          fi
+      - run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          if git diff --cached --quiet -- src/data/tools.ts; then
-            git commit -m "chore: update tool-discovery reject memory ($(date -u +%Y-%m-%d))"
-          else
-            git commit -m "feat(catalog): auto-add new AI tool candidates ($(date -u +%Y-%m-%d))"
-          fi
-          # refresh-stars.yml also commits hourly, so main can move during this run:
-          # rebase onto it and retry rather than fail on a non-fast-forward push.
-          for attempt in 1 2 3; do
-            git push && exit 0
-            echo "Push rejected (attempt $attempt); rebasing onto the remote branch."
-            git pull --rebase origin "${GITHUB_REF_NAME}"
-          done
-          exit 1
+
+      - name: Load reject memory from live-data
+        run: node scripts/live-data.mjs pull
+
+      - name: Discover candidates
+        env:
+          GITHUB_TOKEN: ${{ secrets.KIMI_GITHUB_API || secrets.GITHUB_TOKEN }}
+          TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
+          LIMIT: ${{ inputs.limit || '8' }}
+        run: node scripts/discover-tools.mjs --limit="$LIMIT"
+
+      - name: Save reject memory to live-data
+        if: always()
+        run: node scripts/live-data.mjs push "chore: update tool-discovery reject memory ($(date -u +%Y-%m-%d))"
+
+      - name: Open auto-merging PR for new tools
+        env:
+          GH_TOKEN: ${{ secrets.KIMI_GITHUB_API || secrets.GITHUB_TOKEN }}
+        run: scripts/open-bot-pr.sh bot/discover-tools "feat(catalog): auto-add new AI tool candidates ($(date -u +%Y-%m-%d))"

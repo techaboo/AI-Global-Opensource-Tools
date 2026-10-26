@@ -3,7 +3,7 @@
  * so `vite build` copies it straight into dist/ alongside the SPA — no backend
  * needed, consistent with this being a fully static site. Re-run on every build;
  * output is not checked in (see .gitignore) since it's fully derived from
- * src/data/tools.ts, which already is.
+ * src/data/catalog.json, which already is.
  *
  * Usage: node scripts/generate-api.mjs
  */

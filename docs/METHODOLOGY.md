@@ -67,7 +67,7 @@ Because the label can become stale, maintainers should sample it during quarterl
 Catalog metrics have different freshness levels:
 
 1. Curated records contain an initial star value.
-2. `public/live-snapshot.json` supplies a scheduled baseline refreshed hourly by the `Refresh live GitHub stats` workflow, plus manual workflow runs.
+2. `live-snapshot.json` (generated, stored on the `live-data` branch and pulled into `public/` at build time by `scripts/live-data.mjs`) supplies a scheduled baseline refreshed hourly by the `Refresh live GitHub stats` workflow, plus manual workflow runs.
 3. The browser can perform a user-triggered refresh against GitHub for a filtered batch or individual tool. A token is optional; unauthenticated requests are more limited.
 
 Newer `fetchedAt` values take precedence when cached and scheduled data are merged. GitHub stars, forks, open issues, and push times are volatile and can be absent or partial. They should not be treated as comparable quality scores.

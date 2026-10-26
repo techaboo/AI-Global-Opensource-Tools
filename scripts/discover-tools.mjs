@@ -1,6 +1,6 @@
 /**
  * Discovers candidate open-source AI repos via the GitHub Search API and
- * auto-adds them to src/data/tools.ts using only GitHub-provided facts (name,
+ * auto-adds them to src/data/catalog.json using only GitHub-provided facts (name,
  * owner, description, license, language, topics, stars, creation year) —
  * nothing generated or invented. This script writes directly; it is the
  * workflow (.github/workflows/discover-tools.yml) that commits the result to
@@ -31,14 +31,13 @@
  *
  * Usage: GITHUB_TOKEN=<token> TYPESAFE_API_KEY=<key> node scripts/discover-tools.mjs [--limit=8]
  */
-import { readFileSync, writeFileSync } from 'node:fs';
-import { CATALOG_PATH, loadCatalog } from './catalog.mjs';
+import { CATALOG_PATH, loadCatalog, writeCatalog } from './catalog.mjs';
 import {
   buildSearchPlan, classifyRepo, isRejectActive, pruneRejects, readRejects, recordReject, sortByStarsDesc, writeRejects,
 } from './discover-lib.mjs';
 import { DUPLICATE_THRESHOLD, reviewCandidate } from './typesafe-review.mjs';
 
-const TOKEN = process.env.GITHUB_TOKEN || process.env.KIMI_GITHUB_API || '';
+const TOKEN = process.env.GITHUB_TOKEN || '';
 const STARS_PER_DAY_CEILING = 1500; // generous even for a viral launch; past this, treat as likely farmed
 const CATEGORY_CONFIDENCE = 0.6;
 const PER_PAGE = 30;
@@ -107,15 +106,6 @@ function toCandidate(repo) {
     status: 'active',
     year: new Date(repo.created_at).getUTCFullYear(),
   };
-}
-
-function esc(s) {
-  return s.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
-}
-
-function formatEntry(t) {
-  const tags = t.tags.map(tag => `'${esc(tag)}'`).join(', ');
-  return `  { id: '${t.id}', name: '${esc(t.name)}', org: '${esc(t.org)}', cat: '${t.cat}', tagline: '${esc(t.tagline)}', desc: '${esc(t.desc)}', license: '${esc(t.license)}', lang: '${esc(t.lang)}', stars: ${t.stars}, repo: '${t.repo}', tags: [${tags}], status: '${t.status}', year: ${t.year} },`;
 }
 
 const catalog = await loadCatalog();
@@ -229,23 +219,10 @@ if (candidates.length === 0) {
   process.exit(0);
 }
 
-const source = readFileSync(CATALOG_PATH, 'utf8');
-const eol = source.includes('\r\n') ? '\r\n' : '\n';
-const insertion = [
-  '',
-  `  // ─── Auto-discovered ${new Date().toISOString().slice(0, 10)} ──`,
-  ...candidates.map(formatEntry),
-  '];',
-].join(eol);
-const updated = source.replace(
-  new RegExp(`${eol}\\];${eol}${eol}export const ALL_LICENSES`),
-  `${insertion}${eol}${eol}export const ALL_LICENSES`,
-);
-if (updated === source) {
-  console.error('✗ Could not find the expected insertion point at the end of TOOLS in tools.ts.');
-  process.exit(1);
-}
-writeFileSync(CATALOG_PATH, updated);
+// Structured append: no source-text surgery, so catalog formatting can't break discovery.
+catalog.tools.push(...candidates);
+writeCatalog(catalog);
+console.log(`✓ Wrote ${CATALOG_PATH}`);
 
 console.log(`✓ Added ${candidates.length} candidate(s):`);
 for (const c of candidates) console.log(`  - ${c.name} (${c.repo}) -> ${c.cat}`);

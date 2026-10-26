@@ -22,7 +22,7 @@ permissions:
   issues: write
 
 concurrency:
-  group: typesafe-audit
+  group: live-data-writer
   cancel-in-progress: false
 
 jobs:
@@ -32,7 +32,7 @@ jobs:
     steps:
       - uses: actions/checkout@v7
         with:
-          ref: ${{ github.ref }}
+          ref: main
 
       - uses: actions/setup-node@v7
         with:
@@ -40,6 +40,9 @@ jobs:
           cache: npm
 
       - run: npm ci
+
+      - name: Load audit state from live-data
+        run: node scripts/live-data.mjs pull
 
       - name: Run batch audit
         env:
@@ -50,17 +53,11 @@ jobs:
           fi
           node scripts/audit-catalog.mjs --batch-size="${{ inputs.batch_size || '50' }}"
 
-      - name: Commit audit state
+      - name: Save audit state to live-data
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add audits/state.json audits/latest-report.md
-          if git diff --cached --quiet; then
-            echo "No audit changes to commit (likely skipped: TYPESAFE_API_KEY unset)."
-            exit 0
-          fi
-          git commit -m "chore: update TypeSafe catalog audit state"
-          git push
+          node scripts/live-data.mjs push "chore: update TypeSafe catalog audit state"
 
       - name: Open or update audit issue
         if: always()

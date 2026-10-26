@@ -7,6 +7,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+  # Triggered by refresh-stars.yml after each hourly snapshot update.
   workflow_dispatch:
 
 permissions:
@@ -29,6 +30,8 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      - name: Load live stats snapshot from live-data branch
+        run: node scripts/live-data.mjs pull
       - run: npm run build
       - uses: actions/upload-pages-artifact@v3
         with:

@@ -14,7 +14,8 @@ const ToolDetail = lazy(() => import('@/components/ToolDetail').then(module => (
 const Analytics = lazy(() => import('@/components/Analytics').then(module => ({ default: module.Analytics })));
 const CompareView = lazy(() => import('@/components/CompareView').then(module => ({ default: module.CompareView })));
 const CommandPalette = lazy(() => import('@/components/CommandPalette').then(module => ({ default: module.CommandPalette })));
-import { defaultCompareIds, parseCompareIds } from '@/lib/compare';
+import { defaultCompareIds } from '@/lib/compare';
+import { buildUrlQuery, filterTools, readUrlState, sortTools } from '@/lib/catalogView';
 import { exportFiltered } from '@/lib/export';
 import { cn } from '@/lib/utils';
 
@@ -32,52 +33,8 @@ function loadFavorites(): Set<string> {
   }
 }
 
-// ─── URL state helpers ────────────────────────────────────────────
-interface UrlState {
-  cat: string;
-  sort: SortKey;
-  license: string;
-  lang: string;
-  status: string;
-  view: ViewMode;
-  fav: boolean;
-  q: string;
-  cmp: string[];
-}
-
-const VALID_VIEWS: ViewMode[] = ['grid', 'table', 'analytics', 'compare'];
-const VALID_SORTS: SortKey[] = ['stars', 'name', 'year', 'category', 'pushed'];
-
-function readUrlState(): Partial<UrlState> {
-  const p = new URLSearchParams(window.location.search);
-  const s: Partial<UrlState> = {};
-  if (p.get('cat')) s.cat = p.get('cat')!;
-  if (p.get('sort') && VALID_SORTS.includes(p.get('sort') as SortKey)) s.sort = p.get('sort') as SortKey;
-  if (p.get('license')) s.license = p.get('license')!;
-  if (p.get('lang')) s.lang = p.get('lang')!;
-  if (p.get('status')) s.status = p.get('status')!;
-  if (p.get('view') && VALID_VIEWS.includes(p.get('view') as ViewMode)) s.view = p.get('view') as ViewMode;
-  if (p.get('fav') === '1') s.fav = true;
-  if (p.get('q')) s.q = p.get('q')!;
-  const cmp = parseCompareIds(p.get('cmp'));
-  if (cmp.length >= 2) s.cmp = cmp;
-  return s;
-}
-
-function writeUrlState(s: UrlState) {
-  const p = new URLSearchParams();
-  if (s.cat && s.cat !== 'all') p.set('cat', s.cat);
-  if (s.sort && s.sort !== 'stars') p.set('sort', s.sort);
-  if (s.license && s.license !== 'all') p.set('license', s.license);
-  if (s.lang && s.lang !== 'all') p.set('lang', s.lang);
-  if (s.status && s.status !== 'all') p.set('status', s.status);
-  if (s.view && s.view !== 'grid') p.set('view', s.view);
-  if (s.fav) p.set('fav', '1');
-  if (s.q) p.set('q', s.q);
-  if (s.view === 'compare' && s.cmp.length >= 2) p.set('cmp', s.cmp.join(','));
-  const qs = p.toString();
-  const url = `${window.location.pathname}${qs ? '?' + qs : ''}`;
-  window.history.replaceState(null, '', url);
+function writeUrlState(qs: string) {
+  window.history.replaceState(null, '', `${window.location.pathname}${qs ? '?' + qs : ''}`);
 }
 
 function FeatureLoader({ label }: { label: string }) {
@@ -98,7 +55,7 @@ export default function App() {
       return true;
     }
   });
-  const urlState = useMemo(() => readUrlState(), []);
+  const urlState = useMemo(() => readUrlState(window.location.search), []);
   const [search, setSearch] = useState(urlState.q ?? '');
   const [activeCat, setActiveCat] = useState(urlState.cat ?? 'all');
   const [sort, setSort] = useState<SortKey>(urlState.sort ?? 'stars');
@@ -132,7 +89,7 @@ export default function App() {
   // ─── Effects: URL state sync (debounced) ──────────────────────────
   useEffect(() => {
     const t = setTimeout(() => {
-      writeUrlState({ cat: activeCat, sort, license, lang, status, view, fav: onlyFav, q: search, cmp: compareIds });
+      writeUrlState(buildUrlQuery({ cat: activeCat, sort, license, lang, status, view, fav: onlyFav, q: search, cmp: compareIds }));
     }, 300);
     return () => clearTimeout(t);
   }, [activeCat, sort, license, lang, status, view, onlyFav, search, compareIds]);
@@ -170,49 +127,18 @@ export default function App() {
   // Count only current catalog entries; localStorage can retain records for removed tools.
   const syncedCount = useMemo(() => TOOLS.filter(t => liveMap[t.id]).length, [liveMap]);
 
-  const filtered = useMemo(() => {
-    const q = search.trim().toLowerCase();
-    let list = TOOLS.filter(t => {
-      if (onlyFav && !favorites.has(t.id)) return false;
-      if (activeCat !== 'all' && t.cat !== activeCat) return false;
-      if (license !== 'all' && t.license !== license) return false;
-      if (lang !== 'all' && t.lang !== lang) return false;
-      if (status !== 'all' && t.status !== status) return false;
-      if (q) {
-        const hay = `${t.name} ${t.org} ${t.tagline} ${t.desc} ${t.license} ${t.lang} ${t.tags.join(' ')} ${CAT_MAP.get(t.cat)?.label ?? ''}`.toLowerCase();
-        if (!hay.includes(q)) return false;
-      }
-      return true;
-    });
-    const starsOf = (t: AITool) => liveMap[t.id]?.stars ?? t.stars;
-    const pushedOf = (t: AITool) => liveMap[t.id]?.pushedAt ?? '';
-    list = [...list].sort((a, b) => {
-      switch (sort) {
-        case 'stars': return starsOf(b) - starsOf(a);
-        case 'name': return a.name.localeCompare(b.name);
-        case 'year': return b.year - a.year || starsOf(b) - starsOf(a);
-        case 'category': return a.cat.localeCompare(b.cat) || starsOf(b) - starsOf(a);
-        case 'pushed': return (pushedOf(b) || '').localeCompare(pushedOf(a) || '') || starsOf(b) - starsOf(a);
-        default: return 0;
-      }
-    });
-    return list;
-  }, [search, activeCat, license, lang, status, sort, liveMap, onlyFav, favorites]);
-
-  const comparePool = useMemo(() => {
-    const q = search.trim().toLowerCase();
-    return TOOLS.filter(t => {
-      if (onlyFav && !favorites.has(t.id)) return false;
-      if (license !== 'all' && t.license !== license) return false;
-      if (lang !== 'all' && t.lang !== lang) return false;
-      if (status !== 'all' && t.status !== status) return false;
-      if (q) {
-        const hay = `${t.name} ${t.org} ${t.tagline} ${t.desc} ${t.license} ${t.lang} ${t.tags.join(' ')} ${CAT_MAP.get(t.cat)?.label ?? ''}`.toLowerCase();
-        if (!hay.includes(q)) return false;
-      }
-      return true;
-    });
-  }, [search, license, lang, status, onlyFav, favorites]);
+  const filters = useMemo(
+    () => ({ q: search, cat: activeCat, license, lang, status, fav: onlyFav }),
+    [search, activeCat, license, lang, status, onlyFav],
+  );
+  const filtered = useMemo(
+    () => sortTools(filterTools(TOOLS, filters, favorites, CAT_MAP), sort, liveMap),
+    [filters, favorites, sort, liveMap],
+  );
+  const comparePool = useMemo(
+    () => filterTools(TOOLS, filters, favorites, CAT_MAP, { ignoreCategory: true }),
+    [filters, favorites],
+  );
 
   const hasFilters = search !== '' || activeCat !== 'all' || license !== 'all' || lang !== 'all' || status !== 'all' || onlyFav;
 

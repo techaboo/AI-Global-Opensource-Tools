@@ -18,7 +18,7 @@ The repository does not include application analytics or an account system. Brow
 
 The site loads a public baseline snapshot from its own deployed files. When a user selects **Sync GitHub**, or opens a tool whose details are refreshed, the browser requests public repository metadata from `https://api.github.com/repos/...`. GitHub receives the usual network request information, such as IP address and browser headers, under GitHub's own privacy terms.
 
-If supplied, the token is attached as a bearer credential to those GitHub API requests. It is not included in catalog exports or `public/live-snapshot.json`. Because it is stored in `localStorage`, it persists across browser sessions and can be read by scripts running under the same site origin. Use a fine-grained, least-privilege token with no unnecessary access; do not use a sensitive token on a shared device.
+If supplied, the token is attached as a bearer credential to those GitHub API requests. It is not included in catalog exports or `public/live-snapshot.json`. It is stored in `sessionStorage`, so it is discarded when the tab closes, but while open it can be read by scripts running under the same site origin. Use a fine-grained, least-privilege token with no unnecessary access; do not use a sensitive token on a shared device.
 
 The local-development `VITE_GITHUB_TOKEN` path is enabled only in development mode. Production deployments should not put secrets in client-side Vite variables. The scheduled workflow uses its environment-provided `GITHUB_TOKEN` to fetch public metadata; the generated file contains metrics, not that credential.
 

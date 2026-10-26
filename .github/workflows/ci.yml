@@ -25,6 +25,8 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      - name: Load live stats snapshot (validates new catalog against current live data)
+        run: node scripts/live-data.mjs pull
       - run: npm run lint
       - run: npm run validate:catalog
       - run: npm run test:coverage
