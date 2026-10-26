@@ -59,9 +59,11 @@ jobs:
 
       - name: Save reject memory to live-data
         if: always()
-        run: node scripts/live-data.mjs push "chore: update tool-discovery reject memory ($(date -u +%Y-%m-%d))"
+        run: |
+          node scripts/live-data.mjs push "chore: update tool-discovery reject memory ($(date -u +%Y-%m-%d))"
 
       - name: Open auto-merging PR for new tools
         env:
           GH_TOKEN: ${{ secrets.KIMI_GITHUB_API || secrets.GITHUB_TOKEN }}
-        run: scripts/open-bot-pr.sh bot/discover-tools "feat(catalog): auto-add new AI tool candidates ($(date -u +%Y-%m-%d))"
+        run: |
+          bash scripts/open-bot-pr.sh bot/discover-tools "feat(catalog): auto-add new AI tool candidates ($(date -u +%Y-%m-%d))"

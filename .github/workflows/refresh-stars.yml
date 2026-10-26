@@ -51,12 +51,14 @@ jobs:
         run: node scripts/fetch-stars.mjs --update
 
       - name: Publish snapshot to live-data
-        run: node scripts/live-data.mjs push "chore: refresh live GitHub stats ($(date -u +%Y-%m-%dT%H:%MZ))"
+        run: |
+          node scripts/live-data.mjs push "chore: refresh live GitHub stats ($(date -u +%Y-%m-%dT%H:%MZ))"
 
       - name: Propose archived-status corrections
         env:
           GH_TOKEN: ${{ secrets.KIMI_GITHUB_API || secrets.GITHUB_TOKEN }}
-        run: scripts/open-bot-pr.sh bot/archive-status "fix(catalog): mark archived per GitHub (automated, hard-fact only)"
+        run: |
+          bash scripts/open-bot-pr.sh bot/archive-status "fix(catalog): mark archived per GitHub (automated, hard-fact only)"
 
       - name: Redeploy site with fresh stats
         env:
