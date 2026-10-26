@@ -5,6 +5,14 @@ import { MAX_HISTORY_POINTS } from '../src/lib/historyCore.js';
 
 export const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 export const CATALOG_PATH = join(ROOT, 'src/data/catalog.json');
+export const EXCLUDED_PATH = join(ROOT, 'src/data/excluded.json');
+
+/** Lowercased owner/name -> reason, for repos a human has permanently rejected. */
+export function loadExcluded(path = EXCLUDED_PATH) {
+  if (!existsSync(path)) return new Map();
+  const repos = JSON.parse(readFileSync(path, 'utf8')).repos ?? {};
+  return new Map(Object.entries(repos).map(([repo, reason]) => [repo.toLowerCase(), reason]));
+}
 export const SNAPSHOT_PATH = join(ROOT, 'public/live-snapshot.json');
 
 const TOOL_FIELDS = new Set([
@@ -72,9 +80,13 @@ function findDuplicates(records, key, label, errors, { optional = false } = {}) 
   });
 }
 
-export function validateCatalog({ tools, categories, snapshotDate }) {
+export function validateCatalog({ tools, categories, snapshotDate }, excluded = loadExcluded()) {
   const errors = [];
   const warnings = [];
+  for (const tool of tools) {
+    const reason = typeof tool?.repo === 'string' && excluded.get(tool.repo.toLowerCase());
+    if (reason) errors.push(`tool ${tool.id} uses excluded repo ${tool.repo} (${reason}); see src/data/excluded.json.`);
+  }
   if (tools.length === 0) errors.push('TOOLS must not be empty.');
   if (categories.length === 0) errors.push('CATEGORIES must not be empty.');
 

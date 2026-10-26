@@ -31,7 +31,7 @@
  *
  * Usage: GITHUB_TOKEN=<token> TYPESAFE_API_KEY=<key> node scripts/discover-tools.mjs [--limit=8]
  */
-import { CATALOG_PATH, loadCatalog, writeCatalog } from './catalog.mjs';
+import { CATALOG_PATH, loadCatalog, loadExcluded, writeCatalog } from './catalog.mjs';
 import {
   buildSearchPlan, classifyRepo, isRejectActive, pruneRejects, readRejects, recordReject, sortByStarsDesc, writeRejects,
 } from './discover-lib.mjs';
@@ -111,6 +111,7 @@ function toCandidate(repo) {
 const catalog = await loadCatalog();
 const existingIds = new Set(catalog.tools.map(t => t.id));
 const existingRepos = new Set(catalog.tools.filter(t => t.repo).map(t => t.repo.toLowerCase()));
+const excluded = loadExcluded();
 const now = Date.now();
 const rejects = pruneRejects(readRejects(), now);
 
@@ -144,6 +145,7 @@ const rawCandidates = [];
 // Stars descending, whichever query surfaced the repo — the catalog's ordering rule.
 for (const repo of sortByStarsDesc([...seen.values()])) {
   if (existingRepos.has(repo.full_name.toLowerCase())) { alreadyCataloged += 1; continue; }
+  if (excluded.has(repo.full_name.toLowerCase())) { rememberedRejects += 1; continue; } // permanent human decision
   if (isRejectActive(rejects[repo.full_name.toLowerCase()], now)) { rememberedRejects += 1; continue; }
   const candidate = toCandidate(repo);
   if (!candidate) { failedFilters += 1; continue; }
