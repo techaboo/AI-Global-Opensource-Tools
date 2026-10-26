@@ -210,5 +210,25 @@
   "smolagents": {
     "reviewedAt": "2026-10-12T08:08:07.498Z",
     "flagged": false
+  },
+  "llamaindex": {
+    "reviewedAt": "2026-10-26T21:52:30.493Z",
+    "flagged": true
+  },
+  "haystack": {
+    "reviewedAt": "2026-10-26T21:52:30.571Z",
+    "flagged": true
+  },
+  "metagpt": {
+    "reviewedAt": "2026-10-26T21:52:30.666Z",
+    "flagged": false
+  },
+  "camel": {
+    "reviewedAt": "2026-10-26T21:52:30.752Z",
+    "flagged": false
+  },
+  "ms-agent-framework": {
+    "reviewedAt": "2026-10-26T21:52:30.896Z",
+    "flagged": true
   }
 }
