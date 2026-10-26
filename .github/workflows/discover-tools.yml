@@ -33,7 +33,7 @@ concurrency:
 jobs:
   discover:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15 # ~80 paced Search API requests (30/min limit) plus up to 40 TypeSafe reviews
     steps:
       - uses: actions/checkout@v7
         with:
@@ -61,14 +61,20 @@ jobs:
             npm run check-duplicates
           fi
 
-      - name: Commit and push if anything was added
+      # audits/discover-rejects.json remembers rejected repos so they aren't
+      # re-reviewed daily; it is committed even on days nothing was added.
+      - name: Commit and push if anything changed
         run: |
-          if git diff --quiet -- src/data/tools.ts; then
-            echo "No new candidates to add."
+          git add src/data/tools.ts audits/discover-rejects.json
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add src/data/tools.ts
-          git commit -m "feat(catalog): auto-add new AI tool candidates ($(date -u +%Y-%m-%d))"
+          if git diff --cached --quiet -- src/data/tools.ts; then
+            git commit -m "chore: update tool-discovery reject memory ($(date -u +%Y-%m-%d))"
+          else
+            git commit -m "feat(catalog): auto-add new AI tool candidates ($(date -u +%Y-%m-%d))"
+          fi
           git push

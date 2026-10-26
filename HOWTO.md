@@ -60,10 +60,20 @@ Do not hand-edit `public/live-snapshot.json` merely to update stars. Its metrics
 
 ## Automated discovery
 
-`.github/workflows/discover-tools.yml` runs daily (~06:00 America/Chicago,
-drifting to ~05:00 during CST — see the workflow's own comment) and searches
-the GitHub API for candidate repos not already in the catalog, auto-committing
-straight to `main`. Every field is copied directly from the repository's own
+`.github/workflows/discover-tools.yml` runs daily (11:00 UTC: ~06:00 during CDT,
+drifting to ~05:00 during CST — see the workflow's own comment; GitHub may start
+scheduled runs a few minutes late) and searches the GitHub API for candidate
+repos not already in the catalog, auto-committing straight to `main`.
+
+Per topic it runs two paged searches, each sorted by stars descending: a "new"
+window (created in the last 90 days, 100+ stars) and an "established" window
+(pushed in the last 30 days, 300+ stars). Candidates from both are merged and
+reviewed in stars-descending order, up to 40 reviews per run. Repos rejected by
+the checks below are remembered in `audits/discover-rejects.json` and not
+re-reviewed until their retry date (14 days for low category confidence, 30 for
+duplicates and name collisions). Each run logs a `Discovery summary:` line
+showing how many repos were searched, already cataloged, skipped as remembered
+rejects, reviewed and added — check it when a run adds nothing. Every field is copied directly from the repository's own
 GitHub metadata — nothing is generated. Before a candidate is added it must:
 
 - pass a live TypeSafe semantic-duplicate check against the existing catalog
@@ -89,7 +99,7 @@ run. It requires the `TYPESAFE_API_KEY` repo secret and skips cleanly without it
 
 ## Review and update cadence
 
-- **Automated baseline:** weekly, Monday at 05:17 UTC, plus manual workflow runs when needed.
+- **Automated baseline:** hourly, plus manual workflow runs when needed. New-tool discovery runs daily.
 - **Catalog review:** pull requests and correction reports are reviewed as maintainer capacity permits; there is no guaranteed response time.
 - **Editorial audit target:** maintainers should sample stale descriptions, links, licenses, statuses, and “Hot” labels at least quarterly. This is a governance target, not an automated guarantee.
 - **Urgent trust issues:** security reports follow [SECURITY.md](SECURITY.md); privacy concerns should be clearly labeled and may be reported privately when they expose sensitive information.

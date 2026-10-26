@@ -67,7 +67,7 @@ Because the label can become stale, maintainers should sample it during quarterl
 Catalog metrics have different freshness levels:
 
 1. Curated records contain an initial star value.
-2. `public/live-snapshot.json` supplies a scheduled baseline generated every Monday at 05:17 UTC, plus manual workflow runs.
+2. `public/live-snapshot.json` supplies a scheduled baseline refreshed hourly by the `Refresh live GitHub stats` workflow, plus manual workflow runs.
 3. The browser can perform a user-triggered refresh against GitHub for a filtered batch or individual tool. A token is optional; unauthenticated requests are more limited.
 
 Newer `fetchedAt` values take precedence when cached and scheduled data are merged. GitHub stars, forks, open issues, and push times are volatile and can be absent or partial. They should not be treated as comparable quality scores.
@@ -76,4 +76,4 @@ Newer `fetchedAt` values take precedence when cached and scheduled data are merg
 
 Catalog additions and material changes require a pull request with authoritative sources. Review covers duplicates, inclusion, neutral wording, category, license, repository coordinates, status, editorial labels, and validation checks. Conflicted reviewers should not be the sole decision-maker.
 
-The repository baseline refreshes weekly. Editorial corrections are reviewed continuously as capacity permits, with a target of sampling stale fields at least quarterly. There is no guaranteed review time. Anyone may submit a correction with evidence.
+The repository star baseline refreshes hourly, and automated discovery of new candidates runs daily (see `HOWTO.md`). Editorial corrections are reviewed continuously as capacity permits, with a target of sampling stale fields at least quarterly. There is no guaranteed review time. Anyone may submit a correction with evidence.
