@@ -70,6 +70,14 @@
     "rejectedAt": "2026-10-26",
     "retryAfter": "2026-11-25"
   },
+  "sickn33/agentic-awesome-skills": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.54,
+    "stars": 48544,
+    "rejectedAt": "2026-10-26",
+    "retryAfter": "2026-11-09"
+  },
   "thedaviddias/front-end-checklist": {
     "kind": "category",
     "reason": "category confidence below threshold",
