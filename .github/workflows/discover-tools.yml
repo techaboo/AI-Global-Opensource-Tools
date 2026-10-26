@@ -65,7 +65,8 @@ jobs:
       # re-reviewed daily; it is committed even on days nothing was added.
       - name: Commit and push if anything changed
         run: |
-          git add src/data/tools.ts audits/discover-rejects.json
+          git add src/data/tools.ts
+          [ -f audits/discover-rejects.json ] && git add audits/discover-rejects.json
           if git diff --cached --quiet; then
             echo "No changes to commit."
             exit 0
@@ -77,4 +78,11 @@ jobs:
           else
             git commit -m "feat(catalog): auto-add new AI tool candidates ($(date -u +%Y-%m-%d))"
           fi
-          git push
+          # refresh-stars.yml also commits hourly, so main can move during this run:
+          # rebase onto it and retry rather than fail on a non-fast-forward push.
+          for attempt in 1 2 3; do
+            git push && exit 0
+            echo "Push rejected (attempt $attempt); rebasing onto the remote branch."
+            git pull --rebase origin "${GITHUB_REF_NAME}"
+          done
+          exit 1

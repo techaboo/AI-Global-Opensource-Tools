@@ -43,7 +43,8 @@ const STARS_PER_DAY_CEILING = 1500; // generous even for a viral launch; past th
 const CATEGORY_CONFIDENCE = 0.6;
 const PER_PAGE = 30;
 const MAX_REVIEWS = 40; // caps TypeSafe calls per run; stars-desc order means the best candidates are reviewed first
-const SEARCH_PACE_MS = 2_200; // the authenticated Search API allows 30 requests/min
+// The authenticated Search API allows 30 requests/min; unauthenticated only 10.
+const SEARCH_PACE_MS = TOKEN ? 2_200 : 6_500;
 const TOPIC_QUERIES = [
   'topic:llm', 'topic:large-language-models', 'topic:ai-agents', 'topic:agents',
   'topic:generative-ai', 'topic:rag', 'topic:machine-learning', 'topic:computer-vision',
@@ -174,6 +175,8 @@ function reject(candidate, spec) {
   newRejects += 1;
 }
 
+// try/finally so rejects recorded before a mid-run failure (e.g. a TypeSafe error) still persist.
+try {
 for (const { candidate, nameCollision } of rawCandidates) {
   if (reviewed >= MAX_REVIEWS) break;
   const result = await reviewCandidate(candidate, catalog);
@@ -210,8 +213,9 @@ for (const { candidate, nameCollision } of rawCandidates) {
   candidates.push(candidate);
   if (candidates.length >= limit) break;
 }
-
-writeRejects(rejects);
+} finally {
+  writeRejects(rejects);
+}
 
 console.log(
   `Discovery summary: searched ${seen.size} unique repos (${found.new} via new-window, ${found.established} via established-window)`
