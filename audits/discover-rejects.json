@@ -1,0 +1,90 @@
+{
+  "ai-job-search-dev/ai-job-search": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.44,
+    "stars": 66278,
+    "rejectedAt": "2026-10-26",
+    "retryAfter": "2026-11-09"
+  },
+  "cheaper-inference/omniroute": {
+    "kind": "duplicate",
+    "reason": "duplicate of omniroute",
+    "score": 0.9,
+    "stars": 81471,
+    "rejectedAt": "2026-10-26",
+    "retryAfter": "2026-11-25"
+  },
+  "farion1231/cc-switch": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.35,
+    "stars": 148953,
+    "rejectedAt": "2026-10-26",
+    "retryAfter": "2026-11-09"
+  },
+  "firecrawl/firecrawl": {
+    "kind": "duplicate",
+    "reason": "duplicate of firecrawl",
+    "score": 0.63,
+    "stars": 195641,
+    "rejectedAt": "2026-10-26",
+    "retryAfter": "2026-11-25"
+  },
+  "hiyouga/llamafactory": {
+    "kind": "duplicate",
+    "reason": "duplicate of llama-factory",
+    "score": 0.86,
+    "stars": 75741,
+    "rejectedAt": "2026-10-26",
+    "retryAfter": "2026-11-25"
+  },
+  "labmlai/annotated_deep_learning_paper_implementations": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.56,
+    "stars": 67600,
+    "rejectedAt": "2026-10-26",
+    "retryAfter": "2026-11-09"
+  },
+  "leonxlnx/taste-skill": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.53,
+    "stars": 102931,
+    "rejectedAt": "2026-10-26",
+    "retryAfter": "2026-11-09"
+  },
+  "openhands/openhands": {
+    "kind": "duplicate",
+    "reason": "duplicate of openhands",
+    "score": 0.8,
+    "stars": 91915,
+    "rejectedAt": "2026-10-26",
+    "retryAfter": "2026-11-25"
+  },
+  "thedaviddias/front-end-checklist": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.37,
+    "stars": 74569,
+    "rejectedAt": "2026-10-26",
+    "retryAfter": "2026-11-09"
+  },
+  "upstash/context7": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.48,
+    "stars": 63731,
+    "rejectedAt": "2026-10-26",
+    "retryAfter": "2026-11-09"
+  },
+  "zhulinsen/daily_stock_analysis": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.36,
+    "stars": 67104,
+    "rejectedAt": "2026-10-26",
+    "retryAfter": "2026-11-09"
+  }
+}
