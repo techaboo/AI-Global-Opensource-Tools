@@ -28,4 +28,11 @@ describe('catalog JSON round-trip (what the bots do)', () => {
     expect(validateCatalog(again).errors).toEqual([]);
     expect(readFileSync(path, 'utf8').endsWith('\n')).toBe(true);
   });
+
+  it('rejects a catalog containing an excluded repo', async () => {
+    const catalog = await loadCatalog();
+    const t = { ...catalog.tools[0], id: 'zz-excluded', name: 'zz excluded', repo: 'coreyhaines31/MarketingSkills' };
+    const { errors } = validateCatalog({ ...catalog, tools: [...catalog.tools, t] });
+    expect(errors.some(e => e.includes('excluded repo'))).toBe(true);
+  });
 });

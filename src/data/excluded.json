@@ -1,0 +1,8 @@
+{
+  "_comment": "Repos a human removed or rejected. Discovery never re-adds these, and catalog validation fails if one is present. Add an entry here whenever you delete an auto-added tool.",
+  "repos": {
+    "snailclimb/javaguide": "interview guide, not AI software",
+    "shanraisshan/claude-code-best-practice": "practice notes, not a tool",
+    "coreyhaines31/marketingskills": "marketing prompt pack, poor fit"
+  }
+}
