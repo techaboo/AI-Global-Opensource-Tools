@@ -14233,6 +14233,48 @@
       ],
       "status": "active",
       "year": 2025
+    },
+    {
+      "id": "marketingskills",
+      "name": "marketingskills",
+      "org": "coreyhaines31",
+      "cat": "prompts",
+      "tagline": "Marketing skills for Claude Code and AI agents. CRO, copywriting, SEO, analyt...",
+      "desc": "Marketing skills for Claude Code and AI agents. CRO, copywriting, SEO, analytics, and growth engineering.",
+      "license": "MIT",
+      "lang": "JavaScript",
+      "stars": 56676,
+      "repo": "coreyhaines31/marketingskills",
+      "tags": [
+        "agent-skills",
+        "ai-agents",
+        "ai-seo",
+        "claude",
+        "claude-code"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "chrome-devtools-mcp",
+      "name": "chrome-devtools-mcp",
+      "org": "ChromeDevTools",
+      "cat": "mcp",
+      "tagline": "Chrome DevTools for coding agents",
+      "desc": "Chrome DevTools for coding agents",
+      "license": "Apache-2.0",
+      "lang": "TypeScript",
+      "stars": 54205,
+      "repo": "ChromeDevTools/chrome-devtools-mcp",
+      "tags": [
+        "browser",
+        "chrome",
+        "chrome-devtools",
+        "debugging",
+        "devtools"
+      ],
+      "status": "active",
+      "year": 2025
     }
   ]
 }
