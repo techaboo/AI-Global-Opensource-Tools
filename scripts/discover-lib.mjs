@@ -75,6 +75,36 @@ export function recordReject(rejects, fullName, { kind, reason, score, stars }, 
   };
 }
 
+// Repos that are reading material or curation rather than software: awesome-lists, guides,
+// courses, books, interview prep. Matched on name/topics (strong signals) and on the
+// description (phrases that only describe non-software). CJK terms have no word boundaries.
+const NON_SOFTWARE_NAME = /^awesome[-_]|(^|[-_])(guide|handbook|cheatsheet|cheat-sheet|roadmap|interview|interviews|tutorial|tutorials|course|courses|book|books|checklist|best[-_]practices?)([-_]|$)/i;
+const NON_SOFTWARE_TOPICS = new Set([
+  'awesome', 'awesome-list', 'awesome-lists', 'interview', 'interview-questions', 'interview-preparation',
+  'tutorial', 'tutorials', 'course', 'courses', 'book', 'books', 'roadmap', 'cheatsheet', 'cheat-sheet',
+  'handbook', 'guide', 'learning-resources', 'study-notes', 'free-programming-books', 'ebook',
+]);
+const NON_SOFTWARE_DESC = /^(an? )?(curated )?(list|collection) of\b|\bawesome[- ]list\b|\bcurated list\b|\b(interview|tutorials?|courses?|cheat ?sheets?|roadmap|handbook|textbook|ebook|study guide|checklist)\b|\bguide to\b|面试|教程|指南|电子书|全书/i;
+
+// AI/ML relevance, matched on name + description + topics. Word-bounded so "ai" doesn't hit "email".
+const AI_TERMS = /\b(ai|a\.i\.|llms?|gpt|genai|ml|machine[- ]learning|deep[- ]learning|neural|agents?|agentic|rag|mcp|model[- ]context[- ]protocol|diffusion|transformers?|embeddings?|nlp|computer[- ]vision|generative|inference|language[- ]models?|openai|anthropic|claude|copilot|speech|tts|asr|ocr|pytorch|tensorflow|vector[- ](database|search|store))\b|大模型|人工智能/i;
+
+/**
+ * Cheap, deterministic relevance gate run before any TypeSafe call.
+ * Returns null when the repo is a plausible AI/ML software project, otherwise
+ * 'non-software' (list/guide/course/book) or 'not-ai' (no AI/ML signal at all).
+ */
+export function classifyRepo(repo) {
+  const name = repo.name ?? '';
+  const desc = repo.description ?? '';
+  const topics = repo.topics ?? [];
+  if (NON_SOFTWARE_NAME.test(name) || topics.some(t => NON_SOFTWARE_TOPICS.has(t)) || NON_SOFTWARE_DESC.test(desc)) {
+    return 'non-software';
+  }
+  if (!AI_TERMS.test(`${name} ${desc} ${topics.join(' ')}`)) return 'not-ai';
+  return null;
+}
+
 /** Stars desc, then name, so selection and insertion order is deterministic and unbiased by search order. */
 export function sortByStarsDesc(repos) {
   return [...repos].sort((a, b) => (b.stargazers_count - a.stargazers_count) || a.full_name.localeCompare(b.full_name));

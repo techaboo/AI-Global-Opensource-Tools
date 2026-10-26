@@ -76,6 +76,12 @@ showing how many repos were searched, already cataloged, skipped as remembered
 rejects, reviewed and added — check it when a run adds nothing. Every field is copied directly from the repository's own
 GitHub metadata — nothing is generated. Before a candidate is added it must:
 
+- pass a deterministic relevance gate (`classifyRepo` in `scripts/discover-lib.mjs`)
+  before any TypeSafe call: the repo must show an AI/ML signal in its name,
+  description or topics, and must not look like reading material or curation —
+  awesome-lists, guides, courses, books, interview prep, "best practices"
+  collections. It can occasionally block a legitimate library; those can still be
+  added by pull request;
 - pass a live TypeSafe semantic-duplicate check against the existing catalog
   (an id/repo match alone misses the same product republished under a
   different org — observed directly in testing);

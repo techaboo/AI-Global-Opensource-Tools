@@ -34,7 +34,7 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { CATALOG_PATH, loadCatalog } from './catalog.mjs';
 import {
-  buildSearchPlan, isRejectActive, pruneRejects, readRejects, recordReject, sortByStarsDesc, writeRejects,
+  buildSearchPlan, classifyRepo, isRejectActive, pruneRejects, readRejects, recordReject, sortByStarsDesc, writeRejects,
 } from './discover-lib.mjs';
 import { DUPLICATE_THRESHOLD, reviewCandidate } from './typesafe-review.mjs';
 
@@ -83,6 +83,7 @@ async function searchPage(q, page) {
 function toCandidate(repo) {
   const desc = repo.description?.trim();
   if (!desc) return null; // no first-party description to summarize from
+  if (classifyRepo(repo)) return null; // not AI/ML software: a list, guide, course, book, or no AI signal at all
   if (!repo.license?.spdx_id || repo.license.spdx_id === 'NOASSERTION') return null; // unverifiable license
 
   const daysSinceCreated = Math.max(1, (Date.now() - new Date(repo.created_at).getTime()) / 86_400_000);

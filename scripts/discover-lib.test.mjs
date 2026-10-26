@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { buildSearchPlan, isRejectActive, pruneRejects, recordReject, sortByStarsDesc } from './discover-lib.mjs';
+import { buildSearchPlan, classifyRepo, isRejectActive, pruneRejects, recordReject, sortByStarsDesc } from './discover-lib.mjs';
 
 const NOW = Date.parse('2026-10-26T12:00:00Z');
 
@@ -52,5 +52,37 @@ describe('sortByStarsDesc', () => {
       { full_name: 'c/x', stargazers_count: 50 },
     ];
     expect(sortByStarsDesc(repos).map(r => r.full_name)).toEqual(['c/x', 'a/x', 'b/x']);
+  });
+});
+
+describe('classifyRepo', () => {
+  const repo = (name, description, topics = []) => ({ name, description, topics });
+
+  it('accepts real AI/ML software', () => {
+    expect(classifyRepo(repo('rtk', 'CLI proxy that reduces LLM token consumption by 60-90%', ['ai-coding']))).toBeNull();
+    expect(classifyRepo(repo('MOVA', 'A foundation model that generates synchronized video and audio', ['diffusion-models']))).toBeNull();
+    expect(classifyRepo(repo('compromise', 'modest natural-language processing', ['nlp']))).toBeNull();
+    expect(classifyRepo(repo('whisper', 'Robust speech recognition via large-scale weak supervision'))).toBeNull();
+  });
+
+  it('rejects interview guides even when they mention AI', () => {
+    expect(classifyRepo(repo('JavaGuide', 'Java 面试 & 后端通用面试指南，覆盖 AI 应用开发', ['ai', 'agent', 'interview']))).toBe('non-software');
+  });
+
+  it('rejects awesome-lists, books, courses and best-practice collections', () => {
+    expect(classifyRepo(repo('awesome-copilot', 'Community-contributed instructions for GitHub Copilot'))).toBe('non-software');
+    expect(classifyRepo(repo('ai-agent-book', 'Open-source repository of the book on AI agents', ['ai-agent', 'book']))).toBe('non-software');
+    expect(classifyRepo(repo('claude-code-best-practice', 'from vibe coding to agentic engineering', ['ai']))).toBe('non-software');
+    expect(classifyRepo(repo('llm-course', 'Course to get into Large Language Models (LLMs) with roadmaps'))).toBe('non-software');
+    expect(classifyRepo(repo('ai-resources', 'A curated list of AI papers', ['ai']))).toBe('non-software');
+  });
+
+  it('rejects repos with no AI/ML signal at all', () => {
+    expect(classifyRepo(repo('Front-End-Checklist', 'The perfect front-end checklist for modern websites'))).toBe('non-software');
+    expect(classifyRepo(repo('some-db', 'A fast key-value store written in Rust', ['database']))).toBe('not-ai');
+  });
+
+  it('does not match "ai" inside other words', () => {
+    expect(classifyRepo(repo('mailer', 'Send email with retries', ['email']))).toBe('not-ai');
   });
 });
