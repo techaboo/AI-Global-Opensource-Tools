@@ -21,8 +21,8 @@ The application derives catalog and category totals from its data at runtime. Th
 
 The Atlas combines three layers:
 
-1. **Curated catalog data** in `src/data/tools.ts` supplies identity, descriptions, categories, tags, licenses, languages, baseline metrics, and editorial fields.
-2. **Scheduled baseline data** in `public/live-snapshot.json` is refreshed by GitHub Actions every Monday at 05:17 UTC and can also be refreshed manually by a workflow maintainer. The site loads this snapshot when available.
+1. **Curated catalog data** in `src/data/catalog.json` supplies identity, descriptions, categories, tags, licenses, languages, baseline metrics, and editorial fields.
+2. **Scheduled baseline data** in `live-snapshot.json` (generated, stored on the `live-data` branch and pulled into `public/` at build time by `scripts/live-data.mjs`) is refreshed by GitHub Actions hourly and can also be refreshed manually by a workflow maintainer. The site loads this snapshot when available.
 3. **Optional live refresh** is initiated with **Sync GitHub** (or for an individual tool when its details are opened). The browser requests public repository metadata directly from `api.github.com`, for up to 60 filtered tools per bulk sync.
 
 A token is not required, but unauthenticated GitHub requests have a much lower rate limit. See [PRIVACY.md](PRIVACY.md) before adding one. Metrics are point-in-time observations and may be partial when repositories are unavailable or GitHub limits requests.

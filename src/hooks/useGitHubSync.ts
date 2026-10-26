@@ -7,6 +7,19 @@ const STORAGE_KEY = 'osi-atlas-live-v1';
 const TOKEN_KEY = 'osi-atlas-gh-token';
 const CONCURRENCY = 4;
 
+// The optional GitHub token is kept in sessionStorage (cleared when the tab
+// closes) rather than localStorage, and any legacy persisted copy is removed.
+// It only raises the visitor's own rate limit; the site works without it
+// because CI publishes a fresh snapshot hourly.
+function tokenStore(): Storage | null {
+  try {
+    localStorage.removeItem(TOKEN_KEY);
+    return sessionStorage;
+  } catch {
+    return null;
+  }
+}
+
 function loadStored(): LiveMap {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
@@ -23,7 +36,7 @@ function loadToken(): string {
   // builds, so this whole branch — and the reference to the var — is dropped).
   const env = import.meta.env.DEV ? ((import.meta.env.VITE_GITHUB_TOKEN as string | undefined) ?? '') : '';
   try {
-    return localStorage.getItem(TOKEN_KEY) ?? env;
+    return tokenStore()?.getItem(TOKEN_KEY) ?? env;
   } catch {
     return env;
   }
@@ -69,8 +82,8 @@ export function useGitHubSync() {
     tokenRef.current = clean;
     setTokenState(clean);
     try {
-      if (clean) localStorage.setItem(TOKEN_KEY, clean);
-      else localStorage.removeItem(TOKEN_KEY);
+      if (clean) tokenStore()?.setItem(TOKEN_KEY, clean);
+      else tokenStore()?.removeItem(TOKEN_KEY);
     } catch { /* ignore */ }
   }, []);
 

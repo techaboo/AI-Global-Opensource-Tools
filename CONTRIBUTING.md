@@ -26,7 +26,7 @@ npm install
 npm run dev
 ```
 
-Catalog records are curated in `src/data/tools.ts`. Keep changes focused and avoid unrelated metric churn.
+Catalog records are curated in `src/data/catalog.json`. Keep changes focused and avoid unrelated metric churn.
 
 Before requesting review:
 
@@ -36,7 +36,7 @@ npm run lint
 npm run build
 ```
 
-Do not hand-edit generated repository metrics just to update stars. `public/live-snapshot.json` is maintained by the scheduled/manual refresh process.
+Do not hand-edit generated repository metrics just to update stars. `live-snapshot.json` (generated, stored on the `live-data` branch and pulled into `public/` at build time by `scripts/live-data.mjs`) is maintained by the scheduled/manual refresh process.
 
 ## Pull-request review
 

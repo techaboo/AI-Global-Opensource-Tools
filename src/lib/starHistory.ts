@@ -1,22 +1,7 @@
 import type { AITool, LiveRepoData, StarPoint } from '@/types';
 
-export const MAX_HISTORY_POINTS = 52;
-
-function sameUtcDay(a: number, b: number): boolean {
-  return new Date(a).toISOString().slice(0, 10) === new Date(b).toISOString().slice(0, 10);
-}
-
-/** Append or update today's sample, keeping at most MAX_HISTORY_POINTS. */
-export function appendStarPoint(history: StarPoint[] | undefined, stars: number, at = Date.now()): StarPoint[] {
-  const pts = [...(history ?? [])].sort((a, b) => a.t - b.t);
-  const last = pts[pts.length - 1];
-  if (last && sameUtcDay(last.t, at)) {
-    pts[pts.length - 1] = { t: at, s: stars };
-  } else {
-    pts.push({ t: at, s: stars });
-  }
-  return pts.slice(-MAX_HISTORY_POINTS);
-}
+// Single implementation shared with scripts/fetch-stars.mjs.
+export { MAX_HISTORY_POINTS, appendStarPoint } from './historyCore.js';
 
 function approximateHistory(tool: AITool, currentStars: number): StarPoint[] {
   const start = Date.UTC(tool.year, 0, 15);

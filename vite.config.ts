@@ -1,6 +1,20 @@
 import path from "path"
+import { readFileSync } from "fs"
 import react from "@vitejs/plugin-react"
 import { defineConfig, type Plugin } from "vite"
+
+// Fill the __TOOL_COUNT__ / __CATEGORY_COUNT__ placeholders in index.html meta tags.
+function injectCatalogCounts(): Plugin {
+  return {
+    name: 'inject-catalog-counts',
+    transformIndexHtml(html) {
+      const catalog = JSON.parse(readFileSync(path.resolve(__dirname, 'src/data/catalog.json'), 'utf8'));
+      return html
+        .replaceAll('__TOOL_COUNT__', String(catalog.tools.length))
+        .replaceAll('__CATEGORY_COUNT__', String(catalog.categories.length));
+    },
+  };
+}
 
 // Dev mode needs an inline script for React Fast Refresh (injected by @vitejs/plugin-react)
 // that a strict script-src would block, so this CSP <meta> is only added to the production build.
@@ -20,7 +34,7 @@ function injectCsp(): Plugin {
 // https://vite.dev/config/
 export default defineConfig({
   base: './',
-  plugins: [react(), injectCsp()],
+  plugins: [react(), injectCsp(), injectCatalogCounts()],
   server: {
     port: 3000,
   },
@@ -33,7 +47,7 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks(id) {
-          if (id.includes('/src/data/tools.ts')) return 'catalog-data';
+          if (id.includes('/src/data/catalog.json') || id.includes('/src/data/tools.ts')) return 'catalog-data';
           if (id.includes('lucide-react')) return 'icons-vendor';
           if (id.includes('@radix-ui') || id.includes('cmdk') || id.includes('sonner')) return 'ui-vendor';
           if (id.includes('/react/') || id.includes('/react-dom/') || id.includes('/scheduler/')) return 'react-vendor';

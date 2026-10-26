@@ -1,6 +1,6 @@
 # Data Schema
 
-The canonical catalog is the TypeScript data exported from `src/data/tools.ts`; interfaces are defined in `src/types/index.ts`. This document describes the current contract but does not replace compiler and validation checks.
+The canonical catalog is the JSON data in `src/data/catalog.json` (re-exported with types by `src/data/tools.ts`); interfaces are defined in `src/types/index.ts`. This document describes the current contract but does not replace compiler and validation checks.
 
 ## `AITool`
 

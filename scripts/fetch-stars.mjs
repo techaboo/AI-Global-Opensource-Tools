@@ -3,7 +3,7 @@
  * The default local invocation is a read-only preflight; writing and network
  * access require --update or the repository's dedicated GitHub Actions job.
  *
- * Also corrects src/data/tools.ts's curated `status` to 'archived' when
+ * Also corrects src/data/catalog.json's curated `status` to 'archived' when
  * GitHub itself says so — either the repo's own `archived: true` flag, or an
  * HTTP 404 (repo deleted/renamed with no redirect). Deliberately limited to
  * these two hard, unambiguous facts: this script never removes a catalog
@@ -15,19 +15,19 @@
  * Usage: node scripts/fetch-stars.mjs
  *        GITHUB_TOKEN=<token> node scripts/fetch-stars.mjs --update
  */
-import { readFileSync, renameSync, writeFileSync } from 'node:fs';
+import { renameSync, writeFileSync } from 'node:fs';
+import { appendStarPoint } from '../src/lib/historyCore.js';
 import {
-  CATALOG_PATH,
   SNAPSHOT_PATH,
   loadCatalog,
   readSnapshot,
   validateCatalog,
   validateSnapshot,
+  writeCatalog,
 } from './catalog.mjs';
 
-const TOKEN = process.env.GITHUB_TOKEN || process.env.KIMI_GITHUB_API || '';
+const TOKEN = process.env.GITHUB_TOKEN || '';
 const CONCURRENCY = 4;
-const MAX_HISTORY = 52;
 const args = process.argv.slice(2);
 
 if (args.includes('--help')) {
@@ -62,20 +62,6 @@ if (!shouldUpdate) {
 const headers = { Accept: 'application/vnd.github+json', 'User-Agent': 'osi-atlas-refresh' };
 if (TOKEN) headers.Authorization = `Bearer ${TOKEN}`;
 else console.warn('No token set — GitHub limits unauthenticated requests.');
-
-function sameUtcDay(a, b) {
-  return new Date(a).toISOString().slice(0, 10) === new Date(b).toISOString().slice(0, 10);
-}
-
-function appendHistory(history, stars, at) {
-  const points = Array.isArray(history)
-    ? history.filter(point => point && Number.isSafeInteger(point.t) && Number.isSafeInteger(point.s))
-    : [];
-  const last = points.at(-1);
-  if (last && sameUtcDay(last.t, at)) points[points.length - 1] = { t: at, s: stars };
-  else points.push({ t: at, s: stars });
-  return points.slice(-MAX_HISTORY);
-}
 
 function githubApiUrl(repo) {
   return `https://api.github.com/repos/${repo.split('/').map(encodeURIComponent).join('/')}`;
@@ -118,7 +104,7 @@ async function worker() {
         openIssues: data.open_issues_count,
         pushedAt: data.pushed_at,
         fetchedAt,
-        history: appendHistory(previous.repos[tool.id]?.history, data.stargazers_count, fetchedAt),
+        history: appendStarPoint(previous.repos[tool.id]?.history, data.stargazers_count, fetchedAt),
       };
     } catch (error) {
       failed++;
@@ -138,18 +124,12 @@ if (Object.keys(updated).length === 0) {
 const toolById = new Map(catalog.tools.map(tool => [tool.id, tool]));
 const archivedNow = toArchive.filter(({ id }) => toolById.get(id)?.status !== 'archived');
 if (archivedNow.length) {
-  let source = readFileSync(CATALOG_PATH, 'utf8');
+  // Structured edit of the parsed catalog — no regexes over source text.
   for (const { id, reason } of archivedNow) {
-    const lineRe = new RegExp(`^(\\s*\\{ id: '${id}',.*?)status: '(?:active|maintenance|archived)'(.*\\},?\\s*)$`, 'm');
-    const next = source.replace(lineRe, `$1status: 'archived'$2`);
-    if (next === source) {
-      console.error(`  ✗ Could not locate the status field for ${id} in tools.ts — left unchanged (${reason}).`);
-      continue;
-    }
-    source = next;
+    toolById.get(id).status = 'archived';
     console.log(`  ! Marked ${id} archived — ${reason}`);
   }
-  writeFileSync(CATALOG_PATH, source);
+  writeCatalog(catalog);
 }
 
 // Keep failed/current records, while pruning entries no longer represented by a catalog repo.

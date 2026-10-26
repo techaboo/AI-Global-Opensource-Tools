@@ -1,10 +1,10 @@
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync, renameSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
-import { fileURLToPath, pathToFileURL } from 'node:url';
-import ts from 'typescript';
+import { fileURLToPath } from 'node:url';
+import { MAX_HISTORY_POINTS } from '../src/lib/historyCore.js';
 
 export const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-export const CATALOG_PATH = join(ROOT, 'src/data/tools.ts');
+export const CATALOG_PATH = join(ROOT, 'src/data/catalog.json');
 export const SNAPSHOT_PATH = join(ROOT, 'public/live-snapshot.json');
 
 const TOOL_FIELDS = new Set([
@@ -19,42 +19,28 @@ const SLUG_RE = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const REPO_RE = /^[A-Za-z0-9](?:[A-Za-z0-9-]{0,38})\/[A-Za-z0-9._-]+$/;
 const HEX_RE = /^#[0-9a-f]{6}$/i;
 
-function describeDiagnostic(diagnostic) {
-  const message = ts.flattenDiagnosticMessageText(diagnostic.messageText, '\n');
-  if (!diagnostic.file || diagnostic.start == null) return message;
-  const { line, character } = diagnostic.file.getLineAndCharacterOfPosition(diagnostic.start);
-  return `${diagnostic.file.fileName}:${line + 1}:${character + 1}: ${message}`;
+/** Read src/data/catalog.json — plain data, the single source of truth for the catalog. */
+export async function loadCatalog(catalogPath = CATALOG_PATH) {
+  let data;
+  try {
+    data = JSON.parse(readFileSync(catalogPath, 'utf8'));
+  } catch (error) {
+    throw new Error(`Unable to read ${catalogPath}: ${error.message}`, { cause: error });
+  }
+  if (!Array.isArray(data?.tools)) throw new Error('Catalog must contain a tools array.');
+  if (!Array.isArray(data?.categories)) throw new Error('Catalog must contain a categories array.');
+  return { tools: data.tools, categories: data.categories, snapshotDate: data.snapshotDate };
 }
 
-/** Load the actual exported values from tools.ts without depending on its formatting. */
-export async function loadCatalog(catalogPath = CATALOG_PATH) {
-  const source = readFileSync(catalogPath, 'utf8');
-  const compiled = ts.transpileModule(source, {
-    fileName: catalogPath,
-    reportDiagnostics: true,
-    compilerOptions: {
-      module: ts.ModuleKind.ESNext,
-      target: ts.ScriptTarget.ES2022,
-      importsNotUsedAsValues: ts.ImportsNotUsedAsValues.Remove,
-      sourceMap: false,
-    },
-  });
-  const diagnostics = (compiled.diagnostics ?? []).filter(d => d.category === ts.DiagnosticCategory.Error);
-  if (diagnostics.length) {
-    throw new Error(`Unable to parse catalog:\n${diagnostics.map(describeDiagnostic).join('\n')}`);
-  }
-
-  const sourceUrl = pathToFileURL(catalogPath).href;
-  const moduleUrl = `data:text/javascript;base64,${Buffer.from(`${compiled.outputText}\n//# sourceURL=${sourceUrl}`).toString('base64')}`;
-  let exports;
-  try {
-    exports = await import(moduleUrl);
-  } catch (error) {
-    throw new Error(`Unable to evaluate ${catalogPath}: ${error.message}`, { cause: error });
-  }
-  if (!Array.isArray(exports.TOOLS)) throw new Error('Catalog must export TOOLS as an array.');
-  if (!Array.isArray(exports.CATEGORIES)) throw new Error('Catalog must export CATEGORIES as an array.');
-  return { tools: exports.TOOLS, categories: exports.CATEGORIES, snapshotDate: exports.SNAPSHOT_DATE };
+/**
+ * Write the catalog atomically as canonical JSON. Automation mutates the parsed
+ * objects and calls this — no source-text regexes, so formatting can never break it.
+ */
+export function writeCatalog({ tools, categories, snapshotDate }, catalogPath = CATALOG_PATH) {
+  const body = `${JSON.stringify({ snapshotDate, categories, tools }, null, 2)}\n`;
+  const tmp = `${catalogPath}.tmp-${process.pid}`;
+  writeFileSync(tmp, body, 'utf8');
+  renameSync(tmp, catalogPath);
 }
 
 function normalized(value) {
@@ -175,8 +161,11 @@ export function validateSnapshot(snapshot, catalog) {
   for (const [id, entry] of Object.entries(snapshot.repos)) {
     const at = `snapshot.repos[${JSON.stringify(id)}]`;
     const tool = toolById.get(id);
-    if (!tool) errors.push(`${at} does not match a catalog tool id.`);
-    else if (!tool.repo) errors.push(`${at} belongs to a tool without a GitHub repo.`);
+    // Stale entries (tool removed or repo dropped) are harmless: fetch-stars prunes
+    // them on its next run. Warning, not error, so a catalog PR that removes a tool
+    // isn't blocked by data published before it merged.
+    if (!tool) warnings.push(`${at} does not match a catalog tool id (will be pruned).`);
+    else if (!tool.repo) warnings.push(`${at} belongs to a tool without a GitHub repo (will be pruned).`);
     if (!entry || typeof entry !== 'object' || Array.isArray(entry)) {
       errors.push(`${at} must be an object.`);
       continue;
@@ -185,7 +174,7 @@ export function validateSnapshot(snapshot, catalog) {
     if (!validDate(entry.pushedAt)) errors.push(`${at}.pushedAt must be a valid date string.`);
     if (!Array.isArray(entry.history)) errors.push(`${at}.history must be an array.`);
     else {
-      if (entry.history.length > 52) errors.push(`${at}.history exceeds the 52-point limit.`);
+      if (entry.history.length > MAX_HISTORY_POINTS) errors.push(`${at}.history exceeds the ${MAX_HISTORY_POINTS}-point limit.`);
       let previous = -1;
       entry.history.forEach((point, index) => {
         if (!point || typeof point !== 'object' || !Number.isSafeInteger(point.t) || point.t < 0 || !Number.isSafeInteger(point.s) || point.s < 0) errors.push(`${at}.history[${index}] must contain non-negative integer t and s values.`);
@@ -204,6 +193,9 @@ export function validateSnapshot(snapshot, catalog) {
 }
 
 export function readSnapshot(snapshotPath = SNAPSHOT_PATH) {
+  // The snapshot lives on the `live-data` branch, not main; CI copies it into
+  // public/ before validating or building. Absent = empty, so a fresh checkout works.
+  if (!existsSync(snapshotPath)) return { generatedAt: new Date(0).toISOString(), repos: {} };
   try {
     return JSON.parse(readFileSync(snapshotPath, 'utf8'));
   } catch (error) {

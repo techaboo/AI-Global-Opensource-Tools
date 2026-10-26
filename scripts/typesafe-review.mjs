@@ -1,6 +1,6 @@
 /**
  * TypeSafe-powered semantic review for a candidate catalog entry, used before a new
- * tool is merged into `src/data/tools.ts`. `npm run check-duplicates` only catches
+ * tool is merged into `src/data/catalog.json`. `npm run check-duplicates` only catches
  * exact id/name/repo collisions (see catalog.mjs); this adds three judgments that
  * plain string matching cannot make:
  *

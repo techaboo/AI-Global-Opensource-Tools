@@ -20,6 +20,8 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      - name: Load live stats snapshot from live-data branch
+        run: node scripts/live-data.mjs pull
       - name: Validate catalog and snapshot
         id: validation
         run: npm run validate:catalog 2>&1 | tee catalog-health.txt
