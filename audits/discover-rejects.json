@@ -1,4 +1,11 @@
 {
+  "aaif-goose/goose": {
+    "kind": "name",
+    "reason": "shares a name with an existing entry",
+    "stars": 55762,
+    "rejectedAt": "2026-10-26",
+    "retryAfter": "2026-11-25"
+  },
   "ai-job-search-dev/ai-job-search": {
     "kind": "category",
     "reason": "category confidence below threshold",
