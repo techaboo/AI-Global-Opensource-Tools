@@ -14275,6 +14275,174 @@
       ],
       "status": "active",
       "year": 2020
+    },
+    {
+      "id": "herdr",
+      "name": "herdr",
+      "org": "herdrdev",
+      "cat": "agents",
+      "tagline": "the runtime your coding agents live on",
+      "desc": "the runtime your coding agents live on",
+      "license": "Apache-2.0",
+      "lang": "Rust",
+      "stars": 46107,
+      "repo": "herdrdev/herdr",
+      "tags": [
+        "agent",
+        "agent-orchestration",
+        "ai",
+        "ai-agents",
+        "claude-code"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "openhuman",
+      "name": "openhuman",
+      "org": "tinyhumansai",
+      "cat": "agents",
+      "tagline": "The fastest, cheapest, most efficient open-source agent harness. Run more tha...",
+      "desc": "The fastest, cheapest, most efficient open-source agent harness. Run more than 500 agents on a $10 VPS.",
+      "license": "GPL-3.0",
+      "lang": "Rust",
+      "stars": 42367,
+      "repo": "tinyhumansai/openhuman",
+      "tags": [
+        "agent-orchestration",
+        "ai-agents",
+        "ai-assistant",
+        "desktop",
+        "llm"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "agents",
+      "name": "agents",
+      "org": "wshobson",
+      "cat": "agents",
+      "tagline": "Multi-harness agentic plugin marketplace for Claude Code, Codex, Cursor, Open...",
+      "desc": "Multi-harness agentic plugin marketplace for Claude Code, Codex, Cursor, OpenCode, GitHub Copilot, Google Antigravity, and Pi",
+      "license": "MIT",
+      "lang": "Python",
+      "stars": 41859,
+      "repo": "wshobson/agents",
+      "tags": [
+        "agent-skills",
+        "agentic-ai",
+        "ai-agents",
+        "anthropic",
+        "antigravity"
+      ],
+      "status": "active",
+      "year": 2025
+    },
+    {
+      "id": "codewhale",
+      "name": "Codewhale",
+      "org": "codewhale-hq",
+      "cat": "coding",
+      "tagline": "Open-source agent for the terminal written in Rust. Use any provider or model...",
+      "desc": "Open-source agent for the terminal written in Rust. Use any provider or model. Issues & PRs always welcome",
+      "license": "MIT",
+      "lang": "Rust",
+      "stars": 41130,
+      "repo": "codewhale-hq/Codewhale",
+      "tags": [
+        "agent-orchestration",
+        "ai-agent",
+        "cli",
+        "codewhale",
+        "coding-agent"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "openviking",
+      "name": "OpenViking",
+      "org": "volcengine",
+      "cat": "rag",
+      "tagline": "Self-evolving Context Database for AI Agents. Unify Agent Memory, Knowledge R...",
+      "desc": "Self-evolving Context Database for AI Agents. Unify Agent Memory, Knowledge RAG and Skills.",
+      "license": "AGPL-3.0",
+      "lang": "Python",
+      "stars": 40938,
+      "repo": "volcengine/OpenViking",
+      "tags": [
+        "agent-context",
+        "agent-memory",
+        "agent-plugins",
+        "agentic-rag",
+        "context-database"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "oh-my-claudecode",
+      "name": "oh-my-claudecode",
+      "org": "Yeachan-Heo",
+      "cat": "agents",
+      "tagline": "Teams-first Multi-agent orchestration for Claude Code",
+      "desc": "Teams-first Multi-agent orchestration for Claude Code",
+      "license": "MIT",
+      "lang": "TypeScript",
+      "stars": 40312,
+      "repo": "Yeachan-Heo/oh-my-claudecode",
+      "tags": [
+        "agentic-coding",
+        "ai-agents",
+        "automation",
+        "claude",
+        "claude-code"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "drawdb",
+      "name": "drawdb",
+      "org": "drawdb-io",
+      "cat": "workflow",
+      "tagline": "Free, simple, and intuitive online database diagram editor and SQL generator.",
+      "desc": "Free, simple, and intuitive online database diagram editor and SQL generator.",
+      "license": "AGPL-3.0",
+      "lang": "JavaScript",
+      "stars": 40143,
+      "repo": "drawdb-io/drawdb",
+      "tags": [
+        "database",
+        "database-design",
+        "database-diagram",
+        "database-schema",
+        "dbml"
+      ],
+      "status": "active",
+      "year": 2023
+    },
+    {
+      "id": "copilotkit",
+      "name": "CopilotKit",
+      "org": "CopilotKit",
+      "cat": "agents",
+      "tagline": "The Frontend Stack for Agents & Generative UI. React, Angular, Mobile, Slack,...",
+      "desc": "The Frontend Stack for Agents & Generative UI. React, Angular, Mobile, Slack, and more.  Makers of the AG-UI Protocol",
+      "license": "MIT",
+      "lang": "TypeScript",
+      "stars": 38266,
+      "repo": "CopilotKit/CopilotKit",
+      "tags": [
+        "agent",
+        "agent-native",
+        "agentic-ai",
+        "agents",
+        "ai"
+      ],
+      "status": "active",
+      "year": 2023
     }
   ]
 }
