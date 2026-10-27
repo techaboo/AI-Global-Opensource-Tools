@@ -22,6 +22,14 @@
     "rejectedAt": "2026-10-26",
     "retryAfter": "2026-11-25"
   },
+  "ebony-vinyl/dsh-our-free-model": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.26,
+    "stars": 45973,
+    "rejectedAt": "2026-10-27",
+    "retryAfter": "2026-11-10"
+  },
   "farion1231/cc-switch": {
     "kind": "category",
     "reason": "category confidence below threshold",
@@ -37,6 +45,14 @@
     "stars": 195641,
     "rejectedAt": "2026-10-26",
     "retryAfter": "2026-11-25"
+  },
+  "google-research/google-research": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.59,
+    "stars": 39039,
+    "rejectedAt": "2026-10-27",
+    "retryAfter": "2026-11-10"
   },
   "hiyouga/llamafactory": {
     "kind": "duplicate",
@@ -62,6 +78,14 @@
     "rejectedAt": "2026-10-26",
     "retryAfter": "2026-11-09"
   },
+  "librechat-ai/librechat": {
+    "kind": "duplicate",
+    "reason": "duplicate of librechat",
+    "score": 0.8,
+    "stars": 46369,
+    "rejectedAt": "2026-10-27",
+    "retryAfter": "2026-11-26"
+  },
   "openhands/openhands": {
     "kind": "duplicate",
     "reason": "duplicate of openhands",
@@ -77,6 +101,13 @@
     "stars": 48544,
     "rejectedAt": "2026-10-26",
     "retryAfter": "2026-11-09"
+  },
+  "the-vibe-company/quivr": {
+    "kind": "name",
+    "reason": "shares a name with an existing entry",
+    "stars": 39608,
+    "rejectedAt": "2026-10-27",
+    "retryAfter": "2026-11-26"
   },
   "thedaviddias/front-end-checklist": {
     "kind": "category",
