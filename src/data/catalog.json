@@ -14443,6 +14443,174 @@
       ],
       "status": "active",
       "year": 2023
+    },
+    {
+      "id": "pdfmathtranslate",
+      "name": "PDFMathTranslate",
+      "org": "PDFMathTranslate",
+      "cat": "docs",
+      "tagline": "[EMNLP 2025 Demo] PDF scientific paper translation with preserved formats - 基...",
+      "desc": "[EMNLP 2025 Demo] PDF scientific paper translation with preserved formats - 基于 AI 完整保留排版的 PDF 文档全文双语翻译，支持 Google/DeepL/Ollama/OpenAI 等服务，提供 CLI/GUI/MCP/Docker/Zotero",
+      "license": "AGPL-3.0",
+      "lang": "Python",
+      "stars": 37988,
+      "repo": "PDFMathTranslate/PDFMathTranslate",
+      "tags": [
+        "chinese",
+        "document",
+        "edit",
+        "english",
+        "japanese"
+      ],
+      "status": "active",
+      "year": 2024
+    },
+    {
+      "id": "vibe-trading",
+      "name": "Vibe-Trading",
+      "org": "HKUDS",
+      "cat": "agents",
+      "tagline": "\"Vibe-Trading: Your Personal Trading Agent\"",
+      "desc": "\"Vibe-Trading: Your Personal Trading Agent\"",
+      "license": "MIT",
+      "lang": "Python",
+      "stars": 36973,
+      "repo": "HKUDS/Vibe-Trading",
+      "tags": [
+        "ai-agent",
+        "algorithmic-trading",
+        "backtesting",
+        "fintech",
+        "llm"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "oh-my-pi",
+      "name": "oh-my-pi",
+      "org": "can1357",
+      "cat": "coding",
+      "tagline": "⌥ Coding agent with the IDE wired in. Built by Stencil Labs.",
+      "desc": "⌥ Coding agent with the IDE wired in. Built by Stencil Labs.",
+      "license": "MIT",
+      "lang": "TypeScript",
+      "stars": 36909,
+      "repo": "can1357/oh-my-pi",
+      "tags": [
+        "ai-agent",
+        "ai-coding-agent",
+        "anthropic",
+        "bun",
+        "claude"
+      ],
+      "status": "active",
+      "year": 2025
+    },
+    {
+      "id": "deepseek-reasonix",
+      "name": "DeepSeek-Reasonix",
+      "org": "esengine",
+      "cat": "coding",
+      "tagline": "A reliable coding agent for complex software engineering tasks.",
+      "desc": "A reliable coding agent for complex software engineering tasks.",
+      "license": "MIT",
+      "lang": "Go",
+      "stars": 35983,
+      "repo": "esengine/DeepSeek-Reasonix",
+      "tags": [
+        "agent",
+        "agent-framework",
+        "ai-agent",
+        "ai-coding",
+        "cli"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "nacos",
+      "name": "nacos",
+      "org": "alibaba",
+      "cat": "mlops",
+      "tagline": "an easy-to-use dynamic service discovery, configuration and service managemen...",
+      "desc": "an easy-to-use dynamic service discovery, configuration and service management platform for building AI cloud native applications.",
+      "license": "Apache-2.0",
+      "lang": "Java",
+      "stars": 33491,
+      "repo": "alibaba/nacos",
+      "tags": [
+        "a2a-registry",
+        "agent",
+        "ai-registry",
+        "configuration-management",
+        "distributed-configuration"
+      ],
+      "status": "active",
+      "year": 2018
+    },
+    {
+      "id": "pentagi",
+      "name": "pentagi",
+      "org": "vxcontrol",
+      "cat": "agents",
+      "tagline": "Fully autonomous AI Agents system capable of performing complex penetration t...",
+      "desc": "Fully autonomous AI Agents system capable of performing complex penetration testing tasks",
+      "license": "MIT",
+      "lang": "Go",
+      "stars": 32618,
+      "repo": "vxcontrol/pentagi",
+      "tags": [
+        "ai-agents",
+        "ai-security-tool",
+        "anthropic",
+        "autonomous-agents",
+        "golang"
+      ],
+      "status": "active",
+      "year": 2025
+    },
+    {
+      "id": "cloakbrowser",
+      "name": "CloakBrowser",
+      "org": "CloakHQ",
+      "cat": "browseruse",
+      "tagline": "Stealth Chromium that passes every bot detection test. Drop-in Playwright rep...",
+      "desc": "Stealth Chromium that passes every bot detection test. Drop-in Playwright replacement with source-level fingerprint patches. 50+ tests passed.",
+      "license": "MIT",
+      "lang": "Python",
+      "stars": 32555,
+      "repo": "CloakHQ/CloakBrowser",
+      "tags": [
+        "ai-agents",
+        "anti-detect",
+        "antidetect-browser",
+        "bot-detection",
+        "browser-automation"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "code-review-graph",
+      "name": "code-review-graph",
+      "org": "tirth8205",
+      "cat": "rag",
+      "tagline": "Local-first code intelligence graph for MCP and CLI. Builds a persistent map ...",
+      "desc": "Local-first code intelligence graph for MCP and CLI. Builds a persistent map of your codebase so AI coding tools read only what matters, with benchmarked context reductions on reviews and large-repo workflows.",
+      "license": "MIT",
+      "lang": "Python",
+      "stars": 32450,
+      "repo": "tirth8205/code-review-graph",
+      "tags": [
+        "ai-coding",
+        "claude",
+        "claude-code",
+        "code-review",
+        "graphrag"
+      ],
+      "status": "active",
+      "year": 2026
     }
   ]
 }
