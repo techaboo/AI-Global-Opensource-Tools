@@ -14611,6 +14611,174 @@
       ],
       "status": "active",
       "year": 2026
+    },
+    {
+      "id": "9router",
+      "name": "9router",
+      "org": "decolua",
+      "cat": "mlops",
+      "tagline": "Unlimited FREE AI coding. Connect Claude Code, Codex, Cursor, Cline, Copilot,...",
+      "desc": "Unlimited FREE AI coding. Connect Claude Code, Codex, Cursor, Cline, Copilot, Antigravity to FREE Claude/GPT/Gemini via 40+ providers. Auto-fallback, RTK -40% tokens, never hit limits.",
+      "license": "MIT",
+      "lang": "JavaScript",
+      "stars": 31619,
+      "repo": "decolua/9router",
+      "tags": [
+        "ai-agents",
+        "ai-gateway",
+        "anthropic",
+        "chatgpt",
+        "claude"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "opencli",
+      "name": "OpenCLI",
+      "org": "jackwener",
+      "cat": "browseruse",
+      "tagline": "Make Any Website into CLI & Use your logged-in browser by AI agent.",
+      "desc": "Make Any Website into CLI & Use your logged-in browser by AI agent.",
+      "license": "Apache-2.0",
+      "lang": "JavaScript",
+      "stars": 30739,
+      "repo": "jackwener/OpenCLI",
+      "tags": [
+        "ai-agent",
+        "ai-agents",
+        "ai-tools",
+        "browser-automation",
+        "browser-use"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "gitleaks",
+      "name": "gitleaks",
+      "org": "gitleaks",
+      "cat": "guardrails",
+      "tagline": "Find secrets with Gitleaks 🔑",
+      "desc": "Find secrets with Gitleaks 🔑",
+      "license": "MIT",
+      "lang": "Go",
+      "stars": 30481,
+      "repo": "gitleaks/gitleaks",
+      "tags": [
+        "ai-powered",
+        "ci-cd",
+        "cicd",
+        "cli",
+        "data-loss-prevention"
+      ],
+      "status": "active",
+      "year": 2018
+    },
+    {
+      "id": "claude-code-game-studios",
+      "name": "Claude-Code-Game-Studios",
+      "org": "Donchitos",
+      "cat": "agents",
+      "tagline": "Turn Claude Code into a full game dev studio — 49 AI agents, 72 workflow skil...",
+      "desc": "Turn Claude Code into a full game dev studio — 49 AI agents, 72 workflow skills, and a complete coordination system mirroring real studio hierarchy.",
+      "license": "MIT",
+      "lang": "Shell",
+      "stars": 28582,
+      "repo": "Donchitos/Claude-Code-Game-Studios",
+      "tags": [
+        "ai-agents",
+        "ai-assisted-development",
+        "anthropic",
+        "claude",
+        "claude-code"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "dapr",
+      "name": "dapr",
+      "org": "dapr",
+      "cat": "mlops",
+      "tagline": "Dapr is a portable runtime for building distributed applications across cloud...",
+      "desc": "Dapr is a portable runtime for building distributed applications across cloud and edge, combining event-driven architecture with workflow orchestration.",
+      "license": "Apache-2.0",
+      "lang": "Go",
+      "stars": 26169,
+      "repo": "dapr/dapr",
+      "tags": [
+        "ai-agents",
+        "containers",
+        "distributed-systems",
+        "durable-execution",
+        "event-driven"
+      ],
+      "status": "active",
+      "year": 2019
+    },
+    {
+      "id": "distilly",
+      "name": "distilly",
+      "org": "titanwings",
+      "cat": "agents",
+      "tagline": "Distilly — Distill how they think into reusable Skills for any Agent or Bot. ...",
+      "desc": "Distilly — Distill how they think into reusable Skills for any Agent or Bot. Formerly Colleague Skill（原同事 Skill）.",
+      "license": "MIT",
+      "lang": "Python",
+      "stars": 26169,
+      "repo": "titanwings/distilly",
+      "tags": [
+        "agent-skills",
+        "agentic-ai",
+        "ai-agent",
+        "ai-agents",
+        "ai-assistants"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "dolt",
+      "name": "dolt",
+      "org": "dolthub",
+      "cat": "data",
+      "tagline": "Dolt – Git for Data",
+      "desc": "Dolt – Git for Data",
+      "license": "Apache-2.0",
+      "lang": "Go",
+      "stars": 24766,
+      "repo": "dolthub/dolt",
+      "tags": [
+        "agent-memory",
+        "agent-memory-server",
+        "ai-agents",
+        "ai-database",
+        "data-version-control"
+      ],
+      "status": "active",
+      "year": 2019
+    },
+    {
+      "id": "nemoclaw",
+      "name": "NemoClaw",
+      "org": "NVIDIA",
+      "cat": "agents",
+      "tagline": "Run agents like Hermes, LangChain Deep Agents, and OpenClaw more securely ins...",
+      "desc": "Run agents like Hermes, LangChain Deep Agents, and OpenClaw more securely inside NVIDIA OpenShell with managed inference",
+      "license": "Apache-2.0",
+      "lang": "TypeScript",
+      "stars": 22876,
+      "repo": "NVIDIA/NemoClaw",
+      "tags": [
+        "ai-agents",
+        "deep-agents",
+        "hermes",
+        "nvidia",
+        "openclaw"
+      ],
+      "status": "active",
+      "year": 2026
     }
   ]
 }
