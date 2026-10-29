@@ -22,6 +22,14 @@
     "rejectedAt": "2026-10-26",
     "retryAfter": "2026-11-09"
   },
+  "bloopai/vibe-kanban": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.46,
+    "stars": 28499,
+    "rejectedAt": "2026-10-29",
+    "retryAfter": "2026-11-12"
+  },
   "cheaper-inference/omniroute": {
     "kind": "duplicate",
     "reason": "duplicate of omniroute",
@@ -126,6 +134,14 @@
     "rejectedAt": "2026-10-28",
     "retryAfter": "2026-11-11"
   },
+  "nanocoai/nanoclaw": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.51,
+    "stars": 31046,
+    "rejectedAt": "2026-10-29",
+    "retryAfter": "2026-11-12"
+  },
   "openhands/openhands": {
     "kind": "duplicate",
     "reason": "duplicate of openhands",
@@ -134,6 +150,14 @@
     "rejectedAt": "2026-10-26",
     "retryAfter": "2026-11-25"
   },
+  "pascalorg/editor": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.55,
+    "stars": 25188,
+    "rejectedAt": "2026-10-29",
+    "retryAfter": "2026-11-12"
+  },
   "sickn33/agentic-awesome-skills": {
     "kind": "category",
     "reason": "category confidence below threshold",
@@ -141,6 +165,14 @@
     "stars": 48544,
     "rejectedAt": "2026-10-26",
     "retryAfter": "2026-11-09"
+  },
+  "slopus/happy": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.44,
+    "stars": 24392,
+    "rejectedAt": "2026-10-29",
+    "retryAfter": "2026-11-12"
   },
   "the-vibe-company/quivr": {
     "kind": "name",
