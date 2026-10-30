@@ -142,6 +142,14 @@
     "rejectedAt": "2026-10-29",
     "retryAfter": "2026-11-12"
   },
+  "nautechsystems/nautilus_trader": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.39,
+    "stars": 31058,
+    "rejectedAt": "2026-10-30",
+    "retryAfter": "2026-11-13"
+  },
   "openhands/openhands": {
     "kind": "duplicate",
     "reason": "duplicate of openhands",
@@ -158,6 +166,14 @@
     "rejectedAt": "2026-10-29",
     "retryAfter": "2026-11-12"
   },
+  "prefecthq/fastmcp": {
+    "kind": "duplicate",
+    "reason": "duplicate of fastmcp",
+    "score": 0.66,
+    "stars": 28243,
+    "rejectedAt": "2026-10-30",
+    "retryAfter": "2026-11-29"
+  },
   "sickn33/agentic-awesome-skills": {
     "kind": "category",
     "reason": "category confidence below threshold",
@@ -173,6 +189,22 @@
     "stars": 24392,
     "rejectedAt": "2026-10-29",
     "retryAfter": "2026-11-12"
+  },
+  "srbhr/resume-matcher": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.31,
+    "stars": 28949,
+    "rejectedAt": "2026-10-30",
+    "retryAfter": "2026-11-13"
+  },
+  "t8y2/dbx": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.5,
+    "stars": 28246,
+    "rejectedAt": "2026-10-30",
+    "retryAfter": "2026-11-13"
   },
   "the-vibe-company/quivr": {
     "kind": "name",
