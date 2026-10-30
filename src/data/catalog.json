@@ -14779,6 +14779,170 @@
       ],
       "status": "active",
       "year": 2026
+    },
+    {
+      "id": "xiaozhi-esp32",
+      "name": "xiaozhi-esp32",
+      "org": "78",
+      "cat": "mcp",
+      "tagline": "An MCP-based chatbot | 一个基于MCP的聊天机器人",
+      "desc": "An MCP-based chatbot | 一个基于MCP的聊天机器人",
+      "license": "MIT",
+      "lang": "C++",
+      "stars": 32277,
+      "repo": "78/xiaozhi-esp32",
+      "tags": [
+        "chatbot",
+        "esp32",
+        "mcp"
+      ],
+      "status": "active",
+      "year": 2024
+    },
+    {
+      "id": "opendataloader-pdf",
+      "name": "opendataloader-pdf",
+      "org": "opendataloader-project",
+      "cat": "docs",
+      "tagline": "PDF Parser for AI-ready data. Automate PDF accessibility. Open-source.",
+      "desc": "PDF Parser for AI-ready data. Automate PDF accessibility. Open-source.",
+      "license": "Apache-2.0",
+      "lang": "Java",
+      "stars": 30118,
+      "repo": "opendataloader-project/opendataloader-pdf",
+      "tags": [
+        "a11y",
+        "accessibility",
+        "ai",
+        "bounding-box",
+        "document-parsing"
+      ],
+      "status": "active",
+      "year": 2025
+    },
+    {
+      "id": "agentmemory",
+      "name": "agentmemory",
+      "org": "rohitg00",
+      "cat": "rag",
+      "tagline": "#1 Persistent memory for AI coding agents based on real-world benchmarks",
+      "desc": "#1 Persistent memory for AI coding agents based on real-world benchmarks",
+      "license": "Apache-2.0",
+      "lang": "TypeScript",
+      "stars": 30023,
+      "repo": "rohitg00/agentmemory",
+      "tags": [
+        "agentmemory",
+        "agents",
+        "ai",
+        "claude",
+        "claudecode"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "xgboost",
+      "name": "xgboost",
+      "org": "dmlc",
+      "cat": "frameworks",
+      "tagline": "Scalable, Portable and Distributed Gradient Boosting (GBDT, GBRT or GBM) Libr...",
+      "desc": "Scalable, Portable and Distributed Gradient Boosting (GBDT, GBRT or GBM) Library,  for Python, R, Java, Scala, C and more. Runs on single machine, Hadoop, Spark, Dask, Flink and DataFlow",
+      "license": "Apache-2.0",
+      "lang": "C++",
+      "stars": 28926,
+      "repo": "dmlc/xgboost",
+      "tags": [
+        "distributed-systems",
+        "gbdt",
+        "gbm",
+        "gbrt",
+        "machine-learning"
+      ],
+      "status": "active",
+      "year": 2014
+    },
+    {
+      "id": "beads",
+      "name": "beads",
+      "org": "gastownhall",
+      "cat": "rag",
+      "tagline": "Beads - A memory upgrade for your coding agent",
+      "desc": "Beads - A memory upgrade for your coding agent",
+      "license": "MIT",
+      "lang": "Go",
+      "stars": 28302,
+      "repo": "gastownhall/beads",
+      "tags": [
+        "agents",
+        "claude-code",
+        "coding"
+      ],
+      "status": "active",
+      "year": 2025
+    },
+    {
+      "id": "kratos",
+      "name": "kratos",
+      "org": "go-kratos",
+      "cat": "frameworks",
+      "tagline": "Your ultimate Go microservices framework for the cloud-native era.",
+      "desc": "Your ultimate Go microservices framework for the cloud-native era.",
+      "license": "MIT",
+      "lang": "Go",
+      "stars": 26002,
+      "repo": "go-kratos/kratos",
+      "tags": [
+        "ai",
+        "architecture",
+        "cloud-native",
+        "framework",
+        "generate"
+      ],
+      "status": "active",
+      "year": 2019
+    },
+    {
+      "id": "shap",
+      "name": "shap",
+      "org": "shap",
+      "cat": "frameworks",
+      "tagline": "A game theoretic approach to explain the output of any machine learning model.",
+      "desc": "A game theoretic approach to explain the output of any machine learning model.",
+      "license": "MIT",
+      "lang": "Jupyter Notebook",
+      "stars": 25840,
+      "repo": "shap/shap",
+      "tags": [
+        "deep-learning",
+        "explainability",
+        "gradient-boosting",
+        "interpretability",
+        "machine-learning"
+      ],
+      "status": "active",
+      "year": 2016
+    },
+    {
+      "id": "open-seo",
+      "name": "open-seo",
+      "org": "every-app",
+      "cat": "search",
+      "tagline": "Open source alternative to Semrush and Ahrefs",
+      "desc": "Open source alternative to Semrush and Ahrefs",
+      "license": "MIT",
+      "lang": "TypeScript",
+      "stars": 25694,
+      "repo": "every-app/open-seo",
+      "tags": [
+        "backlink-analysis",
+        "google-search-console-mcp",
+        "keyword-research",
+        "mcp",
+        "seo"
+      ],
+      "status": "active",
+      "year": 2026
     }
   ]
 }
