@@ -54,6 +54,14 @@
     "rejectedAt": "2026-10-27",
     "retryAfter": "2026-11-10"
   },
+  "evil0ctal/douyin_tiktok_download_api": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.53,
+    "stars": 21015,
+    "rejectedAt": "2026-10-31",
+    "retryAfter": "2026-11-14"
+  },
   "farion1231/cc-switch": {
     "kind": "category",
     "reason": "category confidence below threshold",
@@ -69,6 +77,14 @@
     "stars": 195641,
     "rejectedAt": "2026-10-26",
     "retryAfter": "2026-11-25"
+  },
+  "flipped-aurora/gin-vue-admin": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.31,
+    "stars": 25115,
+    "rejectedAt": "2026-10-31",
+    "retryAfter": "2026-11-14"
   },
   "google-research/google-research": {
     "kind": "category",
@@ -102,6 +118,14 @@
     "rejectedAt": "2026-10-28",
     "retryAfter": "2026-11-11"
   },
+  "jnmetacode/agency-agents-zh": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.51,
+    "stars": 21736,
+    "rejectedAt": "2026-10-31",
+    "retryAfter": "2026-11-14"
+  },
   "labmlai/annotated_deep_learning_paper_implementations": {
     "kind": "category",
     "reason": "category confidence below threshold",
@@ -126,6 +150,14 @@
     "rejectedAt": "2026-10-27",
     "retryAfter": "2026-11-26"
   },
+  "liguodongiot/llm-action": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.54,
+    "stars": 25237,
+    "rejectedAt": "2026-10-31",
+    "retryAfter": "2026-11-14"
+  },
   "lutzroeder/netron": {
     "kind": "category",
     "reason": "category confidence below threshold",
@@ -133,6 +165,14 @@
     "stars": 33625,
     "rejectedAt": "2026-10-28",
     "retryAfter": "2026-11-11"
+  },
+  "maaassistantarknights/maaassistantarknights": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.34,
+    "stars": 24134,
+    "rejectedAt": "2026-10-31",
+    "retryAfter": "2026-11-14"
   },
   "nanocoai/nanoclaw": {
     "kind": "category",
@@ -174,6 +214,14 @@
     "rejectedAt": "2026-10-30",
     "retryAfter": "2026-11-29"
   },
+  "qax-os/excelize": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.52,
+    "stars": 21028,
+    "rejectedAt": "2026-10-31",
+    "retryAfter": "2026-11-14"
+  },
   "sickn33/agentic-awesome-skills": {
     "kind": "category",
     "reason": "category confidence below threshold",
@@ -197,6 +245,14 @@
     "stars": 28949,
     "rejectedAt": "2026-10-30",
     "retryAfter": "2026-11-13"
+  },
+  "stefan-jansen/machine-learning-for-trading": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.36,
+    "stars": 21646,
+    "rejectedAt": "2026-10-31",
+    "retryAfter": "2026-11-14"
   },
   "t8y2/dbx": {
     "kind": "category",
