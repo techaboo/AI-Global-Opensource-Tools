@@ -22,6 +22,14 @@
     "rejectedAt": "2026-10-26",
     "retryAfter": "2026-11-09"
   },
+  "bbfamily/abu": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.56,
+    "stars": 19097,
+    "rejectedAt": "2026-11-01",
+    "retryAfter": "2026-11-15"
+  },
   "bloopai/vibe-kanban": {
     "kind": "category",
     "reason": "category confidence below threshold",
@@ -53,6 +61,14 @@
     "stars": 45973,
     "rejectedAt": "2026-10-27",
     "retryAfter": "2026-11-10"
+  },
+  "eosphoros-ai/db-gpt": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.54,
+    "stars": 20232,
+    "rejectedAt": "2026-11-01",
+    "retryAfter": "2026-11-15"
   },
   "evil0ctal/douyin_tiktok_download_api": {
     "kind": "category",
@@ -94,6 +110,14 @@
     "rejectedAt": "2026-10-27",
     "retryAfter": "2026-11-10"
   },
+  "hbai-ltd/toonflow-app": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.55,
+    "stars": 20105,
+    "rejectedAt": "2026-11-01",
+    "retryAfter": "2026-11-15"
+  },
   "hiyouga/llamafactory": {
     "kind": "duplicate",
     "reason": "duplicate of llama-factory",
@@ -117,6 +141,14 @@
     "stars": 37659,
     "rejectedAt": "2026-10-28",
     "retryAfter": "2026-11-11"
+  },
+  "jianchang512/pyvideotrans": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.47,
+    "stars": 19604,
+    "rejectedAt": "2026-11-01",
+    "retryAfter": "2026-11-15"
   },
   "jnmetacode/agency-agents-zh": {
     "kind": "category",
@@ -190,6 +222,14 @@
     "rejectedAt": "2026-10-30",
     "retryAfter": "2026-11-13"
   },
+  "nvidia-nemo/speech": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.56,
+    "stars": 18669,
+    "rejectedAt": "2026-11-01",
+    "retryAfter": "2026-11-15"
+  },
   "openhands/openhands": {
     "kind": "duplicate",
     "reason": "duplicate of openhands",
@@ -221,6 +261,22 @@
     "stars": 21028,
     "rejectedAt": "2026-10-31",
     "retryAfter": "2026-11-14"
+  },
+  "rocketride-org/rocketride-server": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.37,
+    "stars": 19137,
+    "rejectedAt": "2026-11-01",
+    "retryAfter": "2026-11-15"
+  },
+  "rowboatlabs/rowboat": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.48,
+    "stars": 18109,
+    "rejectedAt": "2026-11-01",
+    "retryAfter": "2026-11-15"
   },
   "sickn33/agentic-awesome-skills": {
     "kind": "category",
