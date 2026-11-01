@@ -15109,6 +15109,174 @@
       ],
       "status": "active",
       "year": 2019
+    },
+    {
+      "id": "lightgbm",
+      "name": "LightGBM",
+      "org": "lightgbm-org",
+      "cat": "frameworks",
+      "tagline": "A fast, distributed, high performance gradient boosting (GBT, GBDT, GBRT, GBM...",
+      "desc": "A fast, distributed, high performance gradient boosting (GBT, GBDT, GBRT, GBM or MART) framework based on decision tree algorithms, used for ranking, classification and many other machine learning tasks.",
+      "license": "MIT",
+      "lang": "C++",
+      "stars": 18943,
+      "repo": "lightgbm-org/LightGBM",
+      "tags": [
+        "data-mining",
+        "decision-trees",
+        "distributed",
+        "gbdt",
+        "gbm"
+      ],
+      "status": "active",
+      "year": 2016
+    },
+    {
+      "id": "nuclear",
+      "name": "nuclear",
+      "org": "nukeop",
+      "cat": "audio",
+      "tagline": "Streaming music player that finds free music for you",
+      "desc": "Streaming music player that finds free music for you",
+      "license": "AGPL-3.0",
+      "lang": "TypeScript",
+      "stars": 18845,
+      "repo": "nukeop/nuclear",
+      "tags": [
+        "desktop-app",
+        "linux",
+        "mac",
+        "mcp",
+        "mcp-server"
+      ],
+      "status": "active",
+      "year": 2016
+    },
+    {
+      "id": "langbot",
+      "name": "LangBot",
+      "org": "langbot-app",
+      "cat": "agents",
+      "tagline": "Production-grade platform for building agentic IM bots - 生产级多平台智能机器人开发平台/ Age...",
+      "desc": "Production-grade platform for building agentic IM bots - 生产级多平台智能机器人开发平台/ Agent、知识库编排、插件系统 / Bots for Discord / Slack / LINE / Telegram / WeChat(企业微信, 企微智能机器人, 公众号) / 飞书 / 钉钉 / QQ / Matrix e.g. Integrated with ChatGPT(GPT), DeepSeek, Dify, n8n, Langflow, Coze, Claude, Gemini, GLM, Ollama, SiliconFlow, Kimi, openclaw / hermes agent, deerflow",
+      "license": "Apache-2.0",
+      "lang": "Python",
+      "stars": 18647,
+      "repo": "langbot-app/LangBot",
+      "tags": [
+        "agent",
+        "coze",
+        "deepseek",
+        "dify",
+        "dingtalk"
+      ],
+      "status": "active",
+      "year": 2022
+    },
+    {
+      "id": "xerj",
+      "name": "xerj",
+      "org": "xerj-org",
+      "cat": "search",
+      "tagline": "AI search engine and MCP server for bots and agents. One Rust binary indexes ...",
+      "desc": "AI search engine and MCP server for bots and agents. One Rust binary indexes code, docs, logs, JSONL/CSV and PDFs for BM25 full-text, vector and hybrid search, code search without grep, agent memory and RAG. Elasticsearch-compatible API; Corpus Hub serves hundreds of reference memory corpora.",
+      "license": "Apache-2.0",
+      "lang": "Rust",
+      "stars": 18538,
+      "repo": "xerj-org/xerj",
+      "tags": [
+        "agent-memory",
+        "ai-agents",
+        "bm25",
+        "claude-code",
+        "cli"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "auto-claude-code-research-in-sleep",
+      "name": "Auto-claude-code-research-in-sleep",
+      "org": "wanshuiyin",
+      "cat": "agents",
+      "tagline": "ARIS ⚔️ (Auto-Research-In-Sleep) — Lightweight Markdown-only skills for auton...",
+      "desc": "ARIS ⚔️ (Auto-Research-In-Sleep) — Lightweight Markdown-only skills for autonomous ML research: cross-model review loops, idea discovery, and experiment automation. No framework, no lock-in — works with Claude Code, Codex, OpenClaw, or any LLM agent.",
+      "license": "MIT",
+      "lang": "Python",
+      "stars": 18401,
+      "repo": "wanshuiyin/Auto-claude-code-research-in-sleep",
+      "tags": [
+        "ai-research",
+        "ai-tools",
+        "aris",
+        "autonomous-agent",
+        "claude"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "docsgpt",
+      "name": "DocsGPT",
+      "org": "arc53",
+      "cat": "agents",
+      "tagline": "Private AI platform for agents, assistants and enterprise search. Built-in Ag...",
+      "desc": "Private AI platform for agents, assistants and enterprise search. Built-in Agent Builder, Deep research, Document analysis, Multi-model support, and API connectivity for agents.",
+      "license": "MIT",
+      "lang": "Python",
+      "stars": 18352,
+      "repo": "arc53/DocsGPT",
+      "tags": [
+        "agent-builder",
+        "agents",
+        "ai",
+        "chatgpt",
+        "docsgpt"
+      ],
+      "status": "active",
+      "year": 2023
+    },
+    {
+      "id": "maxun",
+      "name": "maxun",
+      "org": "getmaxun",
+      "cat": "search",
+      "tagline": "Turn any website into a structured API. Extract, automate, search and monitor...",
+      "desc": "Turn any website into a structured API. Extract, automate, search and monitor the web.",
+      "license": "AGPL-3.0",
+      "lang": "TypeScript",
+      "stars": 18125,
+      "repo": "getmaxun/maxun",
+      "tags": [
+        "agents",
+        "api",
+        "automation",
+        "browser-automation",
+        "crawler"
+      ],
+      "status": "active",
+      "year": 2023
+    },
+    {
+      "id": "turbovec",
+      "name": "turbovec",
+      "org": "RyanCodrai",
+      "cat": "vectordb",
+      "tagline": "A vector index built on TurboQuant, written in Rust with Python bindings",
+      "desc": "A vector index built on TurboQuant, written in Rust with Python bindings",
+      "license": "MIT",
+      "lang": "Rust",
+      "stars": 17451,
+      "repo": "RyanCodrai/turbovec",
+      "tags": [
+        "ann",
+        "avx512",
+        "embedding",
+        "embeddings",
+        "faiss"
+      ],
+      "status": "active",
+      "year": 2026
     }
   ]
 }
