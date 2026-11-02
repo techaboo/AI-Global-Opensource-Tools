@@ -15277,6 +15277,173 @@
       ],
       "status": "active",
       "year": 2026
+    },
+    {
+      "id": "akshare",
+      "name": "akshare",
+      "org": "akfamily",
+      "cat": "data",
+      "tagline": "AKShare is an elegant and simple financial data interface library for Python,...",
+      "desc": "AKShare is an elegant and simple financial data interface library for Python, built for human beings! 开源财经数据接口库",
+      "license": "MIT",
+      "lang": "Python",
+      "stars": 23172,
+      "repo": "akfamily/akshare",
+      "tags": [
+        "academic",
+        "akshare",
+        "asset-pricing",
+        "bond",
+        "currency"
+      ],
+      "status": "active",
+      "year": 2019
+    },
+    {
+      "id": "surfsense",
+      "name": "SurfSense",
+      "org": "MODSetter",
+      "cat": "assistants",
+      "tagline": "Air-gapped, privacy-focused, open-source NotebookLM alternative. AI agent tha...",
+      "desc": "Air-gapped, privacy-focused, open-source NotebookLM alternative. AI agent that researches, transforms, and edits your documents. Join our Discord: https://discord.gg/ejRNvftDp9",
+      "license": "Apache-2.0",
+      "lang": "Python",
+      "stars": 16713,
+      "repo": "MODSetter/SurfSense",
+      "tags": [
+        "agent",
+        "agents",
+        "ai",
+        "notebooklm",
+        "notebooklm-alternative"
+      ],
+      "status": "active",
+      "year": 2024
+    },
+    {
+      "id": "dagger",
+      "name": "dagger",
+      "org": "dagger",
+      "cat": "workflow",
+      "tagline": "Automation engine to build, test and ship any codebase. Runs locally, in CI, ...",
+      "desc": "Automation engine to build, test and ship any codebase. Runs locally, in CI, or directly in the cloud",
+      "license": "Apache-2.0",
+      "lang": "Go",
+      "stars": 16570,
+      "repo": "dagger/dagger",
+      "tags": [
+        "agents",
+        "caching",
+        "ci-cd",
+        "containers",
+        "continuous-deployment"
+      ],
+      "status": "active",
+      "year": 2019
+    },
+    {
+      "id": "sherpa-onnx",
+      "name": "sherpa-onnx",
+      "org": "k2-fsa",
+      "cat": "audio",
+      "tagline": "Speech-to-text, text-to-speech, speaker diarization, speech enhancement, sour...",
+      "desc": "Speech-to-text, text-to-speech, speaker diarization, speech enhancement, source separation, and VAD using next-gen Kaldi with onnxruntime without Internet connection. Support embedded systems, Android, iOS, HarmonyOS, Raspberry Pi, RISC-V, RK NPU, Axera NPU, Ascend NPU, x86_64 servers, websocket server/client, support 12 programming languages",
+      "license": "Apache-2.0",
+      "lang": "C++",
+      "stars": 15678,
+      "repo": "k2-fsa/sherpa-onnx",
+      "tags": [
+        "aarch64",
+        "android",
+        "arm32",
+        "asr",
+        "cpp"
+      ],
+      "status": "active",
+      "year": 2022
+    },
+    {
+      "id": "vosk-api",
+      "name": "vosk-api",
+      "org": "alphacep",
+      "cat": "audio",
+      "tagline": "Offline speech recognition API for Android, iOS, Raspberry Pi and servers wit...",
+      "desc": "Offline speech recognition API for Android, iOS, Raspberry Pi and servers with Python, Java, C# and Node",
+      "license": "Apache-2.0",
+      "lang": "Jupyter Notebook",
+      "stars": 15224,
+      "repo": "alphacep/vosk-api",
+      "tags": [
+        "android",
+        "asr",
+        "deep-learning",
+        "deep-neural-networks",
+        "deepspeech"
+      ],
+      "status": "active",
+      "year": 2019
+    },
+    {
+      "id": "openship",
+      "name": "openship",
+      "org": "oblien",
+      "cat": "mlops",
+      "tagline": "Self-hosted deployment platform",
+      "desc": "Self-hosted deployment platform",
+      "license": "Apache-2.0",
+      "lang": "TypeScript",
+      "stars": 15040,
+      "repo": "oblien/openship",
+      "tags": [
+        "agents",
+        "ai",
+        "deployments",
+        "self-hosted"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "optuna",
+      "name": "optuna",
+      "org": "optuna",
+      "cat": "frameworks",
+      "tagline": "A hyperparameter optimization framework",
+      "desc": "A hyperparameter optimization framework",
+      "license": "MIT",
+      "lang": "Python",
+      "stars": 15003,
+      "repo": "optuna/optuna",
+      "tags": [
+        "distributed",
+        "hyperparameter-optimization",
+        "machine-learning",
+        "parallel",
+        "python"
+      ],
+      "status": "active",
+      "year": 2018
+    },
+    {
+      "id": "semantica",
+      "name": "semantica",
+      "org": "semantica-agi",
+      "cat": "rag",
+      "tagline": "Graph-Native Infrastructure for Context and Accountable AI Systems",
+      "desc": "Graph-Native Infrastructure for Context and Accountable AI Systems",
+      "license": "MIT",
+      "lang": "Python",
+      "stars": 14392,
+      "repo": "semantica-agi/semantica",
+      "tags": [
+        "agent-memory",
+        "ai",
+        "ai-governance",
+        "ai-infrastructure",
+        "artificial-intelligence"
+      ],
+      "status": "active",
+      "year": 2025
     }
   ]
 }
