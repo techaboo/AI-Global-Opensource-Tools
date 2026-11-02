@@ -1,19 +1,42 @@
 # TypeSafe catalog audit
 
-Last run: 2026-10-26T21:52:30.897Z
-Reviewed this run: 5 / 5 requested (batch size 5)
-Catalog coverage: 58 / 744 tools have been reviewed at least once
+Last run: 2026-11-02T07:36:51.429Z
+Reviewed this run: 50 / 50 requested (batch size 50)
+Catalog coverage: 108 / 792 tools have been reviewed at least once
 
-## 3 tool(s) flagged this run
+## 11 tool(s) flagged this run
 
-### LlamaIndex (`llamaindex`)
-- category mismatch: catalog says `agents`, model suggests `rag` (confidence 0.95)
+### OpenCode (`opencode`)
+- tagline may not reflect the description (noul 0.13)
+
+### Kilo Code (`kilo-code`)
+- tagline may not reflect the description (noul 0.43)
+
+### Crush (`crush`)
+- tagline may not reflect the description (noul 0.36)
+
+### OpenClaw (`openclaw`)
+- tagline may not reflect the description (noul 0.28)
+
+### Agent Zero (`agent-zero`)
+- category mismatch: catalog says `assistants`, model suggests `agents` (confidence 0.77)
+
+### Fazm (`fazm`)
+- category mismatch: catalog says `assistants`, model suggests `browseruse` (confidence 0.96)
+- tagline may not reflect the description (noul 0.44)
+
+### Onyx (`onyx`)
+- category mismatch: catalog says `rag`, model suggests `search` (confidence 0.97)
+
+### txtai (`txtai`)
+- category mismatch: catalog says `rag`, model suggests `vectordb` (confidence 0.95)
+
+### FAISS (`faiss`)
+- tagline may not reflect the description (noul 0.36)
+
+### Qdrant (`qdrant`)
 - tagline may not reflect the description (noul 0.32)
 
-### Haystack (`haystack`)
-- category mismatch: catalog says `agents`, model suggests `rag` (confidence 0.97)
-
-### Microsoft Agent Framework (`ms-agent-framework`)
-- possible duplicate of **AutoGen** (`autogen`) — noul 0.53
-- tagline may not reflect the description (noul 0.40)
+### Weaviate (`weaviate`)
+- tagline may not reflect the description (noul 0.32)
 

@@ -230,5 +230,205 @@
   "ms-agent-framework": {
     "reviewedAt": "2026-10-26T21:52:30.896Z",
     "flagged": true
+  },
+  "opencode": {
+    "reviewedAt": "2026-11-02T07:36:47.642Z",
+    "flagged": true
+  },
+  "gemini-cli": {
+    "reviewedAt": "2026-11-02T07:36:47.722Z",
+    "flagged": false
+  },
+  "codex-cli": {
+    "reviewedAt": "2026-11-02T07:36:47.804Z",
+    "flagged": false
+  },
+  "cline": {
+    "reviewedAt": "2026-11-02T07:36:47.888Z",
+    "flagged": false
+  },
+  "openhands": {
+    "reviewedAt": "2026-11-02T07:36:47.956Z",
+    "flagged": false
+  },
+  "aider": {
+    "reviewedAt": "2026-11-02T07:36:48.044Z",
+    "flagged": false
+  },
+  "goose": {
+    "reviewedAt": "2026-11-02T07:36:48.128Z",
+    "flagged": false
+  },
+  "tabby": {
+    "reviewedAt": "2026-11-02T07:36:48.217Z",
+    "flagged": false
+  },
+  "continue": {
+    "reviewedAt": "2026-11-02T07:36:48.285Z",
+    "flagged": false
+  },
+  "qwen-code": {
+    "reviewedAt": "2026-11-02T07:36:48.355Z",
+    "flagged": false
+  },
+  "kilo-code": {
+    "reviewedAt": "2026-11-02T07:36:48.442Z",
+    "flagged": true
+  },
+  "zed": {
+    "reviewedAt": "2026-11-02T07:36:48.510Z",
+    "flagged": false
+  },
+  "void": {
+    "reviewedAt": "2026-11-02T07:36:48.582Z",
+    "flagged": false
+  },
+  "crush": {
+    "reviewedAt": "2026-11-02T07:36:48.675Z",
+    "flagged": true
+  },
+  "openclaw": {
+    "reviewedAt": "2026-11-02T07:36:48.786Z",
+    "flagged": true
+  },
+  "khoj": {
+    "reviewedAt": "2026-11-02T07:36:48.853Z",
+    "flagged": false
+  },
+  "suna": {
+    "reviewedAt": "2026-11-02T07:36:48.927Z",
+    "flagged": false
+  },
+  "leon": {
+    "reviewedAt": "2026-11-02T07:36:48.998Z",
+    "flagged": false
+  },
+  "agent-zero": {
+    "reviewedAt": "2026-11-02T07:36:49.068Z",
+    "flagged": true
+  },
+  "hermes-agent": {
+    "reviewedAt": "2026-11-02T07:36:49.145Z",
+    "flagged": false
+  },
+  "fazm": {
+    "reviewedAt": "2026-11-02T07:36:49.215Z",
+    "flagged": true
+  },
+  "browser-use": {
+    "reviewedAt": "2026-11-02T07:36:49.299Z",
+    "flagged": false
+  },
+  "playwright-mcp": {
+    "reviewedAt": "2026-11-02T07:36:49.370Z",
+    "flagged": false
+  },
+  "ui-tars": {
+    "reviewedAt": "2026-11-02T07:36:49.439Z",
+    "flagged": false
+  },
+  "skyvern": {
+    "reviewedAt": "2026-11-02T07:36:49.507Z",
+    "flagged": false
+  },
+  "stagehand": {
+    "reviewedAt": "2026-11-02T07:36:49.589Z",
+    "flagged": false
+  },
+  "steel": {
+    "reviewedAt": "2026-11-02T07:36:49.749Z",
+    "flagged": false
+  },
+  "ragflow": {
+    "reviewedAt": "2026-11-02T07:36:49.815Z",
+    "flagged": false
+  },
+  "mem0": {
+    "reviewedAt": "2026-11-02T07:36:49.890Z",
+    "flagged": false
+  },
+  "quivr": {
+    "reviewedAt": "2026-11-02T07:36:49.959Z",
+    "flagged": false
+  },
+  "graphrag": {
+    "reviewedAt": "2026-11-02T07:36:50.025Z",
+    "flagged": false
+  },
+  "kotaemon": {
+    "reviewedAt": "2026-11-02T07:36:50.091Z",
+    "flagged": false
+  },
+  "lightrag": {
+    "reviewedAt": "2026-11-02T07:36:50.158Z",
+    "flagged": false
+  },
+  "onyx": {
+    "reviewedAt": "2026-11-02T07:36:50.239Z",
+    "flagged": true
+  },
+  "letta": {
+    "reviewedAt": "2026-11-02T07:36:50.315Z",
+    "flagged": false
+  },
+  "txtai": {
+    "reviewedAt": "2026-11-02T07:36:50.391Z",
+    "flagged": true
+  },
+  "cognee": {
+    "reviewedAt": "2026-11-02T07:36:50.460Z",
+    "flagged": false
+  },
+  "zep": {
+    "reviewedAt": "2026-11-02T07:36:50.531Z",
+    "flagged": false
+  },
+  "faiss": {
+    "reviewedAt": "2026-11-02T07:36:50.601Z",
+    "flagged": true
+  },
+  "milvus": {
+    "reviewedAt": "2026-11-02T07:36:50.663Z",
+    "flagged": false
+  },
+  "qdrant": {
+    "reviewedAt": "2026-11-02T07:36:50.741Z",
+    "flagged": true
+  },
+  "chroma": {
+    "reviewedAt": "2026-11-02T07:36:50.822Z",
+    "flagged": false
+  },
+  "pgvector": {
+    "reviewedAt": "2026-11-02T07:36:50.899Z",
+    "flagged": false
+  },
+  "weaviate": {
+    "reviewedAt": "2026-11-02T07:36:50.966Z",
+    "flagged": true
+  },
+  "lancedb": {
+    "reviewedAt": "2026-11-02T07:36:51.035Z",
+    "flagged": false
+  },
+  "vespa": {
+    "reviewedAt": "2026-11-02T07:36:51.105Z",
+    "flagged": false
+  },
+  "marqo": {
+    "reviewedAt": "2026-11-02T07:36:51.170Z",
+    "flagged": false
+  },
+  "pgvectorscale": {
+    "reviewedAt": "2026-11-02T07:36:51.303Z",
+    "flagged": false
+  },
+  "vald": {
+    "reviewedAt": "2026-11-02T07:36:51.366Z",
+    "flagged": false
+  },
+  "n8n": {
+    "reviewedAt": "2026-11-02T07:36:51.429Z",
+    "flagged": false
   }
 }
