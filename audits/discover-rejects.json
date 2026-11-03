@@ -387,5 +387,13 @@
     "stars": 67104,
     "rejectedAt": "2026-10-26",
     "retryAfter": "2026-11-09"
+  },
+  "zoicware/removewindowsai": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.28,
+    "stars": 13565,
+    "rejectedAt": "2026-11-03",
+    "retryAfter": "2026-11-17"
   }
 }
