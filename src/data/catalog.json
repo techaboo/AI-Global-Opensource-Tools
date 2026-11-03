@@ -15444,6 +15444,173 @@
       ],
       "status": "active",
       "year": 2025
+    },
+    {
+      "id": "opengym",
+      "name": "openGym",
+      "org": "DuarteSantos8",
+      "cat": "workflow",
+      "tagline": "Open-source gym & body-weight tracker, now in the App Store (iPhone + Apple W...",
+      "desc": "Open-source gym & body-weight tracker, now in the App Store (iPhone + Apple Watch) and as an Android APK. Plan routines, log workouts, see which muscles are trained, import from Strong/Hevy/FitNotes. Self-host it or use it on the phone alone.",
+      "license": "AGPL-3.0",
+      "lang": "JavaScript",
+      "stars": 18996,
+      "repo": "DuarteSantos8/openGym",
+      "tags": [
+        "apple-watch",
+        "bodyweight",
+        "docker",
+        "fitness",
+        "fitness-tracker"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "apify-mcp-server",
+      "name": "apify-mcp-server",
+      "org": "apify",
+      "cat": "mcp",
+      "tagline": "The Apify MCP server enables your AI agents to extract data from social media...",
+      "desc": "The Apify MCP server enables your AI agents to extract data from social media, search engines, maps, e-commerce sites, or any other website using thousands of ready-made scrapers, crawlers, and automation tools available on the Apify Store.",
+      "license": "MIT",
+      "lang": "TypeScript",
+      "stars": 14496,
+      "repo": "apify/apify-mcp-server",
+      "tags": [
+        "agents",
+        "ai",
+        "mcp",
+        "mcp-server"
+      ],
+      "status": "active",
+      "year": 2025
+    },
+    {
+      "id": "concat",
+      "name": "Concat",
+      "org": "jub0t",
+      "cat": "video",
+      "tagline": "Beta: The truly free, open-source, local-first, cross-platform CapCut replace...",
+      "desc": "Beta: The truly free, open-source, local-first, cross-platform CapCut replacement. Scriptable through a JSON-RPC API & MCP.",
+      "license": "AGPL-3.0",
+      "lang": "Rust",
+      "stars": 13923,
+      "repo": "jub0t/Concat",
+      "tags": [
+        "ffmpeg",
+        "free-video-editor",
+        "model-context-protocol",
+        "non-linear-editor",
+        "offline-first"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "tvm",
+      "name": "tvm",
+      "org": "apache",
+      "cat": "frameworks",
+      "tagline": "Open Machine Learning Compiler Framework",
+      "desc": "Open Machine Learning Compiler Framework",
+      "license": "Apache-2.0",
+      "lang": "Python",
+      "stars": 13888,
+      "repo": "apache/tvm",
+      "tags": [
+        "compiler",
+        "deep-learning",
+        "gpu",
+        "javascript",
+        "machine-learning"
+      ],
+      "status": "active",
+      "year": 2016
+    },
+    {
+      "id": "everos",
+      "name": "EverOS",
+      "org": "EverMind-AI",
+      "cat": "rag",
+      "tagline": "One portable memory layer for every AI agent: local-first, Markdown-native, u...",
+      "desc": "One portable memory layer for every AI agent: local-first, Markdown-native, user-owned, and self-evolving across apps, tools, and workflows.",
+      "license": "Apache-2.0",
+      "lang": "Python",
+      "stars": 13797,
+      "repo": "EverMind-AI/EverOS",
+      "tags": [
+        "agent-memory",
+        "agentic-ai",
+        "ai",
+        "chats",
+        "clawdbot"
+      ],
+      "status": "active",
+      "year": 2025
+    },
+    {
+      "id": "leann",
+      "name": "LEANN",
+      "org": "StarTrail-org",
+      "cat": "rag",
+      "tagline": "[MLsys2026 Best Paper]: https://arxiv.org/abs/2506.08276. RAG on Everything w...",
+      "desc": "[MLsys2026 Best Paper]: https://arxiv.org/abs/2506.08276. RAG on Everything with LEANN. Enjoy 97% storage savings while running a fast, accurate, and 100% private RAG application on your personal device.",
+      "license": "MIT",
+      "lang": "Python",
+      "stars": 13760,
+      "repo": "StarTrail-org/LEANN",
+      "tags": [
+        "ai",
+        "faiss",
+        "gpt-oss",
+        "langchain",
+        "llama-index"
+      ],
+      "status": "active",
+      "year": 2025
+    },
+    {
+      "id": "garden-skills",
+      "name": "garden-skills",
+      "org": "ConardLi",
+      "cat": "prompts",
+      "tagline": "ConardLi's open-source Skills collection, featuring web design, knowledge ret...",
+      "desc": "ConardLi's open-source Skills collection, featuring web design, knowledge retrieval, image generation, and more.",
+      "license": "MIT",
+      "lang": "JavaScript",
+      "stars": 13586,
+      "repo": "ConardLi/garden-skills",
+      "tags": [
+        "agent",
+        "claude",
+        "gpt-image-2",
+        "rag",
+        "skills"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "langchain4j",
+      "name": "langchain4j",
+      "org": "langchain4j",
+      "cat": "frameworks",
+      "tagline": "LangChain4j is an idiomatic, open-source Java library for building LLM-powere...",
+      "desc": "LangChain4j is an idiomatic, open-source Java library for building LLM-powered applications on the JVM. It offers a unified API over popular LLM providers and vector stores, and makes implementing tool calling (including MCP support), agents and RAG easy. It integrates seamlessly with enterprise Java frameworks like Quarkus and Spring Boot.",
+      "license": "Apache-2.0",
+      "lang": "Java",
+      "stars": 13349,
+      "repo": "langchain4j/langchain4j",
+      "tags": [
+        "anthropic",
+        "chatgpt",
+        "chroma",
+        "embeddings",
+        "gemini"
+      ],
+      "status": "active",
+      "year": 2023
     }
   ]
 }
