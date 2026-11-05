@@ -254,6 +254,14 @@
     "rejectedAt": "2026-10-31",
     "retryAfter": "2026-11-14"
   },
+  "milind-soni/openmausbot": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.49,
+    "stars": 12477,
+    "rejectedAt": "2026-11-05",
+    "retryAfter": "2026-11-19"
+  },
   "nanocoai/nanoclaw": {
     "kind": "category",
     "reason": "category confidence below threshold",
