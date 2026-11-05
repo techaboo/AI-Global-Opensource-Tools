@@ -15611,6 +15611,174 @@
       ],
       "status": "active",
       "year": 2023
+    },
+    {
+      "id": "jobs-applier-ai-agent-aihawk",
+      "name": "Jobs_Applier_AI_Agent_AIHawk",
+      "org": "feder-cr",
+      "cat": "browseruse",
+      "tagline": "Give it your resume, get the jobs that fit, select them and apply. Runs in yo...",
+      "desc": "Give it your resume, get the jobs that fit, select them and apply. Runs in your terminal, with a browser you can watch.",
+      "license": "MIT",
+      "lang": "Python",
+      "stars": 32390,
+      "repo": "feder-cr/Jobs_Applier_AI_Agent_AIHawk",
+      "tags": [
+        "ai-agent",
+        "ai-agents",
+        "automation",
+        "browser-automation",
+        "job-application"
+      ],
+      "status": "active",
+      "year": 2024
+    },
+    {
+      "id": "khazix-skills",
+      "name": "khazix-skills",
+      "org": "KKKKhazix",
+      "cat": "prompts",
+      "tagline": "数字生命卡兹克开源的 AI Skills 合集 | Agent Skills: leader（帮你定义目标）, neat-freak 洁癖, hv-ana...",
+      "desc": "数字生命卡兹克开源的 AI Skills 合集 | Agent Skills: leader（帮你定义目标）, neat-freak 洁癖, hv-analysis, khazix-writer & more — Claude Code, Codex & 40+ agents",
+      "license": "MIT",
+      "lang": "Python",
+      "stars": 21989,
+      "repo": "KKKKhazix/khazix-skills",
+      "tags": [
+        "agent-skills",
+        "ai-agents",
+        "claude",
+        "claude-code",
+        "codex"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "solidcraft",
+      "name": "solidcraft",
+      "org": "tangency-labs",
+      "cat": "threed",
+      "tagline": "SolidCraft: an open-source parametric 3D CAD application built in pure Rust. ...",
+      "desc": "SolidCraft: an open-source parametric 3D CAD application built in pure Rust. Desktop, web, and automation through MCP.",
+      "license": "Apache-2.0",
+      "lang": "Rust",
+      "stars": 13929,
+      "repo": "tangency-labs/solidcraft",
+      "tags": [
+        "3d-modeling",
+        "brep",
+        "cad",
+        "egui",
+        "mcp"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "fg-data-profiling",
+      "name": "fg-data-profiling",
+      "org": "Data-Centric-AI-Community",
+      "cat": "data",
+      "tagline": "1 Line of code data quality profiling & exploratory data analysis for Pandas ...",
+      "desc": "1 Line of code data quality profiling & exploratory data analysis for Pandas and Spark DataFrames.",
+      "license": "MIT",
+      "lang": "Python",
+      "stars": 13749,
+      "repo": "Data-Centric-AI-Community/fg-data-profiling",
+      "tags": [
+        "big-data-analytics",
+        "data-analysis",
+        "data-exploration",
+        "data-profiling",
+        "data-quality"
+      ],
+      "status": "active",
+      "year": 2016
+    },
+    {
+      "id": "pytorch-grad-cam",
+      "name": "pytorch-grad-cam",
+      "org": "jacobgil",
+      "cat": "vision",
+      "tagline": "Advanced AI Explainability for computer vision.  Support for CNNs, Vision Tra...",
+      "desc": "Advanced AI Explainability for computer vision.  Support for CNNs, Vision Transformers, Classification, Object detection, Segmentation, Image similarity and more.",
+      "license": "MIT",
+      "lang": "Python",
+      "stars": 13007,
+      "repo": "jacobgil/pytorch-grad-cam",
+      "tags": [
+        "class-activation-maps",
+        "computer-vision",
+        "deep-learning",
+        "explainable-ai",
+        "explainable-ml"
+      ],
+      "status": "active",
+      "year": 2017
+    },
+    {
+      "id": "openchamber",
+      "name": "openchamber",
+      "org": "openchamber",
+      "cat": "coding",
+      "tagline": "Agentic Development Environment based on OpenCode AI agent",
+      "desc": "Agentic Development Environment based on OpenCode AI agent",
+      "license": "MIT",
+      "lang": "TypeScript",
+      "stars": 12594,
+      "repo": "openchamber/openchamber",
+      "tags": [
+        "agentic-engineering",
+        "agents",
+        "ai",
+        "enginering",
+        "opencode"
+      ],
+      "status": "active",
+      "year": 2025
+    },
+    {
+      "id": "lemo-opuscar",
+      "name": "lemo-opuscar",
+      "org": "lemomo-ai",
+      "cat": "prompts",
+      "tagline": "A toolbox of film styles made in code for Claude Code: 66 ready to use, and y...",
+      "desc": "A toolbox of film styles made in code for Claude Code: 66 ready to use, and your own. Each style is a style prompt plus a demo film made entirely in code by Claude Opus 5.5, with no video model. By Lemomo. · 一套用代码做片的风格工具箱：66 种现成风格，也能做出你自己的",
+      "license": "MIT",
+      "lang": "JavaScript",
+      "stars": 12464,
+      "repo": "lemomo-ai/lemo-opuscar",
+      "tags": [
+        "agent-skills",
+        "ai-agents",
+        "ai-short-film",
+        "ai-video",
+        "animation"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "memos",
+      "name": "MemOS",
+      "org": "MemTensor",
+      "cat": "rag",
+      "tagline": "Self-evolving memory OS for LLM & AI Agents: ultra-persistent memory, hybrid-...",
+      "desc": "Self-evolving memory OS for LLM & AI Agents: ultra-persistent memory, hybrid-retrieval, and cross-task skill reuse, with 35.24% token savings and DeepSeek Harness support.",
+      "license": "Apache-2.0",
+      "lang": "TypeScript",
+      "stars": 12259,
+      "repo": "MemTensor/MemOS",
+      "tags": [
+        "agent",
+        "agentic-ai",
+        "ai",
+        "ai-agents",
+        "chatgpt"
+      ],
+      "status": "active",
+      "year": 2025
     }
   ]
 }
