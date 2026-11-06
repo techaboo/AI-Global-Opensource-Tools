@@ -30,6 +30,14 @@
     "rejectedAt": "2026-11-02",
     "retryAfter": "2026-11-16"
   },
+  "ashishpatel26/500-ai-agents-projects": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.42,
+    "stars": 39329,
+    "rejectedAt": "2026-11-06",
+    "retryAfter": "2026-11-20"
+  },
   "bbfamily/abu": {
     "kind": "category",
     "reason": "category confidence below threshold",
@@ -45,6 +53,14 @@
     "stars": 28499,
     "rejectedAt": "2026-10-29",
     "retryAfter": "2026-11-12"
+  },
+  "ccch1mneyyy/dsh-go": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.45,
+    "stars": 12391,
+    "rejectedAt": "2026-11-06",
+    "retryAfter": "2026-11-20"
   },
   "cheaper-inference/omniroute": {
     "kind": "duplicate",
@@ -69,6 +85,22 @@
     "stars": 12982,
     "rejectedAt": "2026-11-04",
     "retryAfter": "2026-11-18"
+  },
+  "data-privacy-stack/presidio": {
+    "kind": "duplicate",
+    "reason": "duplicate of presidio",
+    "score": 0.65,
+    "stars": 11755,
+    "rejectedAt": "2026-11-06",
+    "retryAfter": "2026-12-06"
+  },
+  "davila7/claude-code-templates": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.59,
+    "stars": 33155,
+    "rejectedAt": "2026-11-06",
+    "retryAfter": "2026-11-20"
   },
   "dayuanjiang/next-ai-draw-io": {
     "kind": "category",
@@ -110,6 +142,14 @@
     "rejectedAt": "2026-10-26",
     "retryAfter": "2026-11-09"
   },
+  "feder-cr/jobs_applier_ai_agent": {
+    "kind": "duplicate",
+    "reason": "duplicate of jobs-applier-ai-agent-aihawk",
+    "score": 0.56,
+    "stars": 32385,
+    "rejectedAt": "2026-11-06",
+    "retryAfter": "2026-12-06"
+  },
   "firecrawl/firecrawl": {
     "kind": "duplicate",
     "reason": "duplicate of firecrawl",
@@ -133,6 +173,14 @@
     "stars": 39039,
     "rejectedAt": "2026-10-27",
     "retryAfter": "2026-11-10"
+  },
+  "google/elephant-goldfish-model": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.42,
+    "stars": 12701,
+    "rejectedAt": "2026-11-06",
+    "retryAfter": "2026-11-20"
   },
   "gunthercox/chatterbot": {
     "kind": "category",
@@ -270,6 +318,14 @@
     "rejectedAt": "2026-10-29",
     "retryAfter": "2026-11-12"
   },
+  "narcooo/inkos": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.5,
+    "stars": 11014,
+    "rejectedAt": "2026-11-06",
+    "retryAfter": "2026-11-20"
+  },
   "nautechsystems/nautilus_trader": {
     "kind": "category",
     "reason": "category confidence below threshold",
@@ -374,6 +430,14 @@
     "rejectedAt": "2026-10-30",
     "retryAfter": "2026-11-13"
   },
+  "tambo-ai/tambo": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.46,
+    "stars": 11224,
+    "rejectedAt": "2026-11-06",
+    "retryAfter": "2026-11-20"
+  },
   "the-vibe-company/quivr": {
     "kind": "name",
     "reason": "shares a name with an existing entry",
@@ -411,6 +475,14 @@
     "stars": 63731,
     "rejectedAt": "2026-10-26",
     "retryAfter": "2026-11-09"
+  },
+  "yikart/aitoearn": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.36,
+    "stars": 27349,
+    "rejectedAt": "2026-11-06",
+    "retryAfter": "2026-11-20"
   },
   "zhulinsen/daily_stock_analysis": {
     "kind": "category",
