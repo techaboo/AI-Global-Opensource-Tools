@@ -15779,6 +15779,174 @@
       ],
       "status": "active",
       "year": 2025
+    },
+    {
+      "id": "bisheng",
+      "name": "bisheng",
+      "org": "dataelement",
+      "cat": "mlops",
+      "tagline": "BISHENG is an open LLM devops platform for next generation Enterprise AI appl...",
+      "desc": "BISHENG is an open LLM devops platform for next generation Enterprise AI applications. Powerful and comprehensive features include: GenAI workflow, RAG, Agent, Unified model management, Evaluation, SFT, Dataset Management, Enterprise-level System Management, Observability and more.",
+      "license": "Apache-2.0",
+      "lang": "Python",
+      "stars": 12127,
+      "repo": "dataelement/bisheng",
+      "tags": [
+        "agent",
+        "ai",
+        "chatbot",
+        "enterprise",
+        "finetune"
+      ],
+      "status": "active",
+      "year": 2023
+    },
+    {
+      "id": "segmentation-models-pytorch",
+      "name": "segmentation_models.pytorch",
+      "org": "qubvel-org",
+      "cat": "vision",
+      "tagline": "Semantic segmentation models with 500+ pretrained convolutional and transform...",
+      "desc": "Semantic segmentation models with 500+ pretrained convolutional and transformer-based backbones.",
+      "license": "MIT",
+      "lang": "Python",
+      "stars": 11796,
+      "repo": "qubvel-org/segmentation_models.pytorch",
+      "tags": [
+        "computer-vision",
+        "deeplab-v3-plus",
+        "deeplabv3",
+        "dpt",
+        "fpn"
+      ],
+      "status": "active",
+      "year": 2019
+    },
+    {
+      "id": "ludwig",
+      "name": "ludwig",
+      "org": "ludwig-ai",
+      "cat": "frameworks",
+      "tagline": "Low-code framework for building custom LLMs, neural networks, and other AI mo...",
+      "desc": "Low-code framework for building custom LLMs, neural networks, and other AI models",
+      "license": "Apache-2.0",
+      "lang": "Python",
+      "stars": 11793,
+      "repo": "ludwig-ai/ludwig",
+      "tags": [
+        "computer-vision",
+        "data-centric",
+        "data-science",
+        "deep",
+        "deep-learning"
+      ],
+      "status": "active",
+      "year": 2018
+    },
+    {
+      "id": "rerun",
+      "name": "rerun",
+      "org": "rerun-io",
+      "cat": "robotics",
+      "tagline": "Visualize, query, and stream to train on multimodal robotics data.",
+      "desc": "Visualize, query, and stream to train on multimodal robotics data.",
+      "license": "Apache-2.0",
+      "lang": "Rust",
+      "stars": 11710,
+      "repo": "rerun-io/rerun",
+      "tags": [
+        "computer-vision",
+        "cpp",
+        "multimodal",
+        "python",
+        "robotics"
+      ],
+      "status": "active",
+      "year": 2022
+    },
+    {
+      "id": "omnigent",
+      "name": "omnigent",
+      "org": "omnigent-ai",
+      "cat": "agents",
+      "tagline": "Omnigent is an open-source AI agent framework and meta-harness: orchestrate C...",
+      "desc": "Omnigent is an open-source AI agent framework and meta-harness: orchestrate Claude Code, Codex, Cursor, Pi, and custom agents — swap harnesses without rewriting, enforce policies and sandboxing, and collaborate in real time from any device.",
+      "license": "Apache-2.0",
+      "lang": "Python",
+      "stars": 11256,
+      "repo": "omnigent-ai/omnigent",
+      "tags": [
+        "agent-framework",
+        "agent-governance",
+        "agent-orchestration",
+        "agents",
+        "ai"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "whisperlivekit",
+      "name": "WhisperLiveKit",
+      "org": "QuentinFuxa",
+      "cat": "audio",
+      "tagline": "Real-time, local speech-to-text with streaming ASR, speaker diarization, tran...",
+      "desc": "Real-time, local speech-to-text with streaming ASR, speaker diarization, translation, and OpenAI/Deepgram-compatible APIs.",
+      "license": "Apache-2.0",
+      "lang": "Python",
+      "stars": 11218,
+      "repo": "QuentinFuxa/WhisperLiveKit",
+      "tags": [
+        "automatic-speech-recognition",
+        "fastapi",
+        "python",
+        "pytorch",
+        "real-time"
+      ],
+      "status": "active",
+      "year": 2024
+    },
+    {
+      "id": "open-swe",
+      "name": "open-swe",
+      "org": "langchain-ai",
+      "cat": "coding",
+      "tagline": "An Open-Source Asynchronous Coding Agent",
+      "desc": "An Open-Source Asynchronous Coding Agent",
+      "license": "MIT",
+      "lang": "Python",
+      "stars": 11177,
+      "repo": "langchain-ai/open-swe",
+      "tags": [
+        "agent",
+        "agents",
+        "ai",
+        "anthropic",
+        "claudecode"
+      ],
+      "status": "active",
+      "year": 2025
+    },
+    {
+      "id": "x-anylabeling",
+      "name": "X-AnyLabeling",
+      "org": "CVHub520",
+      "cat": "data",
+      "tagline": "X-AnyLabeling: A lightweight, efficient, and unified cross-platform desktop a...",
+      "desc": "X-AnyLabeling: A lightweight, efficient, and unified cross-platform desktop application for annotating text, image, video, point cloud and multimodal data, combining versatile built-in tools with state-of-the-art AI models and flexible multi-format export.",
+      "license": "GPL-3.0",
+      "lang": "Python",
+      "stars": 10901,
+      "repo": "CVHub520/X-AnyLabeling",
+      "tags": [
+        "ai",
+        "computer-vision",
+        "deep-learning",
+        "groundingdino",
+        "image-annotation-tool"
+      ],
+      "status": "active",
+      "year": 2023
     }
   ]
 }
