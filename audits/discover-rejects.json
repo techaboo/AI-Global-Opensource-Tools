@@ -38,6 +38,14 @@
     "rejectedAt": "2026-11-06",
     "retryAfter": "2026-11-20"
   },
+  "backnotprop/plannotator": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.52,
+    "stars": 9879,
+    "rejectedAt": "2026-11-07",
+    "retryAfter": "2026-11-21"
+  },
   "bbfamily/abu": {
     "kind": "category",
     "reason": "category confidence below threshold",
@@ -413,6 +421,14 @@
     "stars": 28949,
     "rejectedAt": "2026-10-30",
     "retryAfter": "2026-11-13"
+  },
+  "startrail-org/pixelrag": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.58,
+    "stars": 10863,
+    "rejectedAt": "2026-11-07",
+    "retryAfter": "2026-11-21"
   },
   "stefan-jansen/machine-learning-for-trading": {
     "kind": "category",
