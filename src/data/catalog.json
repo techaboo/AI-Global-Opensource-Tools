@@ -16113,6 +16113,174 @@
       ],
       "status": "active",
       "year": 2026
+    },
+    {
+      "id": "nuwa-skill",
+      "name": "nuwa-skill",
+      "org": "alchaincyf",
+      "cat": "prompts",
+      "tagline": "你想蒸馏的下一个员工，何必是同事。蒸馏任何人的思维方式——心智模型、决策启发式、表达DNA。Distill how anyone thinks.",
+      "desc": "你想蒸馏的下一个员工，何必是同事。蒸馏任何人的思维方式——心智模型、决策启发式、表达DNA。Distill how anyone thinks.",
+      "license": "MIT",
+      "lang": "Python",
+      "stars": 37784,
+      "repo": "alchaincyf/nuwa-skill",
+      "tags": [
+        "agent-skills",
+        "ai-agents",
+        "claude-code",
+        "claude-code-skills",
+        "claude-skills"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "agent-desktop",
+      "name": "agent-desktop",
+      "org": "vercel-labs",
+      "cat": "browseruse",
+      "tagline": "Computer use CLI for AI agents",
+      "desc": "Computer use CLI for AI agents",
+      "license": "Apache-2.0",
+      "lang": "Rust",
+      "stars": 19239,
+      "repo": "vercel-labs/agent-desktop",
+      "tags": [
+        "accessibility",
+        "accessibility-api",
+        "ai-agents",
+        "automation",
+        "cli"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "xberg",
+      "name": "xberg",
+      "org": "xberg-io",
+      "cat": "docs",
+      "tagline": "The fast, precise document-intelligence engine for every language: text, tabl...",
+      "desc": "The fast, precise document-intelligence engine for every language: text, tables and metadata from 100+ formats, with OCR, transcription and code intelligence.",
+      "license": "MIT",
+      "lang": "Rust",
+      "stars": 9565,
+      "repo": "xberg-io/xberg",
+      "tags": [
+        "bun",
+        "csharp",
+        "document-intelligence",
+        "elixir",
+        "ffi"
+      ],
+      "status": "active",
+      "year": 2025
+    },
+    {
+      "id": "textblob",
+      "name": "TextBlob",
+      "org": "sloria",
+      "cat": "frameworks",
+      "tagline": "Simple, Pythonic, text processing--Sentiment analysis, part-of-speech tagging...",
+      "desc": "Simple, Pythonic, text processing--Sentiment analysis, part-of-speech tagging, noun phrase extraction, translation, and more.",
+      "license": "MIT",
+      "lang": "Python",
+      "stars": 9555,
+      "repo": "sloria/TextBlob",
+      "tags": [
+        "natural-language-processing",
+        "nlp",
+        "nltk",
+        "pattern",
+        "python"
+      ],
+      "status": "active",
+      "year": 2013
+    },
+    {
+      "id": "universal-modder",
+      "name": "universal-modder",
+      "org": "rehan-remade",
+      "cat": "mcp",
+      "tagline": "Point Claude at any game. Skills, tools and the fal MCP that let Claude Code ...",
+      "desc": "Point Claude at any game. Skills, tools and the fal MCP that let Claude Code mod almost any PC game you own: recon, reverse engineering, fal-generated art/3D/audio, in-game testing, showcase videos.",
+      "license": "MIT",
+      "lang": "Python",
+      "stars": 9524,
+      "repo": "rehan-remade/universal-modder",
+      "tags": [
+        "age-of-empires",
+        "claude-code",
+        "claude-code-plugin",
+        "fal",
+        "game-assets"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "databend",
+      "name": "databend",
+      "org": "databendlabs",
+      "cat": "vectordb",
+      "tagline": "Data Agent Ready Warehouse : One for  Analytics, Search, AI, Python Sandbox. ...",
+      "desc": "Data Agent Ready Warehouse : One for  Analytics, Search, AI, Python Sandbox.  — rebuilt from scratch. Unified architecture on your S3.",
+      "license": "Apache-2.0",
+      "lang": "Rust",
+      "stars": 9493,
+      "repo": "databendlabs/databend",
+      "tags": [
+        "ai",
+        "bigdata",
+        "cloud-native",
+        "database",
+        "elasticsearch"
+      ],
+      "status": "active",
+      "year": 2020
+    },
+    {
+      "id": "html-anything",
+      "name": "html-anything",
+      "org": "nexu-io",
+      "cat": "coding",
+      "tagline": "✨ The agentic HTML editor — your local AI agent writes the HTML, you ship it....",
+      "desc": "✨ The agentic HTML editor — your local AI agent writes the HTML, you ship it. 🚀 75 Skills × 9 Surfaces (magazine · deck · poster · XHS / tweet · prototype · data report · Hyperframes) 🛡️ Sandboxed preview · 📤 1-click to WeChat / X / Zhihu / HTML / PNG 🔑 Zero API key — Claude Code / Cursor / Codex / Gemini / Copilot / OpenCode / Qwen / Aider.",
+      "license": "Apache-2.0",
+      "lang": "HTML",
+      "stars": 9460,
+      "repo": "nexu-io/html-anything",
+      "tags": [
+        "agent-skills",
+        "agentic",
+        "ai-agents",
+        "ai-design",
+        "ai-editor"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "terax-ai",
+      "name": "terax-ai",
+      "org": "crynta",
+      "cat": "coding",
+      "tagline": "Lightweight (7MB) terminal-first AI-native development environment",
+      "desc": "Lightweight (7MB) terminal-first AI-native development environment",
+      "license": "Apache-2.0",
+      "lang": "TypeScript",
+      "stars": 9448,
+      "repo": "crynta/terax-ai",
+      "tags": [
+        "agents",
+        "ai",
+        "code-editor",
+        "libghostty",
+        "linux"
+      ],
+      "status": "active",
+      "year": 2026
     }
   ]
 }
