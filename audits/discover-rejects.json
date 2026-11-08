@@ -358,6 +358,14 @@
     "rejectedAt": "2026-10-26",
     "retryAfter": "2026-11-25"
   },
+  "openmontageinc/openmontage": {
+    "kind": "duplicate",
+    "reason": "duplicate of openmontage",
+    "score": 0.88,
+    "stars": 78443,
+    "rejectedAt": "2026-11-08",
+    "retryAfter": "2026-12-08"
+  },
   "pascalorg/editor": {
     "kind": "category",
     "reason": "category confidence below threshold",
