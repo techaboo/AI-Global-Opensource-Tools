@@ -430,5 +430,205 @@
   "n8n": {
     "reviewedAt": "2026-11-02T07:36:51.429Z",
     "flagged": false
+  },
+  "langflow": {
+    "reviewedAt": "2026-11-09T07:36:55.303Z",
+    "flagged": false
+  },
+  "dify": {
+    "reviewedAt": "2026-11-09T07:36:55.384Z",
+    "flagged": false
+  },
+  "flowise": {
+    "reviewedAt": "2026-11-09T07:36:55.480Z",
+    "flagged": false
+  },
+  "node-red": {
+    "reviewedAt": "2026-11-09T07:36:55.577Z",
+    "flagged": false
+  },
+  "activepieces": {
+    "reviewedAt": "2026-11-09T07:36:55.674Z",
+    "flagged": false
+  },
+  "sim": {
+    "reviewedAt": "2026-11-09T07:36:55.771Z",
+    "flagged": false
+  },
+  "windmill": {
+    "reviewedAt": "2026-11-09T07:36:55.854Z",
+    "flagged": false
+  },
+  "a1111": {
+    "reviewedAt": "2026-11-09T07:36:55.947Z",
+    "flagged": true
+  },
+  "comfyui": {
+    "reviewedAt": "2026-11-09T07:36:56.041Z",
+    "flagged": true
+  },
+  "fooocus": {
+    "reviewedAt": "2026-11-09T07:36:56.124Z",
+    "flagged": false
+  },
+  "diffusers": {
+    "reviewedAt": "2026-11-09T07:36:56.219Z",
+    "flagged": false
+  },
+  "flux": {
+    "reviewedAt": "2026-11-09T07:36:56.324Z",
+    "flagged": true
+  },
+  "invokeai": {
+    "reviewedAt": "2026-11-09T07:36:56.420Z",
+    "flagged": false
+  },
+  "kohya": {
+    "reviewedAt": "2026-11-09T07:36:56.525Z",
+    "flagged": true
+  },
+  "ip-adapter": {
+    "reviewedAt": "2026-11-09T07:36:56.616Z",
+    "flagged": false
+  },
+  "sdnext": {
+    "reviewedAt": "2026-11-09T07:36:56.716Z",
+    "flagged": false
+  },
+  "swarmui": {
+    "reviewedAt": "2026-11-09T07:36:56.832Z",
+    "flagged": false
+  },
+  "wan22": {
+    "reviewedAt": "2026-11-09T07:36:56.903Z",
+    "flagged": true
+  },
+  "wan21": {
+    "reviewedAt": "2026-11-09T07:36:57.034Z",
+    "flagged": true
+  },
+  "open-sora": {
+    "reviewedAt": "2026-11-09T07:36:57.168Z",
+    "flagged": false
+  },
+  "hunyuanvideo": {
+    "reviewedAt": "2026-11-09T07:36:57.258Z",
+    "flagged": true
+  },
+  "cogvideox": {
+    "reviewedAt": "2026-11-09T07:36:57.351Z",
+    "flagged": true
+  },
+  "animatediff": {
+    "reviewedAt": "2026-11-09T07:36:57.447Z",
+    "flagged": false
+  },
+  "diffsynth": {
+    "reviewedAt": "2026-11-09T07:36:57.557Z",
+    "flagged": false
+  },
+  "ltx-video": {
+    "reviewedAt": "2026-11-09T07:36:57.634Z",
+    "flagged": true
+  },
+  "mochi": {
+    "reviewedAt": "2026-11-09T07:36:57.764Z",
+    "flagged": false
+  },
+  "whisper": {
+    "reviewedAt": "2026-11-09T07:36:57.864Z",
+    "flagged": false
+  },
+  "whispercpp": {
+    "reviewedAt": "2026-11-09T07:36:57.962Z",
+    "flagged": false
+  },
+  "bark": {
+    "reviewedAt": "2026-11-09T07:36:58.067Z",
+    "flagged": false
+  },
+  "coqui-tts": {
+    "reviewedAt": "2026-11-09T07:36:58.160Z",
+    "flagged": false
+  },
+  "openvoice": {
+    "reviewedAt": "2026-11-09T07:36:58.265Z",
+    "flagged": false
+  },
+  "chatterbox": {
+    "reviewedAt": "2026-11-09T07:36:58.371Z",
+    "flagged": true
+  },
+  "faster-whisper": {
+    "reviewedAt": "2026-11-09T07:36:58.461Z",
+    "flagged": true
+  },
+  "fish-speech": {
+    "reviewedAt": "2026-11-09T07:36:58.554Z",
+    "flagged": false
+  },
+  "audiocraft": {
+    "reviewedAt": "2026-11-09T07:36:58.664Z",
+    "flagged": false
+  },
+  "dia": {
+    "reviewedAt": "2026-11-09T07:36:58.780Z",
+    "flagged": false
+  },
+  "cosyvoice": {
+    "reviewedAt": "2026-11-09T07:36:58.868Z",
+    "flagged": true
+  },
+  "f5-tts": {
+    "reviewedAt": "2026-11-09T07:36:58.951Z",
+    "flagged": false
+  },
+  "funasr": {
+    "reviewedAt": "2026-11-09T07:36:59.069Z",
+    "flagged": false
+  },
+  "kokoro": {
+    "reviewedAt": "2026-11-09T07:36:59.166Z",
+    "flagged": true
+  },
+  "orpheus": {
+    "reviewedAt": "2026-11-09T07:36:59.243Z",
+    "flagged": true
+  },
+  "llama-factory": {
+    "reviewedAt": "2026-11-09T07:36:59.333Z",
+    "flagged": true
+  },
+  "unsloth": {
+    "reviewedAt": "2026-11-09T07:36:59.465Z",
+    "flagged": true
+  },
+  "deepspeed": {
+    "reviewedAt": "2026-11-09T07:36:59.570Z",
+    "flagged": false
+  },
+  "peft": {
+    "reviewedAt": "2026-11-09T07:36:59.662Z",
+    "flagged": false
+  },
+  "trl": {
+    "reviewedAt": "2026-11-09T07:36:59.768Z",
+    "flagged": false
+  },
+  "nemo": {
+    "reviewedAt": "2026-11-09T07:36:59.880Z",
+    "flagged": false
+  },
+  "megatron": {
+    "reviewedAt": "2026-11-09T07:36:59.972Z",
+    "flagged": true
+  },
+  "axolotl": {
+    "reviewedAt": "2026-11-09T07:37:00.048Z",
+    "flagged": true
+  },
+  "ms-swift": {
+    "reviewedAt": "2026-11-09T07:37:00.159Z",
+    "flagged": false
   }
 }
