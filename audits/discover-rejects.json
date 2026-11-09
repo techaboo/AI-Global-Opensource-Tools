@@ -1,4 +1,12 @@
 {
+  "0xplaygrounds/rig": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.58,
+    "stars": 9099,
+    "rejectedAt": "2026-11-09",
+    "retryAfter": "2026-11-23"
+  },
   "aaif-goose/goose": {
     "kind": "name",
     "reason": "shares a name with an existing entry",
@@ -145,10 +153,10 @@
   "farion1231/cc-switch": {
     "kind": "category",
     "reason": "category confidence below threshold",
-    "score": 0.35,
-    "stars": 148953,
-    "rejectedAt": "2026-10-26",
-    "retryAfter": "2026-11-09"
+    "score": 0.36,
+    "stars": 152971,
+    "rejectedAt": "2026-11-09",
+    "retryAfter": "2026-11-23"
   },
   "feder-cr/jobs_applier_ai_agent": {
     "kind": "duplicate",
@@ -182,6 +190,14 @@
     "rejectedAt": "2026-10-27",
     "retryAfter": "2026-11-10"
   },
+  "google/adk-go": {
+    "kind": "duplicate",
+    "reason": "duplicate of google-adk",
+    "score": 0.62,
+    "stars": 8954,
+    "rejectedAt": "2026-11-09",
+    "retryAfter": "2026-12-09"
+  },
   "google/elephant-goldfish-model": {
     "kind": "category",
     "reason": "category confidence below threshold",
@@ -197,6 +213,14 @@
     "stars": 14524,
     "rejectedAt": "2026-11-02",
     "retryAfter": "2026-11-16"
+  },
+  "harnessmd/munder-difflin": {
+    "kind": "duplicate",
+    "reason": "duplicate of munder-difflin",
+    "score": 0.81,
+    "stars": 9442,
+    "rejectedAt": "2026-11-09",
+    "retryAfter": "2026-12-09"
   },
   "hbai-ltd/toonflow-app": {
     "kind": "category",
@@ -273,10 +297,10 @@
   "leonxlnx/taste-skill": {
     "kind": "category",
     "reason": "category confidence below threshold",
-    "score": 0.53,
-    "stars": 102931,
-    "rejectedAt": "2026-10-26",
-    "retryAfter": "2026-11-09"
+    "score": 0.54,
+    "stars": 112258,
+    "rejectedAt": "2026-11-09",
+    "retryAfter": "2026-11-23"
   },
   "librechat-ai/librechat": {
     "kind": "duplicate",
@@ -310,6 +334,14 @@
     "rejectedAt": "2026-10-31",
     "retryAfter": "2026-11-14"
   },
+  "mariadb/server": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.41,
+    "stars": 8553,
+    "rejectedAt": "2026-11-09",
+    "retryAfter": "2026-11-23"
+  },
   "milind-soni/openmausbot": {
     "kind": "category",
     "reason": "category confidence below threshold",
@@ -317,6 +349,14 @@
     "stars": 12477,
     "rejectedAt": "2026-11-05",
     "retryAfter": "2026-11-19"
+  },
+  "modelscope/modelscope": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.49,
+    "stars": 9213,
+    "rejectedAt": "2026-11-09",
+    "retryAfter": "2026-11-23"
   },
   "nanocoai/nanoclaw": {
     "kind": "category",
@@ -390,6 +430,14 @@
     "rejectedAt": "2026-10-31",
     "retryAfter": "2026-11-14"
   },
+  "realsenseai/librealsense": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.31,
+    "stars": 9088,
+    "rejectedAt": "2026-11-09",
+    "retryAfter": "2026-11-23"
+  },
   "rocketride-org/rocketride-server": {
     "kind": "category",
     "reason": "category confidence below threshold",
@@ -406,13 +454,21 @@
     "rejectedAt": "2026-11-01",
     "retryAfter": "2026-11-15"
   },
+  "ruvnet/ruview": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.52,
+    "stars": 103128,
+    "rejectedAt": "2026-11-09",
+    "retryAfter": "2026-11-23"
+  },
   "sickn33/agentic-awesome-skills": {
     "kind": "category",
     "reason": "category confidence below threshold",
-    "score": 0.54,
-    "stars": 48544,
-    "rejectedAt": "2026-10-26",
-    "retryAfter": "2026-11-09"
+    "score": 0.5,
+    "stars": 49391,
+    "rejectedAt": "2026-11-09",
+    "retryAfter": "2026-11-23"
   },
   "slopus/happy": {
     "kind": "category",
@@ -445,6 +501,14 @@
     "stars": 21646,
     "rejectedAt": "2026-10-31",
     "retryAfter": "2026-11-14"
+  },
+  "superradcompany/microsandbox": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.49,
+    "stars": 8999,
+    "rejectedAt": "2026-11-09",
+    "retryAfter": "2026-11-23"
   },
   "t8y2/dbx": {
     "kind": "category",
@@ -495,10 +559,10 @@
   "upstash/context7": {
     "kind": "category",
     "reason": "category confidence below threshold",
-    "score": 0.48,
-    "stars": 63731,
-    "rejectedAt": "2026-10-26",
-    "retryAfter": "2026-11-09"
+    "score": 0.53,
+    "stars": 64406,
+    "rejectedAt": "2026-11-09",
+    "retryAfter": "2026-11-23"
   },
   "yikart/aitoearn": {
     "kind": "category",
@@ -511,10 +575,10 @@
   "zhulinsen/daily_stock_analysis": {
     "kind": "category",
     "reason": "category confidence below threshold",
-    "score": 0.36,
-    "stars": 67104,
-    "rejectedAt": "2026-10-26",
-    "retryAfter": "2026-11-09"
+    "score": 0.38,
+    "stars": 68416,
+    "rejectedAt": "2026-11-09",
+    "retryAfter": "2026-11-23"
   },
   "zoicware/removewindowsai": {
     "kind": "category",
