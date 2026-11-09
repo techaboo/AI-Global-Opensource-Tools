@@ -16281,6 +16281,174 @@
       ],
       "status": "active",
       "year": 2026
+    },
+    {
+      "id": "praisonai",
+      "name": "PraisonAI",
+      "org": "MervinPraison",
+      "cat": "agents",
+      "tagline": "Private AI agents for highly regulated teams, and for anyone who wants AI on ...",
+      "desc": "Private AI agents for highly regulated teams, and for anyone who wants AI on their own computer. Open-source Python agent framework that runs fully offline.",
+      "license": "MIT",
+      "lang": "Python",
+      "stars": 9329,
+      "repo": "MervinPraison/PraisonAI",
+      "tags": [
+        "agents",
+        "ai",
+        "ai-agent-framework",
+        "ai-agent-sdk",
+        "ai-agents"
+      ],
+      "status": "active",
+      "year": 2024
+    },
+    {
+      "id": "dashboard-icons",
+      "name": "dashboard-icons",
+      "org": "homarr-labs",
+      "cat": "mcp",
+      "tagline": "3,400+ curated icons and logos for dashboards and AI agents. SVG, PNG and WEB...",
+      "desc": "3,400+ curated icons and logos for dashboards and AI agents. SVG, PNG and WEBP on a free CDN, plus an MCP server for Claude Code, Codex, ChatGPT, Cursor, Hermes and OpenClaw.",
+      "license": "Apache-2.0",
+      "lang": "TypeScript",
+      "stars": 9042,
+      "repo": "homarr-labs/dashboard-icons",
+      "tags": [
+        "ai-agents",
+        "claude-code",
+        "codex",
+        "dashboard",
+        "dashboard-icons"
+      ],
+      "status": "active",
+      "year": 2022
+    },
+    {
+      "id": "open-seo-mcp-skills",
+      "name": "open-seo-mcp-skills",
+      "org": "Ryze-AI-Adgent",
+      "cat": "mcp",
+      "tagline": "Free SEO MCP server + open-source SEO and GEO skills for Claude: keyword rese...",
+      "desc": "Free SEO MCP server + open-source SEO and GEO skills for Claude: keyword research, rank tracking, audits, backlinks, AI visibility on your real GSC/GA4/ads data. claude mcp add ryze --transport http https://connector.get-ryze.ai/mcp",
+      "license": "MIT",
+      "lang": "Shell",
+      "stars": 9003,
+      "repo": "Ryze-AI-Adgent/open-seo-mcp-skills",
+      "tags": [
+        "ai-seo",
+        "ai-visibility",
+        "backlinks",
+        "claude",
+        "claude-code"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "chatgpt-shortcut",
+      "name": "ChatGPT-Shortcut",
+      "org": "rockbenben",
+      "cat": "prompts",
+      "tagline": "Stop writing prompts from scratch — a searchable prompt library for ChatGPT, ...",
+      "desc": "Stop writing prompts from scratch — a searchable prompt library for ChatGPT, Claude, Gemini and Cursor · Русский 한국어 العربية हिन्दी ไทย ｜ 别再从头写提示词：现成的拿来就用，好用的收进自己的库",
+      "license": "MIT",
+      "lang": "TypeScript",
+      "stars": 8924,
+      "repo": "rockbenben/ChatGPT-Shortcut",
+      "tags": [
+        "ai-prompt",
+        "ai-prompts",
+        "ai-tools",
+        "aigc",
+        "chatgpt"
+      ],
+      "status": "active",
+      "year": 2023
+    },
+    {
+      "id": "finrobot",
+      "name": "FinRobot",
+      "org": "AI4Finance-Foundation",
+      "cat": "agents",
+      "tagline": "FinRobot: An Open-Source AI Agent Platform for Financial Applications using L...",
+      "desc": "FinRobot: An Open-Source AI Agent Platform for Financial Applications using Large Language Models",
+      "license": "Apache-2.0",
+      "lang": "Python",
+      "stars": 8397,
+      "repo": "AI4Finance-Foundation/FinRobot",
+      "tags": [
+        "aiagent",
+        "chatgpt",
+        "finance",
+        "fingpt",
+        "large-language-models"
+      ],
+      "status": "active",
+      "year": 2024
+    },
+    {
+      "id": "jev-chat-jarvis",
+      "name": "jev-chat-jarvis",
+      "org": "jev-chat",
+      "cat": "assistants",
+      "tagline": "The chat decision assistant: before you reply, Jev reads the chat, judges int...",
+      "desc": "The chat decision assistant: before you reply, Jev reads the chat, judges intent and risk, and drafts replies you fill in with one tap. You press send. Android · Windows · macOS · iOS | 聊天辅助决策工具：先看懂对方再回复，发不发由你。",
+      "license": "MIT",
+      "lang": "Kotlin",
+      "stars": 8309,
+      "repo": "jev-chat/jev-chat-jarvis",
+      "tags": [
+        "accessibility-service",
+        "ai-assistant",
+        "android",
+        "chat-assistant",
+        "chat-copilot"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "mlx-audio",
+      "name": "mlx-audio",
+      "org": "Neywa-Labs",
+      "cat": "audio",
+      "tagline": "A text-to-speech (TTS), speech-to-text (STT) and speech-to-speech (STS) libra...",
+      "desc": "A text-to-speech (TTS), speech-to-text (STT) and speech-to-speech (STS) library built on Apple's MLX framework, providing efficient speech analysis on Apple Silicon.",
+      "license": "MIT",
+      "lang": "Python",
+      "stars": 8219,
+      "repo": "Neywa-Labs/mlx-audio",
+      "tags": [
+        "apple-silicon",
+        "audio-processing",
+        "mlx",
+        "multimodal",
+        "speech-recognition"
+      ],
+      "status": "active",
+      "year": 2024
+    },
+    {
+      "id": "vision-agents",
+      "name": "Vision-Agents",
+      "org": "GetStream",
+      "cat": "agents",
+      "tagline": "Open Vision Agents by Stream. Build voice and vision agents quickly with any ...",
+      "desc": "Open Vision Agents by Stream. Build voice and vision agents quickly with any model or video provider. Uses Stream's edge network for ultra-low latency.",
+      "license": "Apache-2.0",
+      "lang": "Python",
+      "stars": 8202,
+      "repo": "GetStream/Vision-Agents",
+      "tags": [
+        "agentic-ai",
+        "agents",
+        "ai",
+        "ai-agents",
+        "realtime"
+      ],
+      "status": "active",
+      "year": 2025
     }
   ]
 }
