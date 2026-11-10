@@ -30,6 +30,14 @@
     "rejectedAt": "2026-10-26",
     "retryAfter": "2026-11-09"
   },
+  "algorithmicsuperintelligence/openevolve": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.53,
+    "stars": 7752,
+    "rejectedAt": "2026-11-10",
+    "retryAfter": "2026-11-24"
+  },
   "argoproj/argo-workflows": {
     "kind": "category",
     "reason": "category confidence below threshold",
@@ -129,10 +137,18 @@
   "ebony-vinyl/dsh-our-free-model": {
     "kind": "category",
     "reason": "category confidence below threshold",
-    "score": 0.26,
-    "stars": 45973,
-    "rejectedAt": "2026-10-27",
-    "retryAfter": "2026-11-10"
+    "score": 0.27,
+    "stars": 68167,
+    "rejectedAt": "2026-11-10",
+    "retryAfter": "2026-11-24"
+  },
+  "elie222/rakazo": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.48,
+    "stars": 7766,
+    "rejectedAt": "2026-11-10",
+    "retryAfter": "2026-11-24"
   },
   "eosphoros-ai/db-gpt": {
     "kind": "category",
@@ -185,10 +201,10 @@
   "google-research/google-research": {
     "kind": "category",
     "reason": "category confidence below threshold",
-    "score": 0.59,
-    "stars": 39039,
-    "rejectedAt": "2026-10-27",
-    "retryAfter": "2026-11-10"
+    "score": 0.51,
+    "stars": 39150,
+    "rejectedAt": "2026-11-10",
+    "retryAfter": "2026-11-24"
   },
   "google/adk-go": {
     "kind": "duplicate",
