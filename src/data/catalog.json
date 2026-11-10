@@ -16449,6 +16449,174 @@
       ],
       "status": "active",
       "year": 2025
+    },
+    {
+      "id": "finceptterminal",
+      "name": "FinceptTerminal",
+      "org": "Fincept-Corporation",
+      "cat": "data",
+      "tagline": "FinceptTerminal is a modern finance application offering advanced market anal...",
+      "desc": "FinceptTerminal is a modern finance application offering advanced market analytics, investment research, and economic data tools, designed for interactive exploration and data-driven decision-making in a user-friendly environment.",
+      "license": "AGPL-3.0",
+      "lang": "C++",
+      "stars": 33653,
+      "repo": "Fincept-Corporation/FinceptTerminal",
+      "tags": [
+        "ai-agents",
+        "algorithmic-trading",
+        "bloomberg-terminal",
+        "cpp",
+        "finance"
+      ],
+      "status": "active",
+      "year": 2024
+    },
+    {
+      "id": "mika",
+      "name": "Mika",
+      "org": "wangzan101",
+      "cat": "browseruse",
+      "tagline": "An on-device AI agent for Android that operates apps and the web to get thing...",
+      "desc": "An on-device AI agent for Android that operates apps and the web to get things done for you.",
+      "license": "Apache-2.0",
+      "lang": "Kotlin",
+      "stars": 7989,
+      "repo": "wangzan101/Mika",
+      "tags": [
+        "accessibility",
+        "ai-agent",
+        "android",
+        "automation",
+        "jetpack-compose"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "bertopic",
+      "name": "BERTopic",
+      "org": "MaartenGr",
+      "cat": "frameworks",
+      "tagline": "Leveraging BERT and c-TF-IDF to create easily interpretable topics.",
+      "desc": "Leveraging BERT and c-TF-IDF to create easily interpretable topics.",
+      "license": "MIT",
+      "lang": "Python",
+      "stars": 7951,
+      "repo": "MaartenGr/BERTopic",
+      "tags": [
+        "bert",
+        "ldavis",
+        "machine-learning",
+        "nlp",
+        "sentence-embeddings"
+      ],
+      "status": "active",
+      "year": 2020
+    },
+    {
+      "id": "flyte",
+      "name": "flyte",
+      "org": "flyteorg",
+      "cat": "mlops",
+      "tagline": "Type-safe, distributed orchestration of agents, ML pipelines, and real-time i...",
+      "desc": "Type-safe, distributed orchestration of agents, ML pipelines, and real-time inference on your k8s — in pure Python with async/await, also other languages (rust, go and ts)",
+      "license": "Apache-2.0",
+      "lang": "Go",
+      "stars": 7831,
+      "repo": "flyteorg/flyte",
+      "tags": [
+        "agent-runtime",
+        "agents",
+        "ai-runtime",
+        "kubernetes-cluster",
+        "machine-learning"
+      ],
+      "status": "active",
+      "year": 2019
+    },
+    {
+      "id": "firecrawl-mcp-server",
+      "name": "firecrawl-mcp-server",
+      "org": "firecrawl",
+      "cat": "mcp",
+      "tagline": "Official Firecrawl MCP server, the context API for AI agents: search, scrape,...",
+      "desc": "Official Firecrawl MCP server, the context API for AI agents: search, scrape, and interact with the web, plus parse, crawl, map, Agent and Monitor, from any MCP client.",
+      "license": "MIT",
+      "lang": "JavaScript",
+      "stars": 7793,
+      "repo": "firecrawl/firecrawl-mcp-server",
+      "tags": [
+        "batch-processing",
+        "claude",
+        "content-extraction",
+        "data-collection",
+        "firecrawl"
+      ],
+      "status": "active",
+      "year": 2024
+    },
+    {
+      "id": "codex-with-chatgpt",
+      "name": "codex-with-chatgpt",
+      "org": "XiaoDuoYa",
+      "cat": "coding",
+      "tagline": "ChatGPT thinks. Codex works. Use ChatGPT as the planning brain while keeping ...",
+      "desc": "ChatGPT thinks. Codex works. Use ChatGPT as the planning brain while keeping the Codex harness.",
+      "license": "MIT",
+      "lang": "TypeScript",
+      "stars": 7686,
+      "repo": "XiaoDuoYa/codex-with-chatgpt",
+      "tags": [
+        "ai-agents",
+        "chatgpt",
+        "codex",
+        "mcp",
+        "model-context-protocol"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "agent-native",
+      "name": "agent-native",
+      "org": "BuilderIO",
+      "cat": "agents",
+      "tagline": "A framework for building agentic apps",
+      "desc": "A framework for building agentic apps",
+      "license": "MIT",
+      "lang": "TypeScript",
+      "stars": 7666,
+      "repo": "BuilderIO/agent-native",
+      "tags": [
+        "agent-framework",
+        "agent-native",
+        "agentic-ai",
+        "agents",
+        "ai"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "yuxi",
+      "name": "Yuxi",
+      "org": "xerrors",
+      "cat": "rag",
+      "tagline": "可私有部署的多租户知识智能体平台：统一 RAG、知识图谱、多智能体、MCP/Skills、沙盒与权限管理。Yuxi = Cloud Agents + Kn...",
+      "desc": "可私有部署的多租户知识智能体平台：统一 RAG、知识图谱、多智能体、MCP/Skills、沙盒与权限管理。Yuxi = Cloud Agents + Knowledge RAG, Self-hosted knowledge agent platform for RAG, knowledge graphs and multi-agent workflows.",
+      "license": "MIT",
+      "lang": "Python",
+      "stars": 7636,
+      "repo": "xerrors/Yuxi",
+      "tags": [
+        "agentic-rag",
+        "ai-agents",
+        "deepagents",
+        "docker",
+        "document-ai"
+      ],
+      "status": "active",
+      "year": 2024
     }
   ]
 }
