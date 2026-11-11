@@ -129,10 +129,10 @@
   "dayuanjiang/next-ai-draw-io": {
     "kind": "category",
     "reason": "category confidence below threshold",
-    "score": 0.46,
-    "stars": 36458,
-    "rejectedAt": "2026-10-28",
-    "retryAfter": "2026-11-11"
+    "score": 0.45,
+    "stars": 36882,
+    "rejectedAt": "2026-11-11",
+    "retryAfter": "2026-11-25"
   },
   "ebony-vinyl/dsh-our-free-model": {
     "kind": "category",
@@ -265,18 +265,18 @@
   "iofficeai/aionui": {
     "kind": "category",
     "reason": "category confidence below threshold",
-    "score": 0.46,
-    "stars": 33848,
-    "rejectedAt": "2026-10-28",
-    "retryAfter": "2026-11-11"
+    "score": 0.53,
+    "stars": 34210,
+    "rejectedAt": "2026-11-11",
+    "retryAfter": "2026-11-25"
   },
   "jcodesmore/ai-website-cloner-template": {
     "kind": "category",
     "reason": "category confidence below threshold",
-    "score": 0.43,
-    "stars": 37659,
-    "rejectedAt": "2026-10-28",
-    "retryAfter": "2026-11-11"
+    "score": 0.45,
+    "stars": 38994,
+    "rejectedAt": "2026-11-11",
+    "retryAfter": "2026-11-25"
   },
   "jianchang512/pyvideotrans": {
     "kind": "category",
@@ -337,10 +337,10 @@
   "lutzroeder/netron": {
     "kind": "category",
     "reason": "category confidence below threshold",
-    "score": 0.39,
-    "stars": 33625,
-    "rejectedAt": "2026-10-28",
-    "retryAfter": "2026-11-11"
+    "score": 0.44,
+    "stars": 33677,
+    "rejectedAt": "2026-11-11",
+    "retryAfter": "2026-11-25"
   },
   "maaassistantarknights/maaassistantarknights": {
     "kind": "category",
@@ -579,6 +579,14 @@
     "stars": 64406,
     "rejectedAt": "2026-11-09",
     "retryAfter": "2026-11-23"
+  },
+  "valuecell-ai/clawx": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.49,
+    "stars": 7604,
+    "rejectedAt": "2026-11-11",
+    "retryAfter": "2026-11-25"
   },
   "yikart/aitoearn": {
     "kind": "category",
