@@ -16617,6 +16617,174 @@
       ],
       "status": "active",
       "year": 2024
+    },
+    {
+      "id": "speech-to-speech",
+      "name": "speech-to-speech",
+      "org": "huggingface",
+      "cat": "audio",
+      "tagline": "Build voice agents with open-source models",
+      "desc": "Build voice agents with open-source models",
+      "license": "Apache-2.0",
+      "lang": "Python",
+      "stars": 13676,
+      "repo": "huggingface/speech-to-speech",
+      "tags": [
+        "ai",
+        "assistant",
+        "language-model",
+        "machine-learning",
+        "python"
+      ],
+      "status": "active",
+      "year": 2024
+    },
+    {
+      "id": "claude-context",
+      "name": "claude-context",
+      "org": "zilliztech",
+      "cat": "mcp",
+      "tagline": "Code search MCP for Claude Code. Make entire codebase the context for any cod...",
+      "desc": "Code search MCP for Claude Code. Make entire codebase the context for any coding agent.",
+      "license": "MIT",
+      "lang": "TypeScript",
+      "stars": 12687,
+      "repo": "zilliztech/claude-context",
+      "tags": [
+        "agent",
+        "agentic-rag",
+        "ai-coding",
+        "claude-code",
+        "code-generation"
+      ],
+      "status": "active",
+      "year": 2025
+    },
+    {
+      "id": "openmotion",
+      "name": "openmotion",
+      "org": "nexu-io",
+      "cat": "video",
+      "tagline": "🎬 Reverse engineering for any video. The first full-stack agentic video gene...",
+      "desc": "🎬 Reverse engineering for any video. The first full-stack agentic video generator. Code video with HTML: recreate, edit and render in your local agent. 🔑 BYOA + BYOK · Free & open source · Motion.md · Images, Video, Music & Voice.",
+      "license": "Apache-2.0",
+      "lang": "TypeScript",
+      "stars": 9501,
+      "repo": "nexu-io/openmotion",
+      "tags": [
+        "agent-skills",
+        "agentic-ai",
+        "ai-agents",
+        "ai-video",
+        "byok"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "final2x",
+      "name": "Final2x",
+      "org": "EutropicAI",
+      "cat": "image",
+      "tagline": "a cross-platform image super-resolution tool",
+      "desc": "a cross-platform image super-resolution tool",
+      "license": "BSD-3-Clause",
+      "lang": "TypeScript",
+      "stars": 7409,
+      "repo": "EutropicAI/Final2x",
+      "tags": [
+        "computer-vision",
+        "cross-platform",
+        "electron",
+        "i18n",
+        "image-processing"
+      ],
+      "status": "active",
+      "year": 2023
+    },
+    {
+      "id": "turbo-fieldfare",
+      "name": "turbo-fieldfare",
+      "org": "drumih",
+      "cat": "inference",
+      "tagline": "Gemma 4 26B-A4B inference in ~2 GB of RAM on any M-series MacBook",
+      "desc": "Gemma 4 26B-A4B inference in ~2 GB of RAM on any M-series MacBook",
+      "license": "Apache-2.0",
+      "lang": "Swift",
+      "stars": 7333,
+      "repo": "drumih/turbo-fieldfare",
+      "tags": [
+        "apple-silicon",
+        "gemma",
+        "gemma4",
+        "gemma4-26b-a4b",
+        "gpgpu"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "google-ads-meta-ads-mcp",
+      "name": "google-ads-meta-ads-mcp",
+      "org": "irinabuht12-oss",
+      "cat": "mcp",
+      "tagline": "Google Ads MCP server + Meta Ads MCP (Facebook Ads MCP) + Google Analytics MC...",
+      "desc": "Google Ads MCP server + Meta Ads MCP (Facebook Ads MCP) + Google Analytics MCP (GA4) + Search Console in one hosted remote MCP for Claude, ChatGPT, Cursor & n8n: OAuth login, no API keys, approval-gated writes, 7-day free trial. By Ryze AI.",
+      "license": "MIT",
+      "lang": "Unknown",
+      "stars": 7288,
+      "repo": "irinabuht12-oss/google-ads-meta-ads-mcp",
+      "tags": [
+        "advertising",
+        "chatgpt",
+        "claude",
+        "cursor",
+        "facebook-ads"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "lance",
+      "name": "lance",
+      "org": "lance-format",
+      "cat": "vectordb",
+      "tagline": "Open Lakehouse Format for Multimodal AI. Convert from Parquet in 2 lines of c...",
+      "desc": "Open Lakehouse Format for Multimodal AI. Convert from Parquet in 2 lines of code for 100x faster random access, vector index, and data versioning. Compatible with Pandas, DuckDB, Polars, Pyarrow, and PyTorch with more integrations coming..",
+      "license": "Apache-2.0",
+      "lang": "Rust",
+      "stars": 7279,
+      "repo": "lance-format/lance",
+      "tags": [
+        "apache-arrow",
+        "computer-vision",
+        "data-analysis",
+        "data-analytics",
+        "data-centric"
+      ],
+      "status": "active",
+      "year": 2022
+    },
+    {
+      "id": "aisoc",
+      "name": "AiSOC",
+      "org": "beenuar",
+      "cat": "agents",
+      "tagline": "Open-source AI Security Operations Center: alert fusion, LLM-agent triage, MI...",
+      "desc": "Open-source AI Security Operations Center: alert fusion, LLM-agent triage, MITRE ATT&CK investigation, and a replayable decision ledger for every agent step. Self-hostable, runs with no API keys, MIT licensed. Ships an MCP server for Claude, Cursor and Continue.",
+      "license": "MIT",
+      "lang": "Python",
+      "stars": 7228,
+      "repo": "beenuar/AiSOC",
+      "tags": [
+        "agentic-ai",
+        "ai-security",
+        "alert-triage",
+        "blue-team",
+        "cybersecurity"
+      ],
+      "status": "active",
+      "year": 2026
     }
   ]
 }
