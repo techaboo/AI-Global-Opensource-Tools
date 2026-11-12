@@ -16785,6 +16785,174 @@
       ],
       "status": "active",
       "year": 2026
+    },
+    {
+      "id": "t3code",
+      "name": "t3code",
+      "org": "pingdotgg",
+      "cat": "coding",
+      "tagline": "The best way to control Claude Code, Codex and more from any computer or phone",
+      "desc": "The best way to control Claude Code, Codex and more from any computer or phone",
+      "license": "MIT",
+      "lang": "TypeScript",
+      "stars": 57666,
+      "repo": "pingdotgg/t3code",
+      "tags": [
+        "agent-orchestration",
+        "agents",
+        "ai",
+        "chatgpt",
+        "claude"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "editor",
+      "name": "editor",
+      "org": "pascalorg",
+      "cat": "threed",
+      "tagline": "Open-source 3D architecture software for AECO, scan-to-BIM. Agent-friendly, b...",
+      "desc": "Open-source 3D architecture software for AECO, scan-to-BIM. Agent-friendly, browser-first, MCP, CLI.",
+      "license": "MIT",
+      "lang": "TypeScript",
+      "stars": 25460,
+      "repo": "pascalorg/editor",
+      "tags": [
+        "3d",
+        "3d-scanning",
+        "aec",
+        "agent-skills",
+        "ai-agents"
+      ],
+      "status": "active",
+      "year": 2025
+    },
+    {
+      "id": "agent-squad",
+      "name": "agent-squad",
+      "org": "2FastLabs",
+      "cat": "agents",
+      "tagline": "Flexible and powerful framework for managing multiple AI agents and handling ...",
+      "desc": "Flexible and powerful framework for managing multiple AI agents and handling complex conversations",
+      "license": "Apache-2.0",
+      "lang": "Python",
+      "stars": 7802,
+      "repo": "2FastLabs/agent-squad",
+      "tags": [
+        "agentic-ai",
+        "agents",
+        "ai-agents",
+        "ai-agents-framework",
+        "anthropic"
+      ],
+      "status": "active",
+      "year": 2024
+    },
+    {
+      "id": "ha-mcp",
+      "name": "ha-mcp",
+      "org": "homeassistant-ai",
+      "cat": "mcp",
+      "tagline": "Configure and automate Home Assistant with Claude, ChatGPT, and other AI assi...",
+      "desc": "Configure and automate Home Assistant with Claude, ChatGPT, and other AI assistants.",
+      "license": "MIT",
+      "lang": "Python",
+      "stars": 7641,
+      "repo": "homeassistant-ai/ha-mcp",
+      "tags": [
+        "ai",
+        "claude",
+        "hacs",
+        "home-assistant",
+        "home-automation"
+      ],
+      "status": "active",
+      "year": 2025
+    },
+    {
+      "id": "plano",
+      "name": "plano",
+      "org": "katanemo",
+      "cat": "mlops",
+      "tagline": "Plano is an AI-native proxy server and data plane for agentic apps. Smart LLM...",
+      "desc": "Plano is an AI-native proxy server and data plane for agentic apps. Smart LLM routing, observability, agent orchestration, and guardrails so you stay focused on your agents core logic.",
+      "license": "Apache-2.0",
+      "lang": "Rust",
+      "stars": 7115,
+      "repo": "katanemo/plano",
+      "tags": [
+        "ai-gateway",
+        "ai-gateway-support",
+        "envoy",
+        "envoyproxy",
+        "gateway"
+      ],
+      "status": "active",
+      "year": 2024
+    },
+    {
+      "id": "laya-mlx",
+      "name": "laya-mlx",
+      "org": "mizorewww",
+      "cat": "inference",
+      "tagline": "Native MLX runtime for Laya typed decision models — 7–14 ms short decisions o...",
+      "desc": "Native MLX runtime for Laya typed decision models — 7–14 ms short decisions on M3 Max. No text generation, PyTorch, or cloud API.",
+      "license": "Apache-2.0",
+      "lang": "Python",
+      "stars": 7094,
+      "repo": "mizorewww/laya-mlx",
+      "tags": [
+        "apple-silicon",
+        "decision-model",
+        "inference",
+        "laya",
+        "local-ai"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "espeak-ng",
+      "name": "espeak-ng",
+      "org": "espeak-ng",
+      "cat": "audio",
+      "tagline": "eSpeak NG is an open source speech synthesizer that supports more than hundre...",
+      "desc": "eSpeak NG is an open source speech synthesizer that supports more than hundred languages and accents.",
+      "license": "GPL-3.0",
+      "lang": "C",
+      "stars": 7025,
+      "repo": "espeak-ng/espeak-ng",
+      "tags": [
+        "android",
+        "espeak",
+        "espeak-ng",
+        "speech-synthesis",
+        "text-to-speech"
+      ],
+      "status": "active",
+      "year": 2015
+    },
+    {
+      "id": "flashinfer",
+      "name": "flashinfer",
+      "org": "flashinfer-ai",
+      "cat": "inference",
+      "tagline": "FlashInfer: Kernel Library for LLM Serving",
+      "desc": "FlashInfer: Kernel Library for LLM Serving",
+      "license": "Apache-2.0",
+      "lang": "Cuda",
+      "stars": 6907,
+      "repo": "flashinfer-ai/flashinfer",
+      "tags": [
+        "attention",
+        "cuda",
+        "distributed-inference",
+        "gpu",
+        "jit"
+      ],
+      "status": "active",
+      "year": 2023
     }
   ]
 }
