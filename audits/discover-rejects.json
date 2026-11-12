@@ -73,10 +73,10 @@
   "bloopai/vibe-kanban": {
     "kind": "category",
     "reason": "category confidence below threshold",
-    "score": 0.46,
-    "stars": 28499,
-    "rejectedAt": "2026-10-29",
-    "retryAfter": "2026-11-12"
+    "score": 0.43,
+    "stars": 28662,
+    "rejectedAt": "2026-11-12",
+    "retryAfter": "2026-11-26"
   },
   "ccch1mneyyy/dsh-go": {
     "kind": "category",
@@ -334,6 +334,14 @@
     "rejectedAt": "2026-10-31",
     "retryAfter": "2026-11-14"
   },
+  "louis-cfm/coucou": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.37,
+    "stars": 7143,
+    "rejectedAt": "2026-11-12",
+    "retryAfter": "2026-11-26"
+  },
   "lutzroeder/netron": {
     "kind": "category",
     "reason": "category confidence below threshold",
@@ -377,10 +385,10 @@
   "nanocoai/nanoclaw": {
     "kind": "category",
     "reason": "category confidence below threshold",
-    "score": 0.51,
-    "stars": 31046,
-    "rejectedAt": "2026-10-29",
-    "retryAfter": "2026-11-12"
+    "score": 0.49,
+    "stars": 31110,
+    "rejectedAt": "2026-11-12",
+    "retryAfter": "2026-11-26"
   },
   "narcooo/inkos": {
     "kind": "category",
@@ -405,6 +413,14 @@
     "stars": 18669,
     "rejectedAt": "2026-11-01",
     "retryAfter": "2026-11-15"
+  },
+  "obsidianmd/obsidian-skills": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.47,
+    "stars": 51766,
+    "rejectedAt": "2026-11-12",
+    "retryAfter": "2026-11-26"
   },
   "openhands/openhands": {
     "kind": "duplicate",
@@ -489,10 +505,10 @@
   "slopus/happy": {
     "kind": "category",
     "reason": "category confidence below threshold",
-    "score": 0.44,
-    "stars": 24392,
-    "rejectedAt": "2026-10-29",
-    "retryAfter": "2026-11-12"
+    "score": 0.37,
+    "stars": 24601,
+    "rejectedAt": "2026-11-12",
+    "retryAfter": "2026-11-26"
   },
   "srbhr/resume-matcher": {
     "kind": "category",
