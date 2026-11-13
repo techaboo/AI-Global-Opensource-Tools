@@ -294,6 +294,14 @@
     "rejectedAt": "2026-10-31",
     "retryAfter": "2026-11-14"
   },
+  "koharu-rs/koharu": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.52,
+    "stars": 6654,
+    "rejectedAt": "2026-11-13",
+    "retryAfter": "2026-11-27"
+  },
   "kornia/kornia": {
     "kind": "category",
     "reason": "category confidence below threshold",
@@ -374,6 +382,14 @@
     "rejectedAt": "2026-11-05",
     "retryAfter": "2026-11-19"
   },
+  "modelscope/funclip": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.56,
+    "stars": 6547,
+    "rejectedAt": "2026-11-13",
+    "retryAfter": "2026-11-27"
+  },
   "modelscope/modelscope": {
     "kind": "category",
     "reason": "category confidence below threshold",
@@ -401,10 +417,10 @@
   "nautechsystems/nautilus_trader": {
     "kind": "category",
     "reason": "category confidence below threshold",
-    "score": 0.39,
-    "stars": 31058,
-    "rejectedAt": "2026-10-30",
-    "retryAfter": "2026-11-13"
+    "score": 0.4,
+    "stars": 31494,
+    "rejectedAt": "2026-11-13",
+    "retryAfter": "2026-11-27"
   },
   "nvidia-nemo/speech": {
     "kind": "category",
@@ -421,6 +437,14 @@
     "stars": 51766,
     "rejectedAt": "2026-11-12",
     "retryAfter": "2026-11-26"
+  },
+  "oldcircle/geo-sleuth": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.39,
+    "stars": 6949,
+    "rejectedAt": "2026-11-13",
+    "retryAfter": "2026-11-27"
   },
   "openhands/openhands": {
     "kind": "duplicate",
@@ -514,9 +538,9 @@
     "kind": "category",
     "reason": "category confidence below threshold",
     "score": 0.31,
-    "stars": 28949,
-    "rejectedAt": "2026-10-30",
-    "retryAfter": "2026-11-13"
+    "stars": 29273,
+    "rejectedAt": "2026-11-13",
+    "retryAfter": "2026-11-27"
   },
   "startrail-org/pixelrag": {
     "kind": "category",
@@ -545,10 +569,10 @@
   "t8y2/dbx": {
     "kind": "category",
     "reason": "category confidence below threshold",
-    "score": 0.5,
-    "stars": 28246,
-    "rejectedAt": "2026-10-30",
-    "retryAfter": "2026-11-13"
+    "score": 0.56,
+    "stars": 30282,
+    "rejectedAt": "2026-11-13",
+    "retryAfter": "2026-11-27"
   },
   "tambo-ai/tambo": {
     "kind": "category",
