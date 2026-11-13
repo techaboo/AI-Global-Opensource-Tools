@@ -16953,6 +16953,173 @@
       ],
       "status": "active",
       "year": 2023
+    },
+    {
+      "id": "annyang",
+      "name": "annyang",
+      "org": "TalAter",
+      "cat": "audio",
+      "tagline": "💬 Speech recognition for your site",
+      "desc": "💬 Speech recognition for your site",
+      "license": "MIT",
+      "lang": "TypeScript",
+      "stars": 6822,
+      "repo": "TalAter/annyang",
+      "tags": [
+        "speech",
+        "speech-recognition",
+        "speech-to-text",
+        "voice"
+      ],
+      "status": "active",
+      "year": 2013
+    },
+    {
+      "id": "openmvg",
+      "name": "openMVG",
+      "org": "openMVG",
+      "cat": "threed",
+      "tagline": "open Multiple View Geometry library. Basis for 3D computer vision and Structu...",
+      "desc": "open Multiple View Geometry library. Basis for 3D computer vision and Structure from Motion.",
+      "license": "MPL-2.0",
+      "lang": "C++",
+      "stars": 6598,
+      "repo": "openMVG/openMVG",
+      "tags": [
+        "3d-reconstruction",
+        "computer-vision",
+        "drone",
+        "geometry",
+        "multiple-view-geometry"
+      ],
+      "status": "active",
+      "year": 2013
+    },
+    {
+      "id": "decepticon",
+      "name": "Decepticon",
+      "org": "BitterSecurity",
+      "cat": "agents",
+      "tagline": "Autonomous Hacking Agent for Red Team",
+      "desc": "Autonomous Hacking Agent for Red Team",
+      "license": "Apache-2.0",
+      "lang": "Python",
+      "stars": 6592,
+      "repo": "BitterSecurity/Decepticon",
+      "tags": [
+        "agent",
+        "ai",
+        "ai-penetration-testing",
+        "autonomous-exploit-testing",
+        "cybersecurity"
+      ],
+      "status": "active",
+      "year": 2025
+    },
+    {
+      "id": "genkit",
+      "name": "genkit",
+      "org": "genkit-ai",
+      "cat": "agents",
+      "tagline": "Open-source framework for building agentic apps in JavaScript, Go, Dart, and ...",
+      "desc": "Open-source framework for building agentic apps in JavaScript, Go, Dart, and Python, built and used in production by Google",
+      "license": "Apache-2.0",
+      "lang": "TypeScript",
+      "stars": 6582,
+      "repo": "genkit-ai/genkit",
+      "tags": [
+        "agents",
+        "ai",
+        "embedders",
+        "genkit",
+        "llm"
+      ],
+      "status": "active",
+      "year": 2024
+    },
+    {
+      "id": "mobilebuildmcp",
+      "name": "MobileBuildMCP",
+      "org": "getsentry",
+      "cat": "mcp",
+      "tagline": "A Model Context Protocol (MCP) server and CLI that provides tools for agent u...",
+      "desc": "A Model Context Protocol (MCP) server and CLI that provides tools for agent use when working on iOS and macOS projects.",
+      "license": "MIT",
+      "lang": "TypeScript",
+      "stars": 6568,
+      "repo": "getsentry/MobileBuildMCP",
+      "tags": [
+        "mcp",
+        "mcp-server",
+        "model-context-protocol",
+        "model-context-protocol-servers",
+        "tag-non-production"
+      ],
+      "status": "active",
+      "year": 2025
+    },
+    {
+      "id": "hex",
+      "name": "hex",
+      "org": "anomalyco",
+      "cat": "audio",
+      "tagline": "Local voice dictation for mac, windows and linux",
+      "desc": "Local voice dictation for mac, windows and linux",
+      "license": "MIT",
+      "lang": "Rust",
+      "stars": 6539,
+      "repo": "anomalyco/hex",
+      "tags": [
+        "dictation",
+        "linux",
+        "local-first",
+        "macos",
+        "rust"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "argmax-oss-swift",
+      "name": "argmax-oss-swift",
+      "org": "argmaxinc",
+      "cat": "audio",
+      "tagline": "On-device Speech AI for Apple Silicon",
+      "desc": "On-device Speech AI for Apple Silicon",
+      "license": "MIT",
+      "lang": "Swift",
+      "stars": 6453,
+      "repo": "argmaxinc/argmax-oss-swift",
+      "tags": [
+        "inference",
+        "ios",
+        "macos",
+        "pyannote",
+        "qwen3-tts"
+      ],
+      "status": "active",
+      "year": 2024
+    },
+    {
+      "id": "easypr",
+      "name": "EasyPR",
+      "org": "liuruoze",
+      "cat": "docs",
+      "tagline": "(CGCSTCD'2017) An easy, flexible, and accurate plate recognition project for ...",
+      "desc": "(CGCSTCD'2017) An easy, flexible, and accurate plate recognition project for Chinese licenses in unconstrained situations.  CGCSTCD = China Graduate Contest on Smart-city Technology and Creative Design",
+      "license": "Apache-2.0",
+      "lang": "C++",
+      "stars": 6428,
+      "repo": "liuruoze/EasyPR",
+      "tags": [
+        "artificial-intelligence",
+        "artificial-neural-networks",
+        "chinese-characters",
+        "computer-vision",
+        "datasets"
+      ],
+      "status": "active",
+      "year": 2014
     }
   ]
 }
