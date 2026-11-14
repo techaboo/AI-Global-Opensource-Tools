@@ -30,6 +30,14 @@
     "rejectedAt": "2026-10-26",
     "retryAfter": "2026-11-09"
   },
+  "aisingapore/tagui": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.52,
+    "stars": 6345,
+    "rejectedAt": "2026-11-14",
+    "retryAfter": "2026-11-28"
+  },
   "algorithmicsuperintelligence/openevolve": {
     "kind": "category",
     "reason": "category confidence below threshold",
@@ -161,10 +169,10 @@
   "evil0ctal/douyin_tiktok_download_api": {
     "kind": "category",
     "reason": "category confidence below threshold",
-    "score": 0.53,
-    "stars": 21015,
-    "rejectedAt": "2026-10-31",
-    "retryAfter": "2026-11-14"
+    "score": 0.54,
+    "stars": 21400,
+    "rejectedAt": "2026-11-14",
+    "retryAfter": "2026-11-28"
   },
   "farion1231/cc-switch": {
     "kind": "category",
@@ -193,10 +201,10 @@
   "flipped-aurora/gin-vue-admin": {
     "kind": "category",
     "reason": "category confidence below threshold",
-    "score": 0.31,
-    "stars": 25115,
-    "rejectedAt": "2026-10-31",
-    "retryAfter": "2026-11-14"
+    "score": 0.3,
+    "stars": 25132,
+    "rejectedAt": "2026-11-14",
+    "retryAfter": "2026-11-28"
   },
   "google-research/google-research": {
     "kind": "category",
@@ -289,10 +297,10 @@
   "jnmetacode/agency-agents-zh": {
     "kind": "category",
     "reason": "category confidence below threshold",
-    "score": 0.51,
-    "stars": 21736,
-    "rejectedAt": "2026-10-31",
-    "retryAfter": "2026-11-14"
+    "score": 0.56,
+    "stars": 22073,
+    "rejectedAt": "2026-11-14",
+    "retryAfter": "2026-11-28"
   },
   "koharu-rs/koharu": {
     "kind": "category",
@@ -361,10 +369,10 @@
   "maaassistantarknights/maaassistantarknights": {
     "kind": "category",
     "reason": "category confidence below threshold",
-    "score": 0.34,
-    "stars": 24134,
-    "rejectedAt": "2026-10-31",
-    "retryAfter": "2026-11-14"
+    "score": 0.43,
+    "stars": 24560,
+    "rejectedAt": "2026-11-14",
+    "retryAfter": "2026-11-28"
   },
   "mariadb/server": {
     "kind": "category",
@@ -481,10 +489,18 @@
   "qax-os/excelize": {
     "kind": "category",
     "reason": "category confidence below threshold",
-    "score": 0.52,
-    "stars": 21028,
-    "rejectedAt": "2026-10-31",
-    "retryAfter": "2026-11-14"
+    "score": 0.53,
+    "stars": 21138,
+    "rejectedAt": "2026-11-14",
+    "retryAfter": "2026-11-28"
+  },
+  "qingyuna/answer-me-with-html": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.49,
+    "stars": 6316,
+    "rejectedAt": "2026-11-14",
+    "retryAfter": "2026-11-28"
   },
   "realsenseai/librealsense": {
     "kind": "category",
@@ -553,10 +569,10 @@
   "stefan-jansen/machine-learning-for-trading": {
     "kind": "category",
     "reason": "category confidence below threshold",
-    "score": 0.36,
-    "stars": 21646,
-    "rejectedAt": "2026-10-31",
-    "retryAfter": "2026-11-14"
+    "score": 0.35,
+    "stars": 21809,
+    "rejectedAt": "2026-11-14",
+    "retryAfter": "2026-11-28"
   },
   "superradcompany/microsandbox": {
     "kind": "category",
@@ -627,6 +643,14 @@
     "stars": 7604,
     "rejectedAt": "2026-11-11",
     "retryAfter": "2026-11-25"
+  },
+  "wiltodelta/remove-ai-watermarks": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.53,
+    "stars": 6383,
+    "rejectedAt": "2026-11-14",
+    "retryAfter": "2026-11-28"
   },
   "yikart/aitoearn": {
     "kind": "category",
