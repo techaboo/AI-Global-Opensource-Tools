@@ -17288,6 +17288,171 @@
       ],
       "status": "active",
       "year": 2025
+    },
+    {
+      "id": "rowboat",
+      "name": "rowboat",
+      "org": "rowboatlabs",
+      "cat": "agents",
+      "tagline": "Your agent team, in one group chat.",
+      "desc": "Your agent team, in one group chat.",
+      "license": "Apache-2.0",
+      "lang": "TypeScript",
+      "stars": 18258,
+      "repo": "rowboatlabs/rowboat",
+      "tags": [
+        "agents",
+        "agents-sdk",
+        "ai",
+        "ai-agents",
+        "ai-agents-automation"
+      ],
+      "status": "active",
+      "year": 2025
+    },
+    {
+      "id": "argos-translate",
+      "name": "argos-translate",
+      "org": "argosopentech",
+      "cat": "frameworks",
+      "tagline": "Open-source offline translation library written in Python",
+      "desc": "Open-source offline translation library written in Python",
+      "license": "MIT",
+      "lang": "Python",
+      "stars": 6655,
+      "repo": "argosopentech/argos-translate",
+      "tags": [
+        "language-models",
+        "linux",
+        "machine-translation",
+        "nlp",
+        "open-source"
+      ],
+      "status": "active",
+      "year": 2020
+    },
+    {
+      "id": "im-not-ai",
+      "name": "im-not-ai",
+      "org": "epoko77-ai",
+      "cat": "prompts",
+      "tagline": "AI가 쓴 한글을 사람 글처럼 윤문하는 Claude 스킬 — Korean AI-text humanizer: detects and rewri...",
+      "desc": "AI가 쓴 한글을 사람 글처럼 윤문하는 Claude 스킬 — Korean AI-text humanizer: detects and rewrites translationese, mechanical parallelism, and 71 other AI tells",
+      "license": "MIT",
+      "lang": "Python",
+      "stars": 6547,
+      "repo": "epoko77-ai/im-not-ai",
+      "tags": [
+        "agent-skills",
+        "ai-detection",
+        "claude",
+        "claude-code",
+        "claude-skill"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "stickman-video-director",
+      "name": "stickman-video-director",
+      "org": "kaomei",
+      "cat": "video",
+      "tagline": "Turn any script into viral, multi-style animated stickman videos for Faceless...",
+      "desc": "Turn any script into viral, multi-style animated stickman videos for Faceless YouTube Channels. Automate visuals, voiceover, captions & SFX. 100% Free & Open-Source.",
+      "license": "MIT",
+      "lang": "JavaScript",
+      "stars": 6366,
+      "repo": "kaomei/stickman-video-director",
+      "tags": [
+        "agent-skills-manager",
+        "ai-animation-generator",
+        "ai-video-production",
+        "automated-video",
+        "codex-skills"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "lemonade",
+      "name": "lemonade",
+      "org": "lemonade-sdk",
+      "cat": "inference",
+      "tagline": "Lemonade helps users discover and run local AI apps by serving optimized LLMs...",
+      "desc": "Lemonade helps users discover and run local AI apps by serving optimized LLMs right from their own GPUs and NPUs. Join our discord: https://discord.gg/5xXzkMu8Zk",
+      "license": "Apache-2.0",
+      "lang": "C++",
+      "stars": 6215,
+      "repo": "lemonade-sdk/lemonade",
+      "tags": [
+        "ai",
+        "amd",
+        "genai",
+        "gpu",
+        "llama"
+      ],
+      "status": "active",
+      "year": 2025
+    },
+    {
+      "id": "nexent",
+      "name": "nexent",
+      "org": "ModelEngine-Group",
+      "cat": "agents",
+      "tagline": "Nexent is a zero-code platform for auto-generating production-grade AI agents...",
+      "desc": "Nexent is a zero-code platform for auto-generating production-grade AI agents using Harness Engineering principles — unified tools, skills, memory, and orchestration with built-in constraints, feedback loops, and control planes.",
+      "license": "MIT",
+      "lang": "Python",
+      "stars": 6201,
+      "repo": "ModelEngine-Group/nexent",
+      "tags": [
+        "agent",
+        "agentic-ai",
+        "agentic-framework",
+        "agentic-rag",
+        "agentic-workflow"
+      ],
+      "status": "active",
+      "year": 2025
+    },
+    {
+      "id": "monid",
+      "name": "monid",
+      "org": "monid-ai",
+      "cat": "mlops",
+      "tagline": "Monid - OpenRouter for agent tools. Join our community at https://discord.gg/...",
+      "desc": "Monid - OpenRouter for agent tools. Join our community at https://discord.gg/rQzztcgJV8",
+      "license": "MIT",
+      "lang": "TypeScript",
+      "stars": 6199,
+      "repo": "monid-ai/monid",
+      "tags": [
+        "ai-agents",
+        "developer-tools"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "pinot",
+      "name": "pinot",
+      "org": "apache",
+      "cat": "vectordb",
+      "tagline": "Apache Pinot: a real-time analytics database for low-latency SQL and vector s...",
+      "desc": "Apache Pinot: a real-time analytics database for low-latency SQL and vector search, serving user-facing and agent-facing applications",
+      "license": "Apache-2.0",
+      "lang": "Java",
+      "stars": 6177,
+      "repo": "apache/pinot",
+      "tags": [
+        "ai-agents",
+        "analytics",
+        "database",
+        "distributed-database",
+        "java"
+      ],
+      "status": "active",
+      "year": 2014
     }
   ]
 }
