@@ -161,10 +161,10 @@
   "eosphoros-ai/db-gpt": {
     "kind": "category",
     "reason": "category confidence below threshold",
-    "score": 0.54,
-    "stars": 20232,
-    "rejectedAt": "2026-11-01",
-    "retryAfter": "2026-11-15"
+    "score": 0.48,
+    "stars": 20297,
+    "rejectedAt": "2026-11-15",
+    "retryAfter": "2026-11-29"
   },
   "evil0ctal/douyin_tiktok_download_api": {
     "kind": "category",
@@ -238,6 +238,14 @@
     "rejectedAt": "2026-11-02",
     "retryAfter": "2026-11-16"
   },
+  "halfrost/halfrost-field": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.58,
+    "stars": 13257,
+    "rejectedAt": "2026-11-15",
+    "retryAfter": "2026-11-29"
+  },
   "harnessmd/munder-difflin": {
     "kind": "duplicate",
     "reason": "duplicate of munder-difflin",
@@ -249,10 +257,10 @@
   "hbai-ltd/toonflow-app": {
     "kind": "category",
     "reason": "category confidence below threshold",
-    "score": 0.55,
-    "stars": 20105,
-    "rejectedAt": "2026-11-01",
-    "retryAfter": "2026-11-15"
+    "score": 0.49,
+    "stars": 21837,
+    "rejectedAt": "2026-11-15",
+    "retryAfter": "2026-11-29"
   },
   "hiyouga/llamafactory": {
     "kind": "duplicate",
@@ -289,10 +297,10 @@
   "jianchang512/pyvideotrans": {
     "kind": "category",
     "reason": "category confidence below threshold",
-    "score": 0.47,
-    "stars": 19604,
-    "rejectedAt": "2026-11-01",
-    "retryAfter": "2026-11-15"
+    "score": 0.48,
+    "stars": 19750,
+    "rejectedAt": "2026-11-15",
+    "retryAfter": "2026-11-29"
   },
   "jnmetacode/agency-agents-zh": {
     "kind": "category",
@@ -382,6 +390,14 @@
     "rejectedAt": "2026-11-09",
     "retryAfter": "2026-11-23"
   },
+  "max-sixty/worktrunk": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.51,
+    "stars": 12537,
+    "rejectedAt": "2026-11-15",
+    "retryAfter": "2026-11-29"
+  },
   "milind-soni/openmausbot": {
     "kind": "category",
     "reason": "category confidence below threshold",
@@ -433,10 +449,10 @@
   "nvidia-nemo/speech": {
     "kind": "category",
     "reason": "category confidence below threshold",
-    "score": 0.56,
-    "stars": 18669,
-    "rejectedAt": "2026-11-01",
-    "retryAfter": "2026-11-15"
+    "score": 0.58,
+    "stars": 18753,
+    "rejectedAt": "2026-11-15",
+    "retryAfter": "2026-11-29"
   },
   "obsidianmd/obsidian-skills": {
     "kind": "category",
@@ -514,9 +530,9 @@
     "kind": "category",
     "reason": "category confidence below threshold",
     "score": 0.37,
-    "stars": 19137,
-    "rejectedAt": "2026-11-01",
-    "retryAfter": "2026-11-15"
+    "stars": 20036,
+    "rejectedAt": "2026-11-15",
+    "retryAfter": "2026-11-29"
   },
   "rowboatlabs/rowboat": {
     "kind": "category",
