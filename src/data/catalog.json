@@ -17453,6 +17453,173 @@
       ],
       "status": "active",
       "year": 2014
+    },
+    {
+      "id": "chatterbot",
+      "name": "ChatterBot",
+      "org": "gunthercox",
+      "cat": "agents",
+      "tagline": "ChatterBot is a machine learning, conversational dialog engine for creating c...",
+      "desc": "ChatterBot is a machine learning, conversational dialog engine for creating chat bots",
+      "license": "BSD-3-Clause",
+      "lang": "Python",
+      "stars": 14523,
+      "repo": "gunthercox/ChatterBot",
+      "tags": [
+        "bot",
+        "chatbot",
+        "chatterbot",
+        "conversation",
+        "language"
+      ],
+      "status": "active",
+      "year": 2014
+    },
+    {
+      "id": "train-llm-from-scratch",
+      "name": "train-llm-from-scratch",
+      "org": "FareedKhan-dev",
+      "cat": "finetune",
+      "tagline": "A straightforward method for training your LLM, from downloading data to gene...",
+      "desc": "A straightforward method for training your LLM, from downloading data to generating text.",
+      "license": "MIT",
+      "lang": "Python",
+      "stars": 13240,
+      "repo": "FareedKhan-dev/train-llm-from-scratch",
+      "tags": [
+        "gemini",
+        "large-language-models",
+        "llm",
+        "openai",
+        "training"
+      ],
+      "status": "active",
+      "year": 2025
+    },
+    {
+      "id": "kimi-k3-in-c",
+      "name": "kimi-k3-in-c",
+      "org": "FareedKhan-dev",
+      "cat": "inference",
+      "tagline": "A 2.78-trillion-parameter Kimi K3 running inference on a single CPU in 8.24 G...",
+      "desc": "A 2.78-trillion-parameter Kimi K3 running inference on a single CPU in 8.24 GB of RAM. Portable C99: no BLAS, no framework, no GPU.",
+      "license": "Apache-2.0",
+      "lang": "C",
+      "stars": 12179,
+      "repo": "FareedKhan-dev/kimi-k3-in-c",
+      "tags": [
+        "avx2",
+        "c99",
+        "cpu-inference",
+        "deep-learning",
+        "from-scratch"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "opencvsharp",
+      "name": "opencvsharp",
+      "org": "shimat",
+      "cat": "vision",
+      "tagline": "OpenCV wrapper for .NET",
+      "desc": "OpenCV wrapper for .NET",
+      "license": "Apache-2.0",
+      "lang": "C#",
+      "stars": 6127,
+      "repo": "shimat/opencvsharp",
+      "tags": [
+        "computer-vision",
+        "dotnet",
+        "dotnetstandard",
+        "image-processing",
+        "machine-learning"
+      ],
+      "status": "active",
+      "year": 2013
+    },
+    {
+      "id": "ffmpeg-skill",
+      "name": "ffmpeg-skill",
+      "org": "kajisho5",
+      "cat": "mcp",
+      "tagline": "Local video editor for coding agents: 42 FFmpeg tools with a machine-readable...",
+      "desc": "Local video editor for coding agents: 42 FFmpeg tools with a machine-readable contract and an MCP server, for Claude Code, Cursor and Codex. Cut, captions, reframe, loudness, platform exports. No cloud, no API keys.",
+      "license": "MIT",
+      "lang": "Python",
+      "stars": 6117,
+      "repo": "kajisho5/ffmpeg-skill",
+      "tags": [
+        "agent-skills",
+        "ai-agents",
+        "audio-processing",
+        "captions",
+        "claude-code"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "flash-linear-attention",
+      "name": "flash-linear-attention",
+      "org": "fla-org",
+      "cat": "frameworks",
+      "tagline": "🚀 Efficient implementations for emerging model architectures",
+      "desc": "🚀 Efficient implementations for emerging model architectures",
+      "license": "MIT",
+      "lang": "Python",
+      "stars": 6058,
+      "repo": "fla-org/flash-linear-attention",
+      "tags": [
+        "large-language-models",
+        "machine-learning-systems",
+        "natural-language-processing",
+        "sequence-modeling"
+      ],
+      "status": "active",
+      "year": 2023
+    },
+    {
+      "id": "gpustack",
+      "name": "gpustack",
+      "org": "gpustack",
+      "cat": "mlops",
+      "tagline": "A GPU cluster manager for high-performance AI model serving (vLLM, SGLang) an...",
+      "desc": "A GPU cluster manager for high-performance AI model serving (vLLM, SGLang) and on-demand SSH-accessible GPU instances.",
+      "license": "Apache-2.0",
+      "lang": "Python",
+      "stars": 6052,
+      "repo": "gpustack/gpustack",
+      "tags": [
+        "ascend",
+        "cuda",
+        "deepseek",
+        "distributed-inference",
+        "genai"
+      ],
+      "status": "active",
+      "year": 2024
+    },
+    {
+      "id": "shimmy",
+      "name": "shimmy",
+      "org": "Michael-A-Kuykendall",
+      "cat": "inference",
+      "tagline": "⚡ Pure-Rust WebGPU inference engine — OpenAI-API compatible, GGUF native, run...",
+      "desc": "⚡ Pure-Rust WebGPU inference engine — OpenAI-API compatible, GGUF native, runs on any GPU. No Python. No llama.cpp. Single binary.",
+      "license": "Apache-2.0",
+      "lang": "Rust",
+      "stars": 6016,
+      "repo": "Michael-A-Kuykendall/shimmy",
+      "tags": [
+        "api-server",
+        "command-line-tool",
+        "developer-tools",
+        "gguf",
+        "huggingface"
+      ],
+      "status": "active",
+      "year": 2025
     }
   ]
 }
