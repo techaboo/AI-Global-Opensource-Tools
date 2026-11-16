@@ -49,10 +49,10 @@
   "argoproj/argo-workflows": {
     "kind": "category",
     "reason": "category confidence below threshold",
-    "score": 0.57,
-    "stars": 17079,
-    "rejectedAt": "2026-11-02",
-    "retryAfter": "2026-11-16"
+    "score": 0.5,
+    "stars": 17100,
+    "rejectedAt": "2026-11-16",
+    "retryAfter": "2026-11-30"
   },
   "ashishpatel26/500-ai-agents-projects": {
     "kind": "category",
@@ -105,10 +105,10 @@
   "coder/coder": {
     "kind": "category",
     "reason": "category confidence below threshold",
-    "score": 0.32,
-    "stars": 17251,
-    "rejectedAt": "2026-11-02",
-    "retryAfter": "2026-11-16"
+    "score": 0.4,
+    "stars": 17393,
+    "rejectedAt": "2026-11-16",
+    "retryAfter": "2026-11-30"
   },
   "codexu/note-gen": {
     "kind": "category",
@@ -197,6 +197,14 @@
     "stars": 195641,
     "rejectedAt": "2026-10-26",
     "retryAfter": "2026-11-25"
+  },
+  "firerpa/lamda": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.51,
+    "stars": 8745,
+    "rejectedAt": "2026-11-16",
+    "retryAfter": "2026-11-30"
   },
   "flipped-aurora/gin-vue-admin": {
     "kind": "category",
@@ -397,6 +405,14 @@
     "stars": 12537,
     "rejectedAt": "2026-11-15",
     "retryAfter": "2026-11-29"
+  },
+  "microsoft/tokeneconomizer": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.52,
+    "stars": 6871,
+    "rejectedAt": "2026-11-16",
+    "retryAfter": "2026-11-30"
   },
   "milind-soni/openmausbot": {
     "kind": "category",
