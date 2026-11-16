@@ -630,5 +630,205 @@
   "ms-swift": {
     "reviewedAt": "2026-11-09T07:37:00.159Z",
     "flagged": false
+  },
+  "torchtune": {
+    "reviewedAt": "2026-11-16T07:51:48.750Z",
+    "flagged": false
+  },
+  "tensorflow": {
+    "reviewedAt": "2026-11-16T07:51:48.853Z",
+    "flagged": false
+  },
+  "transformers": {
+    "reviewedAt": "2026-11-16T07:51:48.932Z",
+    "flagged": true
+  },
+  "pytorch": {
+    "reviewedAt": "2026-11-16T07:51:49.068Z",
+    "flagged": true
+  },
+  "keras": {
+    "reviewedAt": "2026-11-16T07:51:49.138Z",
+    "flagged": false
+  },
+  "jax": {
+    "reviewedAt": "2026-11-16T07:51:49.235Z",
+    "flagged": false
+  },
+  "tinygrad": {
+    "reviewedAt": "2026-11-16T07:51:49.296Z",
+    "flagged": false
+  },
+  "mlx": {
+    "reviewedAt": "2026-11-16T07:51:49.371Z",
+    "flagged": false
+  },
+  "sentence-transformers": {
+    "reviewedAt": "2026-11-16T07:51:49.440Z",
+    "flagged": false
+  },
+  "candle": {
+    "reviewedAt": "2026-11-16T07:51:49.517Z",
+    "flagged": false
+  },
+  "onnxruntime": {
+    "reviewedAt": "2026-11-16T07:51:49.593Z",
+    "flagged": true
+  },
+  "burn": {
+    "reviewedAt": "2026-11-16T07:51:49.669Z",
+    "flagged": false
+  },
+  "flagembedding": {
+    "reviewedAt": "2026-11-16T07:51:49.749Z",
+    "flagged": false
+  },
+  "ray": {
+    "reviewedAt": "2026-11-16T07:51:49.815Z",
+    "flagged": false
+  },
+  "litellm": {
+    "reviewedAt": "2026-11-16T07:51:49.878Z",
+    "flagged": false
+  },
+  "mlflow": {
+    "reviewedAt": "2026-11-16T07:51:49.958Z",
+    "flagged": false
+  },
+  "dvc": {
+    "reviewedAt": "2026-11-16T07:51:50.026Z",
+    "flagged": false
+  },
+  "kubeflow": {
+    "reviewedAt": "2026-11-16T07:51:50.098Z",
+    "flagged": false
+  },
+  "metaflow": {
+    "reviewedAt": "2026-11-16T07:51:50.185Z",
+    "flagged": false
+  },
+  "portkey": {
+    "reviewedAt": "2026-11-16T07:51:50.276Z",
+    "flagged": false
+  },
+  "skypilot": {
+    "reviewedAt": "2026-11-16T07:51:50.395Z",
+    "flagged": true
+  },
+  "bentoml": {
+    "reviewedAt": "2026-11-16T07:51:50.547Z",
+    "flagged": false
+  },
+  "clearml": {
+    "reviewedAt": "2026-11-16T07:51:50.621Z",
+    "flagged": false
+  },
+  "zenml": {
+    "reviewedAt": "2026-11-16T07:51:50.708Z",
+    "flagged": false
+  },
+  "kserve": {
+    "reviewedAt": "2026-11-16T07:51:50.770Z",
+    "flagged": false
+  },
+  "agentgateway": {
+    "reviewedAt": "2026-11-16T07:51:50.836Z",
+    "flagged": false
+  },
+  "langfuse": {
+    "reviewedAt": "2026-11-16T07:51:50.906Z",
+    "flagged": false
+  },
+  "opik": {
+    "reviewedAt": "2026-11-16T07:51:50.984Z",
+    "flagged": false
+  },
+  "deepeval": {
+    "reviewedAt": "2026-11-16T07:51:51.094Z",
+    "flagged": false
+  },
+  "ragas": {
+    "reviewedAt": "2026-11-16T07:51:51.166Z",
+    "flagged": false
+  },
+  "lm-eval-harness": {
+    "reviewedAt": "2026-11-16T07:51:51.251Z",
+    "flagged": false
+  },
+  "promptfoo": {
+    "reviewedAt": "2026-11-16T07:51:51.319Z",
+    "flagged": false
+  },
+  "phoenix": {
+    "reviewedAt": "2026-11-16T07:51:51.418Z",
+    "flagged": false
+  },
+  "openllmetry": {
+    "reviewedAt": "2026-11-16T07:51:51.497Z",
+    "flagged": false
+  },
+  "giskard": {
+    "reviewedAt": "2026-11-16T07:51:51.593Z",
+    "flagged": false
+  },
+  "trulens": {
+    "reviewedAt": "2026-11-16T07:51:51.734Z",
+    "flagged": false
+  },
+  "weave": {
+    "reviewedAt": "2026-11-16T07:51:51.878Z",
+    "flagged": false
+  },
+  "nemo-guardrails": {
+    "reviewedAt": "2026-11-16T07:51:52.004Z",
+    "flagged": false
+  },
+  "guardrails-ai": {
+    "reviewedAt": "2026-11-16T07:51:52.133Z",
+    "flagged": false
+  },
+  "purplellama": {
+    "reviewedAt": "2026-11-16T07:51:52.244Z",
+    "flagged": false
+  },
+  "presidio": {
+    "reviewedAt": "2026-11-16T07:51:52.345Z",
+    "flagged": true
+  },
+  "garak": {
+    "reviewedAt": "2026-11-16T07:51:52.408Z",
+    "flagged": true
+  },
+  "llm-guard": {
+    "reviewedAt": "2026-11-16T07:51:52.475Z",
+    "flagged": false
+  },
+  "pyrit": {
+    "reviewedAt": "2026-11-16T07:51:52.544Z",
+    "flagged": false
+  },
+  "label-studio": {
+    "reviewedAt": "2026-11-16T07:51:52.619Z",
+    "flagged": false
+  },
+  "cleanlab": {
+    "reviewedAt": "2026-11-16T07:51:52.709Z",
+    "flagged": false
+  },
+  "doccano": {
+    "reviewedAt": "2026-11-16T07:51:52.798Z",
+    "flagged": false
+  },
+  "fiftyone": {
+    "reviewedAt": "2026-11-16T07:51:52.879Z",
+    "flagged": false
+  },
+  "argilla": {
+    "reviewedAt": "2026-11-16T07:51:52.972Z",
+    "flagged": false
+  },
+  "snorkel": {
+    "reviewedAt": "2026-11-16T07:51:53.036Z",
+    "flagged": false
   }
 }
