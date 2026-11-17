@@ -17620,6 +17620,173 @@
       ],
       "status": "active",
       "year": 2025
+    },
+    {
+      "id": "magentic-ui",
+      "name": "magentic-ui",
+      "org": "microsoft",
+      "cat": "browseruse",
+      "tagline": "MagenticLite is an experimental agent that works across the browser and local...",
+      "desc": "MagenticLite is an experimental agent that works across the browser and local file system",
+      "license": "MIT",
+      "lang": "Python",
+      "stars": 10117,
+      "repo": "microsoft/magentic-ui",
+      "tags": [
+        "agents",
+        "ai",
+        "ai-ux",
+        "autogen",
+        "browser-use"
+      ],
+      "status": "active",
+      "year": 2025
+    },
+    {
+      "id": "speech-recognition",
+      "name": "speech_recognition",
+      "org": "Uberi",
+      "cat": "audio",
+      "tagline": "Speech recognition module for Python, supporting several engines and APIs, on...",
+      "desc": "Speech recognition module for Python, supporting several engines and APIs, online and offline.",
+      "license": "BSD-3-Clause",
+      "lang": "Python",
+      "stars": 9005,
+      "repo": "Uberi/speech_recognition",
+      "tags": [
+        "audio",
+        "python",
+        "speech-recognition",
+        "speech-to-text"
+      ],
+      "status": "active",
+      "year": 2014
+    },
+    {
+      "id": "shaders",
+      "name": "shaders",
+      "org": "shader-effects-inc",
+      "cat": "frameworks",
+      "tagline": "WebGPU components for React, Vue, Svelte, Solid, JS & Framer",
+      "desc": "WebGPU components for React, Vue, Svelte, Solid, JS & Framer",
+      "license": "MIT",
+      "lang": "TypeScript",
+      "stars": 5977,
+      "repo": "shader-effects-inc/shaders",
+      "tags": [
+        "cli",
+        "javascript",
+        "mcp",
+        "react",
+        "shaders"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "zotero-mcp",
+      "name": "zotero-mcp",
+      "org": "54yyyu",
+      "cat": "mcp",
+      "tagline": "Zotero MCP: Connects your Zotero research library with Claude and other AI as...",
+      "desc": "Zotero MCP: Connects your Zotero research library with Claude and other AI assistants via the Model Context Protocol to discuss papers, get summaries, analyze citations, and more.",
+      "license": "MIT",
+      "lang": "Python",
+      "stars": 5950,
+      "repo": "54yyyu/zotero-mcp",
+      "tags": [
+        "ai-agent",
+        "chatgpt",
+        "claude",
+        "claude-code",
+        "mcp"
+      ],
+      "status": "active",
+      "year": 2025
+    },
+    {
+      "id": "youdub-webui",
+      "name": "YouDub-webui",
+      "org": "liuzhao1225",
+      "cat": "audio",
+      "tagline": "Open-source AI video localization and dubbing for YouTube/Bilibili: speech re...",
+      "desc": "Open-source AI video localization and dubbing for YouTube/Bilibili: speech recognition, subtitle translation, voice cloning, audio mixing and rendering. 开源 AI 视频翻译配音工具。",
+      "license": "Apache-2.0",
+      "lang": "TypeScript",
+      "stars": 5861,
+      "repo": "liuzhao1225/YouDub-webui",
+      "tags": [
+        "ai-dubbing",
+        "ai-video-translation",
+        "bilibili",
+        "demucs",
+        "fastapi"
+      ],
+      "status": "active",
+      "year": 2023
+    },
+    {
+      "id": "ruoyi-ai",
+      "name": "ruoyi-ai",
+      "org": "ageerle",
+      "cat": "agents",
+      "tagline": "Enterprise-grade AI agent framework with multi-provider LLM management, secur...",
+      "desc": "Enterprise-grade AI agent framework with multi-provider LLM management, secure knowledge bases and high-precision RAG, visual workflow orchestration, and multi-agent coordination.",
+      "license": "MIT",
+      "lang": "Java",
+      "stars": 5839,
+      "repo": "ageerle/ruoyi-ai",
+      "tags": [
+        "agent",
+        "ai",
+        "knowledge",
+        "mcp",
+        "rag"
+      ],
+      "status": "active",
+      "year": 2024
+    },
+    {
+      "id": "openexecutive",
+      "name": "OpenExecutive",
+      "org": "ForeactLabs",
+      "cat": "agents",
+      "tagline": "AI-powered virtual executive team — a single coherent executive persona backe...",
+      "desc": "AI-powered virtual executive team — a single coherent executive persona backed by 8 specialist agents (FastAPI + Next.js).",
+      "license": "Apache-2.0",
+      "lang": "Python",
+      "stars": 5819,
+      "repo": "ForeactLabs/OpenExecutive",
+      "tags": [
+        "ai",
+        "anthropic",
+        "claude",
+        "fastapi",
+        "llm"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "openmed",
+      "name": "openmed",
+      "org": "maziyarpanahi",
+      "cat": "guardrails",
+      "tagline": "Local-first healthcare AI: clinical NER and HIPAA PII de-identification on ha...",
+      "desc": "Local-first healthcare AI: clinical NER and HIPAA PII de-identification on hardware you control. 2,200+ medical models, 35 model-backed PII languages, and Python, MLX, Android and browser runtimes. Apache-2.0 SDK.",
+      "license": "Apache-2.0",
+      "lang": "Python",
+      "stars": 5814,
+      "repo": "maziyarpanahi/openmed",
+      "tags": [
+        "android",
+        "clinical-nlp",
+        "healthcare",
+        "hipaa",
+        "ios"
+      ],
+      "status": "active",
+      "year": 2025
     }
   ]
 }
