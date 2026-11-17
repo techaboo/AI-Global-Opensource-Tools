@@ -398,6 +398,14 @@
     "rejectedAt": "2026-11-09",
     "retryAfter": "2026-11-23"
   },
+  "marker-inc-korea/autorag": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.5,
+    "stars": 5920,
+    "rejectedAt": "2026-11-17",
+    "retryAfter": "2026-12-01"
+  },
   "max-sixty/worktrunk": {
     "kind": "category",
     "reason": "category confidence below threshold",
@@ -533,6 +541,22 @@
     "stars": 6316,
     "rejectedAt": "2026-11-14",
     "retryAfter": "2026-11-28"
+  },
+  "qybaihe/bla": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.56,
+    "stars": 6003,
+    "rejectedAt": "2026-11-17",
+    "retryAfter": "2026-12-01"
+  },
+  "rasbt/reasoning-from-scratch": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.47,
+    "stars": 5850,
+    "rejectedAt": "2026-11-17",
+    "retryAfter": "2026-12-01"
   },
   "realsenseai/librealsense": {
     "kind": "category",
