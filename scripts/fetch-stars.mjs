@@ -86,8 +86,13 @@ async function worker() {
         return;
       }
       if (response.status === 404) {
+        // A confirmed 404 is a hard fact handled below (the catalog entry is marked
+        // archived and kept on its previous snapshot data). It is not a refresh
+        // failure: failing the run here would block publishing the snapshot and the
+        // archive-status PR that resolves the 404 in the first place.
         toArchive.push({ id: tool.id, reason: `${tool.repo} returned 404 (deleted or renamed with no redirect)` });
-        throw new Error('repository not found (404)');
+        console.error(`  ! ${tool.repo}: repository not found (404); keeping previous data`);
+        continue;
       }
       if (!response.ok) throw new Error(`GitHub returned ${response.status}`);
       const data = await response.json();
