@@ -17787,6 +17787,174 @@
       ],
       "status": "active",
       "year": 2025
+    },
+    {
+      "id": "potpie",
+      "name": "potpie",
+      "org": "potpie-ai",
+      "cat": "rag",
+      "tagline": "Context Graph for AI Native SDLC",
+      "desc": "Context Graph for AI Native SDLC",
+      "license": "Apache-2.0",
+      "lang": "Python",
+      "stars": 5799,
+      "repo": "potpie-ai/potpie",
+      "tags": [
+        "agents",
+        "ai-agents",
+        "ai-agents-framework",
+        "artificial-intelligence",
+        "context-graph"
+      ],
+      "status": "active",
+      "year": 2024
+    },
+    {
+      "id": "openagent",
+      "name": "openagent",
+      "org": "the-open-agent",
+      "cat": "assistants",
+      "tagline": "⚡️next-generation personal AI assistant powered by LLM, RAG and agent loops, ...",
+      "desc": "⚡️next-generation personal AI assistant powered by LLM, RAG and agent loops, supporting computer-use, browser-use and coding agent, demo: https://demo.openagentai.org",
+      "license": "Apache-2.0",
+      "lang": "Go",
+      "stars": 5747,
+      "repo": "the-open-agent/openagent",
+      "tags": [
+        "agent",
+        "agentic",
+        "agentic-ai",
+        "agi",
+        "chatbot"
+      ],
+      "status": "active",
+      "year": 2020
+    },
+    {
+      "id": "ultrarag",
+      "name": "UltraRAG",
+      "org": "OpenBMB",
+      "cat": "rag",
+      "tagline": "A Low-Code MCP Framework for Building Complex and Innovative RAG Pipelines",
+      "desc": "A Low-Code MCP Framework for Building Complex and Innovative RAG Pipelines",
+      "license": "Apache-2.0",
+      "lang": "Python",
+      "stars": 5745,
+      "repo": "OpenBMB/UltraRAG",
+      "tags": [
+        "deepseek",
+        "demo",
+        "easy",
+        "embedding",
+        "flask"
+      ],
+      "status": "active",
+      "year": 2025
+    },
+    {
+      "id": "kokoro-fastapi",
+      "name": "Kokoro-FastAPI",
+      "org": "remsky",
+      "cat": "audio",
+      "tagline": "Dockerized OpenAI-compatible wrapper for Kokoro-82M text-to-speech w/multipla...",
+      "desc": "Dockerized OpenAI-compatible wrapper for Kokoro-82M text-to-speech w/multiplatform CPU, AMD, NVIDIA GPU PyTorch; multi-speaker, clone-tuning, caption timestamps, SSML, websockets, optional readalong web UI",
+      "license": "Apache-2.0",
+      "lang": "Python",
+      "stars": 5703,
+      "repo": "remsky/Kokoro-FastAPI",
+      "tags": [
+        "fastapi",
+        "kokoro",
+        "kokoro-82m",
+        "kokoro-tts",
+        "multi-speaker-tts"
+      ],
+      "status": "active",
+      "year": 2024
+    },
+    {
+      "id": "sahi",
+      "name": "sahi",
+      "org": "obss",
+      "cat": "vision",
+      "tagline": "Framework agnostic sliced/tiled inference + interactive ui + error analysis p...",
+      "desc": "Framework agnostic sliced/tiled inference + interactive ui + error analysis plots",
+      "license": "MIT",
+      "lang": "Python",
+      "stars": 5607,
+      "repo": "obss/sahi",
+      "tags": [
+        "coco",
+        "computer-vision",
+        "deep-learning",
+        "explainable-ai",
+        "fiftyone"
+      ],
+      "status": "active",
+      "year": 2021
+    },
+    {
+      "id": "frontieragent",
+      "name": "FrontierAgent",
+      "org": "ApodexAI",
+      "cat": "agents",
+      "tagline": "🧩 FrontierAgent, our agent framework, open-sourced alongside it — native com...",
+      "desc": "🧩 FrontierAgent, our agent framework, open-sourced alongside it — native command-line TUI, ReAct and Agent Team modes, one command on macOS and Linux, no preinstall, no hard Docker dependency.",
+      "license": "Apache-2.0",
+      "lang": "Python",
+      "stars": 5444,
+      "repo": "ApodexAI/FrontierAgent",
+      "tags": [
+        "agent-orchestration",
+        "agentic-ai",
+        "agentic-framework",
+        "ai-agents",
+        "harness"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "oasis",
+      "name": "oasis",
+      "org": "camel-ai",
+      "cat": "agents",
+      "tagline": "🏝️ OASIS: Open Agent Social Interaction Simulations with One Million Agents.",
+      "desc": "🏝️ OASIS: Open Agent Social Interaction Simulations with One Million Agents.",
+      "license": "Apache-2.0",
+      "lang": "Python",
+      "stars": 5436,
+      "repo": "camel-ai/oasis",
+      "tags": [
+        "agent-based-framework",
+        "agent-based-simulation",
+        "ai-societies",
+        "deep-learning",
+        "large-language-models"
+      ],
+      "status": "active",
+      "year": 2024
+    },
+    {
+      "id": "code-graph-rag",
+      "name": "code-graph-rag",
+      "org": "vitali87",
+      "cat": "rag",
+      "tagline": "The ultimate RAG for your monorepo. Query, understand, and edit multi-languag...",
+      "desc": "The ultimate RAG for your monorepo. Query, understand, and edit multi-language codebases with the power of AI and knowledge graphs",
+      "license": "MIT",
+      "lang": "Python",
+      "stars": 5381,
+      "repo": "vitali87/code-graph-rag",
+      "tags": [
+        "ai",
+        "ast",
+        "claude-code",
+        "code-analysis",
+        "code-understanding"
+      ],
+      "status": "active",
+      "year": 2025
     }
   ]
 }
