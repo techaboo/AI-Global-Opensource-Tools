@@ -113,10 +113,10 @@
   "codexu/note-gen": {
     "kind": "category",
     "reason": "category confidence below threshold",
-    "score": 0.34,
-    "stars": 12982,
-    "rejectedAt": "2026-11-04",
-    "retryAfter": "2026-11-18"
+    "score": 0.38,
+    "stars": 13030,
+    "rejectedAt": "2026-11-18",
+    "retryAfter": "2026-12-02"
   },
   "data-privacy-stack/presidio": {
     "kind": "duplicate",
@@ -281,10 +281,10 @@
   "humanlayer/humanlayer": {
     "kind": "category",
     "reason": "category confidence below threshold",
-    "score": 0.52,
-    "stars": 12782,
-    "rejectedAt": "2026-11-04",
-    "retryAfter": "2026-11-18"
+    "score": 0.57,
+    "stars": 12907,
+    "rejectedAt": "2026-11-18",
+    "retryAfter": "2026-12-02"
   },
   "iofficeai/aionui": {
     "kind": "category",
@@ -318,6 +318,14 @@
     "rejectedAt": "2026-11-14",
     "retryAfter": "2026-11-28"
   },
+  "kkkkhazix/agent-autoloop": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.42,
+    "stars": 5864,
+    "rejectedAt": "2026-11-18",
+    "retryAfter": "2026-12-02"
+  },
   "koharu-rs/koharu": {
     "kind": "category",
     "reason": "category confidence below threshold",
@@ -329,10 +337,10 @@
   "kornia/kornia": {
     "kind": "category",
     "reason": "category confidence below threshold",
-    "score": 0.55,
-    "stars": 12321,
-    "rejectedAt": "2026-11-04",
-    "retryAfter": "2026-11-18"
+    "score": 0.51,
+    "stars": 12394,
+    "rejectedAt": "2026-11-18",
+    "retryAfter": "2026-12-02"
   },
   "labmlai/annotated_deep_learning_paper_implementations": {
     "kind": "category",
@@ -413,6 +421,14 @@
     "stars": 12537,
     "rejectedAt": "2026-11-15",
     "retryAfter": "2026-11-29"
+  },
+  "melgarafael/deskcommcrm": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.34,
+    "stars": 5458,
+    "rejectedAt": "2026-11-18",
+    "retryAfter": "2026-12-02"
   },
   "microsoft/tokeneconomizer": {
     "kind": "category",
@@ -699,6 +715,13 @@
     "stars": 7604,
     "rejectedAt": "2026-11-11",
     "retryAfter": "2026-11-25"
+  },
+  "vercel-labs/ui": {
+    "kind": "name",
+    "reason": "shares a name with an existing entry",
+    "stars": 5671,
+    "rejectedAt": "2026-11-18",
+    "retryAfter": "2026-12-18"
   },
   "wiltodelta/remove-ai-watermarks": {
     "kind": "category",
