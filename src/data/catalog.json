@@ -1273,7 +1273,7 @@
         "enterprise",
         "dotnet"
       ],
-      "status": "active",
+      "status": "archived",
       "year": 2025
     },
     {
@@ -3293,7 +3293,7 @@
         "onnx",
         "deployment"
       ],
-      "status": "active",
+      "status": "archived",
       "year": 2018
     },
     {
