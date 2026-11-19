@@ -17955,6 +17955,171 @@
       ],
       "status": "active",
       "year": 2025
+    },
+    {
+      "id": "theia",
+      "name": "theia",
+      "org": "eclipse-theia",
+      "cat": "coding",
+      "tagline": "Eclipse Theia is an open-source platform for building custom IDEs and tools f...",
+      "desc": "Eclipse Theia is an open-source platform for building custom IDEs and tools for browser and desktop. It includes Theia AI, the vendor-neutral AI harness platform, and powers the AI-native Theia IDE.",
+      "license": "EPL-2.0",
+      "lang": "TypeScript",
+      "stars": 21772,
+      "repo": "eclipse-theia/theia",
+      "tags": [
+        "agent-skills",
+        "agentic-ai",
+        "ai",
+        "ai-agents",
+        "ai-harness"
+      ],
+      "status": "active",
+      "year": 2017
+    },
+    {
+      "id": "llm-graph-builder",
+      "name": "llm-graph-builder",
+      "org": "neo4j-labs",
+      "cat": "rag",
+      "tagline": "Neo4j graph construction from unstructured data using LLMs",
+      "desc": "Neo4j graph construction from unstructured data using LLMs",
+      "license": "Apache-2.0",
+      "lang": "Jupyter Notebook",
+      "stars": 5318,
+      "repo": "neo4j-labs/llm-graph-builder",
+      "tags": [
+        "data-import",
+        "genai",
+        "graph",
+        "graph-rag",
+        "graph-search"
+      ],
+      "status": "active",
+      "year": 2024
+    },
+    {
+      "id": "tradingview-mcp",
+      "name": "tradingview-mcp",
+      "org": "atilaahmettaner",
+      "cat": "mcp",
+      "tagline": "MCP server for market analysis in AI assistants: screeners, multi-timeframe t...",
+      "desc": "MCP server for market analysis in AI assistants: screeners, multi-timeframe technical analysis, backtests and sentiment for crypto, stocks, forex and futures. 39 tools. Self-host free, or use the hosted version, TradingMCP.",
+      "license": "MIT",
+      "lang": "Python",
+      "stars": 5313,
+      "repo": "atilaahmettaner/tradingview-mcp",
+      "tags": [
+        "claude-desktop",
+        "cryptocurrency",
+        "futures",
+        "market-data",
+        "mcp-server"
+      ],
+      "status": "active",
+      "year": 2025
+    },
+    {
+      "id": "wenet",
+      "name": "wenet",
+      "org": "wenet-e2e",
+      "cat": "audio",
+      "tagline": "Production First and Production Ready End-to-End Speech Recognition Toolkit",
+      "desc": "Production First and Production Ready End-to-End Speech Recognition Toolkit",
+      "license": "Apache-2.0",
+      "lang": "Python",
+      "stars": 5258,
+      "repo": "wenet-e2e/wenet",
+      "tags": [
+        "asr",
+        "automatic-speech-recognition",
+        "conformer",
+        "e2e-models",
+        "production-ready"
+      ],
+      "status": "active",
+      "year": 2020
+    },
+    {
+      "id": "sparrow",
+      "name": "sparrow",
+      "org": "katanaml",
+      "cat": "agents",
+      "tagline": "Structured data extraction, instruction calling and agentic workflows with ML...",
+      "desc": "Structured data extraction, instruction calling and agentic workflows with ML, LLM and Vision LLM",
+      "license": "GPL-3.0",
+      "lang": "Python",
+      "stars": 5234,
+      "repo": "katanaml/sparrow",
+      "tags": [
+        "agentic-ai",
+        "computer-vision",
+        "documentai",
+        "huggingface-transformers",
+        "llm"
+      ],
+      "status": "active",
+      "year": 2022
+    },
+    {
+      "id": "easyr1",
+      "name": "EasyR1",
+      "org": "hiyouga",
+      "cat": "finetune",
+      "tagline": "EasyR1: An Efficient, Scalable, Multi-Modality RL Training Framework based on...",
+      "desc": "EasyR1: An Efficient, Scalable, Multi-Modality RL Training Framework based on veRL",
+      "license": "Apache-2.0",
+      "lang": "Python",
+      "stars": 5216,
+      "repo": "hiyouga/EasyR1",
+      "tags": [
+        "ai",
+        "deepseek",
+        "gpt",
+        "llm",
+        "nlp"
+      ],
+      "status": "active",
+      "year": 2025
+    },
+    {
+      "id": "maaframework",
+      "name": "MaaFramework",
+      "org": "MaaXYZ",
+      "cat": "browseruse",
+      "tagline": "基于图像识别的自动化黑盒测试框架 | An automation black-box testing framework based on image r...",
+      "desc": "基于图像识别的自动化黑盒测试框架 | An automation black-box testing framework based on image recognition",
+      "license": "LGPL-3.0",
+      "lang": "C++",
+      "stars": 5213,
+      "repo": "MaaXYZ/MaaFramework",
+      "tags": [
+        "black-box-testing",
+        "computer-vision"
+      ],
+      "status": "active",
+      "year": 2023
+    },
+    {
+      "id": "h2o-llmstudio",
+      "name": "h2o-llmstudio",
+      "org": "h2oai",
+      "cat": "finetune",
+      "tagline": "H2O LLM Studio - a framework and no-code GUI for fine-tuning LLMs. Documentat...",
+      "desc": "H2O LLM Studio - a framework and no-code GUI for fine-tuning LLMs. Documentation: https://docs.h2o.ai/h2o-llmstudio/",
+      "license": "Apache-2.0",
+      "lang": "Python",
+      "stars": 5200,
+      "repo": "h2oai/h2o-llmstudio",
+      "tags": [
+        "ai",
+        "chatbot",
+        "chatgpt",
+        "fedramp",
+        "fine-tuning"
+      ],
+      "status": "active",
+      "year": 2023
     }
   ]
 }
