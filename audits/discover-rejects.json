@@ -30,6 +30,14 @@
     "rejectedAt": "2026-10-26",
     "retryAfter": "2026-11-09"
   },
+  "aientech/dossier": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.36,
+    "stars": 5303,
+    "rejectedAt": "2026-11-19",
+    "retryAfter": "2026-12-03"
+  },
   "aisingapore/tagui": {
     "kind": "category",
     "reason": "category confidence below threshold",
@@ -142,6 +150,14 @@
     "rejectedAt": "2026-11-11",
     "retryAfter": "2026-11-25"
   },
+  "dmmaze/ballonstranslator": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.48,
+    "stars": 5313,
+    "rejectedAt": "2026-11-19",
+    "retryAfter": "2026-12-03"
+  },
   "ebony-vinyl/dsh-our-free-model": {
     "kind": "category",
     "reason": "category confidence below threshold",
@@ -173,6 +189,14 @@
     "stars": 21400,
     "rejectedAt": "2026-11-14",
     "retryAfter": "2026-11-28"
+  },
+  "exa-labs/exa-mcp-server": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.49,
+    "stars": 5244,
+    "rejectedAt": "2026-11-19",
+    "retryAfter": "2026-12-03"
   },
   "farion1231/cc-switch": {
     "kind": "category",
@@ -442,9 +466,9 @@
     "kind": "category",
     "reason": "category confidence below threshold",
     "score": 0.49,
-    "stars": 12477,
-    "rejectedAt": "2026-11-05",
-    "retryAfter": "2026-11-19"
+    "stars": 25595,
+    "rejectedAt": "2026-11-19",
+    "retryAfter": "2026-12-03"
   },
   "modelscope/funclip": {
     "kind": "category",
@@ -715,6 +739,22 @@
     "stars": 7604,
     "rejectedAt": "2026-11-11",
     "retryAfter": "2026-11-25"
+  },
+  "vapi-network/vapi-network": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.59,
+    "stars": 5237,
+    "rejectedAt": "2026-11-19",
+    "retryAfter": "2026-12-03"
+  },
+  "vcaesar/riot": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.5,
+    "stars": 6066,
+    "rejectedAt": "2026-11-19",
+    "retryAfter": "2026-12-03"
   },
   "vercel-labs/ui": {
     "kind": "name",
