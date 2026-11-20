@@ -18120,6 +18120,174 @@
       ],
       "status": "active",
       "year": 2023
+    },
+    {
+      "id": "elephant-goldfish-model",
+      "name": "elephant-goldfish-model",
+      "org": "google",
+      "cat": "coding",
+      "tagline": "Open-source plugin for designing and reviewing software with agents",
+      "desc": "Open-source plugin for designing and reviewing software with agents",
+      "license": "Apache-2.0",
+      "lang": "Python",
+      "stars": 21557,
+      "repo": "google/elephant-goldfish-model",
+      "tags": [
+        "agent-skills",
+        "ai-agents",
+        "antigravity",
+        "claude-code",
+        "claude-code-plugin"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "artex",
+      "name": "ARTEX",
+      "org": "BaaRai",
+      "cat": "agents",
+      "tagline": "ARTEX - AI autonomous penetration testing system (English translation; upstre...",
+      "desc": "ARTEX - AI autonomous penetration testing system (English translation; upstream: Autumn-27/ARTEX, AGPL-3.0)",
+      "license": "AGPL-3.0",
+      "lang": "Go",
+      "stars": 12746,
+      "repo": "BaaRai/ARTEX",
+      "tags": [
+        "ai",
+        "ai-agents",
+        "autonomous-agents",
+        "bug-bounty",
+        "docker"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "rust-anything",
+      "name": "rust-anything",
+      "org": "erkamyaman",
+      "cat": "coding",
+      "tagline": "Rewrite your whole app in Rust, one piece at a time, checked against the orig...",
+      "desc": "Rewrite your whole app in Rust, one piece at a time, checked against the original's recorded behavior at every step. CLIs, HTTP servers and libraries in TypeScript, Python, C, Go, Ruby and Java.",
+      "license": "MIT",
+      "lang": "Rust",
+      "stars": 5908,
+      "repo": "erkamyaman/rust-anything",
+      "tags": [
+        "agent-skills",
+        "claude-code",
+        "cli",
+        "code-migration",
+        "codex"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "earshot",
+      "name": "earshot",
+      "org": "Leonxlnx",
+      "cat": "audio",
+      "tagline": "Ears for coding agents: let AI hear, review and make sound. CPU-only, open so...",
+      "desc": "Ears for coding agents: let AI hear, review and make sound. CPU-only, open source.",
+      "license": "MIT",
+      "lang": "Python",
+      "stars": 5287,
+      "repo": "Leonxlnx/earshot",
+      "tags": [
+        "ai-agents",
+        "audio",
+        "claude-code",
+        "mcp",
+        "sound-design"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "soduwork",
+      "name": "SoduWork",
+      "org": "mdiri-ai",
+      "cat": "agents",
+      "tagline": "The AI-native engine for teams and their agents. Multi-harness, multi-agent, ...",
+      "desc": "The AI-native engine for teams and their agents. Multi-harness, multi-agent, self-hosted.",
+      "license": "MIT",
+      "lang": "JavaScript",
+      "stars": 5198,
+      "repo": "mdiri-ai/SoduWork",
+      "tags": [
+        "agent-harness",
+        "agent-orchestration",
+        "agent-workflows",
+        "ai-agents",
+        "ai-workflows"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "autoswarm-shadow-adapter",
+      "name": "AutoSwarm-Shadow-Adapter",
+      "org": "AhmadHassan-BTed",
+      "cat": "agents",
+      "tagline": "Zero-modification Human-in-the-Loop adapter for OpenOPC's agentic DAG runtime.",
+      "desc": "Zero-modification Human-in-the-Loop adapter for OpenOPC's agentic DAG runtime.",
+      "license": "MIT",
+      "lang": "Python",
+      "stars": 5176,
+      "repo": "AhmadHassan-BTed/AutoSwarm-Shadow-Adapter",
+      "tags": [
+        "agentic-ai",
+        "agentic-workflow",
+        "ai-employee",
+        "ai-native",
+        "ai-workforce"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "esp32-iphone-agent",
+      "name": "esp32-iphone-agent",
+      "org": "onehumanbeing",
+      "cat": "robotics",
+      "tagline": "Manina AI: let an AI model use a real iPhone with a $7 ESP32: AirPlay eyes, U...",
+      "desc": "Manina AI: let an AI model use a real iPhone with a $7 ESP32: AirPlay eyes, USB HID hands, any OpenAI-compatible vision model. No Mac, no developer account, no jailbreak.",
+      "license": "MIT",
+      "lang": "Swift",
+      "stars": 5138,
+      "repo": "onehumanbeing/esp32-iphone-agent",
+      "tags": [
+        "ai-agent",
+        "airplay",
+        "claude-code",
+        "computer-use",
+        "dsh-plugin"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "porcupine",
+      "name": "porcupine",
+      "org": "Picovoice",
+      "cat": "audio",
+      "tagline": "On-device wake word detection powered by deep learning",
+      "desc": "On-device wake word detection powered by deep learning",
+      "license": "Apache-2.0",
+      "lang": "Python",
+      "stars": 5026,
+      "repo": "Picovoice/porcupine",
+      "tags": [
+        "handsfree",
+        "hotword",
+        "hotword-detection",
+        "hotword-detector",
+        "keyword-spotter"
+      ],
+      "status": "active",
+      "year": 2018
     }
   ]
 }
