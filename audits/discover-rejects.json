@@ -65,10 +65,10 @@
   "ashishpatel26/500-ai-agents-projects": {
     "kind": "category",
     "reason": "category confidence below threshold",
-    "score": 0.42,
-    "stars": 39329,
-    "rejectedAt": "2026-11-06",
-    "retryAfter": "2026-11-20"
+    "score": 0.39,
+    "stars": 40139,
+    "rejectedAt": "2026-11-20",
+    "retryAfter": "2026-12-04"
   },
   "backnotprop/plannotator": {
     "kind": "category",
@@ -97,10 +97,10 @@
   "ccch1mneyyy/dsh-go": {
     "kind": "category",
     "reason": "category confidence below threshold",
-    "score": 0.45,
-    "stars": 12391,
-    "rejectedAt": "2026-11-06",
-    "retryAfter": "2026-11-20"
+    "score": 0.58,
+    "stars": 28678,
+    "rejectedAt": "2026-11-20",
+    "retryAfter": "2026-12-04"
   },
   "cheaper-inference/omniroute": {
     "kind": "duplicate",
@@ -109,6 +109,14 @@
     "stars": 81471,
     "rejectedAt": "2026-10-26",
     "retryAfter": "2026-11-25"
+  },
+  "clidey/whodb": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.29,
+    "stars": 5063,
+    "rejectedAt": "2026-11-20",
+    "retryAfter": "2026-12-04"
   },
   "coder/coder": {
     "kind": "category",
@@ -137,10 +145,10 @@
   "davila7/claude-code-templates": {
     "kind": "category",
     "reason": "category confidence below threshold",
-    "score": 0.59,
-    "stars": 33155,
-    "rejectedAt": "2026-11-06",
-    "retryAfter": "2026-11-20"
+    "score": 0.58,
+    "stars": 34019,
+    "rejectedAt": "2026-11-20",
+    "retryAfter": "2026-12-04"
   },
   "dayuanjiang/next-ai-draw-io": {
     "kind": "category",
@@ -398,6 +406,14 @@
     "rejectedAt": "2026-10-31",
     "retryAfter": "2026-11-14"
   },
+  "liuzhao1225/youdub-desktop": {
+    "kind": "duplicate",
+    "reason": "duplicate of youdub-webui",
+    "score": 0.84,
+    "stars": 5870,
+    "rejectedAt": "2026-11-20",
+    "retryAfter": "2026-12-20"
+  },
   "louis-cfm/coucou": {
     "kind": "category",
     "reason": "category confidence below threshold",
@@ -497,10 +513,10 @@
   "narcooo/inkos": {
     "kind": "category",
     "reason": "category confidence below threshold",
-    "score": 0.5,
-    "stars": 11014,
-    "rejectedAt": "2026-11-06",
-    "retryAfter": "2026-11-20"
+    "score": 0.47,
+    "stars": 11353,
+    "rejectedAt": "2026-11-20",
+    "retryAfter": "2026-12-04"
   },
   "nautechsystems/nautilus_trader": {
     "kind": "category",
@@ -689,10 +705,10 @@
   "tambo-ai/tambo": {
     "kind": "category",
     "reason": "category confidence below threshold",
-    "score": 0.46,
-    "stars": 11224,
-    "rejectedAt": "2026-11-06",
-    "retryAfter": "2026-11-20"
+    "score": 0.49,
+    "stars": 11222,
+    "rejectedAt": "2026-11-20",
+    "retryAfter": "2026-12-04"
   },
   "the-vibe-company/quivr": {
     "kind": "name",
@@ -774,10 +790,10 @@
   "yikart/aitoearn": {
     "kind": "category",
     "reason": "category confidence below threshold",
-    "score": 0.36,
-    "stars": 27349,
-    "rejectedAt": "2026-11-06",
-    "retryAfter": "2026-11-20"
+    "score": 0.35,
+    "stars": 28488,
+    "rejectedAt": "2026-11-20",
+    "retryAfter": "2026-12-04"
   },
   "zhulinsen/daily_stock_analysis": {
     "kind": "category",
