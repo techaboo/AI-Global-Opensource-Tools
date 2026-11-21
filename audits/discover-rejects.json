@@ -73,10 +73,10 @@
   "backnotprop/plannotator": {
     "kind": "category",
     "reason": "category confidence below threshold",
-    "score": 0.52,
-    "stars": 9879,
-    "rejectedAt": "2026-11-07",
-    "retryAfter": "2026-11-21"
+    "score": 0.37,
+    "stars": 14015,
+    "rejectedAt": "2026-11-21",
+    "retryAfter": "2026-12-05"
   },
   "bbfamily/abu": {
     "kind": "category",
@@ -206,6 +206,14 @@
     "rejectedAt": "2026-11-19",
     "retryAfter": "2026-12-03"
   },
+  "expo/exact": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.49,
+    "stars": 4853,
+    "rejectedAt": "2026-11-21",
+    "retryAfter": "2026-12-05"
+  },
   "farion1231/cc-switch": {
     "kind": "category",
     "reason": "category confidence below threshold",
@@ -325,6 +333,13 @@
     "stars": 34210,
     "rejectedAt": "2026-11-11",
     "retryAfter": "2026-11-25"
+  },
+  "ivanmurzak/unity-mcp": {
+    "kind": "name",
+    "reason": "shares a name with an existing entry",
+    "stars": 4677,
+    "rejectedAt": "2026-11-21",
+    "retryAfter": "2026-12-21"
   },
   "jcodesmore/ai-website-cloner-template": {
     "kind": "category",
@@ -470,6 +485,14 @@
     "rejectedAt": "2026-11-18",
     "retryAfter": "2026-12-02"
   },
+  "microsoft/pyrit": {
+    "kind": "duplicate",
+    "reason": "duplicate of pyrit",
+    "score": 0.86,
+    "stars": 5002,
+    "rejectedAt": "2026-11-21",
+    "retryAfter": "2026-12-21"
+  },
   "microsoft/tokeneconomizer": {
     "kind": "category",
     "reason": "category confidence below threshold",
@@ -485,6 +508,14 @@
     "stars": 25595,
     "rejectedAt": "2026-11-19",
     "retryAfter": "2026-12-03"
+  },
+  "modelflare-ai/anymodelbot": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.57,
+    "stars": 4961,
+    "rejectedAt": "2026-11-21",
+    "retryAfter": "2026-12-05"
   },
   "modelscope/funclip": {
     "kind": "category",
@@ -673,10 +704,10 @@
   "startrail-org/pixelrag": {
     "kind": "category",
     "reason": "category confidence below threshold",
-    "score": 0.58,
-    "stars": 10863,
-    "rejectedAt": "2026-11-07",
-    "retryAfter": "2026-11-21"
+    "score": 0.54,
+    "stars": 10975,
+    "rejectedAt": "2026-11-21",
+    "retryAfter": "2026-12-05"
   },
   "stefan-jansen/machine-learning-for-trading": {
     "kind": "category",
@@ -802,6 +833,14 @@
     "stars": 68416,
     "rejectedAt": "2026-11-09",
     "retryAfter": "2026-11-23"
+  },
+  "zju-real/easel": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.45,
+    "stars": 4823,
+    "rejectedAt": "2026-11-21",
+    "retryAfter": "2026-12-05"
   },
   "zoicware/removewindowsai": {
     "kind": "category",
