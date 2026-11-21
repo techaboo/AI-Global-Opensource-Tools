@@ -18288,6 +18288,174 @@
       ],
       "status": "active",
       "year": 2018
+    },
+    {
+      "id": "appllama-skills",
+      "name": "appllama-skills",
+      "org": "Appllama",
+      "cat": "agents",
+      "tagline": "A builder, not just a researcher. Agent skills that turn top-grossing app pat...",
+      "desc": "A builder, not just a researcher. Agent skills that turn top-grossing app patterns into native-quality mobile screens.",
+      "license": "MIT",
+      "lang": "Unknown",
+      "stars": 5539,
+      "repo": "Appllama/appllama-skills",
+      "tags": [
+        "agent-skills",
+        "ai-agents",
+        "claude",
+        "claude-code",
+        "claude-code-skill"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "webots",
+      "name": "webots",
+      "org": "cyberbotics",
+      "cat": "robotics",
+      "tagline": "Webots Robot Simulator",
+      "desc": "Webots Robot Simulator",
+      "license": "Apache-2.0",
+      "lang": "C++",
+      "stars": 4774,
+      "repo": "cyberbotics/webots",
+      "tags": [
+        "3d-engine",
+        "ai",
+        "autonomous-vehicles",
+        "computer-vision",
+        "fluid-dynamics"
+      ],
+      "status": "active",
+      "year": 2018
+    },
+    {
+      "id": "infinity",
+      "name": "infinity",
+      "org": "infiniflow",
+      "cat": "vectordb",
+      "tagline": "The AI-native database built for LLM applications, providing incredibly fast ...",
+      "desc": "The AI-native database built for LLM applications, providing incredibly fast hybrid search of dense vector, sparse vector, tensor (multi-vector), and full-text.",
+      "license": "Apache-2.0",
+      "lang": "C++",
+      "stars": 4770,
+      "repo": "infiniflow/infinity",
+      "tags": [
+        "ai-native",
+        "approximate-nearest-neighbor-search",
+        "bm25",
+        "cpp20",
+        "cpp20-modules"
+      ],
+      "status": "active",
+      "year": 2022
+    },
+    {
+      "id": "pigo",
+      "name": "pigo",
+      "org": "esimov",
+      "cat": "vision",
+      "tagline": "Fast face detection, pupil/eyes localization and facial landmark points detec...",
+      "desc": "Fast face detection, pupil/eyes localization and facial landmark points detection library in pure Go.",
+      "license": "MIT",
+      "lang": "Go",
+      "stars": 4747,
+      "repo": "esimov/pigo",
+      "tags": [
+        "computer-vision",
+        "eye-detection",
+        "face-detection",
+        "facial-landmarks",
+        "golang"
+      ],
+      "status": "active",
+      "year": 2018
+    },
+    {
+      "id": "obs-backgroundremoval",
+      "name": "obs-backgroundremoval",
+      "org": "royshil",
+      "cat": "vision",
+      "tagline": "An OBS plugin for removing background in portrait images (video), making it e...",
+      "desc": "An OBS plugin for removing background in portrait images (video), making it easy to replace the background when recording or streaming.",
+      "license": "GPL-3.0",
+      "lang": "C++",
+      "stars": 4713,
+      "repo": "royshil/obs-backgroundremoval",
+      "tags": [
+        "background-segmentation",
+        "computer-vision",
+        "image-segmentation",
+        "libobs",
+        "mac-osx"
+      ],
+      "status": "active",
+      "year": 2021
+    },
+    {
+      "id": "ruvector",
+      "name": "RuVector",
+      "org": "ruvnet",
+      "cat": "vectordb",
+      "tagline": "RuVector provides High Performance, Real-Time decisions and agent memory , Se...",
+      "desc": "RuVector provides High Performance, Real-Time decisions and agent memory , Self-Learning Ai, Vector GNN DB built in Rust.",
+      "license": "MIT",
+      "lang": "Rust",
+      "stars": 4713,
+      "repo": "ruvnet/RuVector",
+      "tags": [
+        "ai",
+        "ai-ocr",
+        "attention-mechanism",
+        "gnn",
+        "gnn-model"
+      ],
+      "status": "active",
+      "year": 2025
+    },
+    {
+      "id": "nlpaug",
+      "name": "nlpaug",
+      "org": "makcedward",
+      "cat": "data",
+      "tagline": "Data augmentation for NLP",
+      "desc": "Data augmentation for NLP",
+      "license": "MIT",
+      "lang": "Jupyter Notebook",
+      "stars": 4664,
+      "repo": "makcedward/nlpaug",
+      "tags": [
+        "adversarial-attacks",
+        "adversarial-example",
+        "ai",
+        "artificial-intelligence",
+        "augmentation"
+      ],
+      "status": "active",
+      "year": 2019
+    },
+    {
+      "id": "pinto-model-zoo",
+      "name": "PINTO_model_zoo",
+      "org": "PINTO0309",
+      "cat": "frameworks",
+      "tagline": "A repository for storing models that have been inter-converted between variou...",
+      "desc": "A repository for storing models that have been inter-converted between various frameworks. Supported frameworks are TensorFlow, PyTorch, ONNX, OpenVINO, TFJS, TFTRT, TensorFlowLite (Float32/16/INT8), EdgeTPU, CoreML.",
+      "license": "MIT",
+      "lang": "Python",
+      "stars": 4647,
+      "repo": "PINTO0309/PINTO_model_zoo",
+      "tags": [
+        "caffe",
+        "computer-vision",
+        "coreml",
+        "edgetpu",
+        "keras"
+      ],
+      "status": "active",
+      "year": 2019
     }
   ]
 }
