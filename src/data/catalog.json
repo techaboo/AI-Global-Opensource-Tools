@@ -18456,6 +18456,174 @@
       ],
       "status": "active",
       "year": 2019
+    },
+    {
+      "id": "prest",
+      "name": "prest",
+      "org": "prest",
+      "cat": "mcp",
+      "tagline": "Instant REST and MCP APIs for PostgreSQL and MySQL, on existing or new databa...",
+      "desc": "Instant REST and MCP APIs for PostgreSQL and MySQL, on existing or new databases. CRUD, custom SQL routes, auth and ACL without writing a backend. Low-code, ⚡ realtime, high-performance. Native MySQL support since v2.5",
+      "license": "MIT",
+      "lang": "Go",
+      "stars": 4638,
+      "repo": "prest/prest",
+      "tags": [
+        "api",
+        "baas",
+        "backend",
+        "crud",
+        "database"
+      ],
+      "status": "active",
+      "year": 2016
+    },
+    {
+      "id": "longmemory",
+      "name": "LongMemory",
+      "org": "CaviraOSS",
+      "cat": "rag",
+      "tagline": "Local persistent memory store for LLM applications including claude desktop, ...",
+      "desc": "Local persistent memory store for LLM applications including claude desktop, github copilot, codex, antigravity, etc.",
+      "license": "Apache-2.0",
+      "lang": "TypeScript",
+      "stars": 4584,
+      "repo": "CaviraOSS/LongMemory",
+      "tags": [
+        "ai",
+        "ai-agents",
+        "ai-infrastructure",
+        "ai-memory",
+        "artificial-intelligence"
+      ],
+      "status": "active",
+      "year": 2025
+    },
+    {
+      "id": "embabel-agent",
+      "name": "embabel-agent",
+      "org": "embabel",
+      "cat": "agents",
+      "tagline": "Agent framework for the JVM. Pronounced Em-BAY-bel /ɛmˈbeɪbəl/",
+      "desc": "Agent framework for the JVM. Pronounced Em-BAY-bel /ɛmˈbeɪbəl/",
+      "license": "Apache-2.0",
+      "lang": "Kotlin",
+      "stars": 4565,
+      "repo": "embabel/embabel-agent",
+      "tags": [
+        "agent",
+        "agentic-ai",
+        "agents",
+        "ai",
+        "ai-agents"
+      ],
+      "status": "active",
+      "year": 2025
+    },
+    {
+      "id": "ruby-llm",
+      "name": "ruby_llm",
+      "org": "crmne",
+      "cat": "frameworks",
+      "tagline": "The Ruby AI framework.",
+      "desc": "The Ruby AI framework.",
+      "license": "MIT",
+      "lang": "Ruby",
+      "stars": 4523,
+      "repo": "crmne/ruby_llm",
+      "tags": [
+        "agent-framework",
+        "agentic-ai",
+        "agents",
+        "ai",
+        "ai-agents"
+      ],
+      "status": "active",
+      "year": 2025
+    },
+    {
+      "id": "crate",
+      "name": "crate",
+      "org": "crate",
+      "cat": "vectordb",
+      "tagline": "CrateDB is a distributed and scalable SQL database for storing and analyzing ...",
+      "desc": "CrateDB is a distributed and scalable SQL database for storing and analyzing massive amounts of data in near real-time, even with complex queries. It is PostgreSQL-compatible, and based on Lucene.",
+      "license": "Apache-2.0",
+      "lang": "Java",
+      "stars": 4456,
+      "repo": "crate/crate",
+      "tags": [
+        "analytics",
+        "big-data",
+        "cratedb",
+        "database",
+        "dbms"
+      ],
+      "status": "active",
+      "year": 2013
+    },
+    {
+      "id": "agentic-rag-for-dummies",
+      "name": "agentic-rag-for-dummies",
+      "org": "GiovanniPasq",
+      "cat": "rag",
+      "tagline": "A modular Agentic RAG built with LangGraph — learn Retrieval-Augmented Genera...",
+      "desc": "A modular Agentic RAG built with LangGraph — learn Retrieval-Augmented Generation Agents in minutes.",
+      "license": "MIT",
+      "lang": "Jupyter Notebook",
+      "stars": 4398,
+      "repo": "GiovanniPasq/agentic-rag-for-dummies",
+      "tags": [
+        "agent",
+        "agentic-ai",
+        "agentic-rag",
+        "agents",
+        "ai-agents"
+      ],
+      "status": "active",
+      "year": 2025
+    },
+    {
+      "id": "lightllm",
+      "name": "LightLLM",
+      "org": "ModelTC",
+      "cat": "inference",
+      "tagline": "LightLLM is a Python-based LLM (Large Language Model) inference and serving f...",
+      "desc": "LightLLM is a Python-based LLM (Large Language Model) inference and serving framework, notable for its lightweight design, easy scalability, and high-speed performance.",
+      "license": "Apache-2.0",
+      "lang": "Python",
+      "stars": 4370,
+      "repo": "ModelTC/LightLLM",
+      "tags": [
+        "deep-learning",
+        "gpt",
+        "llama",
+        "llm",
+        "model-serving"
+      ],
+      "status": "active",
+      "year": 2023
+    },
+    {
+      "id": "whisperlive",
+      "name": "WhisperLive",
+      "org": "collabora",
+      "cat": "audio",
+      "tagline": "A nearly-live implementation of OpenAI's Whisper.",
+      "desc": "A nearly-live implementation of OpenAI's Whisper.",
+      "license": "MIT",
+      "lang": "Python",
+      "stars": 4364,
+      "repo": "collabora/WhisperLive",
+      "tags": [
+        "dictation",
+        "obs",
+        "openai",
+        "openvino",
+        "openvino-intel"
+      ],
+      "status": "active",
+      "year": 2023
     }
   ]
 }
