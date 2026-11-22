@@ -254,6 +254,13 @@
     "rejectedAt": "2026-11-14",
     "retryAfter": "2026-11-28"
   },
+  "getstream/agents": {
+    "kind": "name",
+    "reason": "shares a name with an existing entry",
+    "stars": 8218,
+    "rejectedAt": "2026-11-22",
+    "retryAfter": "2026-12-22"
+  },
   "google-research/google-research": {
     "kind": "category",
     "reason": "category confidence below threshold",
@@ -356,6 +363,14 @@
     "stars": 19750,
     "rejectedAt": "2026-11-15",
     "retryAfter": "2026-11-29"
+  },
+  "jiwoochris/artex-global": {
+    "kind": "duplicate",
+    "reason": "duplicate of artex",
+    "score": 0.91,
+    "stars": 4397,
+    "rejectedAt": "2026-11-22",
+    "retryAfter": "2026-12-22"
   },
   "jnmetacode/agency-agents-zh": {
     "kind": "category",
@@ -580,6 +595,14 @@
     "stars": 6949,
     "rejectedAt": "2026-11-13",
     "retryAfter": "2026-11-27"
+  },
+  "open-compass/vlmevalkit": {
+    "kind": "duplicate",
+    "reason": "duplicate of opencompass",
+    "score": 0.58,
+    "stars": 4501,
+    "rejectedAt": "2026-11-22",
+    "retryAfter": "2026-12-22"
   },
   "openhands/openhands": {
     "kind": "duplicate",
@@ -809,6 +832,14 @@
     "stars": 5671,
     "rejectedAt": "2026-11-18",
     "retryAfter": "2026-12-18"
+  },
+  "vincentwei1021/video-shotcraft": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.45,
+    "stars": 22038,
+    "rejectedAt": "2026-11-22",
+    "retryAfter": "2026-12-06"
   },
   "wiltodelta/remove-ai-watermarks": {
     "kind": "category",
