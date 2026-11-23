@@ -2,10 +2,10 @@
   "0xplaygrounds/rig": {
     "kind": "category",
     "reason": "category confidence below threshold",
-    "score": 0.58,
-    "stars": 9099,
-    "rejectedAt": "2026-11-09",
-    "retryAfter": "2026-11-23"
+    "score": 0.49,
+    "stars": 9235,
+    "rejectedAt": "2026-11-23",
+    "retryAfter": "2026-12-07"
   },
   "aaif-goose/goose": {
     "kind": "name",
@@ -85,6 +85,14 @@
     "stars": 19097,
     "rejectedAt": "2026-11-01",
     "retryAfter": "2026-11-15"
+  },
+  "bilibili/gpt-sovits": {
+    "kind": "duplicate",
+    "reason": "duplicate of gpt-sovits",
+    "score": 0.79,
+    "stars": 64211,
+    "rejectedAt": "2026-11-23",
+    "retryAfter": "2026-12-23"
   },
   "bloopai/vibe-kanban": {
     "kind": "category",
@@ -217,10 +225,10 @@
   "farion1231/cc-switch": {
     "kind": "category",
     "reason": "category confidence below threshold",
-    "score": 0.36,
-    "stars": 152971,
-    "rejectedAt": "2026-11-09",
-    "retryAfter": "2026-11-23"
+    "score": 0.43,
+    "stars": 156563,
+    "rejectedAt": "2026-11-23",
+    "retryAfter": "2026-12-07"
   },
   "feder-cr/jobs_applier_ai_agent": {
     "kind": "duplicate",
@@ -415,10 +423,10 @@
   "leonxlnx/taste-skill": {
     "kind": "category",
     "reason": "category confidence below threshold",
-    "score": 0.54,
-    "stars": 112258,
-    "rejectedAt": "2026-11-09",
-    "retryAfter": "2026-11-23"
+    "score": 0.39,
+    "stars": 120398,
+    "rejectedAt": "2026-11-23",
+    "retryAfter": "2026-12-07"
   },
   "librechat-ai/librechat": {
     "kind": "duplicate",
@@ -471,10 +479,10 @@
   "mariadb/server": {
     "kind": "category",
     "reason": "category confidence below threshold",
-    "score": 0.41,
-    "stars": 8553,
-    "rejectedAt": "2026-11-09",
-    "retryAfter": "2026-11-23"
+    "score": 0.42,
+    "stars": 8648,
+    "rejectedAt": "2026-11-23",
+    "retryAfter": "2026-12-07"
   },
   "marker-inc-korea/autorag": {
     "kind": "category",
@@ -543,10 +551,10 @@
   "modelscope/modelscope": {
     "kind": "category",
     "reason": "category confidence below threshold",
-    "score": 0.49,
-    "stars": 9213,
-    "rejectedAt": "2026-11-09",
-    "retryAfter": "2026-11-23"
+    "score": 0.48,
+    "stars": 9225,
+    "rejectedAt": "2026-11-23",
+    "retryAfter": "2026-12-07"
   },
   "nanocoai/nanoclaw": {
     "kind": "category",
@@ -671,10 +679,10 @@
   "realsenseai/librealsense": {
     "kind": "category",
     "reason": "category confidence below threshold",
-    "score": 0.31,
-    "stars": 9088,
-    "rejectedAt": "2026-11-09",
-    "retryAfter": "2026-11-23"
+    "score": 0.34,
+    "stars": 9110,
+    "rejectedAt": "2026-11-23",
+    "retryAfter": "2026-12-07"
   },
   "rocketride-org/rocketride-server": {
     "kind": "category",
@@ -695,10 +703,10 @@
   "ruvnet/ruview": {
     "kind": "category",
     "reason": "category confidence below threshold",
-    "score": 0.52,
-    "stars": 103128,
-    "rejectedAt": "2026-11-09",
-    "retryAfter": "2026-11-23"
+    "score": 0.51,
+    "stars": 104897,
+    "rejectedAt": "2026-11-23",
+    "retryAfter": "2026-12-07"
   },
   "sickn33/agentic-awesome-skills": {
     "kind": "category",
@@ -744,9 +752,9 @@
     "kind": "category",
     "reason": "category confidence below threshold",
     "score": 0.49,
-    "stars": 8999,
-    "rejectedAt": "2026-11-09",
-    "retryAfter": "2026-11-23"
+    "stars": 9180,
+    "rejectedAt": "2026-11-23",
+    "retryAfter": "2026-12-07"
   },
   "t8y2/dbx": {
     "kind": "category",
@@ -801,6 +809,14 @@
     "stars": 64406,
     "rejectedAt": "2026-11-09",
     "retryAfter": "2026-11-23"
+  },
+  "urchade/gliner": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.43,
+    "stars": 4289,
+    "rejectedAt": "2026-11-23",
+    "retryAfter": "2026-12-07"
   },
   "valuecell-ai/clawx": {
     "kind": "category",
@@ -860,10 +876,10 @@
   "zhulinsen/daily_stock_analysis": {
     "kind": "category",
     "reason": "category confidence below threshold",
-    "score": 0.38,
-    "stars": 68416,
-    "rejectedAt": "2026-11-09",
-    "retryAfter": "2026-11-23"
+    "score": 0.34,
+    "stars": 73828,
+    "rejectedAt": "2026-11-23",
+    "retryAfter": "2026-12-07"
   },
   "zju-real/easel": {
     "kind": "category",
