@@ -18624,6 +18624,173 @@
       ],
       "status": "active",
       "year": 2023
+    },
+    {
+      "id": "last30days-skill",
+      "name": "last30days-skill",
+      "org": "mvanhorn",
+      "cat": "search",
+      "tagline": "AI agent skill that researches any topic across Reddit, X, YouTube, HN, Polym...",
+      "desc": "AI agent skill that researches any topic across Reddit, X, YouTube, HN, Polymarket, and the web - then synthesizes a grounded summary",
+      "license": "MIT",
+      "lang": "Python",
+      "stars": 73084,
+      "repo": "mvanhorn/last30days-skill",
+      "tags": [
+        "agent-skills",
+        "artificial-intelligence",
+        "automation",
+        "bot",
+        "command-line"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "context7",
+      "name": "context7",
+      "org": "upstash",
+      "cat": "docs",
+      "tagline": "Context7 Platform -- Up-to-date docs for AI agents",
+      "desc": "Context7 Platform -- Up-to-date docs for AI agents",
+      "license": "MIT",
+      "lang": "TypeScript",
+      "stars": 65314,
+      "repo": "upstash/context7",
+      "tags": [
+        "llm",
+        "mcp",
+        "mcp-server",
+        "vibe-coding"
+      ],
+      "status": "active",
+      "year": 2025
+    },
+    {
+      "id": "agentic-awesome-skills",
+      "name": "agentic-awesome-skills",
+      "org": "sickn33",
+      "cat": "prompts",
+      "tagline": "3,000+ reusable AI agent skills for Claude Code, Codex, Cursor and Gemini CLI...",
+      "desc": "3,000+ reusable AI agent skills for Claude Code, Codex, Cursor and Gemini CLI. AAS Core adds local catalog discovery, agent-owned selection and plan preview. CLI, MCP and plugins.",
+      "license": "MIT",
+      "lang": "Python",
+      "stars": 50186,
+      "repo": "sickn33/agentic-awesome-skills",
+      "tags": [
+        "agent-skills",
+        "agentic-skills",
+        "ai-agent-skills",
+        "ai-agents",
+        "ai-coding"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "optillm",
+      "name": "optillm",
+      "org": "algorithmicsuperintelligence",
+      "cat": "mlops",
+      "tagline": "Optimizing inference proxy for LLMs",
+      "desc": "Optimizing inference proxy for LLMs",
+      "license": "Apache-2.0",
+      "lang": "Python",
+      "stars": 4343,
+      "repo": "algorithmicsuperintelligence/optillm",
+      "tags": [
+        "agent",
+        "agentic-ai",
+        "agentic-framework",
+        "agentic-workflow",
+        "agents"
+      ],
+      "status": "active",
+      "year": 2024
+    },
+    {
+      "id": "excel-mcp-server",
+      "name": "excel-mcp-server",
+      "org": "haris-musa",
+      "cat": "mcp",
+      "tagline": "Excel MCP server: let AI (Claude, Cursor, Codex) create and edit Excel files ...",
+      "desc": "Excel MCP server: let AI (Claude, Cursor, Codex) create and edit Excel files with charts, PivotTables, slicers and formulas. No Excel required.",
+      "license": "MIT",
+      "lang": "Python",
+      "stars": 4322,
+      "repo": "haris-musa/excel-mcp-server",
+      "tags": [
+        "ai",
+        "automation",
+        "charts",
+        "claude",
+        "cursor"
+      ],
+      "status": "active",
+      "year": 2025
+    },
+    {
+      "id": "agent-memory",
+      "name": "agent-memory",
+      "org": "tigerless-labs",
+      "cat": "rag",
+      "tagline": "Long-term memory runtime for AI agents — plain Markdown as the source of trut...",
+      "desc": "Long-term memory runtime for AI agents — plain Markdown as the source of truth, local ranked retrieval, and an independent sleep-time Manage layer. Claude Code and Codex share one store. No API key.",
+      "license": "MIT",
+      "lang": "Python",
+      "stars": 4319,
+      "repo": "tigerless-labs/agent-memory",
+      "tags": [
+        "agent-memory",
+        "ai-agents",
+        "claude-code",
+        "codex",
+        "llm"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "mnbvc",
+      "name": "MNBVC",
+      "org": "esbatmop",
+      "cat": "data",
+      "tagline": "MNBVC(Massive Never-ending BT Vast Chinese corpus)超大规模中文语料集。对标chatGPT训练的40T数据...",
+      "desc": "MNBVC(Massive Never-ending BT Vast Chinese corpus)超大规模中文语料集。对标chatGPT训练的40T数据。MNBVC数据集不但包括主流文化，也包括各个小众文化甚至火星文的数据。MNBVC数据集包括新闻、作文、小说、书籍、杂志、论文、台词、帖子、wiki、古诗、歌词、商品介绍、笑话、糗事、聊天记录等一切形式的纯文本中文数据。",
+      "license": "MIT",
+      "lang": "Unknown",
+      "stars": 4312,
+      "repo": "esbatmop/MNBVC",
+      "tags": [
+        "chinese",
+        "chinese-language",
+        "chinese-nlp",
+        "chinese-simplified",
+        "corpus-data"
+      ],
+      "status": "active",
+      "year": 2022
+    },
+    {
+      "id": "linkedin-mcp-server",
+      "name": "linkedin-mcp-server",
+      "org": "stickerdaniel",
+      "cat": "mcp",
+      "tagline": "Open-source MCP server for LinkedIn. Give Claude and any MCP-compatible AI ag...",
+      "desc": "Open-source MCP server for LinkedIn. Give Claude and any MCP-compatible AI agent access to profiles, companies, jobs, and messages.",
+      "license": "Apache-2.0",
+      "lang": "Python",
+      "stars": 4285,
+      "repo": "stickerdaniel/linkedin-mcp-server",
+      "tags": [
+        "ai-agents",
+        "anthropic",
+        "chatgpt",
+        "chatgpt-desktop",
+        "claude"
+      ],
+      "status": "active",
+      "year": 2025
     }
   ]
 }
