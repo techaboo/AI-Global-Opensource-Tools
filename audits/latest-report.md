@@ -1,26 +1,38 @@
 # TypeSafe catalog audit
 
-Last run: 2026-11-16T07:51:53.037Z
+Last run: 2026-11-23T07:36:25.395Z
 Reviewed this run: 50 / 50 requested (batch size 50)
-Catalog coverage: 208 / 896 tools have been reviewed at least once
+Catalog coverage: 258 / 952 tools have been reviewed at least once
 
-## 6 tool(s) flagged this run
+## 10 tool(s) flagged this run
 
-### Transformers (`transformers`)
-- tagline may not reflect the description (noul 0.41)
+### Ultralytics YOLO (`ultralytics`)
+- tagline may not reflect the description (noul 0.36)
 
-### PyTorch (`pytorch`)
-- tagline may not reflect the description (noul 0.43)
+### MMDetection (`mmdetection`)
+- tagline may not reflect the description (noul 0.27)
 
-### ONNX Runtime (`onnxruntime`)
-- category mismatch: catalog says `frameworks`, model suggests `inference` (confidence 1.00)
+### Stable Baselines3 (`stable-baselines3`)
+- category mismatch: catalog says `robotics`, model suggests `frameworks` (confidence 0.89)
 
-### SkyPilot (`skypilot`)
+### Perplexica (`perplexica`)
+- possible duplicate of **Vane** (`vane`) — noul 0.84
+
+### 3D Gaussian Splatting (`gaussian-splatting`)
+- tagline may not reflect the description (noul 0.49)
+
+### TripoSR (`triposr`)
+- tagline may not reflect the description (noul 0.26)
+
+### Awesome ChatGPT Prompts (`awesome-chatgpt-prompts`)
 - tagline may not reflect the description (noul 0.34)
 
-### Presidio (`presidio`)
-- tagline may not reflect the description (noul 0.13)
+### Awesome LLM Apps (`awesome-llm-apps`)
+- category mismatch: catalog says `prompts`, model suggests `rag` (confidence 0.81)
 
-### garak (`garak`)
-- category mismatch: catalog says `guardrails`, model suggests `eval` (confidence 0.91)
+### Prompt Engineering Guide (`prompt-eng-guide`)
+- tagline may not reflect the description (noul 0.44)
+
+### GenAI Agents (`genai-agents`)
+- category mismatch: catalog says `prompts`, model suggests `agents` (confidence 0.77)
 

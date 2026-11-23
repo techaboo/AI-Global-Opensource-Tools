@@ -830,5 +830,205 @@
   "snorkel": {
     "reviewedAt": "2026-11-16T07:51:53.036Z",
     "flagged": false
+  },
+  "lilac": {
+    "reviewedAt": "2026-11-23T07:36:21.413Z",
+    "flagged": false
+  },
+  "distilabel": {
+    "reviewedAt": "2026-11-23T07:36:21.484Z",
+    "flagged": false
+  },
+  "opencv": {
+    "reviewedAt": "2026-11-23T07:36:21.561Z",
+    "flagged": false
+  },
+  "ultralytics": {
+    "reviewedAt": "2026-11-23T07:36:21.712Z",
+    "flagged": true
+  },
+  "detectron2": {
+    "reviewedAt": "2026-11-23T07:36:21.785Z",
+    "flagged": false
+  },
+  "mmdetection": {
+    "reviewedAt": "2026-11-23T07:36:21.856Z",
+    "flagged": true
+  },
+  "sam2": {
+    "reviewedAt": "2026-11-23T07:36:21.931Z",
+    "flagged": false
+  },
+  "grounding-dino": {
+    "reviewedAt": "2026-11-23T07:36:22.008Z",
+    "flagged": false
+  },
+  "timm": {
+    "reviewedAt": "2026-11-23T07:36:22.113Z",
+    "flagged": false
+  },
+  "tesseract": {
+    "reviewedAt": "2026-11-23T07:36:22.189Z",
+    "flagged": false
+  },
+  "paddleocr": {
+    "reviewedAt": "2026-11-23T07:36:22.261Z",
+    "flagged": false
+  },
+  "mineru": {
+    "reviewedAt": "2026-11-23T07:36:22.330Z",
+    "flagged": false
+  },
+  "docling": {
+    "reviewedAt": "2026-11-23T07:36:22.410Z",
+    "flagged": false
+  },
+  "marker": {
+    "reviewedAt": "2026-11-23T07:36:22.485Z",
+    "flagged": false
+  },
+  "surya": {
+    "reviewedAt": "2026-11-23T07:36:22.556Z",
+    "flagged": false
+  },
+  "mcp-servers": {
+    "reviewedAt": "2026-11-23T07:36:22.627Z",
+    "flagged": false
+  },
+  "awesome-mcp": {
+    "reviewedAt": "2026-11-23T07:36:22.702Z",
+    "flagged": false
+  },
+  "fastmcp": {
+    "reviewedAt": "2026-11-23T07:36:22.786Z",
+    "flagged": false
+  },
+  "mcp-agent": {
+    "reviewedAt": "2026-11-23T07:36:22.860Z",
+    "flagged": false
+  },
+  "mcp-inspector": {
+    "reviewedAt": "2026-11-23T07:36:22.931Z",
+    "flagged": false
+  },
+  "lerobot": {
+    "reviewedAt": "2026-11-23T07:36:23.003Z",
+    "flagged": false
+  },
+  "stable-baselines3": {
+    "reviewedAt": "2026-11-23T07:36:23.143Z",
+    "flagged": true
+  },
+  "gymnasium": {
+    "reviewedAt": "2026-11-23T07:36:23.219Z",
+    "flagged": false
+  },
+  "openvla": {
+    "reviewedAt": "2026-11-23T07:36:23.297Z",
+    "flagged": false
+  },
+  "isaac-lab": {
+    "reviewedAt": "2026-11-23T07:36:23.367Z",
+    "flagged": false
+  },
+  "octo": {
+    "reviewedAt": "2026-11-23T07:36:23.433Z",
+    "flagged": false
+  },
+  "firecrawl": {
+    "reviewedAt": "2026-11-23T07:36:23.522Z",
+    "flagged": false
+  },
+  "crawl4ai": {
+    "reviewedAt": "2026-11-23T07:36:23.594Z",
+    "flagged": false
+  },
+  "agentgpt": {
+    "reviewedAt": "2026-11-23T07:36:23.667Z",
+    "flagged": false
+  },
+  "perplexica": {
+    "reviewedAt": "2026-11-23T07:36:23.737Z",
+    "flagged": true
+  },
+  "scrapegraph": {
+    "reviewedAt": "2026-11-23T07:36:23.808Z",
+    "flagged": false
+  },
+  "searxng": {
+    "reviewedAt": "2026-11-23T07:36:23.879Z",
+    "flagged": false
+  },
+  "morphic": {
+    "reviewedAt": "2026-11-23T07:36:23.954Z",
+    "flagged": false
+  },
+  "jina-reader": {
+    "reviewedAt": "2026-11-23T07:36:24.038Z",
+    "flagged": false
+  },
+  "gaussian-splatting": {
+    "reviewedAt": "2026-11-23T07:36:24.111Z",
+    "flagged": true
+  },
+  "hunyuan3d": {
+    "reviewedAt": "2026-11-23T07:36:24.186Z",
+    "flagged": false
+  },
+  "trellis": {
+    "reviewedAt": "2026-11-23T07:36:24.257Z",
+    "flagged": false
+  },
+  "nerfstudio": {
+    "reviewedAt": "2026-11-23T07:36:24.338Z",
+    "flagged": false
+  },
+  "triposr": {
+    "reviewedAt": "2026-11-23T07:36:24.412Z",
+    "flagged": true
+  },
+  "instantmesh": {
+    "reviewedAt": "2026-11-23T07:36:24.486Z",
+    "flagged": false
+  },
+  "awesome-chatgpt-prompts": {
+    "reviewedAt": "2026-11-23T07:36:24.556Z",
+    "flagged": true
+  },
+  "system-prompts": {
+    "reviewedAt": "2026-11-23T07:36:24.637Z",
+    "flagged": false
+  },
+  "awesome-llm-apps": {
+    "reviewedAt": "2026-11-23T07:36:24.708Z",
+    "flagged": true
+  },
+  "prompt-eng-guide": {
+    "reviewedAt": "2026-11-23T07:36:24.788Z",
+    "flagged": true
+  },
+  "llm-course": {
+    "reviewedAt": "2026-11-23T07:36:24.892Z",
+    "flagged": false
+  },
+  "ai-agents-beginners": {
+    "reviewedAt": "2026-11-23T07:36:25.048Z",
+    "flagged": false
+  },
+  "genai-agents": {
+    "reviewedAt": "2026-11-23T07:36:25.146Z",
+    "flagged": true
+  },
+  "qwen25-coder": {
+    "reviewedAt": "2026-11-23T07:36:25.221Z",
+    "flagged": false
+  },
+  "deepseek-coder": {
+    "reviewedAt": "2026-11-23T07:36:25.304Z",
+    "flagged": false
+  },
+  "starcoder2": {
+    "reviewedAt": "2026-11-23T07:36:25.395Z",
+    "flagged": false
   }
 }
