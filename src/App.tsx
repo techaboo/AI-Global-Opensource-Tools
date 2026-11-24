@@ -1,4 +1,4 @@
-import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { lazy, Suspense, useCallback, useEffect, useMemo, useState } from 'react';
 import { Toaster, toast } from 'sonner';
 import { CATEGORIES, TOOLS, SNAPSHOT_DATE } from '@/data/tools';
 import type { AITool } from '@/types';
@@ -70,7 +70,6 @@ export default function App() {
   const [favorites, setFavorites] = useState<Set<string>>(loadFavorites);
   const [selected, setSelected] = useState<AITool | null>(null);
   const [paletteOpen, setPaletteOpen] = useState(false);
-  const searchRef = useRef<string>('');
 
   const { liveMap, syncing, progress, rateLimited, setToken, hasToken, syncTools, fetchOne, lastSync } = useGitHubSync();
 
@@ -81,10 +80,6 @@ export default function App() {
       localStorage.setItem(THEME_KEY, dark ? 'dark' : 'light');
     } catch { /* ignore */ }
   }, [dark]);
-
-  useEffect(() => {
-    searchRef.current = search;
-  }, [search]);
 
   // ─── Effects: URL state sync (debounced) ──────────────────────────
   useEffect(() => {

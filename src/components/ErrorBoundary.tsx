@@ -20,7 +20,6 @@ export class ErrorBoundary extends Component<Props, State> {
   }
 
   private recover = () => {
-    localStorage.removeItem('atlas_compare_ids');
     window.history.replaceState(null, '', window.location.pathname);
     window.location.reload();
   };
