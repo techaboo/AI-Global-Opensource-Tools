@@ -272,10 +272,10 @@
   "google-research/google-research": {
     "kind": "category",
     "reason": "category confidence below threshold",
-    "score": 0.51,
-    "stars": 39150,
-    "rejectedAt": "2026-11-10",
-    "retryAfter": "2026-11-24"
+    "score": 0.55,
+    "stars": 39274,
+    "rejectedAt": "2026-11-24",
+    "retryAfter": "2026-12-08"
   },
   "google/adk-go": {
     "kind": "duplicate",
@@ -588,6 +588,14 @@
     "rejectedAt": "2026-11-15",
     "retryAfter": "2026-11-29"
   },
+  "nvidia/generativeaiexamples": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.56,
+    "stars": 4235,
+    "rejectedAt": "2026-11-24",
+    "retryAfter": "2026-12-08"
+  },
   "obsidianmd/obsidian-skills": {
     "kind": "category",
     "reason": "category confidence below threshold",
@@ -755,6 +763,14 @@
     "stars": 9180,
     "rejectedAt": "2026-11-23",
     "retryAfter": "2026-12-07"
+  },
+  "sylphai-inc/adalflow": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.45,
+    "stars": 4236,
+    "rejectedAt": "2026-11-24",
+    "retryAfter": "2026-12-08"
   },
   "t8y2/dbx": {
     "kind": "category",
