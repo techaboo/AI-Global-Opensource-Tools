@@ -9,7 +9,7 @@ This notice describes behavior visible in the current source code. A deployment 
 | Favorite tool IDs | `localStorage` | Until changed or site data is cleared |
 | Theme preference | `localStorage` | Until changed or site data is cleared |
 | Cached public GitHub metrics and star history | `localStorage` | Updated during use; remains until site data is cleared |
-| Optional GitHub token | `localStorage` | Until removed with the key control or site data is cleared |
+| Optional GitHub token | `sessionStorage` | Until the tab closes or it is removed with the key control |
 | Filters, searches, view, and comparisons | URL query string | In browser history and any copied/shared URL |
 
 The repository does not include application analytics or an account system. Browser storage stays on the device unless the browser, an extension, device backup, or synchronization feature copies it.

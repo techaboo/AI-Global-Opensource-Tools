@@ -111,7 +111,7 @@ export function ToolDetail({ tool: toolProp, category, live, onClose, onFetchLiv
             <div className="flex items-center justify-between mb-2">
               <div className="text-[12px] font-medium">Star history</div>
               <div className="text-[10px] text-muted-foreground">
-                {source === 'live' ? 'Weekly snapshot samples' : 'Approximate (year → current) until CI accumulates samples'}
+                {source === 'live' ? 'Daily snapshot samples' : 'Approximate (year → current) until CI accumulates samples'}
               </div>
             </div>
             <div className="w-full overflow-hidden">

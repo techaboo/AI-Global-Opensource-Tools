@@ -23,7 +23,8 @@ A GitHub permission alone should not be treated as a public maintainer appointme
 
 At least one maintainer approval is expected before merge, with one narrow,
 documented exception: `.github/workflows/discover-tools.yml` and
-`refresh-stars.yml` commit directly to `main` without human review, bounded
+`refresh-stars.yml` open pull requests that auto-merge without human review
+once the required CI checks pass (`scripts/open-bot-pr.sh`). They are bounded
 to objective, automated gates only (a live semantic-duplicate check, a
 confidence-gated category classification, a deterministic star-plausibility
 filter, and GitHub's own archived/404 status — see `scripts/discover-tools.mjs`
@@ -36,7 +37,7 @@ Conflicts of interest should be disclosed. A reviewer closely affiliated with a 
 
 ## Catalog stewardship
 
-The scheduled repository-metric baseline runs weekly. Editorial catalog changes require review. Maintainers target a quarterly sample audit of links, licenses, descriptions, statuses, and “Hot” labels, subject to volunteer capacity. The methodology, not commercial relationships or contributor prominence, governs inclusion.
+The scheduled repository-metric baseline refreshes hourly. Editorial catalog changes require review. Maintainers target a quarterly sample audit of links, licenses, descriptions, statuses, and “Hot” labels, subject to volunteer capacity. The methodology, not commercial relationships or contributor prominence, governs inclusion.
 
 ## Conduct and appeals
 

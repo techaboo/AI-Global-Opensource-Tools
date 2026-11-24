@@ -57,7 +57,7 @@ npm run lint
 npm run build
 ```
 
-For optional development-only GitHub access, copy `.env.example` to `.env` and set `VITE_GITHUB_TOKEN`. The current code reads this variable only during development. Never commit `.env` or a token.
+For optional development-only GitHub access, create a `.env` file containing `VITE_GITHUB_TOKEN=<token>`. The current code reads this variable only during development. Never commit `.env` or a token.
 
 ## Contributing
 

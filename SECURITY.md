@@ -24,7 +24,7 @@ Catalog entries link to independent third-party projects. Their vulnerabilities 
 
 ## Token and deployment safety
 
-- The optional in-app GitHub token is currently stored in browser `localStorage`, persists until removed or site data is cleared, and is sent by the app to `api.github.com` for repository requests. Use a narrowly restricted token and avoid shared devices.
+- The optional in-app GitHub token is stored in browser `sessionStorage`, is discarded when the tab closes or when removed in the UI, and is sent by the app to `api.github.com` for repository requests. Use a narrowly restricted token and avoid shared devices.
 - Any script running in the same site origin, including code introduced through a cross-site scripting flaw, could potentially read browser storage. Treat XSS reports as sensitive.
 - `VITE_GITHUB_TOKEN` is intended only for local development and is gated to development mode. Do not place secrets in client-side production environment variables.
 - The scheduled refresh uses the workflow-provided `GITHUB_TOKEN`; generated snapshots contain public repository data, not the token.

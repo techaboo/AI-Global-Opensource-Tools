@@ -104,7 +104,7 @@ export function ToolCard({ tool, category, live, onOpen, isFavorite, onToggleFav
             height={16}
             color={category?.color ?? '#d946ef'}
             className="mt-0.5 opacity-80"
-            title={source === 'live' ? 'Star history (weekly snapshot)' : 'Approximate star history'}
+            title={source === 'live' ? 'Star history (daily samples)' : 'Approximate star history'}
           />
           {live && <span className="text-[9px] text-emerald-700 dark:text-emerald-300 font-medium">LIVE</span>}
         </div>

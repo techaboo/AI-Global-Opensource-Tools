@@ -8,7 +8,7 @@ name: TypeSafe catalog audit
 
 on:
   schedule:
-    - cron: '30 7 * * 1' # Monday 07:30 UTC, after the Monday 06:00 star refresh
+    - cron: '30 7 * * 1' # Monday 07:30 UTC
   workflow_dispatch:
     inputs:
       batch_size:
