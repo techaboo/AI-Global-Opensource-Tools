@@ -54,7 +54,7 @@ At least one maintainer approval is expected before merge. The repository owner 
 
 ## Update cadence
 
-The public-repository baseline is scheduled weekly. Catalog text and editorial fields change through reviewed pull requests. Maintainers target a quarterly sample audit, but contributors should report stale data whenever they find it rather than waiting for an audit.
+The public-repository metrics baseline refreshes hourly. Catalog text and editorial fields change through reviewed pull requests. Maintainers target a quarterly sample audit, but contributors should report stale data whenever they find it rather than waiting for an audit.
 
 ## Commit and PR quality
 

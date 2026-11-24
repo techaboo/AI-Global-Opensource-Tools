@@ -20,8 +20,8 @@ Use **Sync GitHub** to request newer metrics for up to 60 tools in the current f
 
 The key button accepts a token for higher GitHub API limits. Current behavior is:
 
-- the token is stored in this site's browser `localStorage`;
-- it persists across reloads and browser restarts until removed in the UI or site data is cleared;
+- the token is stored in this site's browser `sessionStorage` (any older `localStorage` copy is deleted);
+- it is discarded when the tab closes, or earlier if removed in the UI;
 - it is sent as a bearer token only to `https://api.github.com/repos/...` by the application;
 - it is not written into exports or the scheduled snapshot.
 
@@ -63,7 +63,8 @@ Do not hand-edit `live-snapshot.json` (generated, stored on the `live-data` bran
 `.github/workflows/discover-tools.yml` runs daily (11:00 UTC: ~06:00 during CDT,
 drifting to ~05:00 during CST — see the workflow's own comment; GitHub may start
 scheduled runs a few minutes late) and searches the GitHub API for candidate
-repos not already in the catalog, auto-committing straight to `main`.
+repos not already in the catalog, and opens an auto-merging pull request
+(`scripts/open-bot-pr.sh`) that lands only after the required CI checks pass.
 
 Per topic it runs two paged searches, each sorted by stars descending: a "new"
 window (created in the last 90 days, 100+ stars) and an "established" window
@@ -90,7 +91,7 @@ GitHub metadata — nothing is generated. Before a candidate is added it must:
 - pass a deterministic stars-per-day plausibility filter (observed in testing:
   a repo claiming far more stars than the real project it shared a name with).
 
-`npm run check-duplicates` gates the commit as a final structural check. If
+`npm run validate:catalog` gates the pull request as a final structural check. If
 `TYPESAFE_API_KEY` is unset, nothing can be categorized or deduped, so the run
 adds nothing that day rather than guess.
 

@@ -36,7 +36,7 @@ export interface LiveRepoData {
   openIssues: number;
   pushedAt: string;
   fetchedAt: number;
-  /** Accumulated weekly (or sync) star samples. Capped; oldest dropped. */
+  /** Accumulated star samples, at most one per UTC day. Capped; oldest dropped. */
   history?: StarPoint[];
 }
 

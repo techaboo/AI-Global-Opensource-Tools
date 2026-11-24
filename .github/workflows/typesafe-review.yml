@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
     inputs:
       tool_id:
-        description: Catalog tool id to review (src/data/tools.ts), or a path to a candidate JSON file checked into the repo.
+        description: Catalog tool id to review (src/data/catalog.json), or a path to a candidate JSON file checked into the repo.
         required: true
         type: string
 
