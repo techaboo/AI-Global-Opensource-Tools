@@ -18791,6 +18791,172 @@
       ],
       "status": "active",
       "year": 2025
+    },
+    {
+      "id": "yesplaymusic",
+      "name": "YesPlayMusic",
+      "org": "qier222",
+      "cat": "audio",
+      "tagline": "A better-looking desktop music player for local files, media servers, and plu...",
+      "desc": "A better-looking desktop music player for local files, media servers, and plugins. For macOS, Windows and Linux.",
+      "license": "GPL-3.0",
+      "lang": "C",
+      "stars": 33689,
+      "repo": "qier222/YesPlayMusic",
+      "tags": [
+        "desktop-app",
+        "emby",
+        "flutter",
+        "javascript",
+        "jellyfin"
+      ],
+      "status": "active",
+      "year": 2020
+    },
+    {
+      "id": "substrate",
+      "name": "substrate",
+      "org": "agent-substrate",
+      "cat": "agents",
+      "tagline": "Agent Substrate: the core system",
+      "desc": "Agent Substrate: the core system",
+      "license": "Apache-2.0",
+      "lang": "Go",
+      "stars": 8257,
+      "repo": "agent-substrate/substrate",
+      "tags": [
+        "agents",
+        "cncf",
+        "sandboxing"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "openevolve",
+      "name": "openevolve",
+      "org": "algorithmicsuperintelligence",
+      "cat": "agents",
+      "tagline": "Open-source implementation of AlphaEvolve",
+      "desc": "Open-source implementation of AlphaEvolve",
+      "license": "Apache-2.0",
+      "lang": "Python",
+      "stars": 7861,
+      "repo": "algorithmicsuperintelligence/openevolve",
+      "tags": [
+        "alpha-evolve",
+        "alphacode",
+        "alphaevolve",
+        "coding-agent",
+        "deepmind"
+      ],
+      "status": "active",
+      "year": 2025
+    },
+    {
+      "id": "genai-showcase",
+      "name": "GenAI-Showcase",
+      "org": "mongodb-developer",
+      "cat": "rag",
+      "tagline": "MongoDB's Generative AI Showcase: an exhaustive collection of examples and sa...",
+      "desc": "MongoDB's Generative AI Showcase: an exhaustive collection of examples and sample applications covering Retrieval-Augmented Generation (RAG), AI agents, and industry-specific use cases.",
+      "license": "MIT",
+      "lang": "Jupyter Notebook",
+      "stars": 4262,
+      "repo": "mongodb-developer/GenAI-Showcase",
+      "tags": [
+        "agents",
+        "artificial-intelligence",
+        "atlas",
+        "generative-ai",
+        "jupyter-notebook"
+      ],
+      "status": "active",
+      "year": 2024
+    },
+    {
+      "id": "torchgeo",
+      "name": "torchgeo",
+      "org": "torchgeo",
+      "cat": "vision",
+      "tagline": "TorchGeo: datasets, samplers, transforms, and pre-trained models for geospati...",
+      "desc": "TorchGeo: datasets, samplers, transforms, and pre-trained models for geospatial data",
+      "license": "MIT",
+      "lang": "Python",
+      "stars": 4248,
+      "repo": "torchgeo/torchgeo",
+      "tags": [
+        "computer-vision",
+        "datasets",
+        "deep-learning",
+        "earth-observation",
+        "geospatial"
+      ],
+      "status": "active",
+      "year": 2021
+    },
+    {
+      "id": "radar",
+      "name": "radar",
+      "org": "skyhook-io",
+      "cat": "mlops",
+      "tagline": "The missing open-source Kubernetes UI with a built-in MCP server for AI agent...",
+      "desc": "The missing open-source Kubernetes UI with a built-in MCP server for AI agents. See what's broken, why, and what changed. Issues, Topology, event timeline, Helm, GitOps, live service traffic, and cluster audits - all in one Go binary.",
+      "license": "Apache-2.0",
+      "lang": "Go",
+      "stars": 4220,
+      "repo": "skyhook-io/radar",
+      "tags": [
+        "ai-agents",
+        "argocd",
+        "cloud-native",
+        "fluxcd",
+        "gitops"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "rapid-mlx",
+      "name": "Rapid-MLX",
+      "org": "raullenchai",
+      "cat": "inference",
+      "tagline": "Rapid-MLX is an open-source (Apache 2.0) OpenAI- and Anthropic-compatible LLM...",
+      "desc": "Rapid-MLX is an open-source (Apache 2.0) OpenAI- and Anthropic-compatible LLM inference server for Apple Silicon, built on MLX, focused on reliable tool calling for coding agents. Up to 4× faster than Apple's MLX (mlx-lm) on the same weights.",
+      "license": "Apache-2.0",
+      "lang": "Python",
+      "stars": 4180,
+      "repo": "raullenchai/Rapid-MLX",
+      "tags": [
+        "anthropic-api",
+        "apple-silicon",
+        "claude-code",
+        "coding-agents",
+        "continuous-batching"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "agenticresourceregistry",
+      "name": "AgenticResourceRegistry",
+      "org": "AgenticResourceRegistry",
+      "cat": "prompts",
+      "tagline": "Share and discover coding agent resources across your team. Self-hosted, Apac...",
+      "desc": "Share and discover coding agent resources across your team. Self-hosted, Apache 2.0, works with Claude Code, Kiro, Cursor, Codex, Pi and more.",
+      "license": "Apache-2.0",
+      "lang": "Python",
+      "stars": 4168,
+      "repo": "AgenticResourceRegistry/AgenticResourceRegistry",
+      "tags": [
+        "agents",
+        "analytics",
+        "antigravity",
+        "claude-code",
+        "cli-tool"
+      ],
+      "status": "active",
+      "year": 2026
     }
   ]
 }
