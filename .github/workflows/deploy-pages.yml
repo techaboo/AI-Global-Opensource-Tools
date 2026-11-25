@@ -36,7 +36,7 @@ jobs:
       - name: Record this build's stamp
         id: stamp
         run: echo "generated=$(jq -r .generatedAt dist/api/v1/meta.json)" >> "$GITHUB_OUTPUT"
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: dist
     outputs:
