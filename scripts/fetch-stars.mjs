@@ -6,8 +6,10 @@
  * Also corrects src/data/catalog.json's curated `status` to 'archived' when
  * GitHub itself says so — either the repo's own `archived: true` flag, or an
  * HTTP 404 (repo deleted/renamed with no redirect). Deliberately limited to
- * these two hard, unambiguous facts: this script never removes a catalog
- * entry or changes anything based on a judgment call (duplicates, category,
+ * these two hard, unambiguous facts, and reversed when GitHub shows the repo
+ * unarchived with a recent push. This script never removes a catalog entry
+ * (scripts/prune-stale.mjs does that weekly) or changes anything based on a
+ * judgment call (duplicates, category,
  * license plausibility) — those stay human-reviewed via the TypeSafe audit's
  * tracking issue (scripts/audit-catalog.mjs), since a false positive there
  * would silently delete real content rather than just mislabel a status.
@@ -25,6 +27,7 @@ import {
   validateSnapshot,
   writeCatalog,
 } from './catalog.mjs';
+import { isRevived } from './prune-lib.mjs';
 
 const TOKEN = process.env.GITHUB_TOKEN || '';
 const CONCURRENCY = 4;
@@ -69,6 +72,7 @@ function githubApiUrl(repo) {
 
 const updated = {};
 const toArchive = []; // { id, reason } — hard-fact signals only (GitHub archived flag, or confirmed 404)
+const revived = []; // ids GitHub shows unarchived and recently pushed
 let index = 0;
 let done = 0;
 let failed = 0;
@@ -102,6 +106,8 @@ async function worker() {
       if (typeof data.pushed_at !== 'string' || !Number.isFinite(Date.parse(data.pushed_at))) throw new Error('GitHub response has invalid pushed_at');
       if (data.archived === true) toArchive.push({ id: tool.id, reason: `${tool.repo} is archived on GitHub` });
 
+      if (isRevived(data)) revived.push(tool.id);
+
       const fetchedAt = Date.now();
       updated[tool.id] = {
         stars: data.stargazers_count,
@@ -128,11 +134,16 @@ if (Object.keys(updated).length === 0) {
 
 const toolById = new Map(catalog.tools.map(tool => [tool.id, tool]));
 const archivedNow = toArchive.filter(({ id }) => toolById.get(id)?.status !== 'archived');
-if (archivedNow.length) {
+const unarchivedNow = revived.filter(id => toolById.get(id)?.status === 'archived');
+if (archivedNow.length || unarchivedNow.length) {
   // Structured edit of the parsed catalog — no regexes over source text.
   for (const { id, reason } of archivedNow) {
     toolById.get(id).status = 'archived';
     console.log(`  ! Marked ${id} archived — ${reason}`);
+  }
+  for (const id of unarchivedNow) {
+    toolById.get(id).status = 'active';
+    console.log(`  ! Marked ${id} active — GitHub shows it unarchived with a recent push`);
   }
   writeCatalog(catalog);
 }

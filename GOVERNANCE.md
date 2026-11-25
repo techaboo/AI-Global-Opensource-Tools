@@ -22,13 +22,15 @@ A GitHub permission alone should not be treated as a public maintainer appointme
 ## Reviews and changes
 
 At least one maintainer approval is expected before merge, with one narrow,
-documented exception: `.github/workflows/discover-tools.yml` and
-`refresh-stars.yml` open pull requests that auto-merge without human review
+documented exception: `.github/workflows/discover-tools.yml`,
+`prune-stale.yml` and `refresh-stars.yml` open pull requests that auto-merge without human review
 once the required CI checks pass (`scripts/open-bot-pr.sh`). They are bounded
 to objective, automated gates only (a live semantic-duplicate check, a
 confidence-gated category classification, a deterministic star-plausibility
-filter, and GitHub's own archived/404 status — see `scripts/discover-tools.mjs`
-and `scripts/fetch-stars.mjs`). Anything requiring a judgment call — a
+filter, GitHub's own archived/404 status, and removal of entries that are
+archived or (foundation models excepted) have had no push in 18 months — see
+`scripts/discover-tools.mjs`, `scripts/fetch-stars.mjs` and
+`scripts/prune-stale.mjs`). Anything requiring a judgment call — a
 suspected duplicate, a category mismatch, a license or tagline concern — stays
 reported-only via the TypeSafe audit's tracking issue
 (`scripts/audit-catalog.mjs`), never auto-applied. Self-merge should be avoided for material governance, security, privacy, methodology, or accessibility changes when another qualified reviewer is available. Emergency security changes may be merged privately or quickly and documented after disclosure is safe.
@@ -37,7 +39,7 @@ Conflicts of interest should be disclosed. A reviewer closely affiliated with a 
 
 ## Catalog stewardship
 
-The scheduled repository-metric baseline refreshes hourly. Editorial catalog changes require review. Maintainers target a quarterly sample audit of links, licenses, descriptions, statuses, and “Hot” labels, subject to volunteer capacity. The methodology, not commercial relationships or contributor prominence, governs inclusion.
+The scheduled repository-metric baseline refreshes hourly. Editorial catalog changes require review; the automated changes described above are the exception. Maintainers target a quarterly sample audit of links, licenses, descriptions, statuses, and “Hot” labels, subject to volunteer capacity. The methodology, not commercial relationships or contributor prominence, governs inclusion.
 
 ## Conduct and appeals
 

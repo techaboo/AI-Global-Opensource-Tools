@@ -33,9 +33,14 @@ jobs:
       - name: Load live stats snapshot from live-data branch
         run: node scripts/live-data.mjs pull
       - run: npm run build
+      - name: Record this build's stamp
+        id: stamp
+        run: echo "generated=$(jq -r .generatedAt dist/api/v1/meta.json)" >> "$GITHUB_OUTPUT"
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
+    outputs:
+      generated: ${{ steps.stamp.outputs.generated }}
 
   deploy:
     needs: build
@@ -43,6 +48,32 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+    outputs:
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+
+  # Fails the run unless the live site serves this exact build.
+  verify:
+    needs: [build, deploy]
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check the live site serves this build
+        env:
+          SITE: ${{ needs.deploy.outputs.url }}
+          EXPECTED: ${{ needs.build.outputs.generated }}
+        run: |
+          for attempt in $(seq 1 20); do
+            live=$(curl -fsS --max-time 20 "${SITE%/}/api/v1/meta.json?run=$GITHUB_RUN_ID-$attempt" | jq -r .generatedAt) || live=''
+            if [ -n "$EXPECTED" ] && [ "$live" = "$EXPECTED" ]; then
+              echo "Live site serves the build from $EXPECTED."
+              curl -fsS --max-time 20 -o /dev/null "$SITE"
+              exit 0
+            fi
+            echo "Attempt $attempt: live build is '${live:-unreachable}', waiting."
+            sleep 15
+          done
+          echo "::error::Live site did not serve the build from $EXPECTED."
+          exit 1

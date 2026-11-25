@@ -65,12 +65,17 @@ drifting to ~05:00 during CST — see the workflow's own comment; GitHub may sta
 scheduled runs a few minutes late) and searches the GitHub API for candidate
 repos not already in the catalog, and opens an auto-merging pull request
 (`scripts/open-bot-pr.sh`) that lands only after the required CI checks pass.
+The merge triggers `deploy-pages.yml`, whose `verify` job fails the run unless
+the live site serves that build.
 
-Per topic it runs two paged searches, each sorted by stars descending: a "new"
-window (created in the last 90 days, 100+ stars) and an "established" window
-(pushed in the last 30 days, 300+ stars). Candidates from both are merged and
-reviewed in stars-descending order, up to 40 reviews per run. Repos rejected by
-the checks below are remembered in `audits/discover-rejects.json` and not
+Every catalog category has its own GitHub topics (`CATEGORY_TOPICS` in
+`scripts/discover-lib.mjs`; add an entry when you add a category). Per topic it
+runs two searches, each sorted by stars descending: a "new" window (created in
+the last 90 days, 100+ stars) and an "established" window (pushed in the last 30
+days, 300+ stars). The review queue takes one candidate per category in turn,
+thinnest category first and stars descending within each. A run adds up to 30
+tools, at most 2 per assigned category, using up to 100 reviews. Repos rejected
+by the checks below are remembered in `audits/discover-rejects.json` and not
 re-reviewed until their retry date (14 days for low category confidence, 30 for
 duplicates and name collisions). Each run logs a `Discovery summary:` line
 showing how many repos were searched, already cataloged, skipped as remembered
@@ -94,6 +99,18 @@ GitHub metadata — nothing is generated. Before a candidate is added it must:
 `npm run validate:catalog` gates the pull request as a final structural check. If
 `TYPESAFE_API_KEY` is unset, nothing can be categorized or deduped, so the run
 adds nothing that day rather than guess.
+
+## Automated removal of stale tools
+
+`.github/workflows/prune-stale.yml` runs weekly (Tuesdays 13:30 UTC, or
+manually) and removes, through the same CI-gated auto-merging pull request, up
+to 25 stale entries per run: tools with `status: "archived"`, and tools whose
+repository has had no push in 18 months. Foundation models are exempt from the
+inactivity rule, since finished weights rarely get commits. Tools without live
+data are kept, and the run refuses to act on a snapshot older than 3 days.
+Removed repos are not added to `src/data/excluded.json`, so a revived project can
+be discovered again. To preview locally, run `node scripts/live-data.mjs pull`
+and then `node scripts/prune-stale.mjs` (read-only without `--apply`).
 
 ## Automated semantic audit
 

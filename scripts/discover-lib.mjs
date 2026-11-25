@@ -25,8 +25,8 @@ function isoDay(now, daysAgo) {
  */
 export function buildSearchPlan(topics, now = Date.now(), opts = {}) {
   const {
-    newDays = 90, newMinStars = 100, newPages = 2,
-    pushedDays = 30, minStars = 300, pushedPages = 3,
+    newDays = 90, newMinStars = 100, newPages = 1,
+    pushedDays = 30, minStars = 300, pushedPages = 2,
   } = opts;
   const plan = [];
   for (const topic of topics) {
@@ -40,6 +40,64 @@ export function buildSearchPlan(topics, now = Date.now(), opts = {}) {
     });
   }
   return plan;
+}
+
+/**
+ * GitHub topics searched for each catalog category. A hit only suggests where a
+ * repo belongs, to order the review queue; TypeSafe assigns the real category.
+ */
+export const CATEGORY_TOPICS = {
+  models: ['llm', 'foundation-models'],
+  multimodal: ['multimodal', 'vision-language-model'],
+  inference: ['llm-inference', 'model-serving'],
+  chatui: ['chatgpt-ui', 'llm-ui'],
+  agents: ['ai-agents', 'multi-agent'],
+  coding: ['ai-coding', 'coding-agent'],
+  assistants: ['ai-assistant', 'personal-assistant'],
+  browseruse: ['browser-automation', 'computer-use'],
+  rag: ['rag', 'agent-memory'],
+  search: ['ai-search', 'web-scraping'],
+  vectordb: ['vector-database', 'vector-search'],
+  workflow: ['workflow-automation', 'low-code'],
+  image: ['image-generation', 'stable-diffusion'],
+  video: ['video-generation', 'text-to-video'],
+  threed: ['3d-generation', 'gaussian-splatting'],
+  audio: ['text-to-speech', 'speech-recognition'],
+  finetune: ['fine-tuning', 'llm-training'],
+  frameworks: ['machine-learning', 'deep-learning'],
+  mlops: ['mlops', 'llm-gateway'],
+  eval: ['llm-evaluation', 'llm-observability'],
+  guardrails: ['llm-security', 'guardrails'],
+  data: ['data-labeling', 'synthetic-data'],
+  vision: ['computer-vision', 'object-detection'],
+  docs: ['ocr', 'document-parsing'],
+  prompts: ['prompt-engineering', 'system-prompts'],
+  mcp: ['mcp', 'model-context-protocol'],
+  robotics: ['robotics', 'reinforcement-learning'],
+};
+
+/** Category ids ordered by how few tools they have, thinnest first. */
+export function categoriesByNeed(categories, tools) {
+  const counts = new Map(categories.map(c => [c.id, 0]));
+  for (const tool of tools) if (counts.has(tool.cat)) counts.set(tool.cat, counts.get(tool.cat) + 1);
+  return [...counts.keys()].sort((a, b) => (counts.get(a) - counts.get(b)) || a.localeCompare(b));
+}
+
+/**
+ * Takes one item from each queue in turn, following `order`, so every category
+ * gets reviewed before any category gets a second review. Order within a queue
+ * is preserved.
+ */
+export function interleaveByCategory(queues, order) {
+  const out = [];
+  const longest = Math.max(0, ...order.map(id => queues.get(id)?.length ?? 0));
+  for (let i = 0; i < longest; i += 1) {
+    for (const id of order) {
+      const item = queues.get(id)?.[i];
+      if (item !== undefined) out.push(item);
+    }
+  }
+  return out;
 }
 
 export function readRejects(path = REJECTS_PATH_DEFAULT) {
@@ -87,7 +145,7 @@ const NON_SOFTWARE_TOPICS = new Set([
 const NON_SOFTWARE_DESC = /^(an? )?(curated )?(list|collection) of\b|\bawesome[- ]list\b|\bcurated list\b|\b(interview|tutorials?|courses?|cheat ?sheets?|roadmap|handbook|textbook|ebook|study guide|checklist)\b|\bguide to\b|面试|教程|指南|电子书|全书/i;
 
 // AI/ML relevance, matched on name + description + topics. Word-bounded so "ai" doesn't hit "email".
-const AI_TERMS = /\b(ai|a\.i\.|llms?|gpt|genai|ml|machine[- ]learning|deep[- ]learning|neural|agents?|agentic|rag|mcp|model[- ]context[- ]protocol|diffusion|transformers?|embeddings?|nlp|computer[- ]vision|generative|inference|language[- ]models?|openai|anthropic|claude|copilot|speech|tts|asr|ocr|pytorch|tensorflow|vector[- ](database|search|store))\b|大模型|人工智能/i;
+const AI_TERMS = /\b(ai|a\.i\.|llms?|gpt|genai|ml|machine[- ]learning|deep[- ]learning|neural|agents?|agentic|rag|mcp|model[- ]context[- ]protocol|diffusion|transformers?|embeddings?|nlp|computer[- ]vision|generative|inference|language[- ]models?|openai|anthropic|claude|copilot|speech|tts|asr|ocr|pytorch|tensorflow|vector[- ](database|search|store)|multimodal|vlm|reinforcement[- ]learning|robot learning|gaussian[- ]splatting|nerf|object[- ]detection|segmentation|guardrails|synthetic[- ]data|text[- ]to[- ](image|video|3d))\b|大模型|人工智能/i;
 
 /**
  * Cheap, deterministic relevance gate run before any TypeSafe call.

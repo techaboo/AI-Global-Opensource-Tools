@@ -52,9 +52,13 @@ Status is a catalog availability/maintenance signal, not a quality or security g
 
 - **`active`** — the default editorial baseline, or a repository that a successful GitHub refresh reports as not archived. It does not prove frequent releases or responsive maintenance.
 - **`maintenance`** — an editorial judgment that the project appears usable but is in limited, stability-only, or reduced development. Cite first-party evidence or a sustained activity pattern.
-- **`archived`** — the source repository is marked archived by GitHub, or authoritative project evidence says development has ended. A successful live or scheduled GitHub refresh can set this automatically from the repository's archived flag.
+- **`archived`** — the source repository is marked archived by GitHub, or authoritative project evidence says development has ended. A successful live or scheduled GitHub refresh can set this automatically from the repository's archived flag, and the scheduled refresh clears it when GitHub shows the repository unarchived with a push in the last 90 days.
 
 A failed, missing, rate-limited, or stale refresh must not by itself be interpreted as abandonment. Repository moves and temporary outages should be investigated.
+
+## Removal of stale entries
+
+A weekly job removes entries marked `archived`, and entries whose repository has had no push for 18 months. Foundation models are exempt from the inactivity rule. An entry with no successful live observation is never removed for inactivity. A removed project that becomes active again can be rediscovered or proposed by pull request.
 
 ## “Hot” label
 

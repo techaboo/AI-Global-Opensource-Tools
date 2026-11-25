@@ -20,20 +20,21 @@
  * was squatting the name of, which the dedup check alone wouldn't catch for a
  * *non*-colliding name.
  *
- * Search shape (see scripts/discover-lib.mjs): per topic, a "new" window
- * (created in the last 90 days) and an "established" window (pushed in the last
- * 30 days), each paged and sorted by stars descending. The old single top-20
- * query was saturated by repos already in the catalog and re-reviewed the same
- * ~10 rejects every day. Candidates are now reviewed in stars-desc order
- * regardless of which query found them, and rejections are remembered in
+ * Search shape (see scripts/discover-lib.mjs): every catalog category has its
+ * own GitHub topics, and per topic there is a "new" window (created in the last
+ * 90 days) and an "established" window (pushed in the last 30 days), sorted by
+ * stars descending. The review queue takes one candidate per category in turn,
+ * thinnest category first and stars descending within each, and one run adds
+ * only a few tools to any single category. Rejections are remembered in
  * audits/discover-rejects.json so they are not re-reviewed until their retry
  * date.
  *
- * Usage: GITHUB_TOKEN=<token> TYPESAFE_API_KEY=<key> node scripts/discover-tools.mjs [--limit=8]
+ * Usage: GITHUB_TOKEN=<token> TYPESAFE_API_KEY=<key> node scripts/discover-tools.mjs [--limit=30]
  */
 import { CATALOG_PATH, loadCatalog, loadExcluded, writeCatalog } from './catalog.mjs';
 import {
-  buildSearchPlan, classifyRepo, isRejectActive, pruneRejects, readRejects, recordReject, sortByStarsDesc, writeRejects,
+  CATEGORY_TOPICS, buildSearchPlan, categoriesByNeed, classifyRepo, interleaveByCategory, isRejectActive, pruneRejects,
+  readRejects, recordReject, sortByStarsDesc, writeRejects,
 } from './discover-lib.mjs';
 import { DUPLICATE_THRESHOLD, reviewCandidate } from './typesafe-review.mjs';
 
@@ -41,19 +42,14 @@ const TOKEN = process.env.GITHUB_TOKEN || '';
 const STARS_PER_DAY_CEILING = 1500; // generous even for a viral launch; past this, treat as likely farmed
 const CATEGORY_CONFIDENCE = 0.6;
 const PER_PAGE = 30;
-const MAX_REVIEWS = 40; // caps TypeSafe calls per run; stars-desc order means the best candidates are reviewed first
+const MAX_REVIEWS = 100; // caps TypeSafe calls per run; each category's best candidates are reviewed first
+const MAX_CONSECUTIVE_ERRORS = 3; // one bad response is skipped; a run of them means the service is down
 // The authenticated Search API allows 30 requests/min; unauthenticated only 10.
 const SEARCH_PACE_MS = TOKEN ? 2_200 : 6_500;
-const TOPIC_QUERIES = [
-  'topic:llm', 'topic:large-language-models', 'topic:ai-agents', 'topic:agents',
-  'topic:generative-ai', 'topic:rag', 'topic:machine-learning', 'topic:computer-vision',
-  'topic:nlp', 'topic:diffusion-models', 'topic:mcp', 'topic:model-context-protocol',
-  'topic:llm-inference', 'topic:speech-recognition', 'topic:text-to-speech', 'topic:vector-database',
-];
 
 const args = process.argv.slice(2);
 const limitArg = args.find(arg => arg.startsWith('--limit='));
-const limit = limitArg ? Number(limitArg.split('=')[1]) : 8;
+const limit = limitArg ? Number(limitArg.split('=')[1]) : 30;
 if (!Number.isInteger(limit) || limit <= 0) {
   console.error(`Invalid --limit: ${JSON.stringify(limitArg)}`);
   process.exit(2);
@@ -89,8 +85,12 @@ function toCandidate(repo) {
   const daysSinceCreated = Math.max(1, (Date.now() - new Date(repo.created_at).getTime()) / 86_400_000);
   if (repo.stargazers_count / daysSinceCreated > STARS_PER_DAY_CEILING) return null; // implausible growth, likely farmed/spam
 
+  const id = slugify(repo.name);
+  if (!id) return null; // no ASCII name to build a stable id from
+  const topics = (repo.topics ?? []).slice(0, 5);
+
   return {
-    id: slugify(repo.name),
+    id,
     name: repo.name,
     org: repo.owner.login,
     cat: 'uncategorized', // placeholder only — reviewCandidate() requires a truthy value but
@@ -102,7 +102,7 @@ function toCandidate(repo) {
     lang: repo.language || 'Unknown',
     stars: repo.stargazers_count,
     repo: repo.full_name,
-    tags: (repo.topics ?? []).slice(0, 5),
+    tags: topics.length ? topics : ['ai'], // validation requires at least one tag
     status: 'active',
     year: new Date(repo.created_at).getUTCFullYear(),
   };
@@ -115,69 +115,103 @@ const excluded = loadExcluded();
 const now = Date.now();
 const rejects = pruneRejects(readRejects(), now);
 
-const seen = new Map();
+const needOrder = categoriesByNeed(catalog.categories, catalog.tools);
+// At most this many additions per category per run, so one busy topic can't fill the day.
+const perCategory = Math.max(2, Math.ceil(limit / needOrder.length));
+
+const seen = new Map(); // full_name -> { repo, hint }; thinnest categories search first, so they claim shared hits
 let rateLimited = false;
 const found = { new: 0, established: 0 };
 search:
-for (const step of buildSearchPlan(TOPIC_QUERIES, now)) {
-  for (let page = 1; page <= step.pages; page += 1) {
-    const result = await searchPage(step.q, page);
-    await sleep(SEARCH_PACE_MS);
-    if (result.rateLimited) {
-      rateLimited = true;
-      console.warn('! GitHub search rate limit hit — reviewing what was collected so far.');
-      break search;
-    }
-    for (const repo of result.items) {
-      if (!seen.has(repo.full_name)) {
-        seen.set(repo.full_name, repo);
-        found[step.window] += 1;
+for (const hint of needOrder) {
+  const topics = (CATEGORY_TOPICS[hint] ?? []).map(topic => `topic:${topic}`);
+  for (const step of buildSearchPlan(topics, now)) {
+    for (let page = 1; page <= step.pages; page += 1) {
+      const result = await searchPage(step.q, page);
+      await sleep(SEARCH_PACE_MS);
+      if (result.rateLimited) {
+        rateLimited = true;
+        console.warn('! GitHub search rate limit hit — reviewing what was collected so far.');
+        break search;
       }
+      for (const repo of result.items) {
+        if (!seen.has(repo.full_name)) {
+          seen.set(repo.full_name, { repo, hint });
+          found[step.window] += 1;
+        }
+      }
+      if (result.items.length < PER_PAGE) break; // last page for this query
     }
-    if (result.items.length < PER_PAGE) break; // last page for this query
   }
 }
 
 let alreadyCataloged = 0;
 let rememberedRejects = 0;
 let failedFilters = 0;
-const rawCandidates = [];
-// Stars descending, whichever query surfaced the repo — the catalog's ordering rule.
-for (const repo of sortByStarsDesc([...seen.values()])) {
+let eligible = 0;
+const queues = new Map(); // category hint -> candidates, stars descending
+for (const repo of sortByStarsDesc([...seen.values()].map(entry => entry.repo))) {
   if (existingRepos.has(repo.full_name.toLowerCase())) { alreadyCataloged += 1; continue; }
   if (excluded.has(repo.full_name.toLowerCase())) { rememberedRejects += 1; continue; } // permanent human decision
   if (isRejectActive(rejects[repo.full_name.toLowerCase()], now)) { rememberedRejects += 1; continue; }
   const candidate = toCandidate(repo);
   if (!candidate) { failedFilters += 1; continue; }
-  // Same base name as an existing entry, under a different repo coordinate — a
-  // mirror, a rename, or a project squatting an established name to farm stars.
-  // High suspicion, not a disambiguation detail — only an explicit TypeSafe
-  // "not a duplicate" below should let it through.
-  const nameCollision = existingIds.has(candidate.id);
-  if (nameCollision) candidate.id = `${candidate.id}-${candidate.org.toLowerCase()}`;
-  if (existingIds.has(candidate.id)) continue; // still colliding even after disambiguation — skip
-  rawCandidates.push({ candidate, nameCollision });
+  const { hint } = seen.get(repo.full_name);
+  if (!queues.has(hint)) queues.set(hint, []);
+  queues.get(hint).push(candidate);
+  eligible += 1;
 }
 
 const candidates = [];
+const addedPerCategory = new Map();
+const takenNames = new Set(catalog.tools.map(t => t.name.trim().toLowerCase()));
 let reviewed = 0;
 let newRejects = 0;
+let deferred = 0;
+let errors = 0;
+let consecutiveErrors = 0;
 function reject(candidate, spec) {
   recordReject(rejects, candidate.repo, { ...spec, stars: candidate.stars }, now);
   newRejects += 1;
 }
 
-// try/finally so rejects recorded before a mid-run failure (e.g. a TypeSafe error) still persist.
+// try/finally so rejects recorded before a mid-run failure still persist.
 try {
-for (const { candidate, nameCollision } of rawCandidates) {
-  if (reviewed >= MAX_REVIEWS) break;
-  const result = await reviewCandidate(candidate, catalog);
-  reviewed += 1;
+for (const candidate of interleaveByCategory(queues, needOrder)) {
+  if (reviewed >= MAX_REVIEWS || candidates.length >= limit) break;
+  // Same base name as an existing entry (or one accepted earlier in this run),
+  // under a different repo coordinate — a mirror, a rename, or a project
+  // squatting an established name to farm stars. High suspicion, not a
+  // disambiguation detail — only an explicit TypeSafe "not a duplicate" below
+  // should let it through. Ids and names must both stay unique to pass validation.
+  const nameCollision = existingIds.has(candidate.id) || takenNames.has(candidate.name.toLowerCase());
+  if (nameCollision) {
+    candidate.id = `${candidate.id}-${slugify(candidate.org)}`;
+    candidate.name = `${candidate.name} (${candidate.org})`;
+  }
+  if (existingIds.has(candidate.id) || takenNames.has(candidate.name.toLowerCase())) continue; // still colliding
+
+  let result;
+  try {
+    result = await reviewCandidate(candidate, catalog);
+    consecutiveErrors = 0;
+  } catch (error) {
+    errors += 1;
+    consecutiveErrors += 1;
+    console.warn(`! Review failed for ${candidate.name} (${candidate.repo}): ${error.message}`);
+    if (consecutiveErrors >= MAX_CONSECUTIVE_ERRORS) {
+      if (candidates.length === 0) throw error; // nothing to save, so fail the run visibly
+      console.warn('! Too many review failures in a row — keeping what was accepted so far.');
+      break;
+    }
+    continue;
+  }
 
   if (result.skipped) {
-    console.log(`! Skipping ${candidate.name} (${candidate.repo}) — TYPESAFE_API_KEY is unset, so it can't be deduped or categorized.`);
-    continue; // not a judgment about the repo, so nothing is remembered
+    console.log('! TYPESAFE_API_KEY is unset, so nothing can be deduped or categorized.');
+    break; // not a judgment about any repo, so nothing is remembered
   }
+  reviewed += 1;
 
   const flaggedDuplicate = result.duplicates.some(d => d.noul >= DUPLICATE_THRESHOLD);
   if (flaggedDuplicate) {
@@ -201,9 +235,14 @@ for (const { candidate, nameCollision } of rawCandidates) {
     continue;
   }
   candidate.cat = result.category.suggested;
+  const inCategory = addedPerCategory.get(candidate.cat) ?? 0;
+  if (inCategory >= perCategory) { deferred += 1; continue; } // not a rejection; eligible again next run
 
+  addedPerCategory.set(candidate.cat, inCategory + 1);
+  existingIds.add(candidate.id);
+  takenNames.add(candidate.name.toLowerCase());
+  catalog.tools.push(candidate); // later candidates are deduped against this one too
   candidates.push(candidate);
-  if (candidates.length >= limit) break;
 }
 } finally {
   writeRejects(rejects);
@@ -212,8 +251,8 @@ for (const { candidate, nameCollision } of rawCandidates) {
 console.log(
   `Discovery summary: searched ${seen.size} unique repos (${found.new} via new-window, ${found.established} via established-window)`
   + `${rateLimited ? ' [rate limited]' : ''}; ${alreadyCataloged} already cataloged, ${rememberedRejects} remembered rejects, `
-  + `${failedFilters} failed license/description/plausibility filters; reviewed ${reviewed} of ${rawCandidates.length} candidates, `
-  + `${newRejects} newly rejected, ${candidates.length} added.`,
+  + `${failedFilters} failed license/description/plausibility filters; reviewed ${reviewed} of ${eligible} candidates, `
+  + `${newRejects} newly rejected, ${deferred} deferred by the per-category cap, ${errors} review errors, ${candidates.length} added.`,
 );
 
 if (candidates.length === 0) {
@@ -221,8 +260,7 @@ if (candidates.length === 0) {
   process.exit(0);
 }
 
-// Structured append: no source-text surgery, so catalog formatting can't break discovery.
-catalog.tools.push(...candidates);
+// Structured write: no source-text surgery, so catalog formatting can't break discovery.
 writeCatalog(catalog);
 console.log(`✓ Wrote ${CATALOG_PATH}`);
 
