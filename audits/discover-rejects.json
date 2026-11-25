@@ -10,9 +10,9 @@
   "aaif-goose/goose": {
     "kind": "name",
     "reason": "shares a name with an existing entry",
-    "stars": 55762,
-    "rejectedAt": "2026-10-26",
-    "retryAfter": "2026-11-25"
+    "stars": 56972,
+    "rejectedAt": "2026-11-25",
+    "retryAfter": "2026-12-25"
   },
   "ahujasid/mcp-for-blender": {
     "kind": "duplicate",
@@ -70,6 +70,13 @@
     "rejectedAt": "2026-11-20",
     "retryAfter": "2026-12-04"
   },
+  "aurelio-labs/semantic-router": {
+    "kind": "name",
+    "reason": "shares a name with an existing entry",
+    "stars": 4047,
+    "rejectedAt": "2026-11-25",
+    "retryAfter": "2026-12-25"
+  },
   "backnotprop/plannotator": {
     "kind": "category",
     "reason": "category confidence below threshold",
@@ -113,10 +120,10 @@
   "cheaper-inference/omniroute": {
     "kind": "duplicate",
     "reason": "duplicate of omniroute",
-    "score": 0.9,
-    "stars": 81471,
-    "rejectedAt": "2026-10-26",
-    "retryAfter": "2026-11-25"
+    "score": 0.91,
+    "stars": 90213,
+    "rejectedAt": "2026-11-25",
+    "retryAfter": "2026-12-25"
   },
   "clidey/whodb": {
     "kind": "category",
@@ -161,10 +168,10 @@
   "dayuanjiang/next-ai-draw-io": {
     "kind": "category",
     "reason": "category confidence below threshold",
-    "score": 0.45,
-    "stars": 36882,
-    "rejectedAt": "2026-11-11",
-    "retryAfter": "2026-11-25"
+    "score": 0.44,
+    "stars": 37173,
+    "rejectedAt": "2026-11-25",
+    "retryAfter": "2026-12-09"
   },
   "dmmaze/ballonstranslator": {
     "kind": "category",
@@ -241,10 +248,10 @@
   "firecrawl/firecrawl": {
     "kind": "duplicate",
     "reason": "duplicate of firecrawl",
-    "score": 0.63,
-    "stars": 195641,
-    "rejectedAt": "2026-10-26",
-    "retryAfter": "2026-11-25"
+    "score": 0.71,
+    "stars": 209472,
+    "rejectedAt": "2026-11-25",
+    "retryAfter": "2026-12-25"
   },
   "firerpa/lamda": {
     "kind": "category",
@@ -328,10 +335,10 @@
   "hiyouga/llamafactory": {
     "kind": "duplicate",
     "reason": "duplicate of llama-factory",
-    "score": 0.86,
-    "stars": 75741,
-    "rejectedAt": "2026-10-26",
-    "retryAfter": "2026-11-25"
+    "score": 0.87,
+    "stars": 76279,
+    "rejectedAt": "2026-11-25",
+    "retryAfter": "2026-12-25"
   },
   "humanlayer/humanlayer": {
     "kind": "category",
@@ -344,10 +351,10 @@
   "iofficeai/aionui": {
     "kind": "category",
     "reason": "category confidence below threshold",
-    "score": 0.53,
-    "stars": 34210,
-    "rejectedAt": "2026-11-11",
-    "retryAfter": "2026-11-25"
+    "score": 0.54,
+    "stars": 34496,
+    "rejectedAt": "2026-11-25",
+    "retryAfter": "2026-12-09"
   },
   "ivanmurzak/unity-mcp": {
     "kind": "name",
@@ -359,10 +366,10 @@
   "jcodesmore/ai-website-cloner-template": {
     "kind": "category",
     "reason": "category confidence below threshold",
-    "score": 0.45,
-    "stars": 38994,
-    "rejectedAt": "2026-11-11",
-    "retryAfter": "2026-11-25"
+    "score": 0.48,
+    "stars": 39760,
+    "rejectedAt": "2026-11-25",
+    "retryAfter": "2026-12-09"
   },
   "jianchang512/pyvideotrans": {
     "kind": "category",
@@ -463,10 +470,10 @@
   "lutzroeder/netron": {
     "kind": "category",
     "reason": "category confidence below threshold",
-    "score": 0.44,
-    "stars": 33677,
-    "rejectedAt": "2026-11-11",
-    "retryAfter": "2026-11-25"
+    "score": 0.46,
+    "stars": 33727,
+    "rejectedAt": "2026-11-25",
+    "retryAfter": "2026-12-09"
   },
   "maaassistantarknights/maaassistantarknights": {
     "kind": "category",
@@ -475,6 +482,14 @@
     "stars": 24560,
     "rejectedAt": "2026-11-14",
     "retryAfter": "2026-11-28"
+  },
+  "marcelroed/gigatoken": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.51,
+    "stars": 4156,
+    "rejectedAt": "2026-11-25",
+    "retryAfter": "2026-12-09"
   },
   "mariadb/server": {
     "kind": "category",
@@ -624,9 +639,9 @@
     "kind": "duplicate",
     "reason": "duplicate of openhands",
     "score": 0.8,
-    "stars": 91915,
-    "rejectedAt": "2026-10-26",
-    "retryAfter": "2026-11-25"
+    "stars": 94302,
+    "rejectedAt": "2026-11-25",
+    "retryAfter": "2026-12-25"
   },
   "openmontageinc/openmontage": {
     "kind": "duplicate",
@@ -880,6 +895,14 @@
     "stars": 6383,
     "rejectedAt": "2026-11-14",
     "retryAfter": "2026-11-28"
+  },
+  "xinatian/mroffice": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.26,
+    "stars": 4470,
+    "rejectedAt": "2026-11-25",
+    "retryAfter": "2026-12-09"
   },
   "yikart/aitoearn": {
     "kind": "category",
