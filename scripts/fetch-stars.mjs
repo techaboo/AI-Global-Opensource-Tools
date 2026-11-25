@@ -5,7 +5,9 @@
  *
  * Also corrects src/data/catalog.json's curated `status` to 'archived' when
  * GitHub itself says so — either the repo's own `archived: true` flag, or an
- * HTTP 404 (repo deleted/renamed with no redirect). Deliberately limited to
+ * HTTP 404 (repo deleted/renamed with no redirect) that has persisted for
+ * MISSING_GRACE_DAYS (first-404 times live in the snapshot's `missing` map).
+ * Deliberately limited to
  * these two hard, unambiguous facts, and reversed when GitHub shows the repo
  * unarchived with a recent push. This script never removes a catalog entry
  * (scripts/prune-stale.mjs does that weekly) or changes anything based on a
@@ -27,7 +29,7 @@ import {
   validateSnapshot,
   writeCatalog,
 } from './catalog.mjs';
-import { isRevived } from './prune-lib.mjs';
+import { MISSING_GRACE_DAYS, isRevived, trackMissing } from './prune-lib.mjs';
 
 const TOKEN = process.env.GITHUB_TOKEN || '';
 const CONCURRENCY = 4;
@@ -72,6 +74,7 @@ function githubApiUrl(repo) {
 
 const updated = {};
 const toArchive = []; // { id, reason } — hard-fact signals only (GitHub archived flag, or confirmed 404)
+const missingIds = []; // ids whose repo returned 404 this run
 const revived = []; // ids GitHub shows unarchived and recently pushed
 let index = 0;
 let done = 0;
@@ -90,11 +93,10 @@ async function worker() {
         return;
       }
       if (response.status === 404) {
-        // A confirmed 404 is a hard fact handled below (the catalog entry is marked
-        // archived and kept on its previous snapshot data). It is not a refresh
-        // failure: failing the run here would block publishing the snapshot and the
-        // archive-status PR that resolves the 404 in the first place.
-        toArchive.push({ id: tool.id, reason: `${tool.repo} returned 404 (deleted or renamed with no redirect)` });
+        // Recorded here and archived below only once it has persisted. It is not a
+        // refresh failure: failing the run would block publishing the snapshot that
+        // remembers when the 404 started.
+        missingIds.push(tool.id);
         console.error(`  ! ${tool.repo}: repository not found (404); keeping previous data`);
         continue;
       }
@@ -133,6 +135,12 @@ if (Object.keys(updated).length === 0) {
 }
 
 const toolById = new Map(catalog.tools.map(tool => [tool.id, tool]));
+const { missing, confirmed } = trackMissing(previous.missing, {
+  missingIds, foundIds: Object.keys(updated), knownIds: tools.map(tool => tool.id),
+});
+for (const id of confirmed) {
+  toArchive.push({ id, reason: `${toolById.get(id).repo} has returned 404 for ${MISSING_GRACE_DAYS}+ days` });
+}
 const archivedNow = toArchive.filter(({ id }) => toolById.get(id)?.status !== 'archived');
 const unarchivedNow = revived.filter(id => toolById.get(id)?.status === 'archived');
 if (archivedNow.length || unarchivedNow.length) {
@@ -153,7 +161,7 @@ const repos = Object.fromEntries(tools.flatMap(tool => {
   const entry = updated[tool.id] ?? previous.repos[tool.id];
   return entry ? [[tool.id, entry]] : [];
 }));
-const snapshot = { generatedAt: new Date().toISOString(), repos };
+const snapshot = { generatedAt: new Date().toISOString(), repos, missing };
 const outputResult = validateSnapshot(snapshot, catalog);
 if (outputResult.errors.length) {
   for (const error of outputResult.errors) console.error(`✗ ${error}`);

@@ -54,7 +54,7 @@ Status is a catalog availability/maintenance signal, not a quality or security g
 - **`maintenance`** — an editorial judgment that the project appears usable but is in limited, stability-only, or reduced development. Cite first-party evidence or a sustained activity pattern.
 - **`archived`** — the source repository is marked archived by GitHub, or authoritative project evidence says development has ended. A successful live or scheduled GitHub refresh can set this automatically from the repository's archived flag, and the scheduled refresh clears it when GitHub shows the repository unarchived with a push in the last 90 days.
 
-A failed, missing, rate-limited, or stale refresh must not by itself be interpreted as abandonment. Repository moves and temporary outages should be investigated.
+A repository that GitHub reports as not found is marked archived only after that has persisted for 7 days. A failed, missing, rate-limited, or stale refresh must not by itself be interpreted as abandonment. Repository moves and temporary outages should be investigated.
 
 ## Removal of stale entries
 

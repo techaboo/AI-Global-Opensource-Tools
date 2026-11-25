@@ -83,7 +83,7 @@ A tool may be absent when it has no repo, a request fails, or GitHub limits acce
 
 The browser keeps the same per-tool `LiveRepoData` shape (`src/types/index.ts`) in `localStorage`, keyed by tool id. It merges the scheduled snapshot with records from **Sync GitHub** or a single-tool refresh; the record with the newer `fetchedAt` wins, and the longer history is kept.
 
-Live data never changes a tool's catalog `status` in the browser. Only the scheduled refresh changes status: when GitHub reports a repository as archived, or returns a 404, `fetch-stars.mjs` sets `status: "archived"` in `catalog.json` and proposes it through an auto-merging pull request gated by CI. The same job restores `"active"` when GitHub shows an archived entry's repository unarchived and pushed within 90 days. A separate weekly job removes stale entries (see `HOWTO.md`). The UI separately shows a "Stale?" badge for an `active` tool whose last successful push observation is over a year old.
+Live data never changes a tool's catalog `status` in the browser. Only the scheduled refresh changes status: when GitHub reports a repository as archived, or has returned a 404 for it for 7 days (tracked in the snapshot's `missing` map, a tool id to first-404 time), `fetch-stars.mjs` sets `status: "archived"` in `catalog.json` and proposes it through an auto-merging pull request gated by CI. The same job restores `"active"` when GitHub shows an archived entry's repository unarchived and pushed within 90 days. A separate weekly job removes stale entries (see `HOWTO.md`). The UI separately shows a "Stale?" badge for an `active` tool whose last successful push observation is over a year old.
 
 ## Validation expectations
 
