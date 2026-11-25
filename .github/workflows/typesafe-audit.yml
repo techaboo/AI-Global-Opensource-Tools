@@ -30,16 +30,16 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: main
 
-      - uses: actions/setup-node@v7
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: 22
           cache: npm
 
-      - run: npm ci
+      - run: npm ci --ignore-scripts
 
       - name: Load audit state from live-data
         run: node scripts/live-data.mjs pull
@@ -47,11 +47,12 @@ jobs:
       - name: Run batch audit
         env:
           TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
+          BATCH_SIZE: ${{ inputs.batch_size || '50' }}
         run: |
           if [ -z "$TYPESAFE_API_KEY" ]; then
             echo "::warning::TYPESAFE_API_KEY secret is not set — the audit will skip and exit 0."
           fi
-          node scripts/audit-catalog.mjs --batch-size="${{ inputs.batch_size || '50' }}"
+          node scripts/audit-catalog.mjs --batch-size="$BATCH_SIZE"
 
       - name: Save audit state to live-data
         run: |
@@ -61,7 +62,7 @@ jobs:
 
       - name: Open or update audit issue
         if: always()
-        uses: actions/github-script@v9
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9
         with:
           script: |
             const fs = require('fs');

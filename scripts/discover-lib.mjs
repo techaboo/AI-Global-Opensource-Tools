@@ -43,6 +43,38 @@ export function buildSearchPlan(topics, now = Date.now(), opts = {}) {
 }
 
 /**
+ * Search windows, narrowest first. A run only widens to the next tier while it is
+ * still below its daily minimum. Widening changes where candidates are searched
+ * for (older creation or push dates, lower star floors, deeper pages), never the
+ * checks a candidate must pass.
+ */
+export const SEARCH_TIERS = [
+  {},
+  { newDays: 180, newMinStars: 50, newPages: 2, pushedDays: 90, minStars: 150, pushedPages: 4 },
+  { newDays: 365, newMinStars: 25, newPages: 3, pushedDays: 180, minStars: 75, pushedPages: 7 },
+];
+
+/**
+ * Fills a short run from candidates that passed every check but were held back by
+ * the per-category cap. The cap is raised one step at a time, so extra additions
+ * stay spread across categories. Returns the candidates to add.
+ */
+export function backfill(deferred, addedPerCategory, cap, needed) {
+  const counts = new Map(addedPerCategory);
+  const waiting = [...deferred];
+  const out = [];
+  for (let limit = cap + 1; out.length < needed && waiting.length; limit += 1) {
+    for (let i = 0; i < waiting.length && out.length < needed;) {
+      const count = counts.get(waiting[i].cat) ?? 0;
+      if (count >= limit) { i += 1; continue; }
+      counts.set(waiting[i].cat, count + 1);
+      out.push(...waiting.splice(i, 1));
+    }
+  }
+  return out;
+}
+
+/**
  * GitHub topics searched for each catalog category. A hit only suggests where a
  * repo belongs, to order the review queue; TypeSafe assigns the real category.
  */

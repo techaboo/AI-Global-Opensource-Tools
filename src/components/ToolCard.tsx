@@ -1,6 +1,6 @@
 import { Star, Flame, GitFork, PauseCircle, Archive, TriangleAlert } from 'lucide-react';
 import type { AITool, Category, LiveRepoData } from '@/types';
-import { formatStars, isStale, licenseColor } from '@/lib/format';
+import { cardSummary, formatStars, isStale, licenseColor } from '@/lib/format';
 import { resolveStarHistory } from '@/lib/starHistory';
 import { Sparkline } from '@/components/Sparkline';
 import { ToolAvatar } from '@/components/ToolAvatar';
@@ -45,7 +45,7 @@ export function StaleBadge({ tool, live, className }: { tool: AITool; live?: Liv
 
 export function ToolCard({ tool, category, live, onOpen, isFavorite, onToggleFavorite, animIndex }: Props) {
   const stars = live?.stars ?? tool.stars;
-  const { points, source } = resolveStarHistory(tool, live);
+  const { points } = resolveStarHistory(live);
   const staggerMs = animIndex !== undefined && animIndex < 18 ? animIndex * 25 : 0;
   return (
     <article
@@ -83,7 +83,7 @@ export function ToolCard({ tool, category, live, onOpen, isFavorite, onToggleFav
           <div className="flex items-center gap-1.5 flex-wrap">
             <span className="font-semibold text-[14px] truncate group-hover:text-fuchsia-500 transition-colors">{tool.name}</span>
             {tool.hot && (
-              <span className="inline-flex items-center gap-0.5 rounded-full bg-orange-500/15 text-orange-700 dark:text-orange-300 px-1.5 py-0.5 text-[10px] font-semibold">
+              <span className="inline-flex items-center gap-0.5 rounded-full bg-orange-500/15 text-orange-900 dark:text-orange-300 px-1.5 py-0.5 text-[10px] font-semibold">
                 <Flame className="h-3 w-3" />HOT
               </span>
             )}
@@ -104,12 +104,12 @@ export function ToolCard({ tool, category, live, onOpen, isFavorite, onToggleFav
             height={16}
             color={category?.color ?? '#d946ef'}
             className="mt-0.5 opacity-80"
-            title={source === 'live' ? 'Star history (daily samples)' : 'Approximate star history'}
+            title="Star history (daily samples)"
           />
           {live && <span className="text-[9px] text-emerald-700 dark:text-emerald-300 font-medium">LIVE</span>}
         </div>
       </div>
-      <p className="text-[12.5px] text-muted-foreground leading-snug line-clamp-2 mb-3">{tool.tagline}. {tool.desc}</p>
+      <p className="text-[12.5px] text-muted-foreground leading-snug line-clamp-2 mb-3">{cardSummary(tool.tagline, tool.desc)}</p>
       <div className="flex items-center gap-1.5 flex-wrap">
         {category && (
           <span

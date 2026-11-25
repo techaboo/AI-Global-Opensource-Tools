@@ -18,9 +18,9 @@ export function StatsBar({ tools, liveMap }: { tools: AITool[]; liveMap: LiveMap
     { icon: Boxes, label: 'Tools tracked', value: `${stats.total}`, color: '#8b5cf6' },
     { icon: Layers, label: 'Categories', value: `${stats.cats}`, color: '#06b6d4' },
     { icon: Star, label: 'Combined stars', value: formatStars(stats.totalStars), color: '#f59e0b' },
-    { icon: Flame, label: 'Trending now', value: `${stats.hot}`, color: '#ef4444' },
+    { icon: Flame, label: 'Hot picks', value: `${stats.hot}`, color: '#ef4444' },
     { icon: Activity, label: 'Active projects', value: `${activePercent}%`, color: '#10b981' },
-    { icon: Radio, label: 'Live-synced', value: `${stats.liveSynced}`, color: '#ec4899' },
+    { icon: Radio, label: 'With GitHub stats', value: `${stats.liveSynced}`, color: '#ec4899' },
   ];
 
   return (

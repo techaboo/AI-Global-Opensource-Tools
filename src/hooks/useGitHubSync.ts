@@ -5,6 +5,15 @@ import { appendStarPoint } from '@/lib/starHistory';
 
 const STORAGE_KEY = 'osi-atlas-live-v1';
 const TOKEN_KEY = 'osi-atlas-gh-token';
+
+/**
+ * Only this browser's own syncs are persisted. The published snapshot is several
+ * megabytes and is fetched on every visit, so copying it into localStorage would
+ * exhaust the quota (and the favorites that share it).
+ */
+export function ownEntries(map: LiveMap, own: ReadonlySet<string>): LiveMap {
+  return Object.fromEntries(Object.entries(map).filter(([id]) => own.has(id)));
+}
 const CONCURRENCY = 4;
 
 // The optional GitHub token is kept in sessionStorage (cleared when the tab
@@ -76,6 +85,9 @@ export function useGitHubSync() {
   const tokenRef = useRef(token);
   // Mirrors liveMap so callbacks can read the latest records without taking it as a dep.
   const liveMapRef = useRef(liveMap);
+  // Ids whose record came from this browser, not from the published snapshot.
+  const ownRef = useRef<Set<string> | null>(null);
+  ownRef.current ??= new Set(Object.keys(liveMap));
 
   const setToken = useCallback((t: string) => {
     const clean = t.trim();
@@ -90,7 +102,7 @@ export function useGitHubSync() {
   useEffect(() => {
     liveMapRef.current = liveMap;
     try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(liveMap));
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(ownEntries(liveMap, ownRef.current!)));
     } catch { /* storage full — ignore */ }
   }, [liveMap]);
 
@@ -111,6 +123,7 @@ export function useGitHubSync() {
                 ? data.history
                 : existing?.history;
               merged[id] = { ...data, history: hist };
+              ownRef.current!.delete(id); // the snapshot supersedes the stored record
             } else if (data.history && (data.history.length > (existing.history?.length ?? 0))) {
               merged[id] = { ...existing, history: data.history };
             }
@@ -136,6 +149,7 @@ export function useGitHubSync() {
         const tool = withRepo[idx++];
         try {
           const data = await fetchRepo(tool.repo!, tokenRef.current);
+          ownRef.current!.add(tool.id);
           setLiveMap(prev => ({ ...prev, [tool.id]: withHistory(prev[tool.id], data) }));
         } catch (e) {
           if ((e as Error).message === 'rate-limited') {
@@ -166,6 +180,7 @@ export function useGitHubSync() {
       // carries the same accumulated star history that gets stored — computing it
       // against `undefined` would hand back a one-point history and flatten the sparkline.
       const full = withHistory(liveMapRef.current[tool.id], data);
+      ownRef.current!.add(tool.id);
       setLiveMap(prev => ({ ...prev, [tool.id]: full }));
       return full;
     } catch {

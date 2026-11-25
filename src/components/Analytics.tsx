@@ -87,7 +87,7 @@ export function Analytics({ tools, liveMap, onSelectCategory }: Props) {
     <div className="grid grid-cols-1 xl:grid-cols-2 gap-4">
       <ChartCard title="Tools per category" subtitle="Click a bar to filter" className="xl:col-span-2">
         <ResponsiveContainer width="100%" height={300}>
-          <BarChart data={byCategory} margin={{ left: -18, right: 8, top: 4 }}>
+          <BarChart data={byCategory} margin={{ left: 12, right: 8, top: 4 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" vertical={false} />
             <XAxis dataKey="name" tick={{ fontSize: 10, fill: 'hsl(var(--muted-foreground))' }} interval={0} angle={-28} textAnchor="end" height={64} />
             <YAxis tick={{ fontSize: 11, fill: 'hsl(var(--muted-foreground))' }} allowDecimals={false} />
@@ -116,7 +116,7 @@ export function Analytics({ tools, liveMap, onSelectCategory }: Props) {
           <ResponsiveContainer width="100%" height={320}>
             <PieChart>
               <Pie data={byLicense} dataKey="value" nameKey="name" innerRadius="55%" outerRadius="85%" paddingAngle={2}>
-                {byLicense.map((_, i) => <Cell key={i} fill={PIE_COLORS[i % PIE_COLORS.length]} />)}
+                {byLicense.map((d, i) => <Cell key={i} fill={PIE_COLORS[i % PIE_COLORS.length]} aria-label={`${d.name}: ${d.value} tools`} />)}
               </Pie>
               <Tooltip contentStyle={tooltipStyle} />
             </PieChart>
@@ -128,7 +128,7 @@ export function Analytics({ tools, liveMap, onSelectCategory }: Props) {
           <ResponsiveContainer width="100%" height={320}>
             <PieChart>
               <Pie data={byStatus} dataKey="value" nameKey="name" innerRadius="55%" outerRadius="85%" paddingAngle={2}>
-                {byStatus.map((d, i) => <Cell key={i} fill={d.color} />)}
+                {byStatus.map((d, i) => <Cell key={i} fill={d.color} aria-label={`${d.name}: ${d.value} tools`} />)}
               </Pie>
               <Tooltip contentStyle={tooltipStyle} />
             </PieChart>
@@ -149,7 +149,7 @@ export function Analytics({ tools, liveMap, onSelectCategory }: Props) {
         </ResponsiveContainer>
       </ChartCard>
 
-      <ChartCard title="First-release year" subtitle="When tools in the catalog debuted">
+      <ChartCard title="Year" subtitle="Release or repository creation year">
         <ResponsiveContainer width="100%" height={260}>
           <BarChart data={byYear} margin={{ left: -18, right: 8, top: 4 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" vertical={false} />

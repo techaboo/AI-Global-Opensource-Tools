@@ -42,7 +42,7 @@ export function ToolDetail({ tool: toolProp, category, live, onClose, onFetchLiv
   }
   if (!tool) return null;
   const stars = live?.stars ?? tool.stars;
-  const { points, source } = resolveStarHistory(tool, live);
+  const { points, source } = resolveStarHistory(live);
 
   const refresh = async () => {
     setFetching(true);
@@ -58,15 +58,15 @@ export function ToolDetail({ tool: toolProp, category, live, onClose, onFetchLiv
         <SheetHeader className="space-y-3">
           <div className="flex items-center gap-2 flex-wrap">
             {tool.hot && (
-              <span className="inline-flex items-center gap-0.5 rounded-full bg-orange-500/15 text-orange-500 px-2 py-0.5 text-[11px] font-semibold">
+              <span className="inline-flex items-center gap-0.5 rounded-full bg-orange-500/15 text-orange-700 dark:text-orange-300 px-2 py-0.5 text-[11px] font-semibold">
                 <Flame className="h-3 w-3" />HOT
               </span>
             )}
             <StatusBadge status={tool.status} />
             <StaleBadge tool={tool} live={live} />
             {category && (
-              <span className="inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[11px] font-medium" style={{ background: `${category.color}1c`, color: category.color }}>
-                <CategoryIcon icon={category.icon} className="h-3 w-3" />{category.label}
+              <span className="inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[11px] font-medium" style={{ background: `${category.color}1c` }}>
+                <CategoryIcon icon={category.icon} className="h-3 w-3" style={{ color: category.color }} />{category.label}
               </span>
             )}
           </div>
@@ -93,7 +93,7 @@ export function ToolDetail({ tool: toolProp, category, live, onClose, onFetchLiv
             <div className="rounded-xl border border-border p-3 text-center">
               <Star className="h-4 w-4 mx-auto mb-1 text-amber-400 fill-amber-400" />
               <div className="font-bold text-lg tabular-nums">{formatStars(stars)}</div>
-              <div className="text-[10px] text-muted-foreground">{live ? 'Live stars' : 'Stars (snapshot)'}</div>
+              <div className="text-[10px] text-muted-foreground">{live ? 'GitHub stars' : 'Stars (catalog)'}</div>
             </div>
             <div className="rounded-xl border border-border p-3 text-center">
               <GitFork className="h-4 w-4 mx-auto mb-1 text-muted-foreground" />
@@ -111,7 +111,7 @@ export function ToolDetail({ tool: toolProp, category, live, onClose, onFetchLiv
             <div className="flex items-center justify-between mb-2">
               <div className="text-[12px] font-medium">Star history</div>
               <div className="text-[10px] text-muted-foreground">
-                {source === 'live' ? 'Daily snapshot samples' : 'Approximate (year → current) until CI accumulates samples'}
+                {source === 'live' ? 'Daily snapshot samples' : 'Collecting samples: a trend appears after two days'}
               </div>
             </div>
             <div className="w-full overflow-hidden">
@@ -135,7 +135,7 @@ export function ToolDetail({ tool: toolProp, category, live, onClose, onFetchLiv
           <div className="rounded-xl border border-border divide-y divide-border text-[13px]">
             {[
               ['Organization', tool.org],
-              ['First released', `${tool.year}`],
+              ['Year', `${tool.year}`],
               ['Primary language', tool.lang],
             ].map(([k, v]) => (
               <div key={k} className="flex justify-between px-4 py-2.5">
@@ -144,7 +144,9 @@ export function ToolDetail({ tool: toolProp, category, live, onClose, onFetchLiv
             ))}
             <div className="flex justify-between px-4 py-2.5">
               <span className="text-muted-foreground">License</span>
-              <span className="font-medium" style={{ color: licenseColor(tool.license) }}>{tool.license}</span>
+              <span className="inline-flex items-center gap-1.5 font-medium">
+                <span className="h-2 w-2 rounded-full" style={{ background: licenseColor(tool.license) }} aria-hidden="true" />{tool.license}
+              </span>
             </div>
             {tool.repo && (
               <div className="flex justify-between px-4 py-2.5">
@@ -175,7 +177,7 @@ export function ToolDetail({ tool: toolProp, category, live, onClose, onFetchLiv
               </Button>
             )}
           </div>
-          {failed && <p className="text-[12px] text-rose-500">Live fetch failed (rate limit or repo moved). Snapshot data shown.</p>}
+          {failed && <p role="alert" className="text-[12px] text-rose-700 dark:text-rose-400">Live fetch failed (rate limit or repo moved). Last published data shown.</p>}
           {!tool.repo && (
             <p className="text-[12px] text-muted-foreground">No public repository tracked for this entry yet.</p>
           )}

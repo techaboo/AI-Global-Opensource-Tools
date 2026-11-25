@@ -81,7 +81,7 @@ export function CategoryNav({ categories, counts, total, active, onSelect }: Pro
           </button>
         ))}
         <div className="mt-6 px-2 text-[11px] text-muted-foreground leading-relaxed">
-          Star counts are a curated research snapshot. Hit <span className="font-medium text-foreground">Sync GitHub</span> to refresh live data for the visible list.
+          Star counts are refreshed from GitHub every hour. Hit <span className="font-medium text-foreground">Sync GitHub</span> for the latest numbers on the visible list.
         </div>
       </ScrollArea>
     </aside>

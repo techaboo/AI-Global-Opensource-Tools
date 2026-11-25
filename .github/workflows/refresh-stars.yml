@@ -1,8 +1,8 @@
 # Hourly refresh of live GitHub stats. Fully autonomous, and keeps main clean:
 #   - the snapshot is committed to the `live-data` branch (never main), then the
 #     Pages deploy is triggered so the site serves fresh numbers;
-#   - hard-fact catalog corrections (GitHub archived flag or confirmed 404) go
-#     through an auto-merging PR gated by the required CI checks.
+#   - hard-fact catalog corrections (GitHub archived flag, confirmed 404, renamed
+#     or merged repository) go through an auto-merging PR gated by CI.
 # Auth: repo secret KIMI_GITHUB_API (PAT). Its pushes/PRs trigger CI, which the
 # default GITHUB_TOKEN would not.
 name: Refresh live GitHub stats
@@ -16,6 +16,7 @@ permissions:
   contents: write
   pull-requests: write
   actions: write
+  issues: write
 
 concurrency:
   group: live-data-writer
@@ -24,21 +25,22 @@ concurrency:
 jobs:
   refresh:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 30
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: main
           token: ${{ secrets.KIMI_GITHUB_API || secrets.GITHUB_TOKEN }}
 
-      - uses: actions/setup-node@v7
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: 22
           cache: npm
 
-      - run: npm ci
+      - run: npm ci --ignore-scripts
 
-      - run: |
+      - name: Configure the bot identity
+        run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
@@ -58,13 +60,22 @@ jobs:
         run: |
           node scripts/live-data.mjs push "chore: refresh live GitHub stats ($(date -u +%Y-%m-%dT%H:%MZ))"
 
-      - name: Propose archived-status corrections
+      - name: Propose hard-fact catalog corrections
         env:
           GH_TOKEN: ${{ secrets.KIMI_GITHUB_API || secrets.GITHUB_TOKEN }}
         run: |
-          bash scripts/open-bot-pr.sh bot/archive-status "fix(catalog): sync archived status with GitHub (automated, hard-fact only)"
+          bash scripts/open-bot-pr.sh bot/archive-status "fix(catalog): sync repository status and names with GitHub (automated, hard-fact only)"
 
       - name: Redeploy site with fresh stats
+        if: ${{ !cancelled() && steps.fetch.conclusion != 'skipped' }}
         env:
           GH_TOKEN: ${{ github.token }}
         run: gh workflow run deploy-pages.yml --ref main
+
+      - name: Raise an alert
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          bash scripts/alert-issue.sh refresh-stars "Hourly stats refresh is failing" \
+            "The hourly refresh failed. Open the run log; the site keeps serving the last published snapshot."

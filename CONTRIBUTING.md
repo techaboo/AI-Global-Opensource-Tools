@@ -36,6 +36,8 @@ npm run lint
 npm run build
 ```
 
+Run `npm test` and `npm run test:e2e` for code changes.
+
 Do not hand-edit generated repository metrics just to update stars. `live-snapshot.json` (generated, stored on the `live-data` branch and pulled into `public/` at build time by `scripts/live-data.mjs`) is maintained by the scheduled/manual refresh process.
 
 ## Pull-request review

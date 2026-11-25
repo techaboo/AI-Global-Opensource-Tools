@@ -9,8 +9,9 @@
  * MISSING_GRACE_DAYS (first-404 times live in the snapshot's `missing` map).
  * Deliberately limited to
  * these two hard, unambiguous facts, and reversed when GitHub shows the repo
- * unarchived with a recent push. This script never removes a catalog entry
- * (scripts/prune-stale.mjs does that weekly) or changes anything based on a
+ * unarchived with a recent push. It also follows GitHub renames and merges
+ * entries that resolve to the same repository (scripts/reconcile-lib.mjs). Stale
+ * entries are removed daily by scripts/prune-stale.mjs. Nothing changes on a
  * judgment call (duplicates, category,
  * license plausibility) — those stay human-reviewed via the TypeSafe audit's
  * tracking issue (scripts/audit-catalog.mjs), since a false positive there
@@ -24,15 +25,17 @@ import { appendStarPoint } from '../src/lib/historyCore.js';
 import {
   SNAPSHOT_PATH,
   loadCatalog,
+  loadExcluded,
   readSnapshot,
   validateCatalog,
   validateSnapshot,
   writeCatalog,
 } from './catalog.mjs';
+import { fetchRepoFacts } from './github.mjs';
 import { MISSING_GRACE_DAYS, isRevived, trackMissing } from './prune-lib.mjs';
+import { MAX_REMOVALS, reconcileRepos } from './reconcile-lib.mjs';
 
 const TOKEN = process.env.GITHUB_TOKEN || '';
-const CONCURRENCY = 4;
 const args = process.argv.slice(2);
 
 if (args.includes('--help')) {
@@ -57,78 +60,67 @@ if (inputErrors.length) {
   process.exit(1);
 }
 
-const tools = catalog.tools.filter(tool => tool.repo).map(({ id, repo }) => ({ id, repo }));
+let tools = catalog.tools.filter(tool => tool.repo).map(({ id, repo }) => ({ id, repo }));
 console.log(`Validated ${catalog.tools.length} catalog records; ${tools.length} GitHub repos are eligible for refresh.`);
 if (!shouldUpdate) {
   console.log('Read-only preflight complete. Re-run with --update to fetch stats and replace the snapshot.');
   process.exit(0);
 }
 
-const headers = { Accept: 'application/vnd.github+json', 'User-Agent': 'osi-atlas-refresh' };
-if (TOKEN) headers.Authorization = `Bearer ${TOKEN}`;
-else console.warn('No token set — GitHub limits unauthenticated requests.');
+const facts = await fetchRepoFacts(tools.map(tool => tool.repo), { token: TOKEN });
 
-function githubApiUrl(repo) {
-  return `https://api.github.com/repos/${repo.split('/').map(encodeURIComponent).join('/')}`;
+// Follow renames and merge entries that turn out to be one repository.
+const reconciled = reconcileRepos(catalog.tools, facts, loadExcluded());
+if (reconciled.removed.length > MAX_REMOVALS) {
+  console.error(`Refusing to remove ${reconciled.removed.length} entries in one run (limit ${MAX_REMOVALS}); no files changed.`);
+  process.exit(1);
 }
+for (const { id, from, to } of reconciled.renamed) console.log(`  ! ${id}: repository renamed ${from} -> ${to}`);
+for (const { id, repo, reason, keptId } of reconciled.removed) {
+  console.log(`  ! Removed ${id} (${repo}): ${reason}`);
+  // Same repository, so the longer star history belongs to the kept entry too.
+  const old = previous.repos[id];
+  if (keptId && old && old.history.length > (previous.repos[keptId]?.history.length ?? 0)) previous.repos[keptId] = old;
+}
+const factById = new Map(tools.map(tool => [tool.id, facts.get(tool.repo)]));
+catalog.tools = reconciled.tools;
+tools = catalog.tools.filter(tool => tool.repo).map(({ id, repo }) => ({ id, repo }));
 
 const updated = {};
 const toArchive = []; // { id, reason } — hard-fact signals only (GitHub archived flag, or confirmed 404)
-const missingIds = []; // ids whose repo returned 404 this run
+const missingIds = []; // ids whose repo GitHub reports as not found this run
 const revived = []; // ids GitHub shows unarchived and recently pushed
-let index = 0;
-let done = 0;
 let failed = 0;
-let stopped = false;
 
-async function worker() {
-  while (index < tools.length && !stopped) {
-    const tool = tools[index++];
-    try {
-      const response = await fetch(githubApiUrl(tool.repo), { headers });
-      if ((response.status === 403 && response.headers.get('x-ratelimit-remaining') === '0') || response.status === 429) {
-        console.error(`GitHub request limit reached at ${done}/${tools.length}; retaining previous data for unfinished repos.`);
-        stopped = true;
-        failed++;
-        return;
-      }
-      if (response.status === 404) {
-        // Recorded here and archived below only once it has persisted. It is not a
-        // refresh failure: failing the run would block publishing the snapshot that
-        // remembers when the 404 started.
-        missingIds.push(tool.id);
-        console.error(`  ! ${tool.repo}: repository not found (404); keeping previous data`);
-        continue;
-      }
-      if (!response.ok) throw new Error(`GitHub returned ${response.status}`);
-      const data = await response.json();
-      for (const field of ['stargazers_count', 'forks_count', 'open_issues_count']) {
-        if (!Number.isSafeInteger(data[field]) || data[field] < 0) throw new Error(`GitHub response has invalid ${field}`);
-      }
-      if (typeof data.pushed_at !== 'string' || !Number.isFinite(Date.parse(data.pushed_at))) throw new Error('GitHub response has invalid pushed_at');
-      if (data.archived === true) toArchive.push({ id: tool.id, reason: `${tool.repo} is archived on GitHub` });
-
-      if (isRevived(data)) revived.push(tool.id);
-
-      const fetchedAt = Date.now();
-      updated[tool.id] = {
-        stars: data.stargazers_count,
-        forks: data.forks_count,
-        openIssues: data.open_issues_count,
-        pushedAt: data.pushed_at,
-        fetchedAt,
-        history: appendStarPoint(previous.repos[tool.id]?.history, data.stargazers_count, fetchedAt),
-      };
-    } catch (error) {
-      failed++;
-      console.error(`  ✗ ${tool.repo}: ${error.message}`);
-    } finally {
-      done++;
-    }
+for (const tool of tools) {
+  const fact = factById.get(tool.id);
+  if (fact.status === 'missing') {
+    // Recorded here and archived below only once it has persisted. It is not a
+    // refresh failure: failing the run would block publishing the snapshot that
+    // remembers when the 404 started.
+    missingIds.push(tool.id);
+    console.error(`  ! ${tool.repo}: repository not found (404); keeping previous data`);
+    continue;
   }
+  if (fact.status !== 'ok') {
+    failed++;
+    console.error(`  ✗ ${tool.repo}: ${fact.message}`);
+    continue;
+  }
+  if (fact.archived) toArchive.push({ id: tool.id, reason: `${tool.repo} is archived on GitHub` });
+  if (isRevived({ archived: fact.archived, pushed_at: fact.pushedAt })) revived.push(tool.id);
+
+  const fetchedAt = Date.now();
+  updated[tool.id] = {
+    stars: fact.stars,
+    forks: fact.forks,
+    openIssues: fact.openIssues,
+    pushedAt: fact.pushedAt,
+    fetchedAt,
+    history: appendStarPoint(previous.repos[tool.id]?.history, fact.stars, fetchedAt),
+  };
 }
 
-await Promise.all(Array.from({ length: Math.min(CONCURRENCY, tools.length) }, worker));
 if (Object.keys(updated).length === 0) {
   console.error('No repositories were refreshed; snapshot was not changed.');
   process.exit(1);
@@ -143,7 +135,7 @@ for (const id of confirmed) {
 }
 const archivedNow = toArchive.filter(({ id }) => toolById.get(id)?.status !== 'archived');
 const unarchivedNow = revived.filter(id => toolById.get(id)?.status === 'archived');
-if (archivedNow.length || unarchivedNow.length) {
+if (archivedNow.length || unarchivedNow.length || reconciled.renamed.length || reconciled.removed.length) {
   // Structured edit of the parsed catalog — no regexes over source text.
   for (const { id, reason } of archivedNow) {
     toolById.get(id).status = 'archived';
@@ -170,7 +162,8 @@ if (outputResult.errors.length) {
 }
 
 const temporaryPath = `${SNAPSHOT_PATH}.tmp-${process.pid}`;
-writeFileSync(temporaryPath, `${JSON.stringify(snapshot, null, 2)}\n`, { encoding: 'utf8', mode: 0o644 });
+// Compact: every visitor downloads this file.
+writeFileSync(temporaryPath, `${JSON.stringify(snapshot)}\n`, { encoding: 'utf8', mode: 0o644 });
 renameSync(temporaryPath, SNAPSHOT_PATH);
 console.log(`Wrote ${Object.keys(updated).length} updated / ${Object.keys(repos).length} total repo stats (${failed} failed) → public/live-snapshot.json`);
 if (failed) process.exitCode = 1;

@@ -8,7 +8,7 @@ This notice describes behavior visible in the current source code. A deployment 
 | --- | --- | --- |
 | Favorite tool IDs | `localStorage` | Until changed or site data is cleared |
 | Theme preference | `localStorage` | Until changed or site data is cleared |
-| Cached public GitHub metrics and star history | `localStorage` | Updated during use; remains until site data is cleared |
+| Metrics and star history you synced yourself | `localStorage` | Until a newer published snapshot replaces them or site data is cleared |
 | Optional GitHub token | `sessionStorage` | Until the tab closes or it is removed with the key control |
 | Filters, searches, view, and comparisons | URL query string | In browser history and any copied/shared URL |
 
@@ -16,11 +16,11 @@ The repository does not include application analytics or an account system. Brow
 
 ## GitHub requests
 
-The site loads a public baseline snapshot from its own deployed files. When a user selects **Sync GitHub**, or opens a tool whose details are refreshed, the browser requests public repository metadata from `https://api.github.com/repos/...`. GitHub receives the usual network request information, such as IP address and browser headers, under GitHub's own privacy terms.
+The site loads a public baseline snapshot from its own deployed files, and loads project owner avatars from `github.com`. When a user selects **Sync GitHub**, or opens a tool whose details are refreshed, the browser requests public repository metadata from `https://api.github.com/repos/...`. GitHub receives the usual network request information, such as IP address and browser headers, under GitHub's own privacy terms.
 
 If supplied, the token is attached as a bearer credential to those GitHub API requests. It is not included in catalog exports or `public/live-snapshot.json`. It is stored in `sessionStorage`, so it is discarded when the tab closes, but while open it can be read by scripts running under the same site origin. Use a fine-grained, least-privilege token with no unnecessary access; do not use a sensitive token on a shared device.
 
-The local-development `VITE_GITHUB_TOKEN` path is enabled only in development mode. Production deployments should not put secrets in client-side Vite variables. The scheduled workflow uses its environment-provided `GITHUB_TOKEN` to fetch public metadata; the generated file contains metrics, not that credential.
+The local-development `VITE_GITHUB_TOKEN` path is enabled only in development mode. Production deployments should not put secrets in client-side Vite variables. The scheduled workflows use a repository secret (or the workflow's own token) to fetch public metadata; the generated file contains metrics, not that credential.
 
 ## Exports and links
 

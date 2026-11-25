@@ -3,6 +3,7 @@ import {
   CATEGORY_TOPICS, buildSearchPlan, categoriesByNeed, classifyRepo, interleaveByCategory, isRejectActive, pruneRejects,
   recordReject, sortByStarsDesc,
 } from './discover-lib.mjs';
+import { SEARCH_TIERS, backfill } from './discover-lib.mjs';
 import catalog from '../src/data/catalog.json';
 
 const NOW = Date.parse('2026-10-26T12:00:00Z');
@@ -104,5 +105,25 @@ describe('classifyRepo', () => {
 
   it('does not match "ai" inside other words', () => {
     expect(classifyRepo(repo('mailer', 'Send email with retries', ['email']))).toBe('not-ai');
+  });
+});
+
+describe('daily minimum', () => {
+  it('widens each search tier without dropping the earlier ground', () => {
+    const floors = SEARCH_TIERS.map(tier => {
+      const [fresh, established] = buildSearchPlan(['topic:rag'], Date.UTC(2026, 10, 25), tier);
+      return [Number(fresh.q.match(/stars:>(\d+)/)[1]), established.pages];
+    });
+    expect(floors).toEqual([[100, 2], [50, 4], [25, 7]]);
+  });
+
+  it('backfills by raising the category cap one step at a time', () => {
+    const deferred = ['a', 'a', 'a', 'b'].map((cat, i) => ({ cat, i }));
+    const picked = backfill(deferred, new Map([['a', 2], ['b', 2]]), 2, 3);
+    expect(picked.map(c => c.i)).toEqual([0, 3, 1]);
+  });
+
+  it('adds nothing when the minimum is already met', () => {
+    expect(backfill([{ cat: 'a' }], new Map(), 2, 0)).toEqual([]);
   });
 });

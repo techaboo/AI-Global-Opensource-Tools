@@ -56,9 +56,9 @@ export function Header({ dark, onToggleDark, search, onSearch, syncing, progress
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-background/80 backdrop-blur-xl">
       <a href="#tool-results" className="skip-link">Skip to tool results</a>
-      <div className="flex items-center gap-3 px-4 lg:px-6 h-16">
-        <div className="flex items-center gap-2.5 min-w-0">
-          <div className="h-9 w-9 rounded-xl bg-gradient-to-br from-violet-500 via-fuchsia-500 to-cyan-400 flex items-center justify-center shrink-0 shadow-lg shadow-fuchsia-500/20">
+      <div className="flex items-center gap-2 sm:gap-3 px-3 sm:px-4 lg:px-6 h-16">
+        <div className="flex items-center gap-2.5 shrink-0">
+          <div className="hidden min-[360px]:flex h-9 w-9 rounded-xl bg-gradient-to-br from-violet-500 via-fuchsia-500 to-cyan-400 items-center justify-center shrink-0 shadow-lg shadow-fuchsia-500/20">
             <Radar className="h-5 w-5 text-white" />
           </div>
           <div className="leading-tight hidden sm:block">
@@ -67,7 +67,7 @@ export function Header({ dark, onToggleDark, search, onSearch, syncing, progress
           </div>
         </div>
 
-        <div className="flex-1 max-w-xl mx-auto">
+        <div className="flex-1 min-w-0 max-w-xl mx-auto">
           <div className="relative">
             <label htmlFor="tool-search" className="sr-only">Search tools</label>
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" aria-hidden="true" />
@@ -76,7 +76,7 @@ export function Header({ dark, onToggleDark, search, onSearch, syncing, progress
               type="search"
               value={search}
               onChange={e => onSearch(e.target.value)}
-              placeholder="Search tools, orgs, tags, licenses…  ( / )"
+              placeholder="Search…  ( / )"
               className="w-full h-10 rounded-full border border-border bg-muted/50 pl-9 pr-16 text-sm outline-none focus:ring-2 focus:ring-fuchsia-500/40 focus:border-fuchsia-500/50 transition placeholder:text-muted-foreground/70"
             />
             <button
@@ -90,7 +90,7 @@ export function Header({ dark, onToggleDark, search, onSearch, syncing, progress
           </div>
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className="flex shrink-0 items-center gap-0.5 sm:gap-2">
           <div className="hidden md:flex flex-col items-end mr-1">
             {syncing ? (
               <div className="w-40">
@@ -192,7 +192,7 @@ export function Header({ dark, onToggleDark, search, onSearch, syncing, progress
           <Button
             asChild
             size="sm"
-            className="rounded-full gap-1.5 border-0 bg-amber-500 text-amber-950 hover:bg-amber-400 shadow-sm shadow-amber-500/30 font-semibold"
+            className="hidden sm:inline-flex rounded-full gap-1.5 border-0 bg-amber-500 text-amber-950 hover:bg-amber-400 shadow-sm shadow-amber-500/30 font-semibold"
           >
             <a href="https://buymeacoffee.com/techabooq" target="_blank" rel="noreferrer" aria-label="Support this project on Buy Me a Coffee">
               <Coffee className="h-3.5 w-3.5" />
@@ -213,7 +213,7 @@ export function Header({ dark, onToggleDark, search, onSearch, syncing, progress
           </span>
           <button
             onClick={() => setTokenOpen(true)}
-            className="ml-auto shrink-0 rounded-full bg-fuchsia-500/15 px-2.5 py-1 font-medium text-fuchsia-600 dark:text-fuchsia-300 hover:bg-fuchsia-500/25 transition-colors"
+            className="ml-auto shrink-0 rounded-full bg-fuchsia-500/15 px-2.5 py-1 font-medium text-fuchsia-800 dark:text-fuchsia-300 hover:bg-fuchsia-500/25 transition-colors"
           >
             Add token
           </button>

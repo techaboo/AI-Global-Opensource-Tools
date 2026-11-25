@@ -24,6 +24,7 @@ export const FILES = {
   'audits/discover-rejects.json': 'audits/discover-rejects.json',
   'audits/state.json': 'audits/state.json',
   'audits/latest-report.md': 'audits/latest-report.md',
+  'audits/verification.md': 'audits/verification.md',
 };
 
 const git = (args, opts = {}) => execFileSync('git', args, { cwd: ROOT, encoding: 'utf8', maxBuffer: 512 * 1024 * 1024, stdio: ['ignore', 'pipe', 'pipe'], ...opts });

@@ -22,17 +22,18 @@ A GitHub permission alone should not be treated as a public maintainer appointme
 ## Reviews and changes
 
 At least one maintainer approval is expected before merge, with one narrow,
-documented exception: `.github/workflows/discover-tools.yml`,
-`prune-stale.yml` and `refresh-stars.yml` open pull requests that auto-merge without human review
+documented exception: `.github/workflows/discover-tools.yml` and
+`refresh-stars.yml` open pull requests that auto-merge without human review
 once the required CI checks pass (`scripts/open-bot-pr.sh`). They are bounded
-to objective, automated gates only (a live semantic-duplicate check, a
-confidence-gated category classification, a deterministic star-plausibility
-filter, GitHub's own archived/404 status, and removal of entries that are
-archived or (foundation models excepted) have had no push in 18 months — see
-`scripts/discover-tools.mjs`, `scripts/fetch-stars.mjs` and
-`scripts/prune-stale.mjs`). Anything requiring a judgment call — a
-suspected duplicate, a category mismatch, a license or tagline concern — stays
-reported-only via the TypeSafe audit's tracking issue
+to automated gates only: a live semantic-duplicate check, a confidence-gated
+category classification, a deterministic star-plausibility filter, GitHub's own
+archived, not-found and rename facts (including merging entries that are one
+repository), removal of entries that are archived or (foundation models
+excepted) have had no push in 18 months, and a live verification pass (see
+`scripts/discover-tools.mjs`, `fetch-stars.mjs`, `prune-stale.mjs` and
+`verify-catalog.mjs`). Anything requiring a judgment call — a suspected
+duplicate between different repositories, a category mismatch, a license or
+tagline concern — stays reported-only via the TypeSafe audit's tracking issue
 (`scripts/audit-catalog.mjs`), never auto-applied. Self-merge should be avoided for material governance, security, privacy, methodology, or accessibility changes when another qualified reviewer is available. Emergency security changes may be merged privately or quickly and documented after disclosure is safe.
 
 Conflicts of interest should be disclosed. A reviewer closely affiliated with a cataloged project should avoid being the sole decision-maker for disputed inclusion, ranking, “Hot,” status, or removal decisions.

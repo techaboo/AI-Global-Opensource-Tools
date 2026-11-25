@@ -27,6 +27,8 @@ The Atlas combines three layers:
 
 A token is not required, but unauthenticated GitHub requests have a much lower rate limit. See [PRIVACY.md](PRIVACY.md) before adding one. Metrics are point-in-time observations and may be partial when repositories are unavailable or GitHub limits requests.
 
+A daily pipeline re-checks every repository, removes stale entries, discovers new tools, verifies the result against live GitHub, and publishes it through a CI-gated pull request. See [HOWTO.md](HOWTO.md#the-daily-pipeline).
+
 ## Catalog methodology
 
 Catalog inclusion is editorial, not an endorsement or certification. “Hot” is a manually assigned discovery label; it is not computed from stars or activity. Status has defined but limited semantics and should not be read as a security or quality rating.
@@ -52,9 +54,8 @@ npm run dev
 Useful checks:
 
 ```bash
-npm run check-duplicates
-npm run lint
-npm run build
+npm run validate
+npm run test:e2e
 ```
 
 For optional development-only GitHub access, create a `.env` file containing `VITE_GITHUB_TOKEN=<token>`. The current code reads this variable only during development. Never commit `.env` or a token.

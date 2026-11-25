@@ -16,6 +16,16 @@ export function timeAgo(iso: string): string {
   return `${Math.floor(months / 12)}y ago`;
 }
 
+/**
+ * One line of card text. Auto-added entries use the (possibly truncated)
+ * description as their tagline, which must not be printed twice.
+ */
+export function cardSummary(tagline: string, desc: string): string {
+  const stem = tagline.replace(/(\.\.\.|…)$/, '');
+  if (desc.startsWith(stem)) return desc;
+  return `${tagline.replace(/[.!?]$/, '')}. ${desc}`;
+}
+
 export const LICENSE_COLORS: Record<string, string> = {
   'MIT': '#10b981',
   'Apache-2.0': '#3b82f6',

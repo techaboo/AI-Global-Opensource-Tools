@@ -17,11 +17,22 @@ const tool = (id, repo) => ({
 });
 
 const FAKE_GITHUB = `
-globalThis.fetch = async url => {
-  if (process.env.GONE_STATUS === '404' && String(url).endsWith('/${GONE}')) return { ok: false, status: 404, headers: new Headers() };
-  return { ok: true, status: 200, headers: new Headers(), json: async () => ({
-    stargazers_count: 5, forks_count: 1, open_issues_count: 0, archived: false, pushed_at: new Date().toISOString(),
-  }) };
+globalThis.fetch = async (url, options) => {
+  const { query } = JSON.parse(options.body);
+  const data = {};
+  const errors = [];
+  for (const [, alias, owner, name] of query.matchAll(/(r\\d+): repository\\(owner: "([^"]+)", name: "([^"]+)"\\)/g)) {
+    if (process.env.GONE_STATUS === '404' && owner + '/' + name === '${GONE}') {
+      data[alias] = null;
+      errors.push({ type: 'NOT_FOUND', path: [alias], message: 'Could not resolve to a Repository' });
+    } else {
+      data[alias] = {
+        nameWithOwner: owner + '/' + name, isArchived: false, isDisabled: false, stargazerCount: 5, forkCount: 1,
+        pushedAt: new Date().toISOString(), issues: { totalCount: 0 }, pullRequests: { totalCount: 0 },
+      };
+    }
+  }
+  return { ok: true, status: 200, json: async () => ({ data, errors }) };
 };
 `;
 
@@ -30,7 +41,7 @@ const statusOf = id => read('src/data/catalog.json').tools.find(t => t.id === id
 
 function refresh(goneStatus) {
   execFileSync(process.execPath, ['--import', pathToFileURL(join(dir, 'fake-github.mjs')).href, 'scripts/fetch-stars.mjs', '--update'], {
-    cwd: dir, env: { ...process.env, GONE_STATUS: goneStatus, GITHUB_TOKEN: '' }, stdio: 'pipe',
+    cwd: dir, env: { ...process.env, GONE_STATUS: goneStatus, GITHUB_TOKEN: 'test-token' }, stdio: 'pipe',
   });
 }
 
@@ -44,7 +55,7 @@ function ageMissing(days) {
 beforeEach(() => {
   dir = mkdtempSync(join(tmpdir(), 'fetch-stars-'));
   for (const path of ['scripts', 'src/lib', 'src/data', 'public']) mkdirSync(join(dir, path), { recursive: true });
-  for (const file of ['scripts/fetch-stars.mjs', 'scripts/catalog.mjs', 'scripts/prune-lib.mjs', 'src/lib/historyCore.js']) {
+  for (const file of ['scripts/fetch-stars.mjs', 'scripts/catalog.mjs', 'scripts/prune-lib.mjs', 'scripts/github.mjs', 'scripts/reconcile-lib.mjs', 'src/lib/historyCore.js']) {
     cpSync(join(ROOT, file), join(dir, file));
   }
   writeFileSync(join(dir, 'package.json'), '{"type":"module"}');
