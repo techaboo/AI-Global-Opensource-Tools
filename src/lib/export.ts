@@ -35,7 +35,10 @@ export function toolsToExportRows(tools: AITool[], liveMap: LiveMap, catMap: Map
 }
 
 function csvEscape(value: string | number): string {
-  const s = String(value);
+  // Names and taglines come from third-party repositories. A leading =, +, -, @,
+  // tab or CR makes a spreadsheet run the cell as a formula, so quote it as text.
+  const raw = String(value);
+  const s = typeof value === 'string' && /^[=+\-@\t\r]/.test(raw) ? `'${raw}` : raw;
   if (/[",\n\r]/.test(s)) return `"${s.replace(/"/g, '""')}"`;
   return s;
 }

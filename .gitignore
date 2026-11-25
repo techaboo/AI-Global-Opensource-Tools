@@ -41,4 +41,5 @@ public/live-snapshot.json
 audits/discover-rejects.json
 audits/state.json
 audits/latest-report.md
+audits/verification.md
 src/data/*.tmp-*

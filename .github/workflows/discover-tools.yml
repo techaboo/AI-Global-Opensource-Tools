@@ -1,18 +1,26 @@
-# Daily discovery of new AI repos (scripts/discover-tools.mjs). Fully autonomous:
-# accepted candidates become an auto-merging PR, which only lands after the
-# required CI checks (lint, catalog validation, unit + browser tests, build) pass.
-# Reject memory goes to the live-data branch, so main only changes when tools
-# are actually added. Each candidate must pass a live TypeSafe duplicate check
-# and a category-confidence bar, plus a stars-per-day plausibility filter.
-name: Discover new AI tools
+# Daily catalog pipeline, fully autonomous and in this order:
+#   1. pull the live state and re-check every repository on GitHub
+#   2. remove stale tools
+#   3. discover new tools (at least MIN per day, spread across categories)
+#   4. verify the result against live GitHub (dead links, duplicates, archived)
+#   5. open a PR, wait for the required CI checks and the auto-merge
+#   6. confirm the live site serves the new catalog
+# Any failure, or a day below the minimum, opens a tracking issue.
+name: Daily catalog pipeline
 
 on:
   schedule:
-    - cron: '0 11 * * *'
+    # Off the hour, so it does not collide with the hourly stats refresh.
+    - cron: '20 11 * * *'
   workflow_dispatch:
     inputs:
       limit:
-        description: Maximum candidates to add this run.
+        description: Maximum tools to add this run.
+        required: false
+        type: string
+        default: '45'
+      minimum:
+        description: Daily minimum; the run reports a shortfall below this.
         required: false
         type: string
         default: '30'
@@ -26,44 +34,119 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  discover:
+  pipeline:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 120
+    outputs:
+      added: ${{ steps.discover.outputs.added }}
+      short: ${{ steps.discover.outputs.short }}
+      refresh: ${{ steps.refresh.outcome }}
+    env:
+      # A PAT so the PR triggers CI (GITHUB_TOKEN-created PRs do not).
+      BOT_TOKEN: ${{ secrets.KIMI_GITHUB_API || secrets.GITHUB_TOKEN }}
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: main
-          # A PAT so the PR triggers CI (GITHUB_TOKEN-created PRs do not).
           token: ${{ secrets.KIMI_GITHUB_API || secrets.GITHUB_TOKEN }}
 
-      - uses: actions/setup-node@v7
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: 22
           cache: npm
 
-      - run: npm ci
+      # No dependency install scripts run in a job that holds a write token.
+      - run: npm ci --ignore-scripts
 
-      - run: |
+      - name: Configure the bot identity
+        run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-      - name: Load reject memory from live-data
+      - name: Pull live state from live-data
         run: node scripts/live-data.mjs pull
 
-      - name: Discover candidates
+      - name: Re-check every repository (renames, duplicates, archived, 404)
+        id: refresh
+        # A partial failure still leaves a validated snapshot; the verify step
+        # below refuses to publish anything it cannot confirm.
+        continue-on-error: true
         env:
-          GITHUB_TOKEN: ${{ secrets.KIMI_GITHUB_API || secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ env.BOT_TOKEN }}
+        run: node scripts/fetch-stars.mjs --update
+
+      - name: Remove stale tools
+        run: node scripts/prune-stale.mjs --apply --max=25
+
+      - name: Discover new tools
+        id: discover
+        timeout-minutes: 55
+        env:
+          GITHUB_TOKEN: ${{ env.BOT_TOKEN }}
           TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
-          LIMIT: ${{ inputs.limit || '30' }}
-        run: node scripts/discover-tools.mjs --limit="$LIMIT"
+          LIMIT: ${{ inputs.limit || '45' }}
+          MINIMUM: ${{ inputs.minimum || '30' }}
+        run: node scripts/discover-tools.mjs --limit="$LIMIT" --min="$MINIMUM" --max-minutes=45
 
-      - name: Save reject memory to live-data
-        if: always()
-        run: |
-          node scripts/live-data.mjs push "chore: update tool-discovery reject memory ($(date -u +%Y-%m-%d))"
-
-      - name: Open auto-merging PR for new tools
+      - name: Verify the catalog against live GitHub
         env:
-          GH_TOKEN: ${{ secrets.KIMI_GITHUB_API || secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ env.BOT_TOKEN }}
         run: |
-          bash scripts/open-bot-pr.sh bot/discover-tools "feat(catalog): auto-add new AI tool candidates ($(date -u +%Y-%m-%d))"
+          mkdir -p audits
+          node scripts/verify-catalog.mjs --base=origin/main --report=audits/verification.md
+          npm run validate:catalog
+
+      - name: Save pipeline state to live-data
+        if: ${{ !cancelled() }}
+        run: |
+          node scripts/live-data.mjs push "chore: update catalog pipeline state ($(date -u +%Y-%m-%d))"
+
+      - name: Commit, open the PR and wait for the merge
+        env:
+          GH_TOKEN: ${{ env.BOT_TOKEN }}
+          MERGE_WAIT_SECONDS: '1500'
+        run: |
+          bash scripts/open-bot-pr.sh bot/discover-tools "feat(catalog): daily catalog update ($(date -u +%Y-%m-%d))"
+
+      - name: Confirm the live site serves the new catalog
+        env:
+          SITE: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
+        run: node scripts/check-live.mjs "$SITE"
+
+      - name: Run summary
+        if: ${{ !cancelled() }}
+        env:
+          ADDED: ${{ steps.discover.outputs.added }}
+          REFRESH: ${{ steps.refresh.outcome }}
+        run: |
+          {
+            echo "Tools added: ${ADDED:-0} · live refresh: $REFRESH"
+            echo
+            cat audits/verification.md 2>/dev/null || true
+          } >> "$GITHUB_STEP_SUMMARY"
+
+  # A separate job with its own checkout: it still reports when the pipeline job
+  # timed out, was cancelled, or could not check out with the bot token.
+  alert:
+    needs: pipeline
+    if: >-
+      always() && (needs.pipeline.result != 'success'
+      || needs.pipeline.outputs.short == 'true'
+      || needs.pipeline.outputs.refresh == 'failure')
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Raise an alert
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ADDED: ${{ needs.pipeline.outputs.added }}
+          RESULT: ${{ needs.pipeline.result }}
+        run: |
+          bash scripts/alert-issue.sh daily-pipeline "Daily catalog pipeline needs attention" \
+            "Job result: $RESULT. Tools added: ${ADDED:-unknown}. Open the run log to see which step failed or why the daily minimum was not met."

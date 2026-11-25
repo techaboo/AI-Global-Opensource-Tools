@@ -17,7 +17,7 @@ export interface AITool {
   desc: string;
   license: string;
   lang: string;
-  stars: number; // snapshot (mid-2026 research), superseded by live sync
+  stars: number; // fallback star count; the published GitHub snapshot supersedes it
   repo?: string; // owner/name for GitHub API
   tags: string[];
   hot?: boolean;

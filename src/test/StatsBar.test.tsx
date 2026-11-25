@@ -24,7 +24,7 @@ describe('StatsBar', () => {
       'removed-tool': { stars: 1, forks: 0, openIssues: 0, pushedAt: '', fetchedAt: 1 },
     };
     render(<StatsBar tools={TOOLS.slice(0, 3)} liveMap={liveMap} />);
-    const label = screen.getByText('Live-synced');
+    const label = screen.getByText('With GitHub stats');
     expect(label.previousElementSibling).toHaveTextContent('1');
   });
 });

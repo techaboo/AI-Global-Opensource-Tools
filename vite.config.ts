@@ -8,7 +8,7 @@ function injectCatalogCounts(): Plugin {
   return {
     name: 'inject-catalog-counts',
     transformIndexHtml(html) {
-      const catalog = JSON.parse(readFileSync(path.resolve(__dirname, 'src/data/catalog.json'), 'utf8'));
+      const catalog = JSON.parse(readFileSync(path.resolve(import.meta.dirname, 'src/data/catalog.json'), 'utf8'));
       return html
         .replaceAll('__TOOL_COUNT__', String(catalog.tools.length))
         .replaceAll('__CATEGORY_COUNT__', String(catalog.categories.length));
@@ -19,7 +19,7 @@ function injectCatalogCounts(): Plugin {
 // Dev mode needs an inline script for React Fast Refresh (injected by @vitejs/plugin-react)
 // that a strict script-src would block, so this CSP <meta> is only added to the production build.
 function injectCsp(): Plugin {
-  const csp = "default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self' https://api.github.com; font-src 'self' data:; base-uri 'self'; form-action 'self'; object-src 'none'";
+  const csp = "default-src 'self'; img-src 'self' https://github.com https://avatars.githubusercontent.com data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self' https://api.github.com; font-src 'self' data:; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests";
   return {
     name: 'inject-csp-meta',
     apply: 'build',
@@ -40,7 +40,7 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./src"),
+      "@": path.resolve(import.meta.dirname, "./src"),
     },
   },
   build: {

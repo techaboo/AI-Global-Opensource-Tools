@@ -9,7 +9,7 @@
  */
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { ROOT, loadCatalog, validateCatalog } from './catalog.mjs';
+import { ROOT, catalogHash, loadCatalog, readSnapshot, validateCatalog } from './catalog.mjs';
 
 const API_DIR = join(ROOT, 'public/api/v1');
 const SCHEMA_VERSION = 1;
@@ -24,15 +24,21 @@ if (errors.length) {
 
 mkdirSync(API_DIR, { recursive: true });
 
+// Publish the latest observed star counts; the catalog value is only the fallback.
+const snapshot = readSnapshot();
+const tools = catalog.tools.map(tool => ({ ...tool, stars: snapshot.repos?.[tool.id]?.stars ?? tool.stars }));
+
 const meta = {
   generatedAt: new Date().toISOString(),
   schemaVersion: SCHEMA_VERSION,
+  catalogHash: catalogHash(catalog),
   toolCount: catalog.tools.length,
   categoryCount: catalog.categories.length,
   snapshotDate: catalog.snapshotDate,
+  statsGeneratedAt: Object.keys(snapshot.repos ?? {}).length ? snapshot.generatedAt : null,
 };
 
-writeFileSync(join(API_DIR, 'tools.json'), `${JSON.stringify(catalog.tools, null, 2)}\n`);
+writeFileSync(join(API_DIR, 'tools.json'), `${JSON.stringify(tools, null, 2)}\n`);
 writeFileSync(join(API_DIR, 'categories.json'), `${JSON.stringify(catalog.categories, null, 2)}\n`);
 writeFileSync(join(API_DIR, 'meta.json'), `${JSON.stringify(meta, null, 2)}\n`);
 

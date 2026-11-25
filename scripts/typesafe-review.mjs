@@ -120,6 +120,7 @@ async function callSystemOne(state, questions, { apiKey = process.env.TYPESAFE_A
       method: 'POST',
       headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
       body: JSON.stringify({ model: MODEL, state, questions }),
+      signal: AbortSignal.timeout(60_000),
     });
     if (res.ok) return res.json();
     if ((res.status === 429 || res.status === 529) && attempt < retries) {

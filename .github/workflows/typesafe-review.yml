@@ -20,8 +20,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v7
-      - uses: actions/setup-node@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: 22
           cache: npm
@@ -29,9 +31,10 @@ jobs:
       - name: Run semantic review
         env:
           TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
+          TOOL_ID: ${{ inputs.tool_id }}
         run: |
           if [ -z "$TYPESAFE_API_KEY" ]; then
             echo "::warning::TYPESAFE_API_KEY secret is not set — the review will skip and exit 0."
           fi
           set -o pipefail
-          node scripts/review-tool.mjs "${{ inputs.tool_id }}" | tee -a "$GITHUB_STEP_SUMMARY"
+          node scripts/review-tool.mjs "$TOOL_ID" | tee -a "$GITHUB_STEP_SUMMARY"

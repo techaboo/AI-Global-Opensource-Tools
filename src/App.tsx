@@ -9,6 +9,7 @@ import { StatsBar } from '@/components/StatsBar';
 import { FilterBar, type SortKey, type ViewMode } from '@/components/FilterBar';
 import { ToolCard } from '@/components/ToolCard';
 import { ToolTable } from '@/components/ToolTable';
+import { ToolGrid } from '@/components/ToolGrid';
 
 const ToolDetail = lazy(() => import('@/components/ToolDetail').then(module => ({ default: module.ToolDetail })));
 const Analytics = lazy(() => import('@/components/Analytics').then(module => ({ default: module.Analytics })));
@@ -239,7 +240,7 @@ export default function App() {
               <p className="text-[13px] text-muted-foreground mt-1 max-w-2xl">
                 {activeCategory
                   ? activeCategory.blurb
-                  : `A researched catalog of ${TOOLS.length} open-source AI tools across ${CATEGORIES.length} categories — from foundation models to robotics. Snapshot: ${SNAPSHOT_DATE}; sync GitHub for live stars.`}
+                  : `A catalog of ${TOOLS.length} open-source AI tools across ${CATEGORIES.length} categories, from foundation models to robotics. Updated ${SNAPSHOT_DATE}; GitHub stats refresh hourly.`}
               </p>
             </div>
           </div>
@@ -266,11 +267,14 @@ export default function App() {
           )}
 
           {view === 'grid' && filtered.length > 0 && (
-            <div className="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-3 gap-3.5">
-              {filtered.map((t, i) => (
+            <ToolGrid
+              // A new filter or sort starts again from the first page.
+              key={`${activeCat}|${sort}|${license}|${lang}|${status}|${onlyFav}|${search}`}
+              tools={filtered}
+              renderTool={(t, i) => (
                 <ToolCard key={t.id} tool={t} category={CAT_MAP.get(t.cat)} live={liveMap[t.id]} onOpen={setSelected} isFavorite={favorites.has(t.id)} onToggleFavorite={toggleFavorite} animIndex={i} />
-              ))}
-            </div>
+              )}
+            />
           )}
 
           {view === 'table' && filtered.length > 0 && (
@@ -296,8 +300,8 @@ export default function App() {
           )}
 
           <footer className="pt-6 pb-4 text-center text-[11px] text-muted-foreground space-y-1">
-            <p>Open Source AI Atlas · {TOOLS.length} tools · {CATEGORIES.length} categories · research snapshot {SNAPSHOT_DATE}</p>
-            <p>Star/fork data: GitHub REST API — {hasToken ? 'authenticated (5,000 req/hr)' : 'unauthenticated (60 req/hr — add a token via the 🔑 button)'}. Cached locally; a saved token is sent only to GitHub when requesting metadata.</p>
+            <p>Open Source AI Atlas · {TOOLS.length} tools · {CATEGORIES.length} categories · updated {SNAPSHOT_DATE}</p>
+            <p>Star/fork data: GitHub, refreshed hourly. Sync uses the REST API — {hasToken ? 'authenticated (5,000 req/hr)' : 'unauthenticated (60 req/hr — add a token via the 🔑 button)'}. Cached locally; a saved token is sent only to GitHub when requesting metadata.</p>
             <p>Techaboo World Solution by Andrew Shannon</p>
             <p>
               <a

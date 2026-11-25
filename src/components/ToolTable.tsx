@@ -26,13 +26,14 @@ interface RowData {
   onOpen: (t: AITool) => void;
 }
 
-function Row({ ariaAttributes, index, style, tools, catMap, liveMap, onOpen }: RowComponentProps<RowData>) {
+function Row({ index, style, tools, catMap, liveMap, onOpen }: RowComponentProps<RowData>) {
   const t = tools[index];
   const cat = catMap.get(t.cat);
   const live = liveMap[t.id];
   return (
     <div
-      {...ariaAttributes}
+      // react-window's list-item attributes are not valid on a table row.
+      aria-rowindex={index + 2}
       role="row"
       tabIndex={0}
       style={style}
@@ -57,22 +58,24 @@ function Row({ ariaAttributes, index, style, tools, catMap, liveMap, onOpen }: R
       </div>
       <div role="cell" className="hidden whitespace-nowrap text-[12px] truncate sm:block">
         {cat && (
-          <span className="inline-flex items-center gap-1.5" style={{ color: cat.color }}>
-            <CategoryIcon icon={cat.icon} className="h-3.5 w-3.5 shrink-0" />
+          <span className="inline-flex items-center gap-1.5">
+            <CategoryIcon icon={cat.icon} className="h-3.5 w-3.5 shrink-0" style={{ color: cat.color }} />
             <span className="truncate">{cat.label}</span>
           </span>
         )}
       </div>
-      <div role="cell" className="hidden whitespace-nowrap text-[12px] truncate sm:block" style={{ color: licenseColor(t.license) }}>{t.license}</div>
+      <div role="cell" className="hidden whitespace-nowrap text-[12px] truncate sm:block">
+        <span className="mr-1.5 inline-block h-2 w-2 rounded-full" style={{ background: licenseColor(t.license) }} aria-hidden="true" />{t.license}
+      </div>
       <div role="cell" className="hidden text-[12px] text-muted-foreground truncate sm:block">{t.lang}</div>
       <div role="cell" className="text-right tabular-nums whitespace-nowrap pr-2">
-        <span className={cn('inline-flex items-center gap-1 font-semibold text-[13px]', live && 'text-emerald-500')}>
+        <span className={cn('inline-flex items-center gap-1 font-semibold text-[13px]', live && 'text-emerald-700 dark:text-emerald-400')}>
           <Star className={cn('h-3.5 w-3.5', live ? 'fill-emerald-500 text-emerald-500' : 'fill-amber-400 text-amber-400')} />
           {formatStars(live?.stars ?? t.stars)}
         </span>
       </div>
       <div role="cell" className="hidden sm:block">
-        <Sparkline points={resolveStarHistory(t, live).points} width={56} height={16} color={cat?.color ?? '#d946ef'} />
+        <Sparkline points={resolveStarHistory(live).points} width={56} height={16} color={cat?.color ?? '#d946ef'} />
       </div>
       <div role="cell" className="hidden sm:block"><StatusBadge status={t.status} /></div>
     </div>

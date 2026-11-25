@@ -29,7 +29,7 @@ Examples include:
 - materially false metadata that cannot be corrected;
 - an entry too incomplete to identify or assess.
 
-Removal is not a statement about a project's worth. When practical, record the evidence and reason in an issue or pull request. Moved or renamed projects should usually be corrected rather than deleted.
+Removal is not a statement about a project's worth. When practical, record the evidence and reason in an issue or pull request. Moved or renamed projects are corrected rather than deleted; when two entries resolve to one repository, one is removed.
 
 ## Source hierarchy
 
@@ -52,13 +52,13 @@ Status is a catalog availability/maintenance signal, not a quality or security g
 
 - **`active`** — the default editorial baseline, or a repository that a successful GitHub refresh reports as not archived. It does not prove frequent releases or responsive maintenance.
 - **`maintenance`** — an editorial judgment that the project appears usable but is in limited, stability-only, or reduced development. Cite first-party evidence or a sustained activity pattern.
-- **`archived`** — the source repository is marked archived by GitHub, or authoritative project evidence says development has ended. A successful live or scheduled GitHub refresh can set this automatically from the repository's archived flag, and the scheduled refresh clears it when GitHub shows the repository unarchived with a push in the last 90 days.
+- **`archived`** — the source repository is marked archived or disabled by GitHub, or authoritative project evidence says development has ended. A successful live or scheduled GitHub refresh can set this automatically from the repository's archived flag, and the scheduled refresh clears it when GitHub shows the repository unarchived with a push in the last 90 days.
 
 A repository that GitHub reports as not found is marked archived only after that has persisted for 7 days. A failed, missing, rate-limited, or stale refresh must not by itself be interpreted as abandonment. Repository moves and temporary outages should be investigated.
 
 ## Removal of stale entries
 
-A weekly job removes entries marked `archived`, and entries whose repository has had no push for 18 months. Foundation models are exempt from the inactivity rule. An entry with no successful live observation is never removed for inactivity. A removed project that becomes active again can be rediscovered or proposed by pull request.
+A daily job removes entries marked `archived`, and entries whose repository has had no push for 18 months. Foundation models are exempt from the inactivity rule. An entry with no successful live observation is never removed for inactivity. A removed project that becomes active again can be rediscovered or proposed by pull request.
 
 ## “Hot” label
 
@@ -80,4 +80,4 @@ Newer `fetchedAt` values take precedence when cached and scheduled data are merg
 
 Catalog additions and material changes require a pull request with authoritative sources. Review covers duplicates, inclusion, neutral wording, category, license, repository coordinates, status, editorial labels, and validation checks. Conflicted reviewers should not be the sole decision-maker.
 
-The repository star baseline refreshes hourly, and automated discovery of new candidates runs daily (see `HOWTO.md`). Editorial corrections are reviewed continuously as capacity permits, with a target of sampling stale fields at least quarterly. There is no guaranteed review time. Anyone may submit a correction with evidence.
+The repository star baseline refreshes hourly, and the pipeline that re-checks, prunes and discovers entries runs daily (see `HOWTO.md`). Editorial corrections are reviewed continuously as capacity permits, with a target of sampling stale fields at least quarterly. There is no guaranteed review time. Anyone may submit a correction with evidence.

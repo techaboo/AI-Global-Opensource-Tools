@@ -1,3 +1,4 @@
+import { createHash } from 'node:crypto';
 import { existsSync, readFileSync, renameSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -26,6 +27,11 @@ const TOOL_STATUSES = new Set(['active', 'maintenance', 'archived']);
 const SLUG_RE = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const REPO_RE = /^[A-Za-z0-9](?:[A-Za-z0-9-]{0,38})\/[A-Za-z0-9._-]+$/;
 const HEX_RE = /^#[0-9a-f]{6}$/i;
+
+/** Identifies the catalog content a build was made from, whatever the file's formatting. */
+export function catalogHash({ tools, categories }) {
+  return createHash('sha256').update(JSON.stringify({ categories, tools })).digest('hex');
+}
 
 /** Read src/data/catalog.json — plain data, the single source of truth for the catalog. */
 export async function loadCatalog(catalogPath = CATALOG_PATH) {

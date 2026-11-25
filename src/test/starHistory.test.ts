@@ -1,6 +1,5 @@
 import { describe, expect, it } from 'vitest';
 import { appendStarPoint, MAX_HISTORY_POINTS, resolveStarHistory } from '@/lib/starHistory';
-import { TOOLS } from '@/data/tools';
 
 const day = Date.UTC(2026, 8, 11, 10);
 
@@ -19,7 +18,6 @@ describe('star history', () => {
   });
 
   it('prefers two or more real history points', () => {
-    const tool = TOOLS[0];
     const points = [{ t: day, s: 10 }, { t: day + 86_400_000, s: 20 }];
     const live = {
       stars: 20,
@@ -29,12 +27,12 @@ describe('star history', () => {
       fetchedAt: day,
       history: points,
     };
-    expect(resolveStarHistory(tool, live).source).toBe('live');
+    expect(resolveStarHistory(live).source).toBe('live');
   });
 
-  it('creates an approximate offline history when snapshots are absent', () => {
-    const result = resolveStarHistory(TOOLS[0]);
-    expect(result.source).toBe('approx');
-    expect(result.points.length).toBeGreaterThan(1);
+  it('draws nothing it has not observed', () => {
+    expect(resolveStarHistory()).toEqual({ points: [], source: 'collecting' });
+    const one = { stars: 1, forks: 0, openIssues: 0, pushedAt: '', fetchedAt: day, history: [{ t: day, s: 1 }] };
+    expect(resolveStarHistory(one)).toEqual({ points: one.history, source: 'collecting' });
   });
 });

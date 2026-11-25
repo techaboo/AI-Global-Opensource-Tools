@@ -307,7 +307,7 @@ function MiniPie({
           <PieChart>
             <Pie data={data} dataKey="value" nameKey="name" innerRadius="50%" outerRadius="80%" paddingAngle={2}>
               {data.map((d, i) => (
-                <Cell key={d.name} fill={d.color ?? colors?.[i % (colors?.length ?? 1)] ?? '#8b5cf6'} />
+                <Cell key={d.name} fill={d.color ?? colors?.[i % (colors?.length ?? 1)] ?? '#8b5cf6'} aria-label={`${d.name}: ${d.value} tools`} />
               ))}
             </Pie>
             <Tooltip contentStyle={tooltipStyle} />

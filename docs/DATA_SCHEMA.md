@@ -47,7 +47,10 @@ hosted, with no separate backend:
 | --- | --- |
 | `/api/v1/tools.json` | The full `AITool[]` array, same shape as this document's `AITool` table |
 | `/api/v1/categories.json` | The full `Category[]` array |
-| `/api/v1/meta.json` | `{ generatedAt, schemaVersion, toolCount, categoryCount, snapshotDate }` |
+| `/api/v1/meta.json` | `{ generatedAt, schemaVersion, catalogHash, toolCount, categoryCount, snapshotDate, statsGeneratedAt }` |
+
+`stars` in `tools.json` is the latest published snapshot value, with the catalog
+value as fallback; `statsGeneratedAt` is `null` when a build had no snapshot.
 
 This is a free, unauthenticated, static mirror of the catalog — there is no
 rate limiting or access control, because there is no server to enforce it. It
@@ -64,6 +67,7 @@ same data) rather than a static file.
   "generatedAt": "ISO-8601 timestamp",
   "repos": {
     "<tool id>": {
+      "repo": "owner/name",
       "stars": 0,
       "forks": 0,
       "openIssues": 0,
@@ -83,7 +87,7 @@ A tool may be absent when it has no repo, a request fails, or GitHub limits acce
 
 The browser keeps the same per-tool `LiveRepoData` shape (`src/types/index.ts`) in `localStorage`, keyed by tool id. It merges the scheduled snapshot with records from **Sync GitHub** or a single-tool refresh; the record with the newer `fetchedAt` wins, and the longer history is kept.
 
-Live data never changes a tool's catalog `status` in the browser. Only the scheduled refresh changes status: when GitHub reports a repository as archived, or has returned a 404 for it for 7 days (tracked in the snapshot's `missing` map, a tool id to first-404 time), `fetch-stars.mjs` sets `status: "archived"` in `catalog.json` and proposes it through an auto-merging pull request gated by CI. The same job restores `"active"` when GitHub shows an archived entry's repository unarchived and pushed within 90 days. A separate weekly job removes stale entries (see `HOWTO.md`). The UI separately shows a "Stale?" badge for an `active` tool whose last successful push observation is over a year old.
+Live data never changes a tool's catalog `status` in the browser. Only the scheduled refresh changes status: when GitHub reports a repository as archived, or has returned a 404 for it for 7 days (tracked in the snapshot's `missing` map, a tool id to first-404 time), `fetch-stars.mjs` sets `status: "archived"` in `catalog.json` and proposes it through an auto-merging pull request gated by CI. The same job restores `"active"` when GitHub shows an archived entry's repository unarchived and pushed within 90 days. Renamed repositories are moved to their current name, and entries resolving to one repository are merged. A daily job removes stale entries (see `HOWTO.md`). The UI separately shows a "Stale?" badge for an `active` tool whose last successful push observation is over a year old.
 
 ## Validation expectations
 
