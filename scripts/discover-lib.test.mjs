@@ -1,5 +1,9 @@
 import { describe, expect, it } from 'vitest';
-import { buildSearchPlan, classifyRepo, isRejectActive, pruneRejects, recordReject, sortByStarsDesc } from './discover-lib.mjs';
+import {
+  CATEGORY_TOPICS, buildSearchPlan, categoriesByNeed, classifyRepo, interleaveByCategory, isRejectActive, pruneRejects,
+  recordReject, sortByStarsDesc,
+} from './discover-lib.mjs';
+import catalog from '../src/data/catalog.json';
 
 const NOW = Date.parse('2026-10-26T12:00:00Z');
 
@@ -7,12 +11,28 @@ describe('buildSearchPlan', () => {
   it('emits a created-window and a pushed-window query per topic', () => {
     const plan = buildSearchPlan(['topic:llm'], NOW);
     expect(plan).toHaveLength(2);
-    expect(plan[0]).toMatchObject({ window: 'new', pages: 2 });
+    expect(plan[0]).toMatchObject({ window: 'new', pages: 1 });
     expect(plan[0].q).toContain('created:>2026-07-28');
     expect(plan[0].q).toContain('stars:>100');
-    expect(plan[1]).toMatchObject({ window: 'established', pages: 3 });
+    expect(plan[1]).toMatchObject({ window: 'established', pages: 2 });
     expect(plan[1].q).toContain('pushed:>2026-09-26');
     expect(plan[1].q).toContain('stars:>300');
+  });
+});
+
+describe('category coverage', () => {
+  it('has search topics for every catalog category', () => {
+    expect(Object.keys(CATEGORY_TOPICS).sort()).toEqual(catalog.categories.map(c => c.id).sort());
+  });
+
+  it('orders categories thinnest first', () => {
+    const categories = [{ id: 'a' }, { id: 'b' }, { id: 'c' }];
+    expect(categoriesByNeed(categories, [{ cat: 'a' }, { cat: 'a' }, { cat: 'c' }])).toEqual(['b', 'c', 'a']);
+  });
+
+  it('takes one candidate per category per round', () => {
+    const queues = new Map([['a', ['a1', 'a2', 'a3']], ['b', ['b1']]]);
+    expect(interleaveByCategory(queues, ['b', 'c', 'a'])).toEqual(['b1', 'a1', 'a2', 'a3']);
   });
 });
 

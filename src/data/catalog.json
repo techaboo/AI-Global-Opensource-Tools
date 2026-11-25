@@ -273,44 +273,6 @@
       "year": 2025
     },
     {
-      "id": "gemma3",
-      "name": "Gemma 3",
-      "org": "Google",
-      "cat": "models",
-      "tagline": "Efficient 1B–27B multimodal open models",
-      "desc": "Vision-capable open models in 1B/4B/12B/27B sizes with 128K context and 140+ language support.",
-      "license": "Gemma Terms of Use",
-      "lang": "Python",
-      "stars": 6000,
-      "repo": "google/gemma_pytorch",
-      "tags": [
-        "llm",
-        "multimodal",
-        "edge"
-      ],
-      "status": "archived",
-      "year": 2025
-    },
-    {
-      "id": "mistral",
-      "name": "Mistral Small / Magistral",
-      "org": "Mistral AI",
-      "cat": "models",
-      "tagline": "Latency-optimized Apache-2.0 models",
-      "desc": "Mistral Small 3 (24B) for everyday tasks and Magistral reasoning line, mostly under Apache 2.0.",
-      "license": "Apache-2.0",
-      "lang": "Python",
-      "stars": 12000,
-      "repo": "mistralai/mistral-inference",
-      "tags": [
-        "llm",
-        "reasoning",
-        "efficient"
-      ],
-      "status": "archived",
-      "year": 2025
-    },
-    {
       "id": "phi4",
       "name": "Phi-4",
       "org": "Microsoft",
@@ -466,25 +428,6 @@
       "year": 2024
     },
     {
-      "id": "llava",
-      "name": "LLaVA",
-      "org": "University of Wisconsin–Madison",
-      "cat": "multimodal",
-      "tagline": "The original open VLM recipe",
-      "desc": "Visual instruction tuning recipe that kicked off the open VLM wave; still a common baseline.",
-      "license": "Apache-2.0",
-      "lang": "Python",
-      "stars": 23000,
-      "repo": "haotian-liu/LLaVA",
-      "tags": [
-        "vlm",
-        "classic",
-        "research"
-      ],
-      "status": "active",
-      "year": 2023
-    },
-    {
       "id": "minicpm-v",
       "name": "MiniCPM-V",
       "org": "OpenBMB",
@@ -518,44 +461,6 @@
         "slm",
         "vlm",
         "edge"
-      ],
-      "status": "active",
-      "year": 2024
-    },
-    {
-      "id": "molmo",
-      "name": "Molmo",
-      "org": "Allen Institute for AI",
-      "cat": "multimodal",
-      "tagline": "Open VLM with pointing ability",
-      "desc": "Multimodal models trained on the open PixMo dataset; can point at UI elements for agentic control.",
-      "license": "Apache-2.0",
-      "lang": "Python",
-      "stars": 9000,
-      "repo": "allenai/molmo",
-      "tags": [
-        "vlm",
-        "pointing",
-        "open-data"
-      ],
-      "status": "active",
-      "year": 2024
-    },
-    {
-      "id": "janus",
-      "name": "Janus",
-      "org": "DeepSeek",
-      "cat": "multimodal",
-      "tagline": "Unified understanding + generation",
-      "desc": "Decouples visual encoding for understanding vs generation in one unified multimodal model.",
-      "license": "MIT",
-      "lang": "Python",
-      "stars": 18000,
-      "repo": "deepseek-ai/Janus",
-      "tags": [
-        "vlm",
-        "generation",
-        "unified"
       ],
       "status": "active",
       "year": 2024
@@ -803,24 +708,6 @@
       "year": 2023
     },
     {
-      "id": "tgi",
-      "name": "Text Generation Inference",
-      "org": "Hugging Face",
-      "cat": "inference",
-      "tagline": "HF's production serving toolkit",
-      "desc": "Rust/Python production server for LLMs. Archived by Hugging Face in 2026 — migrate to vLLM or SGLang.",
-      "license": "Apache-2.0",
-      "lang": "Rust",
-      "stars": 11000,
-      "repo": "huggingface/text-generation-inference",
-      "tags": [
-        "serving",
-        "legacy"
-      ],
-      "status": "archived",
-      "year": 2022
-    },
-    {
       "id": "open-webui",
       "name": "Open WebUI",
       "org": "Open WebUI",
@@ -931,24 +818,6 @@
       "year": 2023
     },
     {
-      "id": "chatbot-ui",
-      "name": "Chatbot UI",
-      "org": "mckaywrigley",
-      "cat": "chatui",
-      "tagline": "The original open ChatGPT UI",
-      "desc": "Clean, minimal chat interface; widely forked but the upstream is now in maintenance mode.",
-      "license": "MIT",
-      "lang": "TypeScript",
-      "stars": 31000,
-      "repo": "mckaywrigley/chatbot-ui",
-      "tags": [
-        "ui",
-        "classic"
-      ],
-      "status": "maintenance",
-      "year": 2023
-    },
-    {
       "id": "sillytavern",
       "name": "SillyTavern",
       "org": "SillyTavern",
@@ -1038,24 +907,6 @@
         "roles"
       ],
       "status": "active",
-      "year": 2023
-    },
-    {
-      "id": "autogen",
-      "name": "AutoGen",
-      "org": "Microsoft",
-      "cat": "agents",
-      "tagline": "Multi-agent conversation framework",
-      "desc": "Microsoft's pioneering multi-agent framework; superseded by Agent Framework and now in maintenance.",
-      "license": "MIT",
-      "lang": "Python",
-      "stars": 50000,
-      "repo": "microsoft/autogen",
-      "tags": [
-        "multi-agent",
-        "legacy"
-      ],
-      "status": "archived",
       "year": 2023
     },
     {
@@ -1257,24 +1108,6 @@
       ],
       "status": "active",
       "year": 2023
-    },
-    {
-      "id": "ms-agent-framework",
-      "name": "Microsoft Agent Framework",
-      "org": "Microsoft",
-      "cat": "agents",
-      "tagline": "Unified successor to AutoGen + SK",
-      "desc": "Graph-based workflows, responsible-AI guardrails, Python + .NET runtimes at 1.0 GA.",
-      "license": "MIT",
-      "lang": "Python",
-      "stars": 4000,
-      "repo": "microsoft/agent-framework",
-      "tags": [
-        "enterprise",
-        "dotnet"
-      ],
-      "status": "archived",
-      "year": 2025
     },
     {
       "id": "opencode",
@@ -1496,24 +1329,6 @@
       "year": 2023
     },
     {
-      "id": "void",
-      "name": "Void",
-      "org": "Void Editor",
-      "cat": "coding",
-      "tagline": "Open-source Cursor alternative",
-      "desc": "VS Code fork with built-in AI features and full control over your model providers.",
-      "license": "Apache-2.0",
-      "lang": "TypeScript",
-      "stars": 27000,
-      "repo": "voideditor/void",
-      "tags": [
-        "editor",
-        "cursor-alternative"
-      ],
-      "status": "archived",
-      "year": 2024
-    },
-    {
       "id": "crush",
       "name": "Crush",
       "org": "Charm",
@@ -1695,24 +1510,6 @@
         "browser"
       ],
       "status": "active",
-      "year": 2025
-    },
-    {
-      "id": "ui-tars",
-      "name": "UI-TARS",
-      "org": "ByteDance",
-      "cat": "browseruse",
-      "tagline": "Native GUI agent model + desktop app",
-      "desc": "Vision-language model purpose-built for GUI control, with a polished desktop agent app.",
-      "license": "Apache-2.0",
-      "lang": "TypeScript",
-      "stars": 19000,
-      "repo": "bytedance/UI-TARS-desktop",
-      "tags": [
-        "gui",
-        "computer-use"
-      ],
-      "status": "archived",
       "year": 2025
     },
     {
@@ -2226,24 +2023,6 @@
       "year": 2023
     },
     {
-      "id": "flowise",
-      "name": "Flowise",
-      "org": "FlowiseAI",
-      "cat": "workflow",
-      "tagline": "Low-code LLM flow builder",
-      "desc": "Drag-and-drop LLM flows. Repo archived read-only after the Workday acquisition — not recommended for new work.",
-      "license": "Apache-2.0",
-      "lang": "TypeScript",
-      "stars": 45000,
-      "repo": "FlowiseAI/Flowise",
-      "tags": [
-        "visual",
-        "legacy"
-      ],
-      "status": "archived",
-      "year": 2023
-    },
-    {
       "id": "node-red",
       "name": "Node-RED",
       "org": "OpenJS Foundation",
@@ -2444,24 +2223,6 @@
       "year": 2023
     },
     {
-      "id": "ip-adapter",
-      "name": "IP-Adapter",
-      "org": "Tencent AI Lab",
-      "cat": "image",
-      "tagline": "Image-prompt adapter for diffusion",
-      "desc": "Use reference images as prompts for text-to-image diffusion models.",
-      "license": "Apache-2.0",
-      "lang": "Python",
-      "stars": 6000,
-      "repo": "tencent-ailab/IP-Adapter",
-      "tags": [
-        "adapter",
-        "i2i"
-      ],
-      "status": "active",
-      "year": 2023
-    },
-    {
       "id": "sdnext",
       "name": "SD.Next",
       "org": "vladmandic",
@@ -2589,24 +2350,6 @@
       "year": 2024
     },
     {
-      "id": "animatediff",
-      "name": "AnimateDiff",
-      "org": "guoyww",
-      "cat": "video",
-      "tagline": "Animate any personalized SD model",
-      "desc": "Plug-in motion module that animates Stable Diffusion checkpoints without retraining.",
-      "license": "Apache-2.0",
-      "lang": "Python",
-      "stars": 12000,
-      "repo": "guoyww/AnimateDiff",
-      "tags": [
-        "motion",
-        "sd-addon"
-      ],
-      "status": "active",
-      "year": 2023
-    },
-    {
       "id": "diffsynth",
       "name": "DiffSynth-Studio",
       "org": "ModelScope",
@@ -2695,60 +2438,6 @@
       ],
       "status": "active",
       "year": 2022
-    },
-    {
-      "id": "bark",
-      "name": "Bark",
-      "org": "Suno",
-      "cat": "audio",
-      "tagline": "Generative text-to-audio model",
-      "desc": "Multilingual TTS plus music, sound effects and non-speech sounds.",
-      "license": "MIT",
-      "lang": "Python",
-      "stars": 39000,
-      "repo": "suno-ai/bark",
-      "tags": [
-        "tts",
-        "sfx"
-      ],
-      "status": "active",
-      "year": 2023
-    },
-    {
-      "id": "coqui-tts",
-      "name": "Coqui TTS",
-      "org": "Coqui",
-      "cat": "audio",
-      "tagline": "Classic TTS toolkit (XTTS)",
-      "desc": "Deep-learning TTS toolkit behind XTTS v2 voice cloning. Company shut down; repo archived.",
-      "license": "MPL-2.0",
-      "lang": "Python",
-      "stars": 36000,
-      "repo": "coqui-ai/TTS",
-      "tags": [
-        "tts",
-        "voice-clone"
-      ],
-      "status": "archived",
-      "year": 2021
-    },
-    {
-      "id": "openvoice",
-      "name": "OpenVoice",
-      "org": "MyShell",
-      "cat": "audio",
-      "tagline": "Instant voice cloning",
-      "desc": "Clone tone color and control style (emotion, accent, rhythm) from a short reference clip.",
-      "license": "MIT",
-      "lang": "Python",
-      "stars": 33000,
-      "repo": "myshell-ai/OpenVoice",
-      "tags": [
-        "voice-clone",
-        "tts"
-      ],
-      "status": "active",
-      "year": 2023
     },
     {
       "id": "chatterbox",
@@ -3277,24 +2966,6 @@
       ],
       "status": "active",
       "year": 2023
-    },
-    {
-      "id": "onnxruntime",
-      "name": "ONNX Runtime",
-      "org": "Microsoft",
-      "cat": "frameworks",
-      "tagline": "Cross-platform model acceleration",
-      "desc": "Run ONNX models with hardware-specific optimizations across CPU, GPU and NPUs.",
-      "license": "MIT",
-      "lang": "C++",
-      "stars": 18000,
-      "repo": "microsoft/onnxruntime",
-      "tags": [
-        "onnx",
-        "deployment"
-      ],
-      "status": "archived",
-      "year": 2018
     },
     {
       "id": "burn",
@@ -3858,42 +3529,6 @@
       "year": 2023
     },
     {
-      "id": "llm-guard",
-      "name": "LLM Guard",
-      "org": "Protect AI",
-      "cat": "guardrails",
-      "tagline": "35-scanner WAF for LLMs",
-      "desc": "15 input + 20 output scanners running locally in milliseconds; stewardship now at Palo Alto Networks.",
-      "license": "MIT",
-      "lang": "Python",
-      "stars": 3000,
-      "repo": "protectai/llm-guard",
-      "tags": [
-        "waf",
-        "scanners"
-      ],
-      "status": "archived",
-      "year": 2023
-    },
-    {
-      "id": "pyrit",
-      "name": "PyRIT",
-      "org": "Microsoft",
-      "cat": "guardrails",
-      "tagline": "Python red-teaming framework",
-      "desc": "Microsoft's automation framework for red-teaming generative AI at scale.",
-      "license": "MIT",
-      "lang": "Python",
-      "stars": 3000,
-      "repo": "Azure/PyRIT",
-      "tags": [
-        "red-team",
-        "automation"
-      ],
-      "status": "archived",
-      "year": 2024
-    },
-    {
       "id": "label-studio",
       "name": "Label Studio",
       "org": "HumanSignal",
@@ -4093,24 +3728,6 @@
       "year": 2019
     },
     {
-      "id": "mmdetection",
-      "name": "MMDetection",
-      "org": "OpenMMLab",
-      "cat": "vision",
-      "tagline": "The detection toolbox with everything",
-      "desc": "Unified benchmarking toolbox covering dozens of detection and segmentation methods.",
-      "license": "Apache-2.0",
-      "lang": "Python",
-      "stars": 30000,
-      "repo": "open-mmlab/mmdetection",
-      "tags": [
-        "detection",
-        "toolbox"
-      ],
-      "status": "active",
-      "year": 2018
-    },
-    {
       "id": "sam2",
       "name": "Segment Anything 2",
       "org": "Meta",
@@ -4127,24 +3744,6 @@
       ],
       "status": "active",
       "year": 2024
-    },
-    {
-      "id": "grounding-dino",
-      "name": "Grounding DINO",
-      "org": "IDEA Research",
-      "cat": "vision",
-      "tagline": "Open-vocabulary object detection",
-      "desc": "Detect anything from a text prompt; core component of auto-labeling pipelines.",
-      "license": "Apache-2.0",
-      "lang": "Python",
-      "stars": 9000,
-      "repo": "IDEA-Research/GroundingDINO",
-      "tags": [
-        "open-vocabulary",
-        "detection"
-      ],
-      "status": "active",
-      "year": 2023
     },
     {
       "id": "timm",
@@ -4421,24 +4020,6 @@
       "year": 2022
     },
     {
-      "id": "openvla",
-      "name": "OpenVLA",
-      "org": "Stanford et al.",
-      "cat": "robotics",
-      "tagline": "Open vision-language-action model",
-      "desc": "7B open VLA model for generalist robot manipulation, trained on 970k episodes.",
-      "license": "MIT",
-      "lang": "Python",
-      "stars": 6000,
-      "repo": "openvla/openvla",
-      "tags": [
-        "vla",
-        "manipulation"
-      ],
-      "status": "active",
-      "year": 2024
-    },
-    {
       "id": "isaac-lab",
       "name": "Isaac Lab",
       "org": "NVIDIA",
@@ -4455,24 +4036,6 @@
       ],
       "status": "active",
       "year": 2023
-    },
-    {
-      "id": "octo",
-      "name": "Octo",
-      "org": "UC Berkeley",
-      "cat": "robotics",
-      "tagline": "Open-source generalist robot policy",
-      "desc": "Transformer policy pre-trained on 800k robot episodes; fine-tunes to new setups quickly.",
-      "license": "MIT",
-      "lang": "Python",
-      "stars": 2500,
-      "repo": "octo-models/octo",
-      "tags": [
-        "vla",
-        "generalist"
-      ],
-      "status": "active",
-      "year": 2024
     },
     {
       "id": "firecrawl",
@@ -4512,24 +4075,6 @@
       "hot": true,
       "status": "active",
       "year": 2024
-    },
-    {
-      "id": "agentgpt",
-      "name": "AgentGPT",
-      "org": "Reworkd",
-      "cat": "agents",
-      "tagline": "Autonomous agents in the browser",
-      "desc": "Assemble, configure and deploy autonomous agents from a web UI — one of the first viral agent apps.",
-      "license": "GPL-3.0",
-      "lang": "TypeScript",
-      "stars": 35000,
-      "repo": "reworkd/AgentGPT",
-      "tags": [
-        "agents",
-        "web"
-      ],
-      "status": "archived",
-      "year": 2023
     },
     {
       "id": "perplexica",
@@ -4709,24 +4254,6 @@
       "tags": [
         "3d",
         "fast"
-      ],
-      "status": "active",
-      "year": 2024
-    },
-    {
-      "id": "instantmesh",
-      "name": "InstantMesh",
-      "org": "Tencent ARC",
-      "cat": "threed",
-      "tagline": "Instant single-image 3D meshes",
-      "desc": "Sparse-view generation + mesh reconstruction pipeline for quick image-to-3D.",
-      "license": "Apache-2.0",
-      "lang": "Python",
-      "stars": 5000,
-      "repo": "TencentARC/InstantMesh",
-      "tags": [
-        "3d",
-        "mesh"
       ],
       "status": "active",
       "year": 2024
@@ -4936,24 +4463,6 @@
       "year": 2023
     },
     {
-      "id": "superagi",
-      "name": "SuperAGI",
-      "org": "TransformerOptimus",
-      "cat": "agents",
-      "tagline": "Autonomous agent framework + toolkit",
-      "desc": "Dev-first framework for building and running autonomous agents with tools and memory.",
-      "license": "MIT",
-      "lang": "Python",
-      "stars": 17000,
-      "repo": "TransformerOptimus/SuperAGI",
-      "tags": [
-        "agents",
-        "autonomous"
-      ],
-      "status": "active",
-      "year": 2023
-    },
-    {
       "id": "babyagi",
       "name": "BabyAGI",
       "org": "yoheinakajima",
@@ -5102,42 +4611,6 @@
       "year": 2024
     },
     {
-      "id": "so-vits-svc",
-      "name": "so-vits-svc",
-      "org": "svc-develop-team",
-      "cat": "audio",
-      "tagline": "Singing voice conversion",
-      "desc": "The classic voice-conversion project behind countless AI covers.",
-      "license": "AGPL-3.0",
-      "lang": "Python",
-      "stars": 26000,
-      "repo": "svc-develop-team/so-vits-svc",
-      "tags": [
-        "svc",
-        "voice-conversion"
-      ],
-      "status": "archived",
-      "year": 2023
-    },
-    {
-      "id": "demucs",
-      "name": "Demucs",
-      "org": "Meta",
-      "cat": "audio",
-      "tagline": "Music source separation",
-      "desc": "State-of-the-art stem separation (vocals, drums, bass) — the standard for remixing and datasets.",
-      "license": "MIT",
-      "lang": "Python",
-      "stars": 9000,
-      "repo": "facebookresearch/demucs",
-      "tags": [
-        "music",
-        "separation"
-      ],
-      "status": "archived",
-      "year": 2019
-    },
-    {
       "id": "ace-step",
       "name": "ACE-Step",
       "org": "ACE Studio",
@@ -5155,24 +4628,6 @@
       "hot": true,
       "status": "active",
       "year": 2025
-    },
-    {
-      "id": "piper",
-      "name": "Piper",
-      "org": "Rhasspy",
-      "cat": "audio",
-      "tagline": "Fast local neural TTS",
-      "desc": "Lightweight TTS for Raspberry Pi and servers; dozens of voices, streams on CPU.",
-      "license": "MIT",
-      "lang": "Python",
-      "stars": 8000,
-      "repo": "rhasspy/piper",
-      "tags": [
-        "tts",
-        "edge"
-      ],
-      "status": "archived",
-      "year": 2023
     },
     {
       "id": "moshi",
@@ -5375,42 +4830,6 @@
       "year": 2025
     },
     {
-      "id": "got-ocr",
-      "name": "GOT-OCR2.0",
-      "org": "StepFun",
-      "cat": "docs",
-      "tagline": "General OCR theory model",
-      "desc": "Unified OCR 2.0 model handling text, math, tables, sheet music and more.",
-      "license": "Apache-2.0",
-      "lang": "Python",
-      "stars": 8000,
-      "repo": "Ucas-HaoranWei/GOT-OCR2.0",
-      "tags": [
-        "ocr",
-        "unified"
-      ],
-      "status": "active",
-      "year": 2024
-    },
-    {
-      "id": "nougat",
-      "name": "Nougat",
-      "org": "Meta",
-      "cat": "docs",
-      "tagline": "Academic PDF to markup",
-      "desc": "Meta's scientific-document OCR translating PDFs to structured markup; largely superseded by newer VLMs.",
-      "license": "MIT",
-      "lang": "Python",
-      "stars": 9000,
-      "repo": "facebookresearch/nougat",
-      "tags": [
-        "ocr",
-        "science"
-      ],
-      "status": "maintenance",
-      "year": 2023
-    },
-    {
       "id": "fastgpt",
       "name": "FastGPT",
       "org": "labring",
@@ -5502,42 +4921,6 @@
       "year": 2024
     },
     {
-      "id": "yolo-world",
-      "name": "YOLO-World",
-      "org": "AILab-CVC",
-      "cat": "vision",
-      "tagline": "Open-vocabulary real-time detection",
-      "desc": "Detect any object category from text prompts at YOLO speed.",
-      "license": "GPL-3.0",
-      "lang": "Python",
-      "stars": 6000,
-      "repo": "AILab-CVC/YOLO-World",
-      "tags": [
-        "detection",
-        "open-vocabulary"
-      ],
-      "status": "active",
-      "year": 2024
-    },
-    {
-      "id": "rebuff",
-      "name": "Rebuff",
-      "org": "Protect AI",
-      "cat": "guardrails",
-      "tagline": "Prompt-injection detection layer",
-      "desc": "Self-hardening prompt-injection defense with heuristics, ML detection and canary tokens.",
-      "license": "MIT",
-      "lang": "Python",
-      "stars": 3000,
-      "repo": "protectai/rebuff",
-      "tags": [
-        "injection",
-        "defense"
-      ],
-      "status": "archived",
-      "year": 2023
-    },
-    {
       "id": "grok-1",
       "name": "Grok-1",
       "org": "xAI",
@@ -5593,25 +4976,6 @@
         "research"
       ],
       "status": "active",
-      "year": 2023
-    },
-    {
-      "id": "tinyllama",
-      "name": "TinyLlama",
-      "org": "TinyLlama",
-      "cat": "models",
-      "tagline": "1.1B Llama trained on 3T tokens",
-      "desc": "Community project that pretrained a 1.1B Llama-architecture model on 3 trillion tokens — a widely used tiny baseline. Repo archived after the run completed.",
-      "license": "Apache-2.0",
-      "lang": "Python",
-      "stars": 9000,
-      "repo": "jzhang38/TinyLlama",
-      "tags": [
-        "llm",
-        "slm",
-        "open-data"
-      ],
-      "status": "archived",
       "year": 2023
     },
     {
@@ -5710,42 +5074,6 @@
       "year": 2021
     },
     {
-      "id": "cogvlm",
-      "name": "CogVLM",
-      "org": "Zhipu AI",
-      "cat": "multimodal",
-      "tagline": "Early GPT-4V-class open VLM",
-      "desc": "Zhipu's visual language model that set open VLM quality bars in 2023–24, with a visual expert module on a frozen LLM backbone.",
-      "license": "Apache-2.0",
-      "lang": "Python",
-      "stars": 6700,
-      "repo": "zai-org/CogVLM",
-      "tags": [
-        "vlm",
-        "classic"
-      ],
-      "status": "active",
-      "year": 2023
-    },
-    {
-      "id": "deepseek-vl2",
-      "name": "DeepSeek-VL2",
-      "org": "DeepSeek",
-      "cat": "multimodal",
-      "tagline": "MoE vision-language models",
-      "desc": "Mixture-of-Experts VLMs from DeepSeek with strong document, chart and grounding performance across Tiny/Small/Base sizes.",
-      "license": "MIT",
-      "lang": "Python",
-      "stars": 5400,
-      "repo": "deepseek-ai/DeepSeek-VL2",
-      "tags": [
-        "vlm",
-        "moe"
-      ],
-      "status": "active",
-      "year": 2024
-    },
-    {
       "id": "qwen25-omni",
       "name": "Qwen2.5-Omni",
       "org": "Alibaba",
@@ -5763,25 +5091,6 @@
       ],
       "status": "active",
       "year": 2025
-    },
-    {
-      "id": "lavis",
-      "name": "LAVIS",
-      "org": "Salesforce",
-      "cat": "multimodal",
-      "tagline": "One-stop language-vision library",
-      "desc": "Salesforce library unifying BLIP, BLIP-2, InstructBLIP, ALBEF and more for captioning, VQA, retrieval and multimodal instruction tuning.",
-      "license": "BSD-3-Clause",
-      "lang": "Python",
-      "stars": 11300,
-      "repo": "Salesforce/LAVIS",
-      "tags": [
-        "vlm",
-        "library",
-        "blip"
-      ],
-      "status": "archived",
-      "year": 2022
     },
     {
       "id": "exo",
@@ -6328,25 +5637,6 @@
       "year": 2023
     },
     {
-      "id": "open-assistant",
-      "name": "Open Assistant",
-      "org": "LAION",
-      "cat": "assistants",
-      "tagline": "The community chat assistant project",
-      "desc": "LAION's crowdsourced assistant: conversation data, RLHF stack and a chat UI that helped seed the open instruction-tuning ecosystem.",
-      "license": "Apache-2.0",
-      "lang": "Python",
-      "stars": 37400,
-      "repo": "LAION-AI/Open-Assistant",
-      "tags": [
-        "assistant",
-        "rlhf",
-        "classic"
-      ],
-      "status": "maintenance",
-      "year": 2022
-    },
-    {
       "id": "omniparser",
       "name": "OmniParser",
       "org": "Microsoft",
@@ -6593,25 +5883,6 @@
       "year": 2016
     },
     {
-      "id": "jina",
-      "name": "Jina",
-      "org": "Jina AI",
-      "cat": "search",
-      "tagline": "Cloud-native multimodal neural search",
-      "desc": "Build multimodal search and RAG services with a Python-first, cloud-native stack from the team behind Jina Reader and embeddings.",
-      "license": "Apache-2.0",
-      "lang": "Python",
-      "stars": 21900,
-      "repo": "jina-ai/jina",
-      "tags": [
-        "search",
-        "multimodal",
-        "neural-search"
-      ],
-      "status": "active",
-      "year": 2020
-    },
-    {
       "id": "annoy",
       "name": "Annoy",
       "org": "Spotify",
@@ -6723,43 +5994,6 @@
       "year": 2018
     },
     {
-      "id": "controlnet",
-      "name": "ControlNet",
-      "org": "lllyasviel",
-      "cat": "image",
-      "tagline": "Spatial control for diffusion models",
-      "desc": "The adapter that let the community steer Stable Diffusion with poses, edges, depth and scribbles — still foundational in ComfyUI graphs.",
-      "license": "Apache-2.0",
-      "lang": "Python",
-      "stars": 34100,
-      "repo": "lllyasviel/ControlNet",
-      "tags": [
-        "control",
-        "stable-diffusion"
-      ],
-      "hot": true,
-      "status": "active",
-      "year": 2023
-    },
-    {
-      "id": "realesrgan",
-      "name": "Real-ESRGAN",
-      "org": "Tencent ARC",
-      "cat": "image",
-      "tagline": "Practical image and video restoration",
-      "desc": "Blind super-resolution that became the default open upscaler for photos, anime and video frames across creative toolchains.",
-      "license": "BSD-3-Clause",
-      "lang": "Python",
-      "stars": 36700,
-      "repo": "xinntao/Real-ESRGAN",
-      "tags": [
-        "upscale",
-        "restoration"
-      ],
-      "status": "active",
-      "year": 2021
-    },
-    {
       "id": "upscayl",
       "name": "Upscayl",
       "org": "Upscayl",
@@ -6853,25 +6087,6 @@
       "year": 2023
     },
     {
-      "id": "nerf",
-      "name": "NeRF",
-      "org": "UC Berkeley",
-      "cat": "threed",
-      "tagline": "The original Neural Radiance Fields",
-      "desc": "Official code for Mildenhall et al. — the paper and implementation that started neural scene representation and every NeRF follow-on.",
-      "license": "MIT",
-      "lang": "Python",
-      "stars": 10900,
-      "repo": "bmild/nerf",
-      "tags": [
-        "nerf",
-        "classic",
-        "research"
-      ],
-      "status": "active",
-      "year": 2020
-    },
-    {
       "id": "whisperx",
       "name": "WhisperX",
       "org": "Max Bain",
@@ -6944,24 +6159,6 @@
       ],
       "status": "active",
       "year": 2016
-    },
-    {
-      "id": "melotts",
-      "name": "MeloTTS",
-      "org": "MyShell",
-      "cat": "audio",
-      "tagline": "High-quality multilingual CPU TTS",
-      "desc": "MyShell's real-time multilingual TTS (EN/ES/FR/ZH/JP/KR) that runs on CPU; widely paired with OpenVoice for cloned speech.",
-      "license": "MIT",
-      "lang": "Python",
-      "stars": 7600,
-      "repo": "myshell-ai/MeloTTS",
-      "tags": [
-        "tts",
-        "multilingual"
-      ],
-      "status": "active",
-      "year": 2024
     },
     {
       "id": "nanogpt",
@@ -7340,25 +6537,6 @@
       "year": 2024
     },
     {
-      "id": "llm-attacks",
-      "name": "LLM Attacks (GCG)",
-      "org": "llm-attacks",
-      "cat": "guardrails",
-      "tagline": "Universal jailbreak attack research",
-      "desc": "Official code for Zou et al.'s greedy coordinate-gradient jailbreaks — the paper that defined transferable adversarial suffixes.",
-      "license": "MIT",
-      "lang": "Python",
-      "stars": 4800,
-      "repo": "llm-attacks/llm-attacks",
-      "tags": [
-        "jailbreak",
-        "red-team",
-        "research"
-      ],
-      "status": "active",
-      "year": 2023
-    },
-    {
       "id": "cvat",
       "name": "CVAT",
       "org": "CVAT.ai",
@@ -7395,25 +6573,6 @@
       "year": 2023
     },
     {
-      "id": "sam",
-      "name": "Segment Anything",
-      "org": "Meta",
-      "cat": "vision",
-      "tagline": "Promptable segmentation foundation model",
-      "desc": "SAM (v1) introduced point/box/mask prompts for zero-shot segmentation and remains the parent of SAM 2 and countless auto-labelers.",
-      "license": "Apache-2.0",
-      "lang": "Python",
-      "stars": 54800,
-      "repo": "facebookresearch/segment-anything",
-      "tags": [
-        "segmentation",
-        "foundation"
-      ],
-      "hot": true,
-      "status": "active",
-      "year": 2023
-    },
-    {
       "id": "dinov2",
       "name": "DINOv2",
       "org": "Meta",
@@ -7428,24 +6587,6 @@
         "ssl",
         "backbone",
         "features"
-      ],
-      "status": "active",
-      "year": 2023
-    },
-    {
-      "id": "grounded-sam",
-      "name": "Grounded SAM",
-      "org": "IDEA Research",
-      "cat": "vision",
-      "tagline": "Detect-anything then segment-anything",
-      "desc": "Marries Grounding DINO with SAM (and diffusion) so you can type a phrase and get instance masks — the auto-label stack of 2023–25.",
-      "license": "Apache-2.0",
-      "lang": "Python",
-      "stars": 17700,
-      "repo": "IDEA-Research/Grounded-Segment-Anything",
-      "tags": [
-        "open-vocabulary",
-        "segmentation"
       ],
       "status": "active",
       "year": 2023
@@ -7995,24 +7136,6 @@
       ],
       "hot": true,
       "status": "active",
-      "year": 2025
-    },
-    {
-      "id": "triposg",
-      "name": "TripoSG",
-      "org": "VAST-AI",
-      "cat": "threed",
-      "tagline": "Image-to-3D shape synthesis",
-      "desc": "Rectified-flow transformer that generates high-quality 3D shapes from a single image, from the team behind Tripo.",
-      "license": "MIT",
-      "lang": "Python",
-      "stars": 1780,
-      "repo": "VAST-AI-Research/TripoSG",
-      "tags": [
-        "image-to-3d",
-        "generation"
-      ],
-      "status": "maintenance",
       "year": 2025
     },
     {
@@ -8719,13 +7842,13 @@
       "license": "Apache-2.0",
       "lang": "Python",
       "stars": 4929,
-      "repo": "SolaceLabs/solace-agent-mesh",
+      "repo": "SolaceProducts/solace-agent-mesh",
       "tags": [
         "event-driven",
         "multi-agent",
         "enterprise"
       ],
-      "status": "archived",
+      "status": "active",
       "year": 2025
     },
     {
@@ -8879,25 +8002,6 @@
       ],
       "status": "active",
       "year": 2024
-    },
-    {
-      "id": "bytebot",
-      "name": "Bytebot",
-      "org": "Bytebot",
-      "cat": "browseruse",
-      "tagline": "Self-hosted AI desktop agent",
-      "desc": "Containerized desktop agent that automates computer tasks from natural-language commands on a self-hosted virtual desktop.",
-      "license": "Apache-2.0",
-      "lang": "TypeScript",
-      "stars": 11078,
-      "repo": "bytebot-ai/bytebot",
-      "tags": [
-        "desktop-agent",
-        "self-hosted",
-        "containerized"
-      ],
-      "status": "archived",
-      "year": 2025
     },
     {
       "id": "robotgo",
@@ -9145,25 +8249,6 @@
       "year": 2025
     },
     {
-      "id": "neosync",
-      "name": "Neosync",
-      "org": "Nucleus Cloud",
-      "cat": "guardrails",
-      "tagline": "Detect and anonymize PII in production data",
-      "desc": "Open-source data-privacy platform to monitor and detect PII, anonymize production data and sync safe copies across environments.",
-      "license": "Other (see repo)",
-      "lang": "Go",
-      "stars": 4140,
-      "repo": "nucleuscloud/neosync",
-      "tags": [
-        "pii",
-        "privacy",
-        "data-sync"
-      ],
-      "status": "archived",
-      "year": 2023
-    },
-    {
       "id": "blenderproc",
       "name": "BlenderProc",
       "org": "DLR-RM",
@@ -9256,24 +8341,6 @@
       ],
       "status": "active",
       "year": 2024
-    },
-    {
-      "id": "donut",
-      "name": "Donut",
-      "org": "NAVER Clova",
-      "cat": "docs",
-      "tagline": "OCR-free document understanding transformer",
-      "desc": "Document-understanding transformer that reads document images end-to-end without a separate OCR step, plus a synthetic document generator.",
-      "license": "MIT",
-      "lang": "Python",
-      "stars": 6922,
-      "repo": "clovaai/donut",
-      "tags": [
-        "ocr-free",
-        "document-understanding"
-      ],
-      "status": "active",
-      "year": 2022
     },
     {
       "id": "deepdoctection",
@@ -9731,25 +8798,6 @@
       "year": 2025
     },
     {
-      "id": "aria",
-      "name": "Aria",
-      "org": "Rhymes AI",
-      "cat": "multimodal",
-      "tagline": "Open multimodal-native MoE",
-      "desc": "Multimodal-native MoE (25.3B total / 3.9B active) with 64K context handling text, code, images and video in one backbone.",
-      "license": "Apache-2.0",
-      "lang": "Python",
-      "stars": 1100,
-      "repo": "rhymes-ai/Aria",
-      "tags": [
-        "vlm",
-        "moe",
-        "long-context"
-      ],
-      "status": "active",
-      "year": 2024
-    },
-    {
       "id": "mistral-rs",
       "name": "mistral.rs",
       "org": "Eric Buehler",
@@ -9807,25 +8855,6 @@
       "year": 2024
     },
     {
-      "id": "petals",
-      "name": "Petals",
-      "org": "BigScience",
-      "cat": "inference",
-      "tagline": "Run big open LLMs BitTorrent-style",
-      "desc": "Volunteer compute network where clients run and fine-tune large open models by joining GPUs together across the internet.",
-      "license": "MIT",
-      "lang": "Python",
-      "stars": 10600,
-      "repo": "bigscience-workshop/petals",
-      "tags": [
-        "distributed",
-        "community",
-        "inference"
-      ],
-      "status": "active",
-      "year": 2022
-    },
-    {
       "id": "julep",
       "name": "Julep",
       "org": "Julep",
@@ -9861,24 +8890,6 @@
         "multi-file"
       ],
       "status": "active",
-      "year": 2023
-    },
-    {
-      "id": "gpt-engineer",
-      "name": "GPT Engineer",
-      "org": "Anton Osika",
-      "cat": "coding",
-      "tagline": "Specify, generate and improve whole codebases",
-      "desc": "The project that turned a prompt into a full codebase and later spawned Lovable — generate, run and refine code from natural-language specs.",
-      "license": "MIT",
-      "lang": "Python",
-      "stars": 55100,
-      "repo": "AntonOsika/gpt-engineer",
-      "tags": [
-        "codegen",
-        "classic"
-      ],
-      "status": "archived",
       "year": 2023
     },
     {
@@ -9976,24 +8987,6 @@
       ],
       "hot": true,
       "status": "active",
-      "year": 2023
-    },
-    {
-      "id": "vanna",
-      "name": "Vanna",
-      "org": "Vanna AI",
-      "cat": "rag",
-      "tagline": "RAG framework for text-to-SQL",
-      "desc": "Python RAG framework that trains on your schema and past queries to generate accurate, database-specific SQL on any vector store or database.",
-      "license": "MIT",
-      "lang": "Python",
-      "stars": 23800,
-      "repo": "vanna-ai/vanna",
-      "tags": [
-        "text-to-sql",
-        "rag"
-      ],
-      "status": "archived",
       "year": 2023
     },
     {
@@ -10125,24 +9118,6 @@
       ],
       "status": "active",
       "year": 2023
-    },
-    {
-      "id": "gfpgan",
-      "name": "GFPGAN",
-      "org": "Tencent ARC",
-      "cat": "image",
-      "tagline": "Blind face restoration for real photos",
-      "desc": "GAN-prior face restoration that became the go-to fixer inside upscalers, web UIs and photo apps for old and low-quality portraits.",
-      "license": "Apache-2.0",
-      "lang": "Python",
-      "stars": 37700,
-      "repo": "TencentARC/GFPGAN",
-      "tags": [
-        "restoration",
-        "face"
-      ],
-      "status": "active",
-      "year": 2021
     },
     {
       "id": "framepack",
@@ -10371,24 +9346,6 @@
       "year": 2020
     },
     {
-      "id": "albumentations",
-      "name": "Albumentations",
-      "org": "Albumentations Team",
-      "cat": "vision",
-      "tagline": "Fast image augmentation for training",
-      "desc": "The standard augmentation library for vision pipelines — 100+ transforms used across most detection and segmentation recipes.",
-      "license": "MIT",
-      "lang": "Python",
-      "stars": 15300,
-      "repo": "albumentations-team/albumentations",
-      "tags": [
-        "augmentation",
-        "library"
-      ],
-      "status": "archived",
-      "year": 2018
-    },
-    {
       "id": "mediapipe",
       "name": "MediaPipe",
       "org": "Google",
@@ -10462,44 +9419,6 @@
       ],
       "status": "active",
       "year": 2017
-    },
-    {
-      "id": "d2l",
-      "name": "Dive into Deep Learning",
-      "org": "D2L",
-      "cat": "prompts",
-      "tagline": "Interactive deep-learning book, code included",
-      "desc": "The interactive textbook adopted by 500+ universities — every concept ships with runnable code across PyTorch, TensorFlow and JAX.",
-      "license": "MIT",
-      "lang": "Jupyter",
-      "stars": 29600,
-      "repo": "d2l-ai/d2l-en",
-      "tags": [
-        "course",
-        "education",
-        "book"
-      ],
-      "status": "active",
-      "year": 2019
-    },
-    {
-      "id": "nn-zero-to-hero",
-      "name": "Neural Networks: Zero to Hero",
-      "org": "Andrej Karpathy",
-      "cat": "prompts",
-      "tagline": "From micrograd to GPT, built by hand",
-      "desc": "Karpathy's video course building neural networks up from hand-written backprop to a GPT — the most-recommended on-ramp to the field.",
-      "license": "MIT",
-      "lang": "Jupyter",
-      "stars": 24400,
-      "repo": "karpathy/nn-zero-to-hero",
-      "tags": [
-        "course",
-        "education",
-        "classic"
-      ],
-      "status": "active",
-      "year": 2022
     },
     {
       "id": "img2threejs",
@@ -10596,25 +9515,6 @@
       ],
       "hot": true,
       "status": "active",
-      "year": 2023
-    },
-    {
-      "id": "chainlit",
-      "name": "Chainlit",
-      "org": "Chainlit",
-      "cat": "chatui",
-      "tagline": "Python UI framework for LLM apps",
-      "desc": "Ship ChatGPT-like interfaces for Python LLM apps in minutes — streaming, auth, data persistence and LangChain/LlamaIndex integration for multi-user apps.",
-      "license": "Apache-2.0",
-      "lang": "Python",
-      "stars": 12500,
-      "repo": "Chainlit/chainlit",
-      "tags": [
-        "ui",
-        "python",
-        "streaming"
-      ],
-      "status": "archived",
       "year": 2023
     },
     {
@@ -10885,62 +9785,6 @@
         "lightweight"
       ],
       "status": "active",
-      "year": 2023
-    },
-    {
-      "id": "threestudio",
-      "name": "threestudio",
-      "org": "threestudio",
-      "cat": "threed",
-      "tagline": "Unified framework for text/image-to-3D",
-      "desc": "Modular research framework implementing DreamFusion, Magic3D and other score-distillation 3D generation methods.",
-      "license": "Apache-2.0",
-      "lang": "Python",
-      "stars": 7066,
-      "repo": "threestudio-project/threestudio",
-      "tags": [
-        "text-to-3d",
-        "research",
-        "diffusion"
-      ],
-      "status": "active",
-      "year": 2023
-    },
-    {
-      "id": "point-e",
-      "name": "Point-E",
-      "org": "OpenAI",
-      "cat": "threed",
-      "tagline": "Fast point-cloud 3D generation from text",
-      "desc": "Point-cloud diffusion system that produces 3D objects in seconds rather than the minutes typical of mesh-based methods.",
-      "license": "MIT",
-      "lang": "Python",
-      "stars": 6894,
-      "repo": "openai/point-e",
-      "tags": [
-        "point-cloud",
-        "text-to-3d",
-        "diffusion"
-      ],
-      "status": "maintenance",
-      "year": 2022
-    },
-    {
-      "id": "shap-e",
-      "name": "Shap-E",
-      "org": "OpenAI",
-      "cat": "threed",
-      "tagline": "Generate 3D assets from text or images fast",
-      "desc": "Conditional generative model producing implicit 3D representations directly, without a separate point-cloud stage.",
-      "license": "MIT",
-      "lang": "Python",
-      "stars": 12261,
-      "repo": "openai/shap-e",
-      "tags": [
-        "text-to-3d",
-        "implicit-functions"
-      ],
-      "status": "maintenance",
       "year": 2023
     },
     {
@@ -11352,25 +10196,6 @@
       "hot": true,
       "status": "active",
       "year": 2026
-    },
-    {
-      "id": "opendeepsearch",
-      "name": "OpenDeepSearch",
-      "org": "Sentient AGI",
-      "cat": "search",
-      "tagline": "Open agentic search tooling for LLMs",
-      "desc": "Search layer for AI agents built on smolagents and Crawl4AI with semantic reranking and a Pro mode for multi-hop queries — the best-known open alternative to closed search APIs, competitive with them on SimpleQA and FRAMES. Development has quieted, but it remains the reference implementation of agent-native search.",
-      "license": "Apache-2.0",
-      "lang": "Python",
-      "stars": 3837,
-      "repo": "sentient-agi/OpenDeepSearch",
-      "tags": [
-        "search",
-        "agents",
-        "reranking"
-      ],
-      "status": "maintenance",
-      "year": 2025
     },
     {
       "id": "t3mp3st",
@@ -12867,7 +11692,7 @@
         "claude-code",
         "cli"
       ],
-      "status": "archived",
+      "status": "active",
       "year": 2026
     },
     {
@@ -14506,27 +13331,6 @@
       ],
       "status": "active",
       "year": 2025
-    },
-    {
-      "id": "deepseek-reasonix",
-      "name": "DeepSeek-Reasonix",
-      "org": "esengine",
-      "cat": "coding",
-      "tagline": "A reliable coding agent for complex software engineering tasks.",
-      "desc": "A reliable coding agent for complex software engineering tasks.",
-      "license": "MIT",
-      "lang": "Go",
-      "stars": 35983,
-      "repo": "esengine/DeepSeek-Reasonix",
-      "tags": [
-        "agent",
-        "agent-framework",
-        "ai-agent",
-        "ai-coding",
-        "cli"
-      ],
-      "status": "archived",
-      "year": 2026
     },
     {
       "id": "nacos",

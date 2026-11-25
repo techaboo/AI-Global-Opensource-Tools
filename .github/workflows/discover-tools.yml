@@ -15,7 +15,7 @@ on:
         description: Maximum candidates to add this run.
         required: false
         type: string
-        default: '8'
+        default: '30'
 
 permissions:
   contents: write
@@ -28,7 +28,7 @@ concurrency:
 jobs:
   discover:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v7
         with:
@@ -54,7 +54,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.KIMI_GITHUB_API || secrets.GITHUB_TOKEN }}
           TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
-          LIMIT: ${{ inputs.limit || '8' }}
+          LIMIT: ${{ inputs.limit || '30' }}
         run: node scripts/discover-tools.mjs --limit="$LIMIT"
 
       - name: Save reject memory to live-data
