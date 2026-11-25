@@ -16,6 +16,25 @@ export function isRevived(repo, now = Date.now()) {
   return repo.archived === false && now - Date.parse(repo.pushed_at) <= REVIVED_WINDOW_MS;
 }
 
+/** Days a repo must keep returning 404 before it counts as deleted. */
+export const MISSING_GRACE_DAYS = 7;
+
+/**
+ * Tracks when each tool's repo started returning 404. One 404 can be an outage or
+ * a visibility blip, so only an unbroken run of MISSING_GRACE_DAYS confirms it.
+ * A successful fetch resets the count; ids not checked this run keep theirs.
+ * Returns { missing: { id: ISO first-404 time }, confirmed: [id] }.
+ */
+export function trackMissing(previous, { missingIds, foundIds, knownIds }, now = Date.now()) {
+  const found = new Set(foundIds);
+  const known = new Set(knownIds);
+  const missing = Object.fromEntries(Object.entries(previous ?? {})
+    .filter(([id, since]) => known.has(id) && !found.has(id) && Number.isFinite(Date.parse(since))));
+  for (const id of missingIds) missing[id] ??= new Date(now).toISOString();
+  const confirmed = missingIds.filter(id => now - Date.parse(missing[id]) >= MISSING_GRACE_DAYS * 86_400_000);
+  return { missing, confirmed };
+}
+
 function monthsBefore(now, months) {
   const date = new Date(now);
   date.setUTCMonth(date.getUTCMonth() - months);

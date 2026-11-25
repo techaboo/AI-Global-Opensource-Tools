@@ -46,11 +46,15 @@ jobs:
         run: node scripts/live-data.mjs pull
 
       - name: Fetch live GitHub stats
+        id: fetch
         env:
           GITHUB_TOKEN: ${{ secrets.KIMI_GITHUB_API || secrets.GITHUB_TOKEN }}
         run: node scripts/fetch-stars.mjs --update
 
+      # Also after a partial failure: the snapshot is validated before it is
+      # written, and it carries the 404 history the archive rule depends on.
       - name: Publish snapshot to live-data
+        if: ${{ !cancelled() && steps.fetch.conclusion != 'skipped' }}
         run: |
           node scripts/live-data.mjs push "chore: refresh live GitHub stats ($(date -u +%Y-%m-%dT%H:%MZ))"
 

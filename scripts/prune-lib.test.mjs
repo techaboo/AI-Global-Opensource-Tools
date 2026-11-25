@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { isRevived, selectStale } from './prune-lib.mjs';
+import { isRevived, selectStale, trackMissing } from './prune-lib.mjs';
 
 const NOW = Date.parse('2026-11-25T00:00:00Z');
 const tool = (id, extra = {}) => ({ id, repo: `o/${id}`, cat: 'agents', status: 'active', ...extra });
@@ -10,6 +10,21 @@ describe('isRevived', () => {
     expect(isRevived({ archived: false, pushed_at: '2026-11-20T00:00:00Z' }, NOW)).toBe(true);
     expect(isRevived({ archived: true, pushed_at: '2026-11-20T00:00:00Z' }, NOW)).toBe(false);
     expect(isRevived({ archived: false, pushed_at: '2025-01-01T00:00:00Z' }, NOW)).toBe(false);
+  });
+});
+
+describe('trackMissing', () => {
+  const since = '2026-11-10T00:00:00.000Z';
+
+  it('keeps the count for repos not checked this run and drops removed tools', () => {
+    const result = trackMissing({ skipped: since, removed: since }, { missingIds: [], foundIds: [], knownIds: ['skipped'] }, NOW);
+    expect(result).toEqual({ missing: { skipped: since }, confirmed: [] });
+  });
+
+  it('confirms only after the full grace period', () => {
+    const run = now => trackMissing({ a: since }, { missingIds: ['a'], foundIds: [], knownIds: ['a'] }, Date.parse(now)).confirmed;
+    expect(run('2026-11-16T23:00:00Z')).toEqual([]);
+    expect(run('2026-11-17T00:00:00Z')).toEqual(['a']);
   });
 });
 
