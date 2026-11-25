@@ -37,6 +37,9 @@ export function buildQuery(repos) {
 const isCount = value => Number.isSafeInteger(value) && value >= 0;
 
 /**
+ * `archived` also covers repositories GitHub has disabled: both are closed to
+ * further development.
+ *
  * One repo's result: { status: 'ok', ...facts }, { status: 'missing' } (GitHub
  * says it does not exist, the GraphQL equivalent of a 404) or
  * { status: 'error', message } when nothing can be concluded.

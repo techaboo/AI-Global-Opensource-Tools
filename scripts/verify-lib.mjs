@@ -17,7 +17,10 @@ export function assessCatalog(tools, facts, baseIds = null) {
   const byRepo = new Map();
   const added = baseIds ? tools.filter(tool => !baseIds.has(tool.id)) : [];
   for (const tool of tools) {
-    if (!tool.repo) continue;
+    if (!tool.repo) {
+      if (baseIds && !baseIds.has(tool.id)) unchecked.push({ id: tool.id, repo: 'no repository', message: 'nothing to verify against' });
+      continue;
+    }
     const fact = facts.get(tool.repo);
     const canonical = fact?.status === 'ok' ? fact.nameWithOwner : tool.repo;
     const key = canonical.toLowerCase();

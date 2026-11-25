@@ -23,6 +23,10 @@ describe('assessCatalog', () => {
     expect(result.failures).toEqual(['new entry b points to a missing repository o/b']);
   });
 
+  it('never passes a new entry that has no repository to check', () => {
+    expect(assessCatalog([{ id: 'a', status: 'active' }], new Map(), new Set()).failures).toHaveLength(1);
+  });
+
   it('never passes a new entry it could not check', () => {
     expect(assessCatalog([tool('a', 'o/a')], new Map(), new Set()).failures).toHaveLength(1);
   });

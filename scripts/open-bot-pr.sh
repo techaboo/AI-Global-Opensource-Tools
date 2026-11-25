@@ -55,7 +55,7 @@ while [ "$SECONDS" -lt "$deadline" ]; do
     CLOSED) echo "::error::PR for $branch was closed without merging."; exit 1 ;;
   esac
   # Anything but a positive count (no checks yet, API error) means keep waiting.
-  failed="$(gh pr checks "$branch" --json bucket --jq '[.[] | select(.bucket == "fail")] | length' 2>/dev/null || true)"
+  failed="$(gh pr checks "$branch" --required --json bucket --jq '[.[] | select(.bucket == "fail")] | length' 2>/dev/null || true)"
   if [[ "$failed" =~ ^[1-9][0-9]*$ ]]; then
     echo "::error::A required check failed on $branch; nothing was merged."
     exit 1
