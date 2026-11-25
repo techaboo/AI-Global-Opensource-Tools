@@ -65,6 +65,8 @@ drifting to ~05:00 during CST — see the workflow's own comment; GitHub may sta
 scheduled runs a few minutes late) and searches the GitHub API for candidate
 repos not already in the catalog, and opens an auto-merging pull request
 (`scripts/open-bot-pr.sh`) that lands only after the required CI checks pass.
+The merge triggers `deploy-pages.yml`, whose `verify` job fails the run unless
+the live site serves that build.
 
 Every catalog category has its own GitHub topics (`CATEGORY_TOPICS` in
 `scripts/discover-lib.mjs`; add an entry when you add a category). Per topic it
