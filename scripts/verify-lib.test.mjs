@@ -23,7 +23,19 @@ describe('assessCatalog', () => {
     expect(result.failures).toEqual(['new entry b points to a missing repository o/b']);
   });
 
-  it('treats an unanswered lookup as unverified, never as passing', () => {
-    expect(assessCatalog([tool('a', 'o/a')], new Map()).failures).toHaveLength(1);
+  it('never passes a new entry it could not check', () => {
+    expect(assessCatalog([tool('a', 'o/a')], new Map(), new Set()).failures).toHaveLength(1);
+  });
+
+  it('reports a few unanswered older entries without blocking publication', () => {
+    const result = assessCatalog([tool('a', 'o/a')], new Map(), new Set(['a']));
+    expect(result.unchecked).toHaveLength(1);
+    expect(result.failures).toEqual([]);
+    expect(renderVerification(result)).toContain('Could not be verified');
+  });
+
+  it('fails when too many entries cannot be checked', () => {
+    const many = Array.from({ length: 4 }, (_, i) => tool(`t${i}`, `o/t${i}`));
+    expect(assessCatalog(many, new Map(), new Set(many.map(t => t.id))).failures).toHaveLength(4);
   });
 });

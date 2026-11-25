@@ -2,6 +2,12 @@
  * Pure assessment for scripts/verify-catalog.mjs.
  */
 
+/**
+ * Older entries GitHub will not answer for (blocked or restricted repositories)
+ * are tolerated up to this share; beyond it the check itself is not trustworthy.
+ */
+export const UNCHECKED_TOLERANCE = 0.01;
+
 /** Returns counts, findings and the subset of findings that must fail the run. */
 export function assessCatalog(tools, facts, baseIds = null) {
   const dead = [];
@@ -26,9 +32,11 @@ export function assessCatalog(tools, facts, baseIds = null) {
   const duplicates = [...byRepo].filter(([, ids]) => ids.length > 1).map(([repo, ids]) => ({ repo, ids }));
 
   const addedIds = new Set(added.map(tool => tool.id));
+  const allowed = Math.max(3, Math.floor(tools.length * UNCHECKED_TOLERANCE));
+  const blocking = unchecked.length > allowed ? unchecked : unchecked.filter(u => addedIds.has(u.id));
   const failures = [
     ...duplicates.map(d => `duplicate repository ${d.repo}: ${d.ids.join(', ')}`),
-    ...unchecked.map(u => `could not verify ${u.id} (${u.repo}): ${u.message}`),
+    ...blocking.map(u => `could not verify ${u.id} (${u.repo}): ${u.message}`),
     ...dead.filter(d => addedIds.has(d.id)).map(d => `new entry ${d.id} points to a missing repository ${d.repo}`),
     ...archived.filter(a => addedIds.has(a.id)).map(a => `new entry ${a.id} is archived on GitHub`),
   ];
@@ -45,6 +53,7 @@ export function renderVerification(result) {
   ];
   const section = (title, rows) => { if (rows.length) lines.push('', `## ${title}`, ...rows.map(row => `- ${row}`)); };
   section('Failures', result.failures);
+  section('Could not be verified', result.unchecked.map(u => `${u.id}: ${u.repo} (${u.message})`));
   section('Dead repositories', result.dead.map(d => `${d.id}: ${d.repo}`));
   section('Archived on GitHub', result.archived.map(a => `${a.id}: ${a.repo}`));
   section('Renamed on GitHub', result.renamed.map(r => `${r.id}: ${r.repo} -> ${r.to}`));

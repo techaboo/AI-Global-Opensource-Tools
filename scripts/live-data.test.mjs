@@ -26,6 +26,14 @@ function clone(name) {
 }
 
 describe('live-data push/pull', () => {
+  it('fails rather than starting empty when origin cannot be reached', () => {
+    const dir = join(base, 'offline');
+    mkdirSync(dir);
+    sh(dir, ['init', '-q', '-b', 'main']);
+    sh(dir, ['remote', 'add', 'origin', join(base, 'does-not-exist.git')]);
+    expect(() => run(dir, 'pull')).toThrow(/Could not reach origin/);
+  });
+
   it('round-trips a >1 MB snapshot intact and is idempotent', () => {
     sh(base, ['init', '-q', '--bare', '-b', 'main', 'remote.git']);
     const seed = join(base, 'seed');

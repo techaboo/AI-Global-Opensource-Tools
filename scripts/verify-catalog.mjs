@@ -3,10 +3,11 @@
  * duplicates hiding behind renames, archived entries still marked active, and
  * pending renames.
  *
- * Fails (exit 1) when two entries are one repository, when a repository could not
- * be checked, or, with --base=<git ref>, when an entry added since that ref is
- * dead or archived. A dead repo among older entries is only reported: the 7-day
- * 404 rule in fetch-stars.mjs decides what happens to it.
+ * Fails (exit 1) when two entries are one repository, when more than 1% (at least
+ * 4) of repositories could not be checked, or, with --base=<git ref>, when an
+ * entry added since that ref is dead, archived or unchecked. A dead repo among
+ * older entries is only reported: the 7-day 404 rule in fetch-stars.mjs decides
+ * what happens to it.
  *
  * Usage: GITHUB_TOKEN=<token> node scripts/verify-catalog.mjs [--base=origin/main] [--report=path.md]
  */

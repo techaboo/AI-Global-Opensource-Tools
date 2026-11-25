@@ -16,7 +16,6 @@ permissions:
   contents: write
   pull-requests: write
   actions: write
-  issues: write
 
 concurrency:
   group: live-data-writer
@@ -60,7 +59,9 @@ jobs:
         run: |
           node scripts/live-data.mjs push "chore: refresh live GitHub stats ($(date -u +%Y-%m-%dT%H:%MZ))"
 
+      # Also after a partial failure: unanswered repositories are left unchanged.
       - name: Propose hard-fact catalog corrections
+        if: ${{ !cancelled() && steps.fetch.conclusion != 'skipped' }}
         env:
           GH_TOKEN: ${{ secrets.KIMI_GITHUB_API || secrets.GITHUB_TOKEN }}
         run: |
@@ -72,10 +73,22 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: gh workflow run deploy-pages.yml --ref main
 
+  # Separate job: it still reports a timeout or a failed checkout with the bot token.
+  alert:
+    needs: refresh
+    if: always() && needs.refresh.result != 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
       - name: Raise an alert
-        if: failure()
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           bash scripts/alert-issue.sh refresh-stars "Hourly stats refresh is failing" \
-            "The hourly refresh failed. Open the run log; the site keeps serving the last published snapshot."
+            "The hourly refresh did not succeed. Open the run log; the site keeps serving the last published snapshot."

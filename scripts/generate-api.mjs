@@ -9,7 +9,7 @@
  */
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { ROOT, loadCatalog, readSnapshot, validateCatalog } from './catalog.mjs';
+import { ROOT, catalogHash, loadCatalog, readSnapshot, validateCatalog } from './catalog.mjs';
 
 const API_DIR = join(ROOT, 'public/api/v1');
 const SCHEMA_VERSION = 1;
@@ -31,6 +31,7 @@ const tools = catalog.tools.map(tool => ({ ...tool, stars: snapshot.repos?.[tool
 const meta = {
   generatedAt: new Date().toISOString(),
   schemaVersion: SCHEMA_VERSION,
+  catalogHash: catalogHash(catalog),
   toolCount: catalog.tools.length,
   categoryCount: catalog.categories.length,
   snapshotDate: catalog.snapshotDate,

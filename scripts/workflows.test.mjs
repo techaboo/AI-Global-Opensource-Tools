@@ -16,6 +16,14 @@ describe('GitHub workflow files', () => {
     expect(publish.if).toBe("${{ !cancelled() && steps.fetch.conclusion != 'skipped' }}");
   });
 
+  it('alerts from a separate job, so a timeout or bad token is still reported', () => {
+    for (const file of ['discover-tools.yml', 'refresh-stars.yml', 'deploy-pages.yml']) {
+      const { alert } = parseDocument(readFileSync(join(dir, file), 'utf8')).toJS().jobs;
+      expect(alert.needs, file).toBeTruthy();
+      expect(alert.steps[0].with?.token, file).toBeUndefined();
+    }
+  });
+
   it('pins every action to a commit SHA', () => {
     for (const file of readdirSync(dir)) {
       for (const [, ref] of readFileSync(join(dir, file), 'utf8').matchAll(/uses:\s*(\S+)/g)) expect(ref, file).toMatch(/@[0-9a-f]{40}$/);
@@ -34,7 +42,7 @@ describe('GitHub workflow files', () => {
   it('runs the daily pipeline in order: pull, re-check, prune, discover, verify, publish', () => {
     const wf = parseDocument(readFileSync(join(dir, 'discover-tools.yml'), 'utf8')).toJS();
     const runs = wf.jobs.pipeline.steps.map(s => s.run ?? '').join('\n');
-    const order = ['live-data.mjs pull', 'fetch-stars.mjs --update', 'prune-stale.mjs', 'discover-tools.mjs', 'verify-catalog.mjs', 'open-bot-pr.sh', 'api/v1/meta.json'];
+    const order = ['live-data.mjs pull', 'fetch-stars.mjs --update', 'prune-stale.mjs', 'discover-tools.mjs', 'verify-catalog.mjs', 'open-bot-pr.sh', 'check-live.mjs'];
     const at = order.map(marker => runs.indexOf(marker));
     expect(at).toEqual([...at].sort((a, b) => a - b));
     expect(at[0]).toBeGreaterThanOrEqual(0);

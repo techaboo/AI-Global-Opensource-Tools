@@ -69,6 +69,18 @@ beforeEach(() => {
 
 afterEach(() => rmSync(dir, { recursive: true, force: true }));
 
+describe('fetch-stars history', () => {
+  it('does not give a reused id another repository\'s star history', () => {
+    const point = { t: Date.now() - 2 * DAY_MS, s: 999 };
+    writeFileSync(join(dir, 'public/live-snapshot.json'), JSON.stringify({
+      generatedAt: new Date().toISOString(),
+      repos: { here: { repo: 'other/project', stars: 999, forks: 0, openIssues: 0, pushedAt: new Date().toISOString(), fetchedAt: point.t, history: [point] } },
+    }));
+    refresh('200');
+    expect(read('public/live-snapshot.json').repos.here.history.map(p => p.s)).toEqual([5]);
+  });
+});
+
 describe('fetch-stars 404 handling', () => {
   it('does not archive a tool after a single 404', () => {
     refresh('404');

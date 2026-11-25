@@ -20,11 +20,11 @@ test('loads, searches, opens details, favorites, and restores the URL state', as
   await expect(page).toHaveURL(/q=Ollama/);
   await expect(page.getByText(new RegExp(`^\\d+ / ${total} tools$`))).toBeVisible();
 
-  await page.getByRole('button', { name: 'Open details for Ollama' }).click();
+  await page.getByRole('button', { name: 'Open details for Ollama', exact: true }).click();
   await expect(page.getByRole('dialog')).toBeVisible();
   await page.keyboard.press('Escape');
 
-  await page.getByRole('button', { name: 'Add Ollama to favorites' }).click();
+  await page.getByRole('button', { name: 'Add Ollama to favorites', exact: true }).click();
   await page.getByRole('button', { name: /Show favorites/ }).click();
   await expect(page.getByText(`1 / ${total} tools`, { exact: true })).toBeVisible();
 

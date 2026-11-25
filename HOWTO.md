@@ -80,7 +80,8 @@ UTC and on manual dispatch. GitHub may start scheduled runs late. In order:
    or archived stop the run before anything is published.
 6. **Publish** (`scripts/open-bot-pr.sh`): open a pull request, enable auto-merge
    and wait until it has merged. A failed required check leaves `main` untouched.
-7. **Confirm** the live site lists the new number of tools.
+7. **Confirm** the live site was built from the new catalog
+   (`scripts/check-live.mjs`).
 
 Any failed step, a failed re-check, or a day below the minimum opens or updates a
 "Daily catalog pipeline needs attention" issue. The run summary shows how many
@@ -95,7 +96,8 @@ turn, thinnest category first and stars descending within each, with at most 2
 additions per category. While a run is short of the minimum it widens the search
 (`SEARCH_TIERS`: older creation or push dates, lower star floors, deeper pages),
 and as a last step raises the per-category limit for candidates that already
-passed. At most 400 candidates are reviewed per run. The minimum is a target:
+passed. A run reviews at most 400 candidates and
+stays within a 45-minute budget. The minimum is a target:
 **no check is relaxed to reach it**, and a shortfall is reported.
 
 Every field is copied from the repository's own GitHub metadata. Nothing is

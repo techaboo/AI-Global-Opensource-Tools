@@ -29,13 +29,20 @@ export const FILES = {
 
 const git = (args, opts = {}) => execFileSync('git', args, { cwd: ROOT, encoding: 'utf8', maxBuffer: 512 * 1024 * 1024, stdio: ['ignore', 'pipe', 'pipe'], ...opts });
 
+/**
+ * True once origin/live-data is fetched, false only when the remote says the
+ * branch does not exist. Any other failure throws: treating a network error as
+ * "no branch" would overwrite the accumulated history with an empty one.
+ */
 function fetchBranch() {
   try {
-    git(['fetch', '--quiet', 'origin', `+refs/heads/${BRANCH}:refs/remotes/origin/${BRANCH}`]);
-    return true;
-  } catch {
-    return false;
+    git(['ls-remote', '--exit-code', '--heads', 'origin', `refs/heads/${BRANCH}`]);
+  } catch (error) {
+    if (error.status === 2) return false;
+    throw new Error(`Could not reach origin to read ${BRANCH}: ${error.stderr || error.message}`, { cause: error });
   }
+  git(['fetch', '--quiet', 'origin', `+refs/heads/${BRANCH}:refs/remotes/origin/${BRANCH}`]);
+  return true;
 }
 
 function pull() {

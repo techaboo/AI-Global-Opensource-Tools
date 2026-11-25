@@ -70,17 +70,20 @@ if (!shouldUpdate) {
 const facts = await fetchRepoFacts(tools.map(tool => tool.repo), { token: TOKEN });
 
 // Follow renames and merge entries that turn out to be one repository.
-const reconciled = reconcileRepos(catalog.tools, facts, loadExcluded());
+let reconciled = reconcileRepos(catalog.tools, facts, loadExcluded());
+let failed = 0;
 if (reconciled.removed.length > MAX_REMOVALS) {
-  console.error(`Refusing to remove ${reconciled.removed.length} entries in one run (limit ${MAX_REMOVALS}); no files changed.`);
-  process.exit(1);
+  // Suspicious enough for a human: leave the catalog alone, still publish stats.
+  console.error(`Refusing to remove ${reconciled.removed.length} entries in one run (limit ${MAX_REMOVALS}); renames and merges skipped.`);
+  reconciled = { tools: catalog.tools, renamed: [], removed: [] };
+  failed++;
 }
 for (const { id, from, to } of reconciled.renamed) console.log(`  ! ${id}: repository renamed ${from} -> ${to}`);
 for (const { id, repo, reason, keptId } of reconciled.removed) {
   console.log(`  ! Removed ${id} (${repo}): ${reason}`);
   // Same repository, so the longer star history belongs to the kept entry too.
   const old = previous.repos[id];
-  if (keptId && old && old.history.length > (previous.repos[keptId]?.history.length ?? 0)) previous.repos[keptId] = old;
+  if (keptId && old && old.history.length > (previous.repos[keptId]?.history.length ?? 0)) previous.repos[keptId] = { ...old, repo: undefined };
 }
 const factById = new Map(tools.map(tool => [tool.id, facts.get(tool.repo)]));
 catalog.tools = reconciled.tools;
@@ -90,7 +93,18 @@ const updated = {};
 const toArchive = []; // { id, reason } — hard-fact signals only (GitHub archived flag, or confirmed 404)
 const missingIds = []; // ids whose repo GitHub reports as not found this run
 const revived = []; // ids GitHub shows unarchived and recently pushed
-let failed = 0;
+
+/**
+ * The previous record, unless it was observed for a different repository: an id
+ * can be reused after a removal, and must not inherit another project's history.
+ */
+function previousFor(tool) {
+  const entry = previous.repos[tool.id];
+  if (!entry?.repo) return entry;
+  const fact = factById.get(tool.id);
+  const names = [tool.repo, fact?.nameWithOwner].filter(Boolean).map(name => name.toLowerCase());
+  return names.includes(entry.repo.toLowerCase()) ? entry : undefined;
+}
 
 for (const tool of tools) {
   const fact = factById.get(tool.id);
@@ -112,12 +126,13 @@ for (const tool of tools) {
 
   const fetchedAt = Date.now();
   updated[tool.id] = {
+    repo: fact.nameWithOwner,
     stars: fact.stars,
     forks: fact.forks,
     openIssues: fact.openIssues,
     pushedAt: fact.pushedAt,
     fetchedAt,
-    history: appendStarPoint(previous.repos[tool.id]?.history, fact.stars, fetchedAt),
+    history: appendStarPoint(previousFor(tool)?.history, fact.stars, fetchedAt),
   };
 }
 
@@ -150,7 +165,7 @@ if (archivedNow.length || unarchivedNow.length || reconciled.renamed.length || r
 
 // Keep failed/current records, while pruning entries no longer represented by a catalog repo.
 const repos = Object.fromEntries(tools.flatMap(tool => {
-  const entry = updated[tool.id] ?? previous.repos[tool.id];
+  const entry = updated[tool.id] ?? previousFor(tool);
   return entry ? [[tool.id, entry]] : [];
 }));
 const snapshot = { generatedAt: new Date().toISOString(), repos, missing };

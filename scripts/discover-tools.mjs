@@ -34,7 +34,11 @@
  * already passed every check. If it still ends short it says so and reports
  * `short=true` to the workflow; it never lowers a quality check to hit a number.
  *
- * Usage: GITHUB_TOKEN=<token> TYPESAFE_API_KEY=<key> node scripts/discover-tools.mjs [--limit=45] [--min=30]
+ * The run also has a time budget (--max-minutes): searching stops ten minutes
+ * before it ends and reviewing stops when it ends, so what was accepted is always
+ * written before the job could time out.
+ *
+ * Usage: GITHUB_TOKEN=<token> TYPESAFE_API_KEY=<key> node scripts/discover-tools.mjs [--limit=45] [--min=30] [--max-minutes=45]
  */
 import { appendFileSync } from 'node:fs';
 import { CATALOG_PATH, loadCatalog, loadExcluded, writeCatalog } from './catalog.mjs';
@@ -65,6 +69,10 @@ function intArg(name, fallback) {
 }
 const limit = intArg('limit', 45);
 const minimum = Math.min(intArg('min', 30), limit);
+const budgetMs = intArg('max-minutes', 45) * 60_000;
+const startedAt = Date.now();
+const deadline = startedAt + budgetMs;
+const searchDeadline = deadline - Math.min(10 * 60_000, budgetMs / 3);
 
 function slugify(name) {
   return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
@@ -77,7 +85,19 @@ async function searchPage(q, page, attempt = 1) {
   const headers = { Accept: 'application/vnd.github+json', 'User-Agent': 'osi-atlas-discover' };
   if (TOKEN) headers.Authorization = `Bearer ${TOKEN}`;
   const params = new URLSearchParams({ q, sort: 'stars', order: 'desc', per_page: String(PER_PAGE), page: String(page) });
-  const res = await fetch(`https://api.github.com/search/repositories?${params}`, { headers });
+  let res;
+  let json;
+  try {
+    res = await fetch(`https://api.github.com/search/repositories?${params}`, { headers, signal: AbortSignal.timeout(30_000) });
+    if (res.ok) json = await res.json();
+  } catch (error) {
+    if (attempt === 1) {
+      await sleep(5_000);
+      return searchPage(q, page, 2);
+    }
+    console.warn(`! GitHub search failed for "${q}" page ${page} (${error.message}) — skipping.`);
+    return { items: [], rateLimited: false };
+  }
   const limited = res.status === 403 || res.status === 429;
   if (!res.ok && attempt === 1 && (limited || res.status >= 500)) {
     await sleep(limited ? 65_000 : 5_000); // the search limit resets every minute
@@ -87,7 +107,6 @@ async function searchPage(q, page, attempt = 1) {
     console.warn(`! GitHub search failed for "${q}" page ${page} (${res.status}) — skipping.`);
     return { items: [], rateLimited: limited };
   }
-  const json = await res.json();
   return { items: json.items ?? [], rateLimited: false };
 }
 
@@ -143,11 +162,16 @@ const found = { new: 0, established: 0 };
 /** Runs one search tier. Returns Map category hint -> candidates not seen before, stars descending. */
 async function searchTier(tier) {
   const fresh = new Map(); // full_name -> { repo, hint }; thinnest categories search first, so they claim shared hits
+  // The first tier may use the whole search window; a widened one gets half of
+  // what is left, so its candidates still have time to be reviewed.
+  const left = Math.max(0, searchDeadline - Date.now());
+  const tierDeadline = Date.now() + (tiersUsed === 1 ? left : left / 2);
   search:
   for (const hint of needOrder) {
     const topics = (CATEGORY_TOPICS[hint] ?? []).map(topic => `topic:${topic}`);
     for (const step of buildSearchPlan(topics, now, tier)) {
       for (let page = 1; page <= step.pages; page += 1) {
+        if (Date.now() >= tierDeadline) break search;
         const result = await searchPage(step.q, page);
         await sleep(SEARCH_PACE_MS);
         if (result.rateLimited) {
@@ -225,7 +249,8 @@ async function review(candidate) {
 
   let result;
   try {
-    result = await reviewCandidate(candidate, catalog);
+    // Deferred candidates may still be added, so they count as existing too.
+    result = await reviewCandidate(candidate, { ...catalog, tools: [...catalog.tools, ...deferred] });
     consecutiveErrors = 0;
   } catch (error) {
     errors += 1;
@@ -281,10 +306,10 @@ try {
     tiersUsed += 1;
     const queues = await searchTier(tier);
     for (const candidate of interleaveByCategory(queues, needOrder)) {
-      if (stopped || reviewed >= MAX_REVIEWS || candidates.length >= limit) break;
+      if (stopped || reviewed >= MAX_REVIEWS || candidates.length >= limit || Date.now() >= deadline) break;
       await review(candidate);
     }
-    if (stopped || rateLimited || reviewed >= MAX_REVIEWS || candidates.length + deferred.length >= minimum) break;
+    if (stopped || rateLimited || reviewed >= MAX_REVIEWS || candidates.length + deferred.length >= minimum || Date.now() >= searchDeadline) break;
   }
   for (const candidate of backfill(deferred, addedPerCategory, perCategory, minimum - candidates.length)) accept(candidate);
 } finally {

@@ -18,6 +18,9 @@ only what was observed; mark anything else as unconfirmed.
 | Browser copied the whole multi-megabyte snapshot into `localStorage` | Whole live map persisted | Only the visitor's own syncs persist |
 | Light theme and chart views had serious accessibility violations | Browser tests covered only one dark grid view | Every view, both themes, desktop and mobile in `e2e/` |
 | CSV export could carry spreadsheet formulas from third-party text | No formula escaping | Escaped in `export.ts` |
+| A failed `live-data` fetch read as "no branch" and could reset all history | Every error treated as absence | `ls-remote --exit-code`, otherwise fail |
+| Timeouts or an expired token would raise no alert | Alert step inside the failing job | Separate alert jobs; discovery time budget |
+| Adding a tool named like another could break browser tests | Substring locators | `exact: true` |
 | Pages deploys failed with HTTP 500 during a GitHub incident | Single attempt, no alert | Three attempts, alert issue |
 | Bot runs ended before knowing whether their PR merged | Fire-and-forget auto-merge | `open-bot-pr.sh` waits and fails loudly |
 

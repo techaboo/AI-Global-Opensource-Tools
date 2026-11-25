@@ -28,7 +28,6 @@ on:
 permissions:
   contents: write
   pull-requests: write
-  issues: write
 
 concurrency:
   group: live-data-writer
@@ -37,7 +36,11 @@ concurrency:
 jobs:
   pipeline:
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    timeout-minutes: 120
+    outputs:
+      added: ${{ steps.discover.outputs.added }}
+      short: ${{ steps.discover.outputs.short }}
+      refresh: ${{ steps.refresh.outcome }}
     env:
       # A PAT so the PR triggers CI (GITHUB_TOKEN-created PRs do not).
       BOT_TOKEN: ${{ secrets.KIMI_GITHUB_API || secrets.GITHUB_TOKEN }}
@@ -77,12 +80,13 @@ jobs:
 
       - name: Discover new tools
         id: discover
+        timeout-minutes: 55
         env:
           GITHUB_TOKEN: ${{ env.BOT_TOKEN }}
           TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
           LIMIT: ${{ inputs.limit || '45' }}
           MINIMUM: ${{ inputs.minimum || '30' }}
-        run: node scripts/discover-tools.mjs --limit="$LIMIT" --min="$MINIMUM"
+        run: node scripts/discover-tools.mjs --limit="$LIMIT" --min="$MINIMUM" --max-minutes=45
 
       - name: Verify the catalog against live GitHub
         env:
@@ -98,30 +102,16 @@ jobs:
           node scripts/live-data.mjs push "chore: update catalog pipeline state ($(date -u +%Y-%m-%d))"
 
       - name: Commit, open the PR and wait for the merge
-        id: publish
         env:
           GH_TOKEN: ${{ env.BOT_TOKEN }}
           MERGE_WAIT_SECONDS: '1500'
         run: |
-          echo "count=$(jq '.tools | length' src/data/catalog.json)" >> "$GITHUB_OUTPUT"
           bash scripts/open-bot-pr.sh bot/discover-tools "feat(catalog): daily catalog update ($(date -u +%Y-%m-%d))"
 
       - name: Confirm the live site serves the new catalog
         env:
-          EXPECTED: ${{ steps.publish.outputs.count }}
           SITE: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
-        run: |
-          for attempt in $(seq 1 40); do
-            live=$(curl -fsS --max-time 20 "$SITE/api/v1/meta.json?run=$GITHUB_RUN_ID-$attempt" | jq -r .toolCount) || live=''
-            if [ "$live" = "$EXPECTED" ]; then
-              echo "Live site lists $live tools."
-              exit 0
-            fi
-            echo "Attempt $attempt: live site lists '${live:-unreachable}', expected $EXPECTED."
-            sleep 20
-          done
-          echo "::error::Live site does not list $EXPECTED tools."
-          exit 1
+        run: node scripts/check-live.mjs "$SITE"
 
       - name: Run summary
         if: ${{ !cancelled() }}
@@ -135,12 +125,28 @@ jobs:
             cat audits/verification.md 2>/dev/null || true
           } >> "$GITHUB_STEP_SUMMARY"
 
+  # A separate job with its own checkout: it still reports when the pipeline job
+  # timed out, was cancelled, or could not check out with the bot token.
+  alert:
+    needs: pipeline
+    if: >-
+      always() && (needs.pipeline.result != 'success'
+      || needs.pipeline.outputs.short == 'true'
+      || needs.pipeline.outputs.refresh == 'failure')
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
       - name: Raise an alert
-        if: ${{ failure() || steps.discover.outputs.short == 'true' || steps.refresh.outcome == 'failure' }}
         env:
           GH_TOKEN: ${{ github.token }}
-          ADDED: ${{ steps.discover.outputs.added }}
-          STATUS: ${{ job.status }}
+          ADDED: ${{ needs.pipeline.outputs.added }}
+          RESULT: ${{ needs.pipeline.result }}
         run: |
           bash scripts/alert-issue.sh daily-pipeline "Daily catalog pipeline needs attention" \
-            "Job status: $STATUS. Tools added: ${ADDED:-unknown}. Open the run log to see which step failed or why the daily minimum was not met."
+            "Job result: $RESULT. Tools added: ${ADDED:-unknown}. Open the run log to see which step failed or why the daily minimum was not met."

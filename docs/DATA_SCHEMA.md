@@ -47,7 +47,7 @@ hosted, with no separate backend:
 | --- | --- |
 | `/api/v1/tools.json` | The full `AITool[]` array, same shape as this document's `AITool` table |
 | `/api/v1/categories.json` | The full `Category[]` array |
-| `/api/v1/meta.json` | `{ generatedAt, schemaVersion, toolCount, categoryCount, snapshotDate, statsGeneratedAt }` |
+| `/api/v1/meta.json` | `{ generatedAt, schemaVersion, catalogHash, toolCount, categoryCount, snapshotDate, statsGeneratedAt }` |
 
 `stars` in `tools.json` is the latest published snapshot value, with the catalog
 value as fallback; `statsGeneratedAt` is `null` when a build had no snapshot.
@@ -67,6 +67,7 @@ same data) rather than a static file.
   "generatedAt": "ISO-8601 timestamp",
   "repos": {
     "<tool id>": {
+      "repo": "owner/name",
       "stars": 0,
       "forks": 0,
       "openIssues": 0,
