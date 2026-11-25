@@ -18957,6 +18957,173 @@
       ],
       "status": "active",
       "year": 2026
+    },
+    {
+      "id": "spark-nlp",
+      "name": "spark-nlp",
+      "org": "JohnSnowLabs",
+      "cat": "frameworks",
+      "tagline": "State of the Art Natural Language Processing",
+      "desc": "State of the Art Natural Language Processing",
+      "license": "Apache-2.0",
+      "lang": "Scala",
+      "stars": 4161,
+      "repo": "JohnSnowLabs/spark-nlp",
+      "tags": [
+        "bert",
+        "entity-extraction",
+        "language-detection",
+        "lemmatizer",
+        "llamacpp"
+      ],
+      "status": "active",
+      "year": 2017
+    },
+    {
+      "id": "applio",
+      "name": "Applio",
+      "org": "IAHispano",
+      "cat": "audio",
+      "tagline": "A simple, high-quality voice conversion tool focused on ease of use and perfo...",
+      "desc": "A simple, high-quality voice conversion tool focused on ease of use and performance.",
+      "license": "MIT",
+      "lang": "Python",
+      "stars": 4075,
+      "repo": "IAHispano/Applio",
+      "tags": [
+        "ai",
+        "applio",
+        "pytorch",
+        "rvc",
+        "speech"
+      ],
+      "status": "active",
+      "year": 2023
+    },
+    {
+      "id": "realtimetts",
+      "name": "RealtimeTTS",
+      "org": "KoljaB",
+      "cat": "audio",
+      "tagline": "Converts text to speech in realtime",
+      "desc": "Converts text to speech in realtime",
+      "license": "Apache-2.0",
+      "lang": "Python",
+      "stars": 4060,
+      "repo": "KoljaB/RealtimeTTS",
+      "tags": [
+        "python",
+        "realtime",
+        "speech-synthesis",
+        "text-to-speech"
+      ],
+      "status": "active",
+      "year": 2023
+    },
+    {
+      "id": "lichtfeld-studio",
+      "name": "LichtFeld-Studio",
+      "org": "MrNeRF",
+      "cat": "threed",
+      "tagline": "Train, inspect, edit, automate, and export 3D Gaussian Splatting scenes from ...",
+      "desc": "Train, inspect, edit, automate, and export 3D Gaussian Splatting scenes from a single native application.",
+      "license": "GPL-3.0",
+      "lang": "C++",
+      "stars": 4034,
+      "repo": "MrNeRF/LichtFeld-Studio",
+      "tags": [
+        "3d-gaussian-splatting",
+        "3dgs",
+        "computer-graphics",
+        "computer-vision",
+        "cuda"
+      ],
+      "status": "active",
+      "year": 2023
+    },
+    {
+      "id": "every-chatgpt-gui",
+      "name": "every-chatgpt-gui",
+      "org": "billmei",
+      "cat": "chatui",
+      "tagline": "Every front-end GUI client for ChatGPT, Claude, and other LLMs",
+      "desc": "Every front-end GUI client for ChatGPT, Claude, and other LLMs",
+      "license": "MIT",
+      "lang": "Unknown",
+      "stars": 4027,
+      "repo": "billmei/every-chatgpt-gui",
+      "tags": [
+        "anthropic",
+        "chatgpt",
+        "claude",
+        "gpt-3",
+        "gpt-4"
+      ],
+      "status": "active",
+      "year": 2023
+    },
+    {
+      "id": "skills",
+      "name": "skills",
+      "org": "scenario-labs",
+      "cat": "mcp",
+      "tagline": "Get production-ready images, video, audio, and 3D from any AI agent: skills t...",
+      "desc": "Get production-ready images, video, audio, and 3D from any AI agent: skills that pick the right model, price before spending, and keep characters and brands consistent through the Scenario MCP, plus expert teams that drive Blender, Maya, ZBrush, Unreal, and Unity.",
+      "license": "MIT",
+      "lang": "Python",
+      "stars": 4021,
+      "repo": "scenario-labs/skills",
+      "tags": [
+        "3d-models",
+        "agent-skills",
+        "ai-agents",
+        "ai-art",
+        "blender"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "sepia",
+      "name": "sepia",
+      "org": "Nanako0129",
+      "cat": "prompts",
+      "tagline": "De-AI writing skill for any Agent Skills-compatible agent (77+ via the Skills...",
+      "desc": "De-AI writing skill for any Agent Skills-compatible agent (77+ via the Skills CLI), with native plugins for Claude Code, Codex, Grok Build, and Antigravity. Narrative-architecture repair for fiction, venue-matched rules for professional prose. Based on StoryScope (arXiv:2604.03136).",
+      "license": "MIT",
+      "lang": "Python",
+      "stars": 3954,
+      "repo": "Nanako0129/sepia",
+      "tags": [
+        "agent-skills",
+        "ai-writing",
+        "antigravity",
+        "claude-code",
+        "codex"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "jionlp",
+      "name": "JioNLP",
+      "org": "dongrixinyu",
+      "cat": "frameworks",
+      "tagline": "中文 NLP 预处理、解析工具包，准确、高效、易用 A Chinese NLP Preprocessing & Parsing Package www.j...",
+      "desc": "中文 NLP 预处理、解析工具包，准确、高效、易用 A Chinese NLP Preprocessing & Parsing Package www.jionlp.com",
+      "license": "Apache-2.0",
+      "lang": "Python",
+      "stars": 3876,
+      "repo": "dongrixinyu/JioNLP",
+      "tags": [
+        "ai",
+        "apache2",
+        "chinese",
+        "llm",
+        "natural-language-processing"
+      ],
+      "status": "active",
+      "year": 2020
     }
   ]
 }
