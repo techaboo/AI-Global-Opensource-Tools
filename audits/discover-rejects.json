@@ -14,6 +14,14 @@
     "rejectedAt": "2026-11-25",
     "retryAfter": "2026-12-25"
   },
+  "agenui/agenui": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.46,
+    "stars": 1253,
+    "rejectedAt": "2026-11-27",
+    "retryAfter": "2026-12-11"
+  },
   "ahujasid/mcp-for-blender": {
     "kind": "duplicate",
     "reason": "duplicate of blender-mcp",
@@ -77,6 +85,14 @@
     "rejectedAt": "2026-11-25",
     "retryAfter": "2026-12-25"
   },
+  "awarexone/agentic-bug-hunter": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.44,
+    "stars": 6086,
+    "rejectedAt": "2026-11-27",
+    "retryAfter": "2026-12-11"
+  },
   "backnotprop/plannotator": {
     "kind": "category",
     "reason": "category confidence below threshold",
@@ -100,6 +116,14 @@
     "stars": 64211,
     "rejectedAt": "2026-11-23",
     "retryAfter": "2026-12-23"
+  },
+  "blakeblackshear/frigate": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.59,
+    "stars": 37966,
+    "rejectedAt": "2026-11-27",
+    "retryAfter": "2026-12-11"
   },
   "bloopai/vibe-kanban": {
     "kind": "category",
@@ -149,6 +173,14 @@
     "rejectedAt": "2026-11-18",
     "retryAfter": "2026-12-02"
   },
+  "conductor-oss/conductor": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.51,
+    "stars": 32515,
+    "rejectedAt": "2026-11-27",
+    "retryAfter": "2026-12-11"
+  },
   "data-privacy-stack/presidio": {
     "kind": "duplicate",
     "reason": "duplicate of presidio",
@@ -192,10 +224,10 @@
   "elie222/rakazo": {
     "kind": "category",
     "reason": "category confidence below threshold",
-    "score": 0.48,
-    "stars": 7766,
-    "rejectedAt": "2026-11-10",
-    "retryAfter": "2026-11-24"
+    "score": 0.51,
+    "stars": 9950,
+    "rejectedAt": "2026-11-27",
+    "retryAfter": "2026-12-11"
   },
   "eosphoros-ai/db-gpt": {
     "kind": "category",
@@ -245,6 +277,14 @@
     "rejectedAt": "2026-11-06",
     "retryAfter": "2026-12-06"
   },
+  "fedml-ai/fedml": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.52,
+    "stars": 4069,
+    "rejectedAt": "2026-11-27",
+    "retryAfter": "2026-12-11"
+  },
   "firecrawl/firecrawl": {
     "kind": "duplicate",
     "reason": "duplicate of firecrawl",
@@ -268,6 +308,14 @@
     "stars": 25132,
     "rejectedAt": "2026-11-14",
     "retryAfter": "2026-11-28"
+  },
+  "frigadehq/yogurt": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.25,
+    "stars": 3716,
+    "rejectedAt": "2026-11-27",
+    "retryAfter": "2026-12-11"
   },
   "getstream/agents": {
     "kind": "name",
@@ -300,6 +348,14 @@
     "rejectedAt": "2026-11-06",
     "retryAfter": "2026-11-20"
   },
+  "google/magika": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.38,
+    "stars": 18871,
+    "rejectedAt": "2026-11-27",
+    "retryAfter": "2026-12-11"
+  },
   "gunthercox/chatterbot": {
     "kind": "category",
     "reason": "category confidence below threshold",
@@ -331,6 +387,14 @@
     "stars": 21837,
     "rejectedAt": "2026-11-15",
     "retryAfter": "2026-11-29"
+  },
+  "hillya51/lunatranslator": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.32,
+    "stars": 14318,
+    "rejectedAt": "2026-11-27",
+    "retryAfter": "2026-12-11"
   },
   "hiyouga/llamafactory": {
     "kind": "duplicate",
@@ -395,6 +459,14 @@
     "rejectedAt": "2026-11-14",
     "retryAfter": "2026-11-28"
   },
+  "juneyaooo/rea-video": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.49,
+    "stars": 13842,
+    "rejectedAt": "2026-11-27",
+    "retryAfter": "2026-12-11"
+  },
   "kkkkhazix/agent-autoloop": {
     "kind": "category",
     "reason": "category confidence below threshold",
@@ -407,9 +479,9 @@
     "kind": "category",
     "reason": "category confidence below threshold",
     "score": 0.52,
-    "stars": 6654,
-    "rejectedAt": "2026-11-13",
-    "retryAfter": "2026-11-27"
+    "stars": 6854,
+    "rejectedAt": "2026-11-27",
+    "retryAfter": "2026-12-11"
   },
   "kornia/kornia": {
     "kind": "category",
@@ -451,6 +523,14 @@
     "rejectedAt": "2026-10-31",
     "retryAfter": "2026-11-14"
   },
+  "linkedin/liger-kernel": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.52,
+    "stars": 6716,
+    "rejectedAt": "2026-11-27",
+    "retryAfter": "2026-12-11"
+  },
   "liuzhao1225/youdub-desktop": {
     "kind": "duplicate",
     "reason": "duplicate of youdub-webui",
@@ -458,6 +538,14 @@
     "stars": 5870,
     "rejectedAt": "2026-11-20",
     "retryAfter": "2026-12-20"
+  },
+  "lmnr-ai/lmnr": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.58,
+    "stars": 3530,
+    "rejectedAt": "2026-11-27",
+    "retryAfter": "2026-12-11"
   },
   "louis-cfm/coucou": {
     "kind": "category",
@@ -523,6 +611,14 @@
     "rejectedAt": "2026-11-18",
     "retryAfter": "2026-12-02"
   },
+  "microsoft/agent-lightning": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.47,
+    "stars": 19011,
+    "rejectedAt": "2026-11-27",
+    "retryAfter": "2026-12-11"
+  },
   "microsoft/pyrit": {
     "kind": "duplicate",
     "reason": "duplicate of pyrit",
@@ -558,10 +654,10 @@
   "modelscope/funclip": {
     "kind": "category",
     "reason": "category confidence below threshold",
-    "score": 0.56,
-    "stars": 6547,
-    "rejectedAt": "2026-11-13",
-    "retryAfter": "2026-11-27"
+    "score": 0.52,
+    "stars": 6647,
+    "rejectedAt": "2026-11-27",
+    "retryAfter": "2026-12-11"
   },
   "modelscope/modelscope": {
     "kind": "category",
@@ -570,6 +666,14 @@
     "stars": 9225,
     "rejectedAt": "2026-11-23",
     "retryAfter": "2026-12-07"
+  },
+  "n8n-io/self-hosted-ai-starter-kit": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.52,
+    "stars": 15401,
+    "rejectedAt": "2026-11-27",
+    "retryAfter": "2026-12-11"
   },
   "nanocoai/nanoclaw": {
     "kind": "category",
@@ -590,10 +694,10 @@
   "nautechsystems/nautilus_trader": {
     "kind": "category",
     "reason": "category confidence below threshold",
-    "score": 0.4,
-    "stars": 31494,
-    "rejectedAt": "2026-11-13",
-    "retryAfter": "2026-11-27"
+    "score": 0.38,
+    "stars": 31857,
+    "rejectedAt": "2026-11-27",
+    "retryAfter": "2026-12-11"
   },
   "nvidia-nemo/speech": {
     "kind": "category",
@@ -622,10 +726,26 @@
   "oldcircle/geo-sleuth": {
     "kind": "category",
     "reason": "category confidence below threshold",
-    "score": 0.39,
-    "stars": 6949,
-    "rejectedAt": "2026-11-13",
-    "retryAfter": "2026-11-27"
+    "score": 0.41,
+    "stars": 7704,
+    "rejectedAt": "2026-11-27",
+    "retryAfter": "2026-12-11"
+  },
+  "op7418/guizang-ppt-skill": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.49,
+    "stars": 30518,
+    "rejectedAt": "2026-11-27",
+    "retryAfter": "2026-12-11"
+  },
+  "op7418/guizang-social-card-skill": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.48,
+    "stars": 8284,
+    "rejectedAt": "2026-11-27",
+    "retryAfter": "2026-12-11"
   },
   "open-compass/vlmevalkit": {
     "kind": "duplicate",
@@ -650,6 +770,14 @@
     "stars": 78443,
     "rejectedAt": "2026-11-08",
     "retryAfter": "2026-12-08"
+  },
+  "othmanadi/planning-with-files": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.57,
+    "stars": 28258,
+    "rejectedAt": "2026-11-27",
+    "retryAfter": "2026-12-11"
   },
   "pascalorg/editor": {
     "kind": "category",
@@ -731,6 +859,14 @@
     "rejectedAt": "2026-11-23",
     "retryAfter": "2026-12-07"
   },
+  "sharex/sharex": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.52,
+    "stars": 41407,
+    "rejectedAt": "2026-11-27",
+    "retryAfter": "2026-12-11"
+  },
   "sickn33/agentic-awesome-skills": {
     "kind": "category",
     "reason": "category confidence below threshold",
@@ -747,13 +883,21 @@
     "rejectedAt": "2026-11-12",
     "retryAfter": "2026-11-26"
   },
+  "spinabot/brigade": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.51,
+    "stars": 11392,
+    "rejectedAt": "2026-11-27",
+    "retryAfter": "2026-12-11"
+  },
   "srbhr/resume-matcher": {
     "kind": "category",
     "reason": "category confidence below threshold",
-    "score": 0.31,
-    "stars": 29273,
-    "rejectedAt": "2026-11-13",
-    "retryAfter": "2026-11-27"
+    "score": 0.42,
+    "stars": 29436,
+    "rejectedAt": "2026-11-27",
+    "retryAfter": "2026-12-11"
   },
   "startrail-org/pixelrag": {
     "kind": "category",
@@ -824,6 +968,14 @@
     "stars": 14651,
     "rejectedAt": "2026-11-02",
     "retryAfter": "2026-12-02"
+  },
+  "tisfeng/easydict": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.56,
+    "stars": 15446,
+    "rejectedAt": "2026-11-27",
+    "retryAfter": "2026-12-11"
   },
   "treeverse/dvc": {
     "kind": "duplicate",
@@ -896,6 +1048,14 @@
     "rejectedAt": "2026-11-14",
     "retryAfter": "2026-11-28"
   },
+  "x-plug/mobileagent": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.57,
+    "stars": 9412,
+    "rejectedAt": "2026-11-27",
+    "retryAfter": "2026-12-11"
+  },
   "xinatian/mroffice": {
     "kind": "category",
     "reason": "category confidence below threshold",
@@ -911,6 +1071,14 @@
     "stars": 28488,
     "rejectedAt": "2026-11-20",
     "retryAfter": "2026-12-04"
+  },
+  "yusufkaraaslan/skill_seekers": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.38,
+    "stars": 15374,
+    "rejectedAt": "2026-11-27",
+    "retryAfter": "2026-12-11"
   },
   "zhulinsen/daily_stock_analysis": {
     "kind": "category",
@@ -935,5 +1103,13 @@
     "stars": 13565,
     "rejectedAt": "2026-11-03",
     "retryAfter": "2026-11-17"
+  },
+  "zyddnys/manga-image-translator": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.45,
+    "stars": 10666,
+    "rejectedAt": "2026-11-27",
+    "retryAfter": "2026-12-11"
   }
 }
