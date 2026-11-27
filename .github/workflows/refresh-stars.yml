@@ -3,8 +3,9 @@
 #     Pages deploy is triggered so the site serves fresh numbers;
 #   - hard-fact catalog corrections (GitHub archived flag, confirmed 404, renamed
 #     or merged repository) go through an auto-merging PR gated by CI.
-# Auth: repo secret KIMI_GITHUB_API (PAT). Its pushes/PRs trigger CI, which the
-# default GITHUB_TOKEN would not.
+# Auth: repo secret KIMI_GITHUB_API (PAT) when GitHub accepts it, else the built-in
+# token. PAT pushes/PRs trigger CI; with the built-in token open-bot-pr.sh starts
+# CI itself. A rejected PAT raises an alert but does not stop the refresh.
 name: Refresh live GitHub stats
 
 on:
@@ -25,11 +26,33 @@ jobs:
   refresh:
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    outputs:
+      pat: ${{ steps.token.outputs.pat }}
     steps:
+      # Before checkout, so an expired or revoked PAT cannot stop the run. Without a
+      # working PAT the built-in token is used and open-bot-pr.sh starts CI and the
+      # Pages deploy itself (events from the built-in token trigger no workflows).
+      - name: Pick a working bot token
+        id: token
+        env:
+          PAT: ${{ secrets.KIMI_GITHUB_API }}
+          FALLBACK: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: |
+          if [ -n "$PAT" ] && [ "$(GH_TOKEN="$PAT" gh api "repos/$REPO" --jq .permissions.push 2>/dev/null)" = true ]; then
+            kind=pat; pat=ok
+          else
+            kind=github; pat=$([ -n "$PAT" ] && echo failed || echo missing)
+            echo "::warning::KIMI_GITHUB_API was not usable (status: $pat); continuing with the built-in token."
+          fi
+          token=$([ "$kind" = pat ] && echo "$PAT" || echo "$FALLBACK")
+          { echo "BOT_TOKEN=$token"; echo "BOT_TOKEN_KIND=$kind"; } >> "$GITHUB_ENV"
+          echo "pat=$pat" >> "$GITHUB_OUTPUT"
+
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: main
-          token: ${{ secrets.KIMI_GITHUB_API || secrets.GITHUB_TOKEN }}
+          token: ${{ env.BOT_TOKEN }}
 
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
@@ -49,7 +72,7 @@ jobs:
       - name: Fetch live GitHub stats
         id: fetch
         env:
-          GITHUB_TOKEN: ${{ secrets.KIMI_GITHUB_API || secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ env.BOT_TOKEN }}
         run: node scripts/fetch-stars.mjs --update
 
       # Also after a partial failure: the snapshot is validated before it is
@@ -63,7 +86,9 @@ jobs:
       - name: Propose hard-fact catalog corrections
         if: ${{ !cancelled() && steps.fetch.conclusion != 'skipped' }}
         env:
-          GH_TOKEN: ${{ secrets.KIMI_GITHUB_API || secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ env.BOT_TOKEN }}
+          # The next step redeploys anyway.
+          SKIP_DEPLOY_DISPATCH: '1'
         run: |
           bash scripts/open-bot-pr.sh bot/archive-status "fix(catalog): sync repository status and names with GitHub (automated, hard-fact only)"
 
@@ -92,3 +117,24 @@ jobs:
         run: |
           bash scripts/alert-issue.sh refresh-stars "Hourly stats refresh is failing" \
             "The hourly refresh did not succeed. Open the run log; the site keeps serving the last published snapshot."
+
+  # The run itself carried on with the built-in token; renewing the PAT restores
+  # its higher API limits.
+  token-alert:
+    needs: refresh
+    if: always() && needs.refresh.outputs.pat == 'failed'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Raise an alert
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          bash scripts/alert-issue.sh bot-token "Bot token KIMI_GITHUB_API is expired or invalid" \
+            "GitHub rejected the KIMI_GITHUB_API secret. The automation keeps running on the built-in token, but with lower API limits. Create a new token and update the repository secret."

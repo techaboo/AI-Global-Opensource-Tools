@@ -23,6 +23,7 @@ only what was observed; mark anything else as unconfirmed.
 | Adding a tool named like another could break browser tests | Substring locators | `exact: true` |
 | Pages deploys failed with HTTP 500 during a GitHub incident | Single attempt, no alert | Three attempts, alert issue |
 | Bot runs ended before knowing whether their PR merged | Fire-and-forget auto-merge | `open-bot-pr.sh` waits and fails loudly |
+| An expired PAT stopped every bot run at checkout (2026-11-26) | `secrets.PAT \|\| GITHUB_TOKEN` falls back only when the secret is empty | Token tested before checkout; built-in token fallback dispatches CI and deploy; alert issue |
 
 ## Earlier, from git history
 

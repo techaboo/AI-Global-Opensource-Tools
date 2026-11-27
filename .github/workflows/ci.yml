@@ -5,6 +5,9 @@ on:
     branches: [main]
   pull_request:
     branches: [main]
+  # Started by scripts/open-bot-pr.sh for bot PRs opened with the built-in token,
+  # which trigger no pull_request run. The checks land on the PR's head commit.
+  workflow_dispatch:
 
 concurrency:
   group: ci-${{ github.workflow }}-${{ github.ref }}
@@ -54,6 +57,11 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      # The runner image ships a packages.microsoft.com apt source that returned
+      # 403 / "no longer signed" on 2026-11-27, failing `apt-get update` inside
+      # `--with-deps`. Chromium's dependencies come from Ubuntu, so drop it.
+      - name: Drop the runner's Microsoft apt source
+        run: grep -rl packages.microsoft.com /etc/apt/sources.list.d/ | xargs -r sudo rm -f
       - run: npx playwright install --with-deps chromium
       - run: npm run test:e2e
       - name: Upload browser test artifacts
