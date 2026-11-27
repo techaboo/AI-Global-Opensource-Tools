@@ -1,5 +1,5 @@
 {
-  "snapshotDate": "2026-11-25",
+  "snapshotDate": "2026-11-27",
   "categories": [
     {
       "id": "models",
@@ -1910,24 +1910,6 @@
       ],
       "status": "active",
       "year": 2017
-    },
-    {
-      "id": "marqo",
-      "name": "Marqo",
-      "org": "Marqo",
-      "cat": "vectordb",
-      "tagline": "End-to-end multimodal vector search",
-      "desc": "Handles embedding generation and storage in one API, including images.",
-      "license": "Apache-2.0",
-      "lang": "Python",
-      "stars": 5025,
-      "repo": "marqo-ai/marqo",
-      "tags": [
-        "multimodal",
-        "search"
-      ],
-      "status": "archived",
-      "year": 2022
     },
     {
       "id": "pgvectorscale",
@@ -17850,6 +17832,948 @@
       ],
       "status": "active",
       "year": 2020
+    },
+    {
+      "id": "chandra",
+      "name": "chandra",
+      "org": "datalab-to",
+      "cat": "docs",
+      "tagline": "OCR model that handles complex tables, forms, handwriting with full layout.",
+      "desc": "OCR model that handles complex tables, forms, handwriting with full layout.",
+      "license": "Apache-2.0",
+      "lang": "Python",
+      "stars": 12781,
+      "repo": "datalab-to/chandra",
+      "tags": [
+        "ai",
+        "document-ai",
+        "document-parsing",
+        "form-extraction",
+        "handwriting-recognition"
+      ],
+      "status": "active",
+      "year": 2025
+    },
+    {
+      "id": "ifixai",
+      "name": "iFixAi",
+      "org": "ifixai-ai",
+      "cat": "eval",
+      "tagline": "Independent Auditing of AI Agents. Run by human or the agent itself, to answe...",
+      "desc": "Independent Auditing of AI Agents. Run by human or the agent itself, to answer the most crucial question in the AI Agent Economy. Is the agent doing what is supposed to do? With iFixAi you can have this answer in less than 120 seconds.",
+      "license": "Apache-2.0",
+      "lang": "Python",
+      "stars": 47557,
+      "repo": "ifixai-ai/iFixAi",
+      "tags": [
+        "agent-evaluation",
+        "ai",
+        "ai-alignment",
+        "ai-evaluation",
+        "ai-governance"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "rikkahub",
+      "name": "rikkahub",
+      "org": "rikkahub",
+      "cat": "chatui",
+      "tagline": "RikkaHub is an Android APP that supports for multiple LLM providers.",
+      "desc": "RikkaHub is an Android APP that supports for multiple LLM providers.",
+      "license": "AGPL-3.0",
+      "lang": "Kotlin",
+      "stars": 9249,
+      "repo": "rikkahub/rikkahub",
+      "tags": [
+        "agent",
+        "android",
+        "app",
+        "chatgpt",
+        "deepseek"
+      ],
+      "status": "active",
+      "year": 2025
+    },
+    {
+      "id": "engine",
+      "name": "engine",
+      "org": "playcanvas",
+      "cat": "threed",
+      "tagline": "Open-source web graphics engine built on WebGPU and WebGL2",
+      "desc": "Open-source web graphics engine built on WebGPU and WebGL2",
+      "license": "MIT",
+      "lang": "JavaScript",
+      "stars": 17384,
+      "repo": "playcanvas/engine",
+      "tags": [
+        "3d-gaussian-splatting",
+        "3dgs",
+        "game-development",
+        "game-engine",
+        "gamedev"
+      ],
+      "status": "active",
+      "year": 2014
+    },
+    {
+      "id": "gepa",
+      "name": "gepa",
+      "org": "gepa-ai",
+      "cat": "prompts",
+      "tagline": "Optimize prompts, code, and more with AI-powered Reflective Optimization",
+      "desc": "Optimize prompts, code, and more with AI-powered Reflective Optimization",
+      "license": "MIT",
+      "lang": "Jupyter Notebook",
+      "stars": 7611,
+      "repo": "gepa-ai/gepa",
+      "tags": [
+        "agent-skills",
+        "coding-agent",
+        "discovery",
+        "distributed-evolutionary-algorithms",
+        "evolutionary-algorithms"
+      ],
+      "status": "active",
+      "year": 2025
+    },
+    {
+      "id": "nanoclaw",
+      "name": "nanoclaw",
+      "org": "nanocoai",
+      "cat": "assistants",
+      "tagline": "Your own always-on AI assistant: self-hosted, open source, lightweight. Each ...",
+      "desc": "Your own always-on AI assistant: self-hosted, open source, lightweight. Each agent runs in its own container on your machine, on the harness you choose (Claude Code, Codex, Cursor, OpenCode). Talk to it from Slack, WhatsApp, Telegram, Discord and more.",
+      "license": "MIT",
+      "lang": "TypeScript",
+      "stars": 31173,
+      "repo": "nanocoai/nanoclaw",
+      "tags": [
+        "ai-agents",
+        "ai-assistant",
+        "claude-code",
+        "claude-skills",
+        "codex"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "changedetection-io",
+      "name": "changedetection.io",
+      "org": "dgtlmoon",
+      "cat": "search",
+      "tagline": "Best and simplest tool for website change detection, web page monitoring, and...",
+      "desc": "Best and simplest tool for website change detection, web page monitoring, and website change alerts. Perfect for tracking content changes, price drops, restock alerts, and website defacement monitoring— MCP included! all for free or enjoy our SaaS plan!",
+      "license": "Apache-2.0",
+      "lang": "Python",
+      "stars": 36067,
+      "repo": "dgtlmoon/changedetection.io",
+      "tags": [
+        "back-in-stock",
+        "change-alert",
+        "change-detection",
+        "change-monitoring",
+        "monitoring"
+      ],
+      "status": "active",
+      "year": 2021
+    },
+    {
+      "id": "tooljet",
+      "name": "ToolJet",
+      "org": "ToolJet",
+      "cat": "workflow",
+      "tagline": "Open-source foundation of ToolJet AI - the enterprise app generation platform...",
+      "desc": "Open-source foundation of ToolJet AI - the enterprise app generation platform for internal tools, dashboards, business applications, workflows and AI agents. Build visually, from a prompt, or from Claude Code, Codex and Cursor over MCP 🚀",
+      "license": "AGPL-3.0",
+      "lang": "HTML",
+      "stars": 41311,
+      "repo": "ToolJet/ToolJet",
+      "tags": [
+        "ai-app-builder",
+        "docker",
+        "internal-applications",
+        "internal-project",
+        "internal-tool"
+      ],
+      "status": "active",
+      "year": 2021
+    },
+    {
+      "id": "seaweedfs",
+      "name": "seaweedfs",
+      "org": "seaweedfs",
+      "cat": "vectordb",
+      "tagline": "SeaweedFS is a distributed storage system for object storage (S3), file syste...",
+      "desc": "SeaweedFS is a distributed storage system for object storage (S3), file systems, Iceberg table buckets, and Lance vector buckets, designed to handle billions of files with O(1) disk access and effortless horizontal scaling.",
+      "license": "Apache-2.0",
+      "lang": "Go",
+      "stars": 36288,
+      "repo": "seaweedfs/seaweedfs",
+      "tags": [
+        "blob-storage",
+        "cloud-drive",
+        "distributed-file-system",
+        "distributed-storage",
+        "erasure-coding"
+      ],
+      "status": "active",
+      "year": 2014
+    },
+    {
+      "id": "mimesis",
+      "name": "mimesis",
+      "org": "lk-geimfari",
+      "cat": "data",
+      "tagline": "Mimesis is a Python library for generating fake but realistic data in multipl...",
+      "desc": "Mimesis is a Python library for generating fake but realistic data in multiple languages and locales.",
+      "license": "MIT",
+      "lang": "Python",
+      "stars": 4876,
+      "repo": "lk-geimfari/mimesis",
+      "tags": [
+        "data",
+        "dataframe",
+        "datascience",
+        "dummy",
+        "factory"
+      ],
+      "status": "active",
+      "year": 2016
+    },
+    {
+      "id": "tabpfn",
+      "name": "TabPFN",
+      "org": "PriorLabs",
+      "cat": "models",
+      "tagline": "⚡ TabPFN: Foundation Model for Tabular Data ⚡",
+      "desc": "⚡ TabPFN: Foundation Model for Tabular Data ⚡",
+      "license": "Apache-2.0",
+      "lang": "Python",
+      "stars": 8542,
+      "repo": "PriorLabs/TabPFN",
+      "tags": [
+        "data-science",
+        "foundation-models",
+        "machine-learning",
+        "tabpfn",
+        "tabular-data"
+      ],
+      "status": "active",
+      "year": 2022
+    },
+    {
+      "id": "obscura",
+      "name": "obscura",
+      "org": "h4ckf0r0day",
+      "cat": "browseruse",
+      "tagline": "The headless browser for AI agents and web scraping",
+      "desc": "The headless browser for AI agents and web scraping",
+      "license": "Apache-2.0",
+      "lang": "Rust",
+      "stars": 37638,
+      "repo": "h4ckf0r0day/obscura",
+      "tags": [
+        "antidetect",
+        "antidetect-browser",
+        "browser",
+        "browser-automation",
+        "cdp"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "brag",
+      "name": "brag",
+      "org": "latent-spaces",
+      "cat": "video",
+      "tagline": "You built it. Now brag. Turn the project you just created into a short, share...",
+      "desc": "You built it. Now brag. Turn the project you just created into a short, shareable launch video with one command.",
+      "license": "MIT",
+      "lang": "Python",
+      "stars": 22698,
+      "repo": "latent-spaces/brag",
+      "tags": [
+        "agent-skills",
+        "claude-code",
+        "claude-skills",
+        "hyperframes",
+        "launch-video"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "soup",
+      "name": "Soup",
+      "org": "MakazhanAlpamys",
+      "cat": "finetune",
+      "tagline": "Fine-tune LLMs from one YAML. Layer streaming trains an 8B model on a 4 GB la...",
+      "desc": "Fine-tune LLMs from one YAML. Layer streaming trains an 8B model on a 4 GB laptop GPU.",
+      "license": "Apache-2.0",
+      "lang": "Python",
+      "stars": 10816,
+      "repo": "MakazhanAlpamys/Soup",
+      "tags": [
+        "cli",
+        "consumer-gpu",
+        "dpo",
+        "fine-tuning",
+        "gguf"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "olares",
+      "name": "Olares",
+      "org": "beclab",
+      "cat": "agents",
+      "tagline": "Open-Source Personal Cloud OS for Always-On Agents",
+      "desc": "Open-Source Personal Cloud OS for Always-On Agents",
+      "license": "AGPL-3.0",
+      "lang": "Go",
+      "stars": 5385,
+      "repo": "beclab/Olares",
+      "tags": [
+        "agentic-ai",
+        "ai-agents",
+        "cloud-native",
+        "data-privacy",
+        "edge-ai"
+      ],
+      "status": "active",
+      "year": 2024
+    },
+    {
+      "id": "new-api",
+      "name": "new-api",
+      "org": "QuantumNous",
+      "cat": "mlops",
+      "tagline": "Open-source AI gateway. Self-hosted LLM gateway with OpenAI-, Claude- and Gem...",
+      "desc": "Open-source AI gateway. Self-hosted LLM gateway with OpenAI-, Claude- and Gemini-compatible APIs, model routing, access control, usage tracking and cost accounting.",
+      "license": "AGPL-3.0",
+      "lang": "Go",
+      "stars": 52644,
+      "repo": "QuantumNous/new-api",
+      "tags": [
+        "ai-gateway",
+        "api-management",
+        "claude",
+        "deepseek",
+        "gemini"
+      ],
+      "status": "active",
+      "year": 2023
+    },
+    {
+      "id": "claude-skills",
+      "name": "claude-skills",
+      "org": "alirezarezvani",
+      "cat": "prompts",
+      "tagline": "410 Claude Code skills & agent skills & plugins (120+ Agents, custom commands...",
+      "desc": "410 Claude Code skills & agent skills & plugins (120+ Agents, custom commands, 410+ skills, customizable references, scripts)for Claude Code, Codex, Gemini CLI, Cursor, and 8 more coding agents — engineering, marketing, product, compliance, C-level advisory, research, business operations, commercial & finance, and your daily productivity skills.",
+      "license": "MIT",
+      "lang": "Python",
+      "stars": 30569,
+      "repo": "alirezarezvani/claude-skills",
+      "tags": [
+        "agent-plugins",
+        "agent-skills",
+        "agentic-ai",
+        "ai-coding-agent",
+        "anthropic-claude"
+      ],
+      "status": "active",
+      "year": 2025
+    },
+    {
+      "id": "coral",
+      "name": "coral",
+      "org": "withcoral",
+      "cat": "agents",
+      "tagline": "Execution rails for agents. Equip your AI to work with sensitive enterprise s...",
+      "desc": "Execution rails for agents. Equip your AI to work with sensitive enterprise systems. Give agents precise permissions and custom tools that work faster with fewer tokens.",
+      "license": "Apache-2.0",
+      "lang": "Rust",
+      "stars": 5031,
+      "repo": "withcoral/coral",
+      "tags": [
+        "agent-security",
+        "ai-agents",
+        "code-mode",
+        "mcp",
+        "mcp-gateway"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "tidb",
+      "name": "tidb",
+      "org": "pingcap",
+      "cat": "vectordb",
+      "tagline": "TiDB is built for agentic workloads that grow unpredictably, with ACID guaran...",
+      "desc": "TiDB is built for agentic workloads that grow unpredictably, with ACID guarantees and native support for transactions, analytics, and vector search. No data silos. No noisy neighbors. No infrastructure ceiling.",
+      "license": "Apache-2.0",
+      "lang": "Go",
+      "stars": 40782,
+      "repo": "pingcap/tidb",
+      "tags": [
+        "agent",
+        "agent-context",
+        "agent-memory",
+        "agentic",
+        "ai"
+      ],
+      "status": "active",
+      "year": 2015
+    },
+    {
+      "id": "pyod",
+      "name": "pyod",
+      "org": "yzhao062",
+      "cat": "frameworks",
+      "tagline": "A Python library for anomaly detection across tabular, time series, graph, te...",
+      "desc": "A Python library for anomaly detection across tabular, time series, graph, text, image, and audio data. 60+ detectors, benchmark-backed ADEngine orchestration, and an agentic workflow for AI agents.",
+      "license": "BSD-2-Clause",
+      "lang": "Python",
+      "stars": 10104,
+      "repo": "yzhao062/pyod",
+      "tags": [
+        "agentic-ai",
+        "anomaly-detection",
+        "data-mining",
+        "data-science",
+        "deep-learning"
+      ],
+      "status": "active",
+      "year": 2017
+    },
+    {
+      "id": "ai-infra-guard",
+      "name": "AI-Infra-Guard",
+      "org": "Tencent",
+      "cat": "guardrails",
+      "tagline": "A full-stack AI Red Teaming platform securing AI ecosystems via Agent Scan, S...",
+      "desc": "A full-stack AI Red Teaming platform securing AI ecosystems via Agent Scan, Skills Scan, MCP scan, AI Infra scan and LLM jailbreak evaluation.",
+      "license": "Apache-2.0",
+      "lang": "Python",
+      "stars": 7781,
+      "repo": "Tencent/AI-Infra-Guard",
+      "tags": [
+        "agent",
+        "agent-security",
+        "agentic-ai",
+        "ai-infra",
+        "ai-red-teaming"
+      ],
+      "status": "active",
+      "year": 2024
+    },
+    {
+      "id": "chatgpt-web-midjourney-proxy",
+      "name": "chatgpt-web-midjourney-proxy",
+      "org": "Dooy",
+      "cat": "chatui",
+      "tagline": "One UI is all done with chatgpt web, midjourney, gpts,suno,luma,runway,viggle...",
+      "desc": "One UI is all done with chatgpt web, midjourney, gpts,suno,luma,runway,viggle,flux,ideogram,realtime,pika,udio; Simultaneous support  Web / PWA / Linux / Win / MacOS platform",
+      "license": "MIT",
+      "lang": "JavaScript",
+      "stars": 6805,
+      "repo": "Dooy/chatgpt-web-midjourney-proxy",
+      "tags": [
+        "chatgpt-ui",
+        "fal-ai",
+        "flux",
+        "gpts",
+        "ideogram"
+      ],
+      "status": "active",
+      "year": 2023
+    },
+    {
+      "id": "brush",
+      "name": "brush",
+      "org": "ArthurBrussee",
+      "cat": "threed",
+      "tagline": "3D Reconstruction for all",
+      "desc": "3D Reconstruction for all",
+      "license": "Apache-2.0",
+      "lang": "Rust",
+      "stars": 5395,
+      "repo": "ArthurBrussee/brush",
+      "tags": [
+        "gaussian-splatting",
+        "graphics",
+        "reconstruction"
+      ],
+      "status": "active",
+      "year": 2024
+    },
+    {
+      "id": "art",
+      "name": "ART",
+      "org": "OpenPipe",
+      "cat": "finetune",
+      "tagline": "Agent Reinforcement Trainer: train multi-step agents for real-world tasks usi...",
+      "desc": "Agent Reinforcement Trainer: train multi-step agents for real-world tasks using GRPO. Give your agents on-the-job training. Reinforcement learning for Qwen3.6, GPT-OSS, Llama, and more!",
+      "license": "Apache-2.0",
+      "lang": "Python",
+      "stars": 10874,
+      "repo": "OpenPipe/ART",
+      "tags": [
+        "agent",
+        "agentic-ai",
+        "grpo",
+        "llms",
+        "lora"
+      ],
+      "status": "active",
+      "year": 2025
+    },
+    {
+      "id": "logfire",
+      "name": "logfire",
+      "org": "pydantic",
+      "cat": "eval",
+      "tagline": "AI observability platform for production LLM and agent systems.",
+      "desc": "AI observability platform for production LLM and agent systems.",
+      "license": "MIT",
+      "lang": "Python",
+      "stars": 4570,
+      "repo": "pydantic/logfire",
+      "tags": [
+        "agent-observability",
+        "ai",
+        "ai-observability",
+        "ai-tools",
+        "evals"
+      ],
+      "status": "active",
+      "year": 2024
+    },
+    {
+      "id": "cindy",
+      "name": "cindy",
+      "org": "makecindy",
+      "cat": "assistants",
+      "tagline": "Consider it done. The open-source AI agent that works out of the box · 想到，就能做...",
+      "desc": "Consider it done. The open-source AI agent that works out of the box · 想到，就能做到。开源、开箱即用的 AI Agent。",
+      "license": "Apache-2.0",
+      "lang": "TypeScript",
+      "stars": 10723,
+      "repo": "makecindy/cindy",
+      "tags": [
+        "agent",
+        "ai-agent",
+        "ai-assistant",
+        "android",
+        "claude-code"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "opencreator",
+      "name": "OpenCreator",
+      "org": "krillinai",
+      "cat": "video",
+      "tagline": "Formerly KrillinAI, VideoTranslation and Dubbing Tool for 120+ Languages. Ope...",
+      "desc": "Formerly KrillinAI, VideoTranslation and Dubbing Tool for 120+ Languages. Open-source AI workspace for creators, powered by Codex. Video downloader, video translation, create videos, images, audios, and edits with Agents in one place. For your Social Media like YouTube, TikTok, Instagram, etc.",
+      "license": "Apache-2.0",
+      "lang": "TypeScript",
+      "stars": 14561,
+      "repo": "krillinai/OpenCreator",
+      "tags": [
+        "agent-skills",
+        "codex-cli",
+        "deskop-app",
+        "dubbing",
+        "image-generation"
+      ],
+      "status": "active",
+      "year": 2024
+    },
+    {
+      "id": "techniques",
+      "name": "techniques",
+      "org": "satellite-image-deep-learning",
+      "cat": "vision",
+      "tagline": "Techniques for deep learning with satellite & aerial imagery",
+      "desc": "Techniques for deep learning with satellite & aerial imagery",
+      "license": "Apache-2.0",
+      "lang": "Unknown",
+      "stars": 10318,
+      "repo": "satellite-image-deep-learning/techniques",
+      "tags": [
+        "convolutional-neural-networks",
+        "dataset",
+        "datasets",
+        "deep-learning",
+        "deep-neural-networks"
+      ],
+      "status": "active",
+      "year": 2018
+    },
+    {
+      "id": "synthea",
+      "name": "synthea",
+      "org": "synthetichealth",
+      "cat": "data",
+      "tagline": "Synthetic Patient Population Simulator",
+      "desc": "Synthetic Patient Population Simulator",
+      "license": "Apache-2.0",
+      "lang": "Java",
+      "stars": 3492,
+      "repo": "synthetichealth/synthea",
+      "tags": [
+        "fhir",
+        "health-data",
+        "simulation",
+        "synthea",
+        "synthetic-data"
+      ],
+      "status": "active",
+      "year": 2016
+    },
+    {
+      "id": "ego-lite",
+      "name": "ego-lite",
+      "org": "citrolabs",
+      "cat": "browseruse",
+      "tagline": "The fastest browser for AI agents to run browser automation, built for sharin...",
+      "desc": "The fastest browser for AI agents to run browser automation, built for sharing your logged-in browser state with your AI agents, like Codex or Claude Code, without disturbing you. Zero cost, zero config.",
+      "license": "MIT",
+      "lang": "JavaScript",
+      "stars": 24762,
+      "repo": "citrolabs/ego-lite",
+      "tags": [
+        "agent-skills",
+        "ai-agent",
+        "automation",
+        "browser",
+        "browser-automation"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "feast",
+      "name": "feast",
+      "org": "feast-dev",
+      "cat": "mlops",
+      "tagline": "The Open Source Feature Store for AI/ML",
+      "desc": "The Open Source Feature Store for AI/ML",
+      "license": "Apache-2.0",
+      "lang": "Python",
+      "stars": 7366,
+      "repo": "feast-dev/feast",
+      "tags": [
+        "big-data",
+        "data-engineering",
+        "data-quality",
+        "data-science",
+        "feature-store"
+      ],
+      "status": "active",
+      "year": 2018
+    },
+    {
+      "id": "fast-anything",
+      "name": "fast-anything",
+      "org": "EL4CTEO",
+      "cat": "coding",
+      "tagline": "Don't rewrite it in Rust. Rewrite the 5% that's slow: profile Python, Node or...",
+      "desc": "Don't rewrite it in Rust. Rewrite the 5% that's slow: profile Python, Node or Ruby apps, port the hot functions with your coding agent, prove they behave the same.",
+      "license": "MIT",
+      "lang": "Rust",
+      "stars": 4366,
+      "repo": "EL4CTEO/fast-anything",
+      "tags": [
+        "agent-skills",
+        "ai-agents",
+        "claude-code",
+        "claude-code-plugin",
+        "codex"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "supermemory",
+      "name": "supermemory",
+      "org": "supermemoryai",
+      "cat": "rag",
+      "tagline": "Memory and context engine + app that is extremely fast, scalable, and can be ...",
+      "desc": "Memory and context engine + app that is extremely fast, scalable, and can be run fully locally. The Memory API for the AI era.",
+      "license": "MIT",
+      "lang": "TypeScript",
+      "stars": 31867,
+      "repo": "supermemoryai/supermemory",
+      "tags": [
+        "agent-memory",
+        "ai-memory",
+        "cloudflare-kv",
+        "cloudflare-pages",
+        "cloudflare-workers"
+      ],
+      "status": "active",
+      "year": 2024
+    },
+    {
+      "id": "pytorch-geometric",
+      "name": "pytorch_geometric",
+      "org": "pyg-team",
+      "cat": "frameworks",
+      "tagline": "Graph Neural Network Library for PyTorch",
+      "desc": "Graph Neural Network Library for PyTorch",
+      "license": "MIT",
+      "lang": "Python",
+      "stars": 24158,
+      "repo": "pyg-team/pytorch_geometric",
+      "tags": [
+        "deep-learning",
+        "geometric-deep-learning",
+        "graph-convolutional-networks",
+        "graph-neural-networks",
+        "pytorch"
+      ],
+      "status": "active",
+      "year": 2017
+    },
+    {
+      "id": "vieneu-tts",
+      "name": "VieNeu-TTS",
+      "org": "pnnbao97",
+      "cat": "audio",
+      "tagline": "Vietnamese TTS with instant voice cloning • On-device • Real-time CPU inferen...",
+      "desc": "Vietnamese TTS with instant voice cloning • On-device • Real-time CPU inference • 48kHz audio quality • Chuyển văn bản thành giọng nói tiếng Việt • Text to speech tiếng Việt • TTS tiếng Việt",
+      "license": "Apache-2.0",
+      "lang": "Python",
+      "stars": 3634,
+      "repo": "pnnbao97/VieNeu-TTS",
+      "tags": [
+        "deep-learning",
+        "on-device-ml",
+        "real-time",
+        "speech-synthesis",
+        "text-to-speech"
+      ],
+      "status": "active",
+      "year": 2025
+    },
+    {
+      "id": "mooncake",
+      "name": "Mooncake",
+      "org": "kvcache-ai",
+      "cat": "inference",
+      "tagline": "Mooncake is the serving platform for Kimi, a leading LLM service provided by ...",
+      "desc": "Mooncake is the serving platform for Kimi, a leading LLM service provided by Moonshot AI.",
+      "license": "Apache-2.0",
+      "lang": "C++",
+      "stars": 7149,
+      "repo": "kvcache-ai/Mooncake",
+      "tags": [
+        "disaggregation",
+        "inference",
+        "kvcache",
+        "llm",
+        "rdma"
+      ],
+      "status": "active",
+      "year": 2024
+    },
+    {
+      "id": "stabilitymatrix",
+      "name": "StabilityMatrix",
+      "org": "LykosAI",
+      "cat": "image",
+      "tagline": "Multi-Platform Package Manager for Stable Diffusion",
+      "desc": "Multi-Platform Package Manager for Stable Diffusion",
+      "license": "AGPL-3.0",
+      "lang": "C#",
+      "stars": 9086,
+      "repo": "LykosAI/StabilityMatrix",
+      "tags": [
+        "ai",
+        "automatic1111",
+        "avalonia",
+        "comfyui",
+        "dotnet"
+      ],
+      "status": "active",
+      "year": 2023
+    },
+    {
+      "id": "chronos-forecasting",
+      "name": "chronos-forecasting",
+      "org": "amazon-science",
+      "cat": "models",
+      "tagline": "Chronos: Pretrained Models for Time Series Forecasting",
+      "desc": "Chronos: Pretrained Models for Time Series Forecasting",
+      "license": "Apache-2.0",
+      "lang": "Python",
+      "stars": 6369,
+      "repo": "amazon-science/chronos-forecasting",
+      "tags": [
+        "artificial-intelligence",
+        "forecasting",
+        "foundation-models",
+        "huggingface",
+        "huggingface-transformers"
+      ],
+      "status": "active",
+      "year": 2024
+    },
+    {
+      "id": "onetrainer",
+      "name": "OneTrainer",
+      "org": "Nerogar",
+      "cat": "image",
+      "tagline": "OneTrainer is a one-stop solution for all your Diffusion training needs.",
+      "desc": "OneTrainer is a one-stop solution for all your Diffusion training needs.",
+      "license": "AGPL-3.0",
+      "lang": "Python",
+      "stars": 3269,
+      "repo": "Nerogar/OneTrainer",
+      "tags": [
+        "fine-tuning",
+        "image-model-training",
+        "lora",
+        "training"
+      ],
+      "status": "active",
+      "year": 2023
+    },
+    {
+      "id": "vllm-ascend",
+      "name": "vllm-ascend",
+      "org": "vllm-project",
+      "cat": "inference",
+      "tagline": "Community maintained hardware plugin for vLLM on Huawei Ascend",
+      "desc": "Community maintained hardware plugin for vLLM on Huawei Ascend",
+      "license": "Apache-2.0",
+      "lang": "Python",
+      "stars": 3159,
+      "repo": "vllm-project/vllm-ascend",
+      "tags": [
+        "inference",
+        "llm",
+        "llm-serving",
+        "llmops",
+        "mlops"
+      ],
+      "status": "active",
+      "year": 2025
+    },
+    {
+      "id": "honcho",
+      "name": "honcho",
+      "org": "plastic-labs",
+      "cat": "rag",
+      "tagline": "Memory library for building stateful agents",
+      "desc": "Memory library for building stateful agents",
+      "license": "AGPL-3.0",
+      "lang": "Python",
+      "stars": 8309,
+      "repo": "plastic-labs/honcho",
+      "tags": [
+        "agent-memory",
+        "agentic-rag",
+        "ai",
+        "ai-agents",
+        "ai-memory"
+      ],
+      "status": "active",
+      "year": 2023
+    },
+    {
+      "id": "cicada",
+      "name": "cicada",
+      "org": "wquguru",
+      "cat": "audio",
+      "tagline": "知了 Cicada · 任何会议和直播的实时字幕、同声传译、AI 会议纪要，Mac、Windows、Linux、Android 免费开源。Live sub...",
+      "desc": "知了 Cicada · 任何会议和直播的实时字幕、同声传译、AI 会议纪要，Mac、Windows、Linux、Android 免费开源。Live subtitles, interpreting and meeting notes for any call or stream, on Mac, Windows, Linux and Android.",
+      "license": "Apache-2.0",
+      "lang": "Swift",
+      "stars": 3548,
+      "repo": "wquguru/cicada",
+      "tags": [
+        "android",
+        "linux",
+        "live-captions",
+        "macos",
+        "meeting-notes"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "nono",
+      "name": "nono",
+      "org": "nolabs-ai",
+      "cat": "guardrails",
+      "tagline": "agent runtime security - zero trust, zero setup, zero latency agent sandboxing",
+      "desc": "agent runtime security - zero trust, zero setup, zero latency agent sandboxing",
+      "license": "Apache-2.0",
+      "lang": "Rust",
+      "stars": 5125,
+      "repo": "nolabs-ai/nono",
+      "tags": [
+        "agent-runtime-security",
+        "agent-sandbox",
+        "agent-security",
+        "ai-agent-sandbox",
+        "ai-agent-security"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "zvec-grep",
+      "name": "zvec-grep",
+      "org": "zvec-ai",
+      "cat": "search",
+      "tagline": "Local-first search across your workspace, built for humans and AI agents.",
+      "desc": "Local-first search across your workspace, built for humans and AI agents.",
+      "license": "Apache-2.0",
+      "lang": "Rust",
+      "stars": 4385,
+      "repo": "zvec-ai/zvec-grep",
+      "tags": [
+        "ai-agents",
+        "bm25",
+        "cli",
+        "code-search",
+        "full-text-search"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "mcp",
+      "name": "mcp",
+      "org": "BrowserMCP",
+      "cat": "mcp",
+      "tagline": "Browser MCP is a Model Context Provider (MCP) server that allows AI applicati...",
+      "desc": "Browser MCP is a Model Context Provider (MCP) server that allows AI applications to control your browser",
+      "license": "Apache-2.0",
+      "lang": "TypeScript",
+      "stars": 7423,
+      "repo": "BrowserMCP/mcp",
+      "tags": [
+        "browser-automation",
+        "browser-extension",
+        "claude",
+        "cursor",
+        "mcp"
+      ],
+      "status": "active",
+      "year": 2025
     }
   ]
 }
