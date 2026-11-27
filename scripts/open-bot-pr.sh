@@ -3,6 +3,11 @@
 # until it has actually merged. Branch protection on main requires the CI checks,
 # so a bad bot change can never land: the run fails and the PR stays open.
 # Exits 0 when there is nothing to do or the change is on main.
+#
+# BOT_TOKEN_KIND=github means GH_TOKEN is the built-in Actions token, whose pushes,
+# PRs and merges trigger no workflows. The script then starts CI on the branch
+# (its checks land on the PR head commit and satisfy branch protection) and, after
+# the merge, the Pages deploy, unless SKIP_DEPLOY_DISPATCH=1 (the caller deploys).
 # Usage: scripts/open-bot-pr.sh <branch> <title>
 set -euo pipefail
 branch="$1"; title="$2"
@@ -44,6 +49,12 @@ open_or_update() {
 }
 retry open_or_update
 
+builtin_token() { [ "${BOT_TOKEN_KIND:-}" = github ]; }
+if builtin_token; then
+  echo "Running on the built-in token: starting CI on $branch."
+  retry gh workflow run ci.yml --ref "$branch"
+fi
+
 enable_merge() { [ "$(pr_state)" = MERGED ] || gh pr merge "$branch" --squash --auto --delete-branch; }
 retry enable_merge
 
@@ -51,7 +62,13 @@ deadline=$((SECONDS + wait_seconds))
 while [ "$SECONDS" -lt "$deadline" ]; do
   state="$(pr_state || true)"
   case "$state" in
-    MERGED) echo "Merged into main."; exit 0 ;;
+    MERGED)
+      echo "Merged into main."
+      if builtin_token && [ "${SKIP_DEPLOY_DISPATCH:-0}" != 1 ]; then
+        echo "Starting the Pages deploy (a merge by the built-in token triggers none)."
+        retry gh workflow run deploy-pages.yml --ref main
+      fi
+      exit 0 ;;
     CLOSED) echo "::error::PR for $branch was closed without merging."; exit 1 ;;
   esac
   # Anything but a positive count (no checks yet, API error) means keep waiting.

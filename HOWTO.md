@@ -87,6 +87,23 @@ Any failed step, a failed re-check, or a day below the minimum opens or updates 
 "Daily catalog pipeline needs attention" issue. The run summary shows how many
 tools were added and the verification report.
 
+### Bot token
+
+The daily pipeline and the hourly refresh first test the `KIMI_GITHUB_API`
+secret (a personal access token) against the GitHub API, before checkout.
+
+- **Token accepted:** it is used for everything. Its pushes, pull requests and
+  merges trigger CI and the Pages deploy as usual.
+- **Token missing, expired or revoked:** the run continues on the built-in
+  `GITHUB_TOKEN`. Events made with that token start no workflows, so
+  `scripts/open-bot-pr.sh` starts `ci.yml` on the bot branch itself (its checks
+  land on the PR's head commit, which is what branch protection requires) and,
+  after the merge, `deploy-pages.yml`. A rejected token opens or updates a
+  "Bot token KIMI_GITHUB_API is expired or invalid" issue.
+
+Renew the token before it expires and update the repository secret; the
+fallback keeps publishing, with lower GitHub API limits.
+
 ### Discovery rules
 
 A run aims to add at least 30 tools (up to 45). Every catalog category has its

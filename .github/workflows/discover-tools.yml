@@ -28,6 +28,8 @@ on:
 permissions:
   contents: write
   pull-requests: write
+  # open-bot-pr.sh starts CI and the Pages deploy when running on the built-in token.
+  actions: write
 
 concurrency:
   group: live-data-writer
@@ -41,14 +43,32 @@ jobs:
       added: ${{ steps.discover.outputs.added }}
       short: ${{ steps.discover.outputs.short }}
       refresh: ${{ steps.refresh.outcome }}
-    env:
-      # A PAT so the PR triggers CI (GITHUB_TOKEN-created PRs do not).
-      BOT_TOKEN: ${{ secrets.KIMI_GITHUB_API || secrets.GITHUB_TOKEN }}
+      pat: ${{ steps.token.outputs.pat }}
     steps:
+      # Before checkout, so an expired or revoked PAT cannot stop the run. Without a
+      # working PAT the built-in token is used and open-bot-pr.sh starts CI and the
+      # Pages deploy itself (events from the built-in token trigger no workflows).
+      - name: Pick a working bot token
+        id: token
+        env:
+          PAT: ${{ secrets.KIMI_GITHUB_API }}
+          FALLBACK: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: |
+          if [ -n "$PAT" ] && [ "$(GH_TOKEN="$PAT" gh api "repos/$REPO" --jq .permissions.push 2>/dev/null)" = true ]; then
+            kind=pat; pat=ok
+          else
+            kind=github; pat=$([ -n "$PAT" ] && echo failed || echo missing)
+            echo "::warning::KIMI_GITHUB_API was not usable (status: $pat); continuing with the built-in token."
+          fi
+          token=$([ "$kind" = pat ] && echo "$PAT" || echo "$FALLBACK")
+          { echo "BOT_TOKEN=$token"; echo "BOT_TOKEN_KIND=$kind"; } >> "$GITHUB_ENV"
+          echo "pat=$pat" >> "$GITHUB_OUTPUT"
+
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: main
-          token: ${{ secrets.KIMI_GITHUB_API || secrets.GITHUB_TOKEN }}
+          token: ${{ env.BOT_TOKEN }}
 
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
@@ -150,3 +170,24 @@ jobs:
         run: |
           bash scripts/alert-issue.sh daily-pipeline "Daily catalog pipeline needs attention" \
             "Job result: $RESULT. Tools added: ${ADDED:-unknown}. Open the run log to see which step failed or why the daily minimum was not met."
+
+  # The run itself carried on with the built-in token; renewing the PAT restores
+  # its higher API limits.
+  token-alert:
+    needs: pipeline
+    if: always() && needs.pipeline.outputs.pat == 'failed'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Raise an alert
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          bash scripts/alert-issue.sh bot-token "Bot token KIMI_GITHUB_API is expired or invalid" \
+            "GitHub rejected the KIMI_GITHUB_API secret. The automation keeps running on the built-in token, but with lower API limits. Create a new token and update the repository secret."
