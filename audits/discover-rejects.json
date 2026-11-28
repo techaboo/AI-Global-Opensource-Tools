@@ -30,6 +30,14 @@
     "rejectedAt": "2026-10-28",
     "retryAfter": "2026-11-27"
   },
+  "ai-hypercomputer/maxtext": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.35,
+    "stars": 2480,
+    "rejectedAt": "2026-11-28",
+    "retryAfter": "2026-12-12"
+  },
   "ai-job-search-dev/ai-job-search": {
     "kind": "category",
     "reason": "category confidence below threshold",
@@ -62,6 +70,22 @@
     "rejectedAt": "2026-11-10",
     "retryAfter": "2026-11-24"
   },
+  "apify/crawlee-python": {
+    "kind": "duplicate",
+    "reason": "duplicate of crawlee",
+    "score": 0.66,
+    "stars": 9697,
+    "rejectedAt": "2026-11-28",
+    "retryAfter": "2026-12-28"
+  },
+  "arcboxlabs/arcbox": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.52,
+    "stars": 4239,
+    "rejectedAt": "2026-11-28",
+    "retryAfter": "2026-12-12"
+  },
   "argoproj/argo-workflows": {
     "kind": "category",
     "reason": "category confidence below threshold",
@@ -77,6 +101,14 @@
     "stars": 40139,
     "rejectedAt": "2026-11-20",
     "retryAfter": "2026-12-04"
+  },
+  "atomicbot-ai/atomic-agent": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.49,
+    "stars": 3599,
+    "rejectedAt": "2026-11-28",
+    "retryAfter": "2026-12-12"
   },
   "aurelio-labs/semantic-router": {
     "kind": "name",
@@ -108,6 +140,14 @@
     "stars": 19097,
     "rejectedAt": "2026-11-01",
     "retryAfter": "2026-11-15"
+  },
+  "beelzebub-labs/beelzebub": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.31,
+    "stars": 2263,
+    "rejectedAt": "2026-11-28",
+    "retryAfter": "2026-12-12"
   },
   "bilibili/gpt-sovits": {
     "kind": "duplicate",
@@ -181,6 +221,14 @@
     "rejectedAt": "2026-11-27",
     "retryAfter": "2026-12-11"
   },
+  "czlonkowski/n8n-skills": {
+    "kind": "duplicate",
+    "reason": "duplicate of n8n-mcp",
+    "score": 0.59,
+    "stars": 6726,
+    "rejectedAt": "2026-11-28",
+    "retryAfter": "2026-12-28"
+  },
   "data-privacy-stack/presidio": {
     "kind": "duplicate",
     "reason": "duplicate of presidio",
@@ -240,10 +288,10 @@
   "evil0ctal/douyin_tiktok_download_api": {
     "kind": "category",
     "reason": "category confidence below threshold",
-    "score": 0.54,
-    "stars": 21400,
-    "rejectedAt": "2026-11-14",
-    "retryAfter": "2026-11-28"
+    "score": 0.53,
+    "stars": 21603,
+    "rejectedAt": "2026-11-28",
+    "retryAfter": "2026-12-12"
   },
   "exa-labs/exa-mcp-server": {
     "kind": "category",
@@ -356,6 +404,14 @@
     "rejectedAt": "2026-11-27",
     "retryAfter": "2026-12-11"
   },
+  "goplus/xgo": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.55,
+    "stars": 9495,
+    "rejectedAt": "2026-11-28",
+    "retryAfter": "2026-12-12"
+  },
   "gunthercox/chatterbot": {
     "kind": "category",
     "reason": "category confidence below threshold",
@@ -454,10 +510,10 @@
   "jnmetacode/agency-agents-zh": {
     "kind": "category",
     "reason": "category confidence below threshold",
-    "score": 0.56,
-    "stars": 22073,
-    "rejectedAt": "2026-11-14",
-    "retryAfter": "2026-11-28"
+    "score": 0.55,
+    "stars": 22371,
+    "rejectedAt": "2026-11-28",
+    "retryAfter": "2026-12-12"
   },
   "juneyaooo/rea-video": {
     "kind": "category",
@@ -550,10 +606,10 @@
   "louis-cfm/coucou": {
     "kind": "category",
     "reason": "category confidence below threshold",
-    "score": 0.37,
-    "stars": 7143,
-    "rejectedAt": "2026-11-12",
-    "retryAfter": "2026-11-26"
+    "score": 0.32,
+    "stars": 7490,
+    "rejectedAt": "2026-11-28",
+    "retryAfter": "2026-12-12"
   },
   "lutzroeder/netron": {
     "kind": "category",
@@ -566,10 +622,10 @@
   "maaassistantarknights/maaassistantarknights": {
     "kind": "category",
     "reason": "category confidence below threshold",
-    "score": 0.43,
-    "stars": 24560,
-    "rejectedAt": "2026-11-14",
-    "retryAfter": "2026-11-28"
+    "score": 0.4,
+    "stars": 24824,
+    "rejectedAt": "2026-11-28",
+    "retryAfter": "2026-12-12"
   },
   "marcelroed/gigatoken": {
     "kind": "category",
@@ -643,6 +699,14 @@
     "rejectedAt": "2026-11-19",
     "retryAfter": "2026-12-03"
   },
+  "mochidiffusion/mochidiffusion": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.58,
+    "stars": 7979,
+    "rejectedAt": "2026-11-28",
+    "retryAfter": "2026-12-12"
+  },
   "modelflare-ai/anymodelbot": {
     "kind": "category",
     "reason": "category confidence below threshold",
@@ -674,6 +738,14 @@
     "stars": 15401,
     "rejectedAt": "2026-11-27",
     "retryAfter": "2026-12-11"
+  },
+  "nanaism/yomiyasu": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.55,
+    "stars": 3576,
+    "rejectedAt": "2026-11-28",
+    "retryAfter": "2026-12-12"
   },
   "nanocoai/nanoclaw": {
     "kind": "category",
@@ -771,6 +843,14 @@
     "rejectedAt": "2026-11-08",
     "retryAfter": "2026-12-08"
   },
+  "openmoss/moss-tts-nano": {
+    "kind": "duplicate",
+    "reason": "duplicate of moss-tts",
+    "score": 0.77,
+    "stars": 4721,
+    "rejectedAt": "2026-11-28",
+    "retryAfter": "2026-12-28"
+  },
   "othmanadi/planning-with-files": {
     "kind": "category",
     "reason": "category confidence below threshold",
@@ -787,6 +867,14 @@
     "rejectedAt": "2026-10-29",
     "retryAfter": "2026-11-12"
   },
+  "photonixapp/photonix": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.25,
+    "stars": 1953,
+    "rejectedAt": "2026-11-28",
+    "retryAfter": "2026-12-12"
+  },
   "prefecthq/fastmcp": {
     "kind": "duplicate",
     "reason": "duplicate of fastmcp",
@@ -802,6 +890,14 @@
     "stars": 21138,
     "rejectedAt": "2026-11-14",
     "retryAfter": "2026-11-28"
+  },
+  "qdrant/fastembed": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.55,
+    "stars": 3314,
+    "rejectedAt": "2026-11-28",
+    "retryAfter": "2026-12-12"
   },
   "qingyuna/answer-me-with-html": {
     "kind": "category",
@@ -835,6 +931,14 @@
     "rejectedAt": "2026-11-23",
     "retryAfter": "2026-12-07"
   },
+  "receptron/laya": {
+    "kind": "duplicate",
+    "reason": "duplicate of laya",
+    "score": 0.63,
+    "stars": 1108,
+    "rejectedAt": "2026-11-28",
+    "retryAfter": "2026-12-28"
+  },
   "rocketride-org/rocketride-server": {
     "kind": "category",
     "reason": "category confidence below threshold",
@@ -858,6 +962,14 @@
     "stars": 104897,
     "rejectedAt": "2026-11-23",
     "retryAfter": "2026-12-07"
+  },
+  "s1dashu/ip-as-logo-skill": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.58,
+    "stars": 6727,
+    "rejectedAt": "2026-11-28",
+    "retryAfter": "2026-12-12"
   },
   "sharex/sharex": {
     "kind": "category",
@@ -910,10 +1022,18 @@
   "stefan-jansen/machine-learning-for-trading": {
     "kind": "category",
     "reason": "category confidence below threshold",
-    "score": 0.35,
-    "stars": 21809,
-    "rejectedAt": "2026-11-14",
-    "retryAfter": "2026-11-28"
+    "score": 0.43,
+    "stars": 22107,
+    "rejectedAt": "2026-11-28",
+    "retryAfter": "2026-12-12"
+  },
+  "strands-labs/strands-decider": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.49,
+    "stars": 1307,
+    "rejectedAt": "2026-11-28",
+    "retryAfter": "2026-12-12"
   },
   "superradcompany/microsandbox": {
     "kind": "category",
@@ -969,6 +1089,14 @@
     "rejectedAt": "2026-11-02",
     "retryAfter": "2026-12-02"
   },
+  "tiger-ai-lab/clawbench": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.57,
+    "stars": 1370,
+    "rejectedAt": "2026-11-28",
+    "retryAfter": "2026-12-12"
+  },
   "tisfeng/easydict": {
     "kind": "category",
     "reason": "category confidence below threshold",
@@ -984,6 +1112,14 @@
     "stars": 15958,
     "rejectedAt": "2026-11-02",
     "retryAfter": "2026-12-02"
+  },
+  "uber/adr": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.49,
+    "stars": 2153,
+    "rejectedAt": "2026-11-28",
+    "retryAfter": "2026-12-12"
   },
   "upstash/context7": {
     "kind": "category",
@@ -1043,10 +1179,10 @@
   "wiltodelta/remove-ai-watermarks": {
     "kind": "category",
     "reason": "category confidence below threshold",
-    "score": 0.53,
-    "stars": 6383,
-    "rejectedAt": "2026-11-14",
-    "retryAfter": "2026-11-28"
+    "score": 0.4,
+    "stars": 6566,
+    "rejectedAt": "2026-11-28",
+    "retryAfter": "2026-12-12"
   },
   "x-plug/mobileagent": {
     "kind": "category",
@@ -1063,6 +1199,14 @@
     "stars": 4470,
     "rejectedAt": "2026-11-25",
     "retryAfter": "2026-12-09"
+  },
+  "xushengfeng/esearch": {
+    "kind": "category",
+    "reason": "category confidence below threshold",
+    "score": 0.31,
+    "stars": 7517,
+    "rejectedAt": "2026-11-28",
+    "retryAfter": "2026-12-12"
   },
   "yikart/aitoearn": {
     "kind": "category",
