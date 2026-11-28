@@ -1,5 +1,5 @@
 {
-  "snapshotDate": "2026-11-27",
+  "snapshotDate": "2026-11-28",
   "categories": [
     {
       "id": "models",
@@ -797,24 +797,6 @@
         "offline"
       ],
       "status": "active",
-      "year": 2023
-    },
-    {
-      "id": "gpt4all",
-      "name": "GPT4All",
-      "org": "Nomic AI",
-      "cat": "chatui",
-      "tagline": "Privacy-focused local chatbot",
-      "desc": "Runs on consumer hardware with a built-in model browser. Unmaintained since early 2025.",
-      "license": "MIT",
-      "lang": "C++",
-      "stars": 77335,
-      "repo": "nomic-ai/gpt4all",
-      "tags": [
-        "desktop",
-        "local"
-      ],
-      "status": "maintenance",
       "year": 2023
     },
     {
@@ -10557,26 +10539,6 @@
       "year": 2023
     },
     {
-      "id": "heretic",
-      "name": "Heretic",
-      "org": "p-e-w",
-      "cat": "finetune",
-      "tagline": "Fully automatic censorship removal for LLMs",
-      "desc": "Fully automatic censorship removal for language models — estimates a compliance differential between the model and its target behavior, then generates and applies abliteration-style model patches to strip refusals, with automated evaluation of the resulting model. Runs without GPUs or training data.",
-      "license": "AGPL-3.0",
-      "lang": "Python",
-      "stars": 43154,
-      "repo": "p-e-w/heretic",
-      "tags": [
-        "uncensoring",
-        "abliteration",
-        "post-training"
-      ],
-      "hot": true,
-      "status": "archived",
-      "year": 2025
-    },
-    {
       "id": "claude-plugins",
       "name": "Claude Plugins (Official Directory)",
       "org": "Anthropic",
@@ -18771,6 +18733,939 @@
         "claude",
         "cursor",
         "mcp"
+      ],
+      "status": "active",
+      "year": 2025
+    },
+    {
+      "id": "seatunnel",
+      "name": "seatunnel",
+      "org": "apache",
+      "cat": "data",
+      "tagline": "SeaTunnel is a multimodal, high-performance, distributed, massive data integr...",
+      "desc": "SeaTunnel is a multimodal, high-performance, distributed, massive data integration tool.",
+      "license": "Apache-2.0",
+      "lang": "Java",
+      "stars": 9840,
+      "repo": "apache/seatunnel",
+      "tags": [
+        "apache",
+        "batch",
+        "cdc",
+        "change-data-capture",
+        "data-ingestion"
+      ],
+      "status": "active",
+      "year": 2017
+    },
+    {
+      "id": "stop-that-shit",
+      "name": "stop-that-shit",
+      "org": "lennney",
+      "cat": "guardrails",
+      "tagline": "Stop That Shit（别再造史了）｜面向 Codex/GPT 场景的多平台 Hook + Skill Guard：拦截 AI coding age...",
+      "desc": "Stop That Shit（别再造史了）｜面向 Codex/GPT 场景的多平台 Hook + Skill Guard：拦截 AI coding agent 无需求的哈希、校验和与任务范围膨胀。 A multi-platform Hook + Skill Guard for AI coding agents in Codex/GPT workflows: stop unrequested hashes, checksums, and task-scope creep.",
+      "license": "MIT",
+      "lang": "JavaScript",
+      "stars": 4121,
+      "repo": "lennney/stop-that-shit",
+      "tags": [
+        "agent-skills",
+        "ai-agents",
+        "ai-coding",
+        "claude-code",
+        "codex"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "lastchat",
+      "name": "LastChat",
+      "org": "Cocolalilal",
+      "cat": "chatui",
+      "tagline": "A Fork of Rikkahub with an overhauled UI and feature additions",
+      "desc": "A Fork of Rikkahub with an overhauled UI and feature additions",
+      "license": "AGPL-3.0",
+      "lang": "Kotlin",
+      "stars": 415,
+      "repo": "Cocolalilal/LastChat",
+      "tags": [
+        "ai",
+        "ai-assistant",
+        "ai-roleplay",
+        "android",
+        "android-app"
+      ],
+      "status": "active",
+      "year": 2025
+    },
+    {
+      "id": "kaolin",
+      "name": "kaolin",
+      "org": "NVIDIAGameWorks",
+      "cat": "threed",
+      "tagline": "A PyTorch Library for Accelerating 3D Deep Learning Research",
+      "desc": "A PyTorch Library for Accelerating 3D Deep Learning Research",
+      "license": "Apache-2.0",
+      "lang": "Python",
+      "stars": 5205,
+      "repo": "NVIDIAGameWorks/kaolin",
+      "tags": [
+        "3d-deep-learning",
+        "artificial-intelligence",
+        "camera-api",
+        "cuda",
+        "differentiable-lighting"
+      ],
+      "status": "active",
+      "year": 2019
+    },
+    {
+      "id": "openlit",
+      "name": "openlit",
+      "org": "openlit",
+      "cat": "mlops",
+      "tagline": "Same agent, Smaller bill. The tools and infrastructure to get more work from ...",
+      "desc": "Same agent, Smaller bill. The tools and infrastructure to get more work from your AI. Fewer tokens. Less compute. Lower cost.",
+      "license": "Apache-2.0",
+      "lang": "TypeScript",
+      "stars": 3107,
+      "repo": "openlit/openlit",
+      "tags": [
+        "agent-harness",
+        "agent-harness-engineering",
+        "ai-engineering",
+        "ai-observability",
+        "amd-gpu"
+      ],
+      "status": "active",
+      "year": 2024
+    },
+    {
+      "id": "orkas",
+      "name": "Orkas",
+      "org": "Orkas-AI",
+      "cat": "agents",
+      "tagline": "Orkas is an open-source (MIT), local-first AI team for your desktop: a Comman...",
+      "desc": "Orkas is an open-source (MIT), local-first AI team for your desktop: a Commander turns your goal into to-dos and coordinates 16 built-in specialist agents plus Claude Code, Codex, OpenCode, OpenClaw and Hermes, with projects, scheduled automations and connectors. Free app for macOS & Windows; built-in models or your own keys.",
+      "license": "MIT",
+      "lang": "JavaScript",
+      "stars": 8135,
+      "repo": "Orkas-AI/Orkas",
+      "tags": [
+        "agent-collaboration",
+        "agent-harness",
+        "agent-orchestration",
+        "agent-team",
+        "agent-workflow"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "stable-diffusion-cpp",
+      "name": "stable-diffusion.cpp",
+      "org": "leejet",
+      "cat": "inference",
+      "tagline": "Diffusion model(SD,Flux,Wan,Qwen Image,Z-Image,Minimax H3,...) inference in p...",
+      "desc": "Diffusion model(SD,Flux,Wan,Qwen Image,Z-Image,Minimax H3,...) inference in pure C/C++",
+      "license": "MIT",
+      "lang": "C++",
+      "stars": 8152,
+      "repo": "leejet/stable-diffusion.cpp",
+      "tags": [
+        "ai",
+        "cplusplus",
+        "diffusion",
+        "flux",
+        "flux-dev"
+      ],
+      "status": "active",
+      "year": 2023
+    },
+    {
+      "id": "stranslate",
+      "name": "STranslate",
+      "org": "STranslate",
+      "cat": "docs",
+      "tagline": "A ready-to-go translation ocr tool developed with WPF/WPF 开发的一款即用即走的翻译、OCR工具",
+      "desc": "A ready-to-go translation ocr tool developed with WPF/WPF 开发的一款即用即走的翻译、OCR工具",
+      "license": "MIT",
+      "lang": "C#",
+      "stars": 8756,
+      "repo": "STranslate/STranslate",
+      "tags": [
+        "ocr",
+        "plugin",
+        "stranslate",
+        "translate",
+        "wpf"
+      ],
+      "status": "active",
+      "year": 2022
+    },
+    {
+      "id": "trigger-dev",
+      "name": "trigger.dev",
+      "org": "triggerdotdev",
+      "cat": "agents",
+      "tagline": "Trigger.dev – build and deploy durable AI agents and workflows",
+      "desc": "Trigger.dev – build and deploy durable AI agents and workflows",
+      "license": "Apache-2.0",
+      "lang": "TypeScript",
+      "stars": 16837,
+      "repo": "triggerdotdev/trigger.dev",
+      "tags": [
+        "ai",
+        "ai-agent-framework",
+        "ai-agents",
+        "automation",
+        "background-jobs"
+      ],
+      "status": "active",
+      "year": 2022
+    },
+    {
+      "id": "sptag",
+      "name": "SPTAG",
+      "org": "microsoft",
+      "cat": "vectordb",
+      "tagline": "A distributed approximate nearest neighborhood search (ANN) library which pro...",
+      "desc": "A distributed approximate nearest neighborhood search (ANN) library which provides a high quality vector index build, search and distributed online serving toolkits for large scale vector search scenario.",
+      "license": "MIT",
+      "lang": "C++",
+      "stars": 5024,
+      "repo": "microsoft/SPTAG",
+      "tags": [
+        "approximate-nearest-neighbor-search",
+        "distributed-serving",
+        "fresh-update",
+        "neighborhood-graph",
+        "space-partition-tree"
+      ],
+      "status": "active",
+      "year": 2018
+    },
+    {
+      "id": "pgmpy",
+      "name": "pgmpy",
+      "org": "pgmpy",
+      "cat": "frameworks",
+      "tagline": "Python Toolkit for Causal and Probabilistic Reasoning",
+      "desc": "Python Toolkit for Causal and Probabilistic Reasoning",
+      "license": "MIT",
+      "lang": "Python",
+      "stars": 3391,
+      "repo": "pgmpy/pgmpy",
+      "tags": [
+        "bayesian-networks",
+        "causal-discovery",
+        "causal-effect",
+        "causal-identification",
+        "causal-inference"
+      ],
+      "status": "active",
+      "year": 2013
+    },
+    {
+      "id": "browseros",
+      "name": "BrowserOS",
+      "org": "browseros-ai",
+      "cat": "browseruse",
+      "tagline": "🌐 The browser built for your agents!",
+      "desc": "🌐 The browser built for your agents!",
+      "license": "AGPL-3.0",
+      "lang": "Rust",
+      "stars": 14526,
+      "repo": "browseros-ai/BrowserOS",
+      "tags": [
+        "agent",
+        "ai-agents",
+        "automation",
+        "browser",
+        "browser-automation"
+      ],
+      "status": "active",
+      "year": 2025
+    },
+    {
+      "id": "vimax",
+      "name": "ViMax",
+      "org": "HKUDS",
+      "cat": "video",
+      "tagline": "\"ViMax: Agentic Video Generation (Director, Screenwriter, Producer, and Video...",
+      "desc": "\"ViMax: Agentic Video Generation (Director, Screenwriter, Producer, and Video Generator All-in-One)\"",
+      "license": "MIT",
+      "lang": "Python",
+      "stars": 13053,
+      "repo": "HKUDS/ViMax",
+      "tags": [
+        "agentic-aigc",
+        "video-generation"
+      ],
+      "status": "active",
+      "year": 2025
+    },
+    {
+      "id": "openlake",
+      "name": "openlake",
+      "org": "openlake-project",
+      "cat": "inference",
+      "tagline": "OpenLake is a high performance storage engine for efficient LLM inference and...",
+      "desc": "OpenLake is a high performance storage engine for efficient LLM inference and GPU Training",
+      "license": "Apache-2.0",
+      "lang": "Rust",
+      "stars": 3081,
+      "repo": "openlake-project/openlake",
+      "tags": [
+        "blackwell",
+        "gpt",
+        "gpu",
+        "high-performance",
+        "llm"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "gpt-load",
+      "name": "gpt-load",
+      "org": "tbphp",
+      "cat": "mlops",
+      "tagline": "Self-hosted AI gateway for multi-channel, multi-credential setups — API keys ...",
+      "desc": "Self-hosted AI gateway for multi-channel, multi-credential setups — API keys and subscription accounts, scheduling, failover, request logs and usage. 自托管 AI 网关：多渠道多凭据统一接入，含密钥与订阅账号、调度容错、日志与用量。",
+      "license": "MIT",
+      "lang": "Go",
+      "stars": 7249,
+      "repo": "tbphp/gpt-load",
+      "tags": [
+        "ai-gateway",
+        "anthropic",
+        "api-gateway",
+        "claude",
+        "claude-code"
+      ],
+      "status": "active",
+      "year": 2025
+    },
+    {
+      "id": "kicad-mcp-server",
+      "name": "KiCAD-MCP-Server",
+      "org": "mixelpixx",
+      "cat": "mcp",
+      "tagline": "KiCAD MCP is a Model Context Protocol (MCP) implementation that enables Large...",
+      "desc": "KiCAD MCP is a Model Context Protocol (MCP) implementation that enables Large Language Models (LLMs) like Claude to directly interact with KiCAD for printed circuit board design.",
+      "license": "MIT",
+      "lang": "Python",
+      "stars": 3601,
+      "repo": "mixelpixx/KiCAD-MCP-Server",
+      "tags": [
+        "ai",
+        "claude",
+        "eda",
+        "electronics",
+        "hardware"
+      ],
+      "status": "active",
+      "year": 2025
+    },
+    {
+      "id": "obsidian-second-brain",
+      "name": "obsidian-second-brain",
+      "org": "eugeniughelbur",
+      "cat": "rag",
+      "tagline": "Persistent memory for Claude Code, Codex and 6 other AI agents, stored as pla...",
+      "desc": "Persistent memory for Claude Code, Codex and 6 other AI agents, stored as plain markdown in your Obsidian vault. New: Crew, one shared logbook so Claude Code, Codex, Cursor and Grok Bot know what each other did. 48 commands: semantic search, self-rewriting notes, key-less research, scheduled agents.",
+      "license": "MIT",
+      "lang": "Python",
+      "stars": 5487,
+      "repo": "eugeniughelbur/obsidian-second-brain",
+      "tags": [
+        "agent-memory",
+        "agent-skills",
+        "ai-note-taking",
+        "ai-second-brain",
+        "claude"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "openface",
+      "name": "openface",
+      "org": "cmusatyalab",
+      "cat": "vision",
+      "tagline": "Face recognition with deep neural networks.",
+      "desc": "Face recognition with deep neural networks.",
+      "license": "Apache-2.0",
+      "lang": "Lua",
+      "stars": 15453,
+      "repo": "cmusatyalab/openface",
+      "tags": [
+        "deep-learning",
+        "face-recognition",
+        "facenet"
+      ],
+      "status": "active",
+      "year": 2015
+    },
+    {
+      "id": "unitygaussiansplatting",
+      "name": "UnityGaussianSplatting",
+      "org": "aras-p",
+      "cat": "threed",
+      "tagline": "Gaussian Splatting visualization for Unity",
+      "desc": "Gaussian Splatting visualization for Unity",
+      "license": "MIT",
+      "lang": "C#",
+      "stars": 3478,
+      "repo": "aras-p/UnityGaussianSplatting",
+      "tags": [
+        "gaussian-splatting",
+        "unity"
+      ],
+      "status": "active",
+      "year": 2023
+    },
+    {
+      "id": "object-detection-metrics",
+      "name": "Object-Detection-Metrics",
+      "org": "rafaelpadilla",
+      "cat": "vision",
+      "tagline": "Most popular metrics used to evaluate object detection algorithms.",
+      "desc": "Most popular metrics used to evaluate object detection algorithms.",
+      "license": "MIT",
+      "lang": "Python",
+      "stars": 5102,
+      "repo": "rafaelpadilla/Object-Detection-Metrics",
+      "tags": [
+        "average-precision",
+        "bounding-boxes",
+        "mean-average-precision",
+        "metrics",
+        "object-detection"
+      ],
+      "status": "active",
+      "year": 2018
+    },
+    {
+      "id": "rapidocr",
+      "name": "RapidOCR",
+      "org": "RapidAI",
+      "cat": "docs",
+      "tagline": "📄 Awesome OCR multiple programing languages toolkits based on ONNX Runtime, ...",
+      "desc": "📄 Awesome OCR multiple programing languages toolkits based on ONNX Runtime, OpenVINO, MNN, PaddlePaddle, TensorRT and PyTorch.",
+      "license": "Apache-2.0",
+      "lang": "Python",
+      "stars": 8650,
+      "repo": "RapidAI/RapidOCR",
+      "tags": [
+        "chineseocr",
+        "crnn",
+        "dbnet",
+        "easyocr",
+        "mnn"
+      ],
+      "status": "active",
+      "year": 2021
+    },
+    {
+      "id": "seleniumbase",
+      "name": "SeleniumBase",
+      "org": "seleniumbase",
+      "cat": "browseruse",
+      "tagline": "SeleniumBase is a modern framework for E2E testing, web scraping, and CAPTCHA...",
+      "desc": "SeleniumBase is a modern framework for E2E testing, web scraping, and CAPTCHA-bypass.",
+      "license": "MIT",
+      "lang": "Python",
+      "stars": 13289,
+      "repo": "seleniumbase/SeleniumBase",
+      "tags": [
+        "bot-detection",
+        "cdp",
+        "chrome-devtools-protocol",
+        "chromedriver",
+        "cloudflare-bypass"
+      ],
+      "status": "active",
+      "year": 2014
+    },
+    {
+      "id": "synthetic-data-generator",
+      "name": "synthetic-data-generator",
+      "org": "hitsz-ids",
+      "cat": "data",
+      "tagline": "SDG is a specialized framework designed to generate high-quality structured t...",
+      "desc": "SDG is a specialized framework designed to generate high-quality structured tabular data.",
+      "license": "Apache-2.0",
+      "lang": "Python",
+      "stars": 2443,
+      "repo": "hitsz-ids/synthetic-data-generator",
+      "tags": [
+        "agent",
+        "data-generator",
+        "deep-learning",
+        "gan",
+        "generative-ai"
+      ],
+      "status": "active",
+      "year": 2023
+    },
+    {
+      "id": "answer-me-with-html",
+      "name": "answer-me-with-html",
+      "org": "QingYunA",
+      "cat": "prompts",
+      "tagline": "Answer me with HTML — an agent skill that answers hard questions with a one-p...",
+      "desc": "Answer me with HTML — an agent skill that answers hard questions with a one-page HTML you can actually read. 让 AI Agent 用一页 HTML 回答复杂问题。",
+      "license": "MIT",
+      "lang": "JavaScript",
+      "stars": 6705,
+      "repo": "QingYunA/answer-me-with-html",
+      "tags": [
+        "agent-skill",
+        "ai-agent",
+        "claude-code",
+        "claude-code-skill",
+        "claude-skill"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "openshorts",
+      "name": "openshorts",
+      "org": "mutonby",
+      "cat": "video",
+      "tagline": "Open source AI clip generator: turns long videos into viral 9:16 shorts with ...",
+      "desc": "Open source AI clip generator: turns long videos into viral 9:16 shorts with AI moment detection, face tracking, subtitles and dubbing. Self-host free with Docker (MIT), or use the cloud with GPU speed from $12/mo. MCP server and API for AI agents.",
+      "license": "MIT",
+      "lang": "Python",
+      "stars": 10004,
+      "repo": "mutonby/openshorts",
+      "tags": [
+        "agent-skills",
+        "ai-clip-generator",
+        "ai-clipping",
+        "ai-video-editor",
+        "auto-reframe"
+      ],
+      "status": "active",
+      "year": 2025
+    },
+    {
+      "id": "xturing",
+      "name": "xTuring",
+      "org": "stochasticai",
+      "cat": "finetune",
+      "tagline": "Build, personalize and control your own LLMs. From data pre-processing to fin...",
+      "desc": "Build, personalize and control your own LLMs. From data pre-processing to fine-tuning, xTuring provides an easy way to personalize open-source LLMs. Join our discord community: https://discord.gg/TgHXuSJEk6",
+      "license": "Apache-2.0",
+      "lang": "Python",
+      "stars": 2681,
+      "repo": "stochasticai/xTuring",
+      "tags": [
+        "adapter",
+        "deep-learning",
+        "fine-tuning",
+        "finetuning",
+        "gen-ai"
+      ],
+      "status": "active",
+      "year": 2023
+    },
+    {
+      "id": "ableton-mcp",
+      "name": "ableton-mcp",
+      "org": "ahujasid",
+      "cat": "mcp",
+      "tagline": "Control Ableton Live with any LLM: create tracks, arrange clips & compose mus...",
+      "desc": "Control Ableton Live with any LLM: create tracks, arrange clips & compose music via MCP",
+      "license": "MIT",
+      "lang": "Python",
+      "stars": 3463,
+      "repo": "ahujasid/ableton-mcp",
+      "tags": [
+        "ableton",
+        "ai",
+        "claude",
+        "daw",
+        "generative-ai"
+      ],
+      "status": "active",
+      "year": 2025
+    },
+    {
+      "id": "claude-code-system-prompts",
+      "name": "claude-code-system-prompts",
+      "org": "Piebald-AI",
+      "cat": "prompts",
+      "tagline": "All parts of Claude Code's system prompt, builtin tool descriptions, subagent...",
+      "desc": "All parts of Claude Code's system prompt, builtin tool descriptions, subagent prompts (Plan/Explore/Task), and utility prompts.  Updated for each Claude Code version.",
+      "license": "MIT",
+      "lang": "JavaScript",
+      "stars": 13246,
+      "repo": "Piebald-AI/claude-code-system-prompts",
+      "tags": [
+        "claude-code",
+        "claude-code-system-prompts",
+        "system-prompts"
+      ],
+      "status": "active",
+      "year": 2025
+    },
+    {
+      "id": "whisper-asr-webservice",
+      "name": "whisper-asr-webservice",
+      "org": "ahmetoner",
+      "cat": "audio",
+      "tagline": "OpenAI Whisper ASR Webservice API",
+      "desc": "OpenAI Whisper ASR Webservice API",
+      "license": "MIT",
+      "lang": "Python",
+      "stars": 3372,
+      "repo": "ahmetoner/whisper-asr-webservice",
+      "tags": [
+        "asr",
+        "automatic-speech-recognition",
+        "docker",
+        "openai-whisper",
+        "speech"
+      ],
+      "status": "active",
+      "year": 2022
+    },
+    {
+      "id": "digup",
+      "name": "DigUp",
+      "org": "ARahim3",
+      "cat": "search",
+      "tagline": "Search your computer by what's in your files: photos, PDFs, documents, record...",
+      "desc": "Search your computer by what's in your files: photos, PDFs, documents, recordings, videos and code. On-device on Mac, Windows and Linux, built on Google DeepMind's EmbeddingGemma 2.",
+      "license": "MIT",
+      "lang": "Swift",
+      "stars": 6570,
+      "repo": "ARahim3/DigUp",
+      "tags": [
+        "embeddinggemma",
+        "embeddings",
+        "file-search",
+        "linux",
+        "llama-cpp"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "future-agi",
+      "name": "future-agi",
+      "org": "future-agi",
+      "cat": "eval",
+      "tagline": "Open-source, end-to-end platform for evaluating, observing, and improving LLM...",
+      "desc": "Open-source, end-to-end platform for evaluating, observing, and improving LLM and AI agent applications. Tracing · Evals · Simulations · Datasets · Gateway · Guardrails. Self-hostable. Apache 2.0.",
+      "license": "Apache-2.0",
+      "lang": "Python",
+      "stars": 2301,
+      "repo": "future-agi/future-agi",
+      "tags": [
+        "agent-evaluation",
+        "ai-agents",
+        "ai-evals",
+        "ai-gateway",
+        "ai-observability"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "rllm",
+      "name": "rllm",
+      "org": "rllm-org",
+      "cat": "finetune",
+      "tagline": "Democratizing Reinforcement Learning for LLMs",
+      "desc": "Democratizing Reinforcement Learning for LLMs",
+      "license": "Apache-2.0",
+      "lang": "Python",
+      "stars": 5936,
+      "repo": "rllm-org/rllm",
+      "tags": [
+        "agent-framework",
+        "agentic-workflow",
+        "coding-agent",
+        "distributed-training",
+        "llm-reasoning"
+      ],
+      "status": "active",
+      "year": 2025
+    },
+    {
+      "id": "gym",
+      "name": "Gym",
+      "org": "NVIDIA-NeMo",
+      "cat": "eval",
+      "tagline": "Evaluate and improve AI agents: run agents on tasks, score every attempt, and...",
+      "desc": "Evaluate and improve AI agents: run agents on tasks, score every attempt, and use the results to optimize the agent or train the model",
+      "license": "Apache-2.0",
+      "lang": "Python",
+      "stars": 1364,
+      "repo": "NVIDIA-NeMo/Gym",
+      "tags": [
+        "agent-evaluation",
+        "agents",
+        "ai-agents",
+        "benchmark",
+        "coding-agents"
+      ],
+      "status": "active",
+      "year": 2025
+    },
+    {
+      "id": "deepchat",
+      "name": "deepchat",
+      "org": "ThinkInAIXYZ",
+      "cat": "assistants",
+      "tagline": "🐬DeepChat - A smart assistant that connects powerful AI to your personal world",
+      "desc": "🐬DeepChat - A smart assistant that connects powerful AI to your personal world",
+      "license": "Apache-2.0",
+      "lang": "TypeScript",
+      "stars": 6414,
+      "repo": "ThinkInAIXYZ/deepchat",
+      "tags": [
+        "agent",
+        "agent-skills",
+        "ai",
+        "ai-assistant",
+        "ai-sdk"
+      ],
+      "status": "active",
+      "year": 2025
+    },
+    {
+      "id": "civitai",
+      "name": "civitai",
+      "org": "civitai",
+      "cat": "image",
+      "tagline": "A repository of models, textual inversions, and more",
+      "desc": "A repository of models, textual inversions, and more",
+      "license": "Apache-2.0",
+      "lang": "TypeScript",
+      "stars": 7332,
+      "repo": "civitai/civitai",
+      "tags": [
+        "ai",
+        "social-network",
+        "stable-diffusion"
+      ],
+      "status": "active",
+      "year": 2022
+    },
+    {
+      "id": "flowgram-ai",
+      "name": "flowgram.ai",
+      "org": "bytedance",
+      "cat": "workflow",
+      "tagline": "FlowGram is an extensible workflow development framework with built-in canvas...",
+      "desc": "FlowGram is an extensible workflow development framework with built-in canvas, form, variable, and materials that helps developers build AI workflow platforms faster and simpler.",
+      "license": "MIT",
+      "lang": "TypeScript",
+      "stars": 8625,
+      "repo": "bytedance/flowgram.ai",
+      "tags": [
+        "ai",
+        "automation",
+        "coze",
+        "data-flow",
+        "diagram"
+      ],
+      "status": "active",
+      "year": 2025
+    },
+    {
+      "id": "synthadoc",
+      "name": "synthadoc",
+      "org": "axoviq-ai",
+      "cat": "rag",
+      "tagline": "Synthadoc: An open-source LLM knowledge compilation engine that turns raw doc...",
+      "desc": "Synthadoc: An open-source LLM knowledge compilation engine that turns raw documents into structured, local-first wikis. A transparent, human-readable alternative to traditional RAG, which can be self-managed and self-improved without the use of any tools.",
+      "license": "AGPL-3.0",
+      "lang": "Python",
+      "stars": 2002,
+      "repo": "axoviq-ai/synthadoc",
+      "tags": [
+        "agent-skills",
+        "agentic-ai",
+        "cli-tool",
+        "domain-adaptation",
+        "enterprise"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "nanomuse",
+      "name": "nanoMuse",
+      "org": "nano-muse",
+      "cat": "assistants",
+      "tagline": "nanoMuse: an open-source personal agent for every device you own. One agent w...",
+      "desc": "nanoMuse: an open-source personal agent for every device you own. One agent with a name and a look of its own that does things, keeps working while the app is closed, remembers you, and asks before anything you cannot undo. On Android, iPhone and iPad, Windows / macOS / Linux and in the browser; your phone's screen and your computer as its hands.",
+      "license": "GPL-3.0",
+      "lang": "Kotlin",
+      "stars": 3765,
+      "repo": "nano-muse/nanoMuse",
+      "tags": [
+        "agent-skills",
+        "ai-agent",
+        "android",
+        "computer-use",
+        "cross-device"
+      ],
+      "status": "active",
+      "year": 2026
+    },
+    {
+      "id": "tts-webui",
+      "name": "TTS-WebUI",
+      "org": "rsxdalv",
+      "cat": "audio",
+      "tagline": "A single Gradio + React WebUI with extensions for ACE-Step, OmniVoice, Kimi A...",
+      "desc": "A single Gradio + React WebUI with extensions for ACE-Step, OmniVoice, Kimi Audio, Piper TTS, GPT-SoVITS, CosyVoice, XTTSv2, DIA, Kokoro, OpenVoice, ParlerTTS, Stable Audio, MMS, StyleTTS2, MAGNet, AudioGen, MusicGen, Tortoise, RVC, Vocos, Demucs, SeamlessM4T, and Bark!",
+      "license": "MIT",
+      "lang": "Go",
+      "stars": 3318,
+      "repo": "rsxdalv/TTS-WebUI",
+      "tags": [
+        "ace-step",
+        "ai",
+        "audio-generation",
+        "cosyvoice",
+        "generative-ai"
+      ],
+      "status": "active",
+      "year": 2023
+    },
+    {
+      "id": "mlx-vlm",
+      "name": "mlx-vlm",
+      "org": "Neywa-Labs",
+      "cat": "multimodal",
+      "tagline": "MLX-VLM is a package for inference and fine-tuning of Vision Language Models ...",
+      "desc": "MLX-VLM is a package for inference and fine-tuning of Vision Language Models (VLMs) on your Mac using MLX.",
+      "license": "MIT",
+      "lang": "Python",
+      "stars": 5946,
+      "repo": "Neywa-Labs/mlx-vlm",
+      "tags": [
+        "apple-silicon",
+        "florence2",
+        "idefics",
+        "llava",
+        "llm"
+      ],
+      "status": "active",
+      "year": 2024
+    },
+    {
+      "id": "open-spiel",
+      "name": "open_spiel",
+      "org": "google-deepmind",
+      "cat": "frameworks",
+      "tagline": "OpenSpiel is a collection of environments and algorithms for research in gene...",
+      "desc": "OpenSpiel is a collection of environments and algorithms for research in general reinforcement learning and search/planning in games.",
+      "license": "Apache-2.0",
+      "lang": "Python",
+      "stars": 5625,
+      "repo": "google-deepmind/open_spiel",
+      "tags": [
+        "cpp",
+        "games",
+        "multiagent",
+        "python",
+        "reinforcement-learning"
+      ],
+      "status": "active",
+      "year": 2019
+    },
+    {
+      "id": "copilotforxcode",
+      "name": "CopilotForXcode",
+      "org": "github",
+      "cat": "coding",
+      "tagline": "AI coding assistant for Xcode",
+      "desc": "AI coding assistant for Xcode",
+      "license": "MIT",
+      "lang": "Swift",
+      "stars": 6408,
+      "repo": "github/CopilotForXcode",
+      "tags": [
+        "ai-assistant",
+        "github-copilot",
+        "intelligence",
+        "ios",
+        "macos"
+      ],
+      "status": "active",
+      "year": 2024
+    },
+    {
+      "id": "opencat-quadruped-robot",
+      "name": "OpenCat-Quadruped-Robot",
+      "org": "PetoiCamp",
+      "cat": "robotics",
+      "tagline": "An open source quadruped robot pet framework for developing Boston Dynamics-s...",
+      "desc": "An open source quadruped robot pet framework for developing Boston Dynamics-style four-legged robots that are perfect for STEM, coding & robotics education, IoT robotics applications, AI-enhanced robotics application services, research, and DIY robotics kit development.",
+      "license": "MIT",
+      "lang": "C++",
+      "stars": 5595,
+      "repo": "PetoiCamp/OpenCat-Quadruped-Robot",
+      "tags": [
+        "ai",
+        "arduino",
+        "block-coding",
+        "education",
+        "iot"
+      ],
+      "status": "active",
+      "year": 2021
+    },
+    {
+      "id": "google-maps-scraper",
+      "name": "google-maps-scraper",
+      "org": "gosom",
+      "cat": "search",
+      "tagline": "Open-source Google Maps scraper for business listings. Export phone numbers, ...",
+      "desc": "Open-source Google Maps scraper for business listings. Export phone numbers, websites, ratings, and reviews to CSV or JSONL. Run it locally with the CLI, web UI, or REST API, or connect your AI agent through the built-in MCP server.",
+      "license": "MIT",
+      "lang": "Go",
+      "stars": 8463,
+      "repo": "gosom/google-maps-scraper",
+      "tags": [
+        "agent-skills",
+        "claude-skills",
+        "codex-skills",
+        "distributed-scraper",
+        "distributed-scraping"
+      ],
+      "status": "active",
+      "year": 2023
+    },
+    {
+      "id": "astron-rpa",
+      "name": "astron-rpa",
+      "org": "iflytek",
+      "cat": "workflow",
+      "tagline": "Agent-ready RPA suite with out-of-the-box automation tools. Built for individ...",
+      "desc": "Agent-ready RPA suite with out-of-the-box automation tools. Built for individuals and enterprises.",
+      "license": "Apache-2.0",
+      "lang": "Python",
+      "stars": 5245,
+      "repo": "iflytek/astron-rpa",
+      "tags": [
+        "agent",
+        "ai",
+        "astron",
+        "automation",
+        "data-privacy"
       ],
       "status": "active",
       "year": 2025
